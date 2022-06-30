@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Disappear : MonoBehaviour
 {
-    public bool checkCollison = false;
-    public bool check = false;
+    public bool checkCollision;
     private float holdingTime = 1.5f;
     private float appearTime = 3.0f;
     [SerializeField] private float realTime = 0.0f;
@@ -14,25 +13,25 @@ public class Disappear : MonoBehaviour
 
     private void Awake(){
         platform = transform.GetChild(0).gameObject;
+        checkCollision = false;
     }
 
     private void Update(){
-        if(checkCollison){
+        if(checkCollision){
         //     realTime += Time.deltaTime;
         //     // StartCoroutine(DisappearFunc());
-        //     // checkCollison = false;
+        //     // checkCollision = false;
         // }else holdingTime = 0.0f;
         // if(realTime >= holdingTime){
         //     //platform.SetActive(false);
         //     //StartCoroutine(DisappearFunc());
-        //     checkCollison = false;
-            checkCollison = false;
+        //     checkCollision = false;
             Invoke("DisappearFunc", holdingTime);
-            if(!checkCollison && IsInvoking()){
+            if(!checkCollision && IsInvoking()){
                 CancelInvoke();
             }
+            checkCollision = false;
         }
-        
     }
 
     private void DisappearFunc(){
