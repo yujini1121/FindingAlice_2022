@@ -105,9 +105,6 @@ GameObject:
   - component: {fileID: 2283490825631701285}
   - component: {fileID: 2283490825631701284}
   - component: {fileID: 2283490825631701282}
-  - component: {fileID: 2283490825631701287}
-  - component: {fileID: 1309817842}
-  - component: {fileID: 7285070083906480506}
   - component: {fileID: 1309817848}
   - component: {fileID: 1309817849}
   - component: {fileID: 1309817850}
@@ -200,49 +197,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 1
---- !u!65 &2283490825631701287
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2283490825631701286}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.18597414, y: 0.45814174, z: 0.2}
-  m_Center: {x: 0.0038888115, y: -0.066255234, z: 0}
---- !u!114 &1309817842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2283490825631701286}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eed78023a4b9d354997999f6b6114890, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  jumpForce: 10
-  isGround: 0
---- !u!114 &7285070083906480506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2283490825631701286}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eed78023a4b9d354997999f6b6114890, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  jumpForce: 24
-  isGround: 0
 --- !u!95 &1309817848
 Animator:
   serializedVersion: 3
