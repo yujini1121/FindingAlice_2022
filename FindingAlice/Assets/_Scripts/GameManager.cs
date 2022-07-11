@@ -15,8 +15,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    bool isClock = false;
-
+    [SerializeField]
+    bool _patternSwitch = false;
     [SerializeField]
     bool _isGround;
 
@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     playerState _state = playerState.idle;
 
     float _idleTime = 0f;
+    float _patternStartTime = 0f;
+
+    bool isClock = false;
 
     //Scene에 GameManager가 복수로 존재하는 것 방지
     private void Awake()
@@ -56,6 +59,23 @@ public class GameManager : MonoBehaviour
     {
         get { return _idleTime; }
         set { _idleTime = value; }
+    }
+
+    public bool patternSwitch
+    {
+        get { return _patternSwitch; }
+        set
+        {
+            _patternSwitch = value;
+            if (_patternSwitch)
+                patternStartTime = Time.time;
+        }
+    }
+
+    public float patternStartTime
+    {
+        get { return _patternStartTime; }
+        set { _patternStartTime = value; }
     }
 
     private void Start()
