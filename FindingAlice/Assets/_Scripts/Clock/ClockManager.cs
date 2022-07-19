@@ -47,6 +47,8 @@ public class ClockManager : MonoBehaviour
     //lever의 transform 저장 벡터
     Vector3 leverTransform;
 
+    float playerColliderHeight;
+    float playerColliderRadius;
 
     //시계 발사 중 시간 속도 설정
     float timeScaleValue = 0.05f;
@@ -113,6 +115,8 @@ public class ClockManager : MonoBehaviour
         clockBackMatAlpha = clockBackMat.color.a;
         text = GameObject.Find("ClockCounter").GetComponent<Text>();
         clockMaxRange = range.transform.lossyScale.x * 3.0f;
+        playerColliderHeight = player.GetComponent<CapsuleCollider>().height;
+        playerColliderRadius = player.GetComponent<CapsuleCollider>().radius;
         clockReset();
     }
 
@@ -193,6 +197,8 @@ public class ClockManager : MonoBehaviour
             _clockPushTime = clockPushUpTime - clockStartTime;
             range.SetActive(false);
 
+            player.GetComponent<CapsuleCollider>().height = 0;
+            player.GetComponent<CapsuleCollider>().radius = 0.3f;
             //화면에 시계가 존재할 때 캐릭터의 속도를 0으로 초기화, 시계의 방향으로 캐릭터 이동
             rb.AddForce((clock.transform.position - player.transform.position).normalized * 
                 (20 + Mathf.Pow(Vector3.Distance(clock.transform.position, player.transform.position) / 3, 2)), ForceMode.Impulse);
@@ -226,5 +232,7 @@ public class ClockManager : MonoBehaviour
         clockReloadStart = clockEndTime = Time.time;
         clock.transform.localPosition = Vector3.zero;
         dxIsPositive = true;
+        player.GetComponent<CapsuleCollider>().height = playerColliderHeight;
+        player.GetComponent<CapsuleCollider>().radius = playerColliderRadius;
     }
 }

@@ -42,9 +42,11 @@ public class PlayerMovement : MonoBehaviour
     private void Update() {
         Move();
         Jump();
-        if (!(GameManager.instance.isGround || GameManager.instance.clock))
-            //playerRigidbody.velocity = new Vector3(0, -gravity, 0);
-            playerRigidbody.AddForce(new Vector3(0, -gravity, 0), ForceMode.Force);
+        // if (!(GameManager.instance.isGround || GameManager.instance.clock))
+        //     //playerRigidbody.velocity = new Vector3(0, -gravity, 0);
+        //     playerRigidbody.AddForce(new Vector3(0, -gravity, 0), ForceMode.Force);
+        // physics의 gravity를 10배함.
+        // jumpForce를 30
         CheckJumping();
     }
 
@@ -72,7 +74,6 @@ public class PlayerMovement : MonoBehaviour
         // z키를 누르거나 점프 버튼이 눌렸을 때 플레이어가 땅에 있을 경우 점프
         if ((Input.GetKeyDown(KeyCode.Z) || pressButton == true) && isGround)
         {
-            Debug.Log("testJump");
             playerAnim.SetBool("isJumping", true);
             isJumping = true;
             //playerRigidbody.velocity = transform.up * jumpForce;
@@ -100,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
                 playerAnim.SetBool("isGrounded", false);
                 return;
             }
-            if (GameManager.instance.clock)
+            if (GameManager.instance.clock && !ClockManager.C.isPressKeyClock)
             {
                 GameObject.Find("ClockManager").SendMessage("clockReset");
             }
@@ -121,6 +122,21 @@ public class PlayerMovement : MonoBehaviour
         playerAnim.SetBool("isGrounded", false);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        switch(other.tag)
+        {
+            case "DieZone":
+            PlayerManager.Instance().pHP = 0;
+            break;
+            case "Attack":
+            PlayerManager.Instance().pHP--;
+            break;
+            default:
+            break;
+        }
+    }
+}
 
     //사출된 시계와 충돌한 후 감속
     //IEnumerator deceleration()
@@ -131,4 +147,3 @@ public class PlayerMovement : MonoBehaviour
     //        yield return new WaitForSeconds(0.05f);
     //    }
     //}
-}
