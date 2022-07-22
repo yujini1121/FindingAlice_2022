@@ -26,6 +26,15 @@ public class PlayerMovement : MonoBehaviour
     private bool isJumping;
     private bool isFalling;
 
+    [SerializeField]
+    private bool _collisionToWall = false;
+
+    public bool collisionToWall
+    {
+        get { return _collisionToWall; }
+        set { _collisionToWall = value; }
+    }
+
     private void Awake()
     {
         playerAnim = this.GetComponent<Animator>();
@@ -55,15 +64,19 @@ public class PlayerMovement : MonoBehaviour
         {
             if (dir == 0) inputDir = Input.GetAxisRaw("Horizontal");
             else inputDir = dir;
-            //Debug.Log(dir);
-            //Debug.Log(inputDir);
-            moveDirX = new Vector3(inputDir, 0, 0).normalized;
-            //Debug.Log(moveDirX);
+            
+            if (!_collisionToWall)
+            {
+                //Debug.Log(dir);
+                //Debug.Log(inputDir);
+                moveDirX = new Vector3(inputDir, 0, 0).normalized;
+                //Debug.Log(moveDirX);
 
-            //playerRigidbody.velocity = moveDirX * speed;
-            transform.position += moveDirX * speed * Time.deltaTime;
+                //playerRigidbody.velocity += moveDirX * speed;
+                transform.position += moveDirX * speed * Time.deltaTime;
 
-            playerAnim.SetBool("isWalk", inputDir != 0);
+                playerAnim.SetBool("isWalk", inputDir != 0);
+            }
 
             if (inputDir == 0) return;
             transform.rotation = Quaternion.LookRotation(new Vector3(0, 0, inputDir));
