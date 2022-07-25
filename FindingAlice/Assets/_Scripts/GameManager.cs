@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum playerState{
-    idle,
-    Ground_nonClock,
-    Ground_Clock,
-    nonGround_Clock,
-    nonGround_nonClock
-};
+//public enum playerState{
+//    idle,
+//    Ground_nonClock,
+//    Ground_Clock,
+//    nonGround_Clock,
+//    nonGround_nonClock
+//};
 
 public class GameManager : MonoBehaviour
 {
@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 
     Vector3 size;
 
-    playerState _state = playerState.idle;
+    //playerState _state = playerState.idle;
 
     float _idleTime = 0f;
     float _patternStartTime = 0f;
@@ -36,13 +36,6 @@ public class GameManager : MonoBehaviour
         else if (instance != this) Destroy(gameObject);
     }
 
-    //시계 활성화 여부 반환(시계 누른 순간 ~ 플레이어와 시계가 부딪힌 순간)
-    public bool clock
-    {
-        get { return isClock; }
-        set { isClock = value; }
-    }
-
     //플레이어가 플랫폼과 닿았는지 확인
     public bool isGround
     {
@@ -50,10 +43,10 @@ public class GameManager : MonoBehaviour
         set { _isGround = value; }
     }
 
-    public playerState state{
-        get { return _state; }
-        set { _state = value;}
-    }
+    //public playerState state{
+    //    get { return _state; }
+    //    set { _state = value;}
+    //}
 
     public float idleTime
     {

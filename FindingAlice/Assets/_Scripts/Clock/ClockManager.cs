@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum ClockState
+{
+    idle,
+    shoot,
+    follow
+}
+
 public class ClockManager : MonoBehaviour
 {
     public static ClockManager C;
@@ -19,13 +26,11 @@ public class ClockManager : MonoBehaviour
     [SerializeField] float clockSpeed = 100000f;
     [SerializeField] float clockReloadTime = 3f;
     [SerializeField] float clockMaxRange = 0.05f;
-    //시계를 눌렀는지 확인
-    [SerializeField] bool _isPressKeyClock = false;
-    //시계가 벽과 충돌했는지 확인
-    [SerializeField] bool _clockCollided = false;
-    //시계를 연속 사용하지 못하도록 시계 사용 중 false 됨
-    [SerializeField] bool checkClockUse = true;
+    //시계 쿨타임
+    [SerializeField] float _clockCooldown = 0.5f;
 
+    //시계의 상태를 책정할 열거형 변수
+    [SerializeField] ClockState _CS;
 
     public GameObject clock;
 
@@ -57,8 +62,6 @@ public class ClockManager : MonoBehaviour
     //캐릭터가 시계와 부딪힌 시간
     float clockEndTime;
     float clockReloadStart;
-    //시계 쿨타임
-    float _clockCooldown = 0.5f;
     //시계 뗀 순간의 시간
     float clockPushUpTime = 0f;
     //시계를 누르고 있던 시간(뗀 시간 - 누른 시간)
@@ -76,23 +79,16 @@ public class ClockManager : MonoBehaviour
     [SerializeField] Vector3 keepDir = Vector3.zero;
     [SerializeField] float theta;
 
+    public ClockState CS
+    {
+        get { return _CS; }
+        set { _CS = value; }
+    }
 
     public float clockCooldown
     {
         get { return _clockCooldown; }
         set { _clockCooldown = value; }
-    }
-
-    public bool isPressKeyClock
-    {
-        get { return _isPressKeyClock; }
-        set { _isPressKeyClock = value; }
-    }
-
-    public bool clockcollided
-    {
-        get { return _clockCollided; }
-        set { _clockCollided = value; }
     }
 
     public float clockPushTime
@@ -135,22 +131,21 @@ public class ClockManager : MonoBehaviour
         }
 
         //X를 눌렀을 때 시간 느리게 만들고 Clock 활성화
-        if (Input.GetKeyDown(KeyCode.X) && clockCounter > 0 && checkClockUse && Time.time - clockEndTime > clockCooldown)
+        if (Input.GetKeyDown(KeyCode.X) && clockCounter > 0 && CS == ClockState.idle && Time.time - clockEndTime > clockCooldown)
         {
+            CS = ClockState.shoot;
+
             clockCooldown = 0.5f;
-            checkClockUse = false;
             clockStartTime = Time.time;
             Time.timeScale = timeScaleValue;
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
             range.SetActive(true);
             clock.SetActive(true);
-            isPressKeyClock = true;
-            GameManager.instance.clock = true;
             if (dX < 0) dxIsPositive = false;
         }
 
         //X를 누르고 있을 때 시계 사출
-        if (isPressKeyClock)
+        if (CS == ClockState.shoot)
         {
             if (distance < clockMaxRange)
             {
@@ -168,7 +163,7 @@ public class ClockManager : MonoBehaviour
                     keepDir.y *= distance;
                     clock.transform.localPosition = keepDir;
                 }
-                if (leverTransform != Vector3.zero && !clockcollided)
+                if (leverTransform != Vector3.zero)
                 {
                     keepDir = new Vector3(dX * distance, dY * distance, 0);
                     //keepDir = new Vector3(Mathf.Cos(theta) * distance, Mathf.Sin(theta) * distance, 0);
@@ -184,10 +179,11 @@ public class ClockManager : MonoBehaviour
         }
 
         //X를 뗄 때 정상 시간 복귀, Clock으로 플레이어가 날아갈 준비
-        if (Input.GetKeyUp(KeyCode.X) && isPressKeyClock)
+        if (Input.GetKeyUp(KeyCode.X) && CS == ClockState.shoot)
         {
+            CS = ClockState.follow;
+
             clockCounter--;
-            isPressKeyClock = false;
             Time.timeScale = 1f;
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
             clock.transform.parent = null;
@@ -201,11 +197,11 @@ public class ClockManager : MonoBehaviour
             player.GetComponent<CapsuleCollider>().radius = 0.3f;
             //화면에 시계가 존재할 때 캐릭터의 속도를 0으로 초기화, 시계의 방향으로 캐릭터 이동
             rb.AddForce((clock.transform.position - player.transform.position).normalized * 
-                (20 + Mathf.Pow(Vector3.Distance(clock.transform.position, player.transform.position) / 3, 2)), ForceMode.Impulse);
+                (30 + Mathf.Pow(Vector3.Distance(clock.transform.position, player.transform.position) / 3, 2)), ForceMode.Impulse);
         }
 
         // 시계 사출 중이 아닐 때는 어두워진 화면을 원래대로 되돌림
-        if (!isPressKeyClock)
+        if (CS == ClockState.idle)
         {
             clockBackMatAlpha = Mathf.Lerp(clockBackMatAlpha, 0, Time.deltaTime * 5f);
             clockBackMat.color = new Color(0, 0, 0, clockBackMatAlpha);
@@ -214,6 +210,8 @@ public class ClockManager : MonoBehaviour
 
     void clockReset()
     {
+        CS = ClockState.idle;
+
         if (Time.timeScale != 1f)
         {
             Time.timeScale = 1f;
@@ -222,11 +220,7 @@ public class ClockManager : MonoBehaviour
         clock.transform.SetParent(player.transform, true);
         clock.SetActive(false);
         range.SetActive(false);
-        isPressKeyClock = false;
-        GameManager.instance.clock = false;
         rb.useGravity = true;
-        checkClockUse = true;
-        clockcollided = false;
         distance = 0f;
 
         clockReloadStart = clockEndTime = Time.time;

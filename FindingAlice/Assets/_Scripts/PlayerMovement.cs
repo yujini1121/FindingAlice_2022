@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void Move(float dir = 0){
-        if (!GameManager.instance.clock)
+        if (ClockManager.C.CS == ClockState.idle)
         {
             if (dir == 0) inputDir = Input.GetAxisRaw("Horizontal");
             else inputDir = dir;
@@ -114,9 +114,10 @@ public class PlayerMovement : MonoBehaviour
                 playerAnim.SetBool("isGrounded", false);
                 return;
             }
-            if (GameManager.instance.clock && !ClockManager.C.isPressKeyClock)
+            if (ClockManager.C.CS == ClockState.follow)
             {
-                GameObject.Find("ClockManager").SendMessage("clockReset");
+                Debug.Log("충돌1!");
+                //GameObject.Find("ClockManager").SendMessage("clockReset");
             }
         }
         playerAnim.SetBool("isRolling", false);

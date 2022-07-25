@@ -37,7 +37,7 @@ public class WatchBand : MonoBehaviour
 
         Vector3 scale = new Vector3(Vector3.Distance(clockPosition, playerPosition), 0.3f, 0f);
         transform.localScale = scale;
-        if (ClockManager.C.isPressKeyClock)
+        if (ClockManager.C.CS == ClockState.shoot)
         {
             x += 0.003f;
             mat.mainTextureScale = new Vector2(x, 1f);
