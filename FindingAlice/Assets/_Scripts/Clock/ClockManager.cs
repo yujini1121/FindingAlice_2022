@@ -35,7 +35,7 @@ public class ClockManager : MonoBehaviour
     public GameObject clock;
 
     //lever UI Transform
-    public RectTransform rect;
+    //public RectTransform rect;
 
     //ClockBackEffect의 메테리얼 저장
     Material clockBackMat;
@@ -119,7 +119,7 @@ public class ClockManager : MonoBehaviour
     void Update()
     {
         text.text = "Clock : " + clockCounter;
-        leverTransform = rect.anchoredPosition.normalized;
+        //leverTransform = rect.anchoredPosition.normalized;
         dX = leverTransform.x;
         dY = leverTransform.y;
 
@@ -208,7 +208,7 @@ public class ClockManager : MonoBehaviour
         }
     }
 
-    void clockReset()
+    public void clockReset()
     {
         CS = ClockState.idle;
 

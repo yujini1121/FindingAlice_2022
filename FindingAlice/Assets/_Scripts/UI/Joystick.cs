@@ -47,8 +47,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         length = MousePos2D - lever_original_transform;
         if (length.magnitude > radius)
         {
-            length.Normalize();
-            length *= radius;
+            length = length.normalized * radius;
         }
         //터치 위치로 레버 이동
         lever.position = lever_original_transform + length;

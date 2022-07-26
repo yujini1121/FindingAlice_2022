@@ -8,7 +8,7 @@ public class Clock : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            GameObject.Find("ClockManager").SendMessage("clockReset");
+            ClockManager.C.clockReset();
         }
     }
 }

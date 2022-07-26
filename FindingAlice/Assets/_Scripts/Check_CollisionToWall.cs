@@ -17,7 +17,7 @@ public class Check_CollisionToWall : MonoBehaviour
         {
             playerMovement.collisionToWall = true;
             if(ClockManager.C.CS == ClockState.follow)
-                ClockManager.C.SendMessage("clockReset");
+                ClockManager.C.clockReset();
         }
     }
 

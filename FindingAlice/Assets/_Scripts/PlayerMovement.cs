@@ -114,11 +114,11 @@ public class PlayerMovement : MonoBehaviour
                 playerAnim.SetBool("isGrounded", false);
                 return;
             }
-            if (ClockManager.C.CS == ClockState.follow)
-            {
-                Debug.Log("충돌1!");
-                //GameObject.Find("ClockManager").SendMessage("clockReset");
-            }
+            //if (ClockManager.C.CS == ClockState.follow)
+            //{
+            //    Debug.Log("충돌1!");
+            //    //GameObject.Find("ClockManager").SendMessage("clockReset");
+            //}
         }
         playerAnim.SetBool("isRolling", false);
         playerAnim.SetBool("isGrounded", true);
