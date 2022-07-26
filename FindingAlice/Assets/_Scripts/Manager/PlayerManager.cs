@@ -37,20 +37,29 @@ public class PlayerManager : MonoBehaviour
     private void Init()
     {
         isGameOver = false;
-        GameObject.FindWithTag("Player").transform.position = lastCPPos;
+        // GameObject.FindWithTag("Player").transform.position = lastCPPos;
     }
 
     private void CheckGameOver()
     {
         if(isGameOver)
         {
-            Debug.Log("Player dead");
             gameOverPanel.SetActive(true);
+            // DataController.Instance._gameData.playerPosition = lastCPPos;
         }
     }
 
     public void RestartScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    // 체크포인트 부활시 가져올 정보
+    public void LoadCheckPoint()
+    {
+        GameObject.FindWithTag("Player").transform.position =
+            DataController.Instance.gameData.playerPosition;
+        isGameOver = false;
+        gameOverPanel.SetActive(false);
     }
 }

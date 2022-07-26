@@ -41,12 +41,8 @@ public class DataController : MonoBehaviour
         SaveGameData();
     }
 
-    public void LoadCheckPoint(){
-        
-    }
-
     public void LoadGameData(){
-        string filePath = Application.persistentDataPath + GameDataFileName;
+        string filePath = Application.dataPath + GameDataFileName;
 
         if(File.Exists(filePath)){
             Debug.Log("Load Succes");
@@ -61,14 +57,14 @@ public class DataController : MonoBehaviour
 
     public void SaveGameData(){
         string ToJsonData = JsonUtility.ToJson(gameData);
-        string filePath = Application.persistentDataPath + GameDataFileName;
+        string filePath = Application.dataPath + GameDataFileName;
 
         File.WriteAllText(filePath, ToJsonData);
 
         Debug.Log("Save Succes");
-        Debug.Log("Chaper 1" + gameData.isClear1);
-        Debug.Log("Chaper 2" + gameData.isClear2);
-        Debug.Log("Chaper 3" + gameData.isClear3);
+        // Debug.Log("Chaper 1" + gameData.isClear1);
+        // Debug.Log("Chaper 2" + gameData.isClear2);
+        // Debug.Log("Chaper 3" + gameData.isClear3);
         Debug.Log("savePoint"+ gameData.playerPosition);
     }
 
