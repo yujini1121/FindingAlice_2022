@@ -43,20 +43,23 @@ public class PlayerMovement : MonoBehaviour
     private void Start(){
         player = GameObject.FindGameObjectWithTag("Player");
         playerRigidbody = player.GetComponent<Rigidbody>();
-        if(GameSceneChange.checkLoad){
-            player.transform.position = DataController.Instance.gameData.playerPosition;
-        }
+        // if(GameSceneChange.checkLoad){
+        //     player.transform.position = DataController.Instance.gameData.playerPosition;
+        // }
     }
 
     private void Update() {
-        Move();
-        Jump();
-        // if (!(GameManager.instance.isGround || GameManager.instance.clock))
-        //     //playerRigidbody.velocity = new Vector3(0, -gravity, 0);
-        //     playerRigidbody.AddForce(new Vector3(0, -gravity, 0), ForceMode.Force);
-        // physics의 gravity를 10배함.
-        // jumpForce를 30
-        CheckJumping();
+        if(!PlayerManager.Instance().isGameOver)
+        {
+            Move();
+            Jump();
+            // if (!(GameManager.instance.isGround || GameManager.instance.clock))
+            //     //playerRigidbody.velocity = new Vector3(0, -gravity, 0);
+            //     playerRigidbody.AddForce(new Vector3(0, -gravity, 0), ForceMode.Force);
+            // physics의 gravity를 10배함.
+            // jumpForce를 30
+            CheckJumping();
+        }
     }
 
     public void Move(float dir = 0){
@@ -140,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(other.CompareTag("Attack"))
         {
-            PlayerManager.Instance().alive = false;
+            PlayerManager.Instance().isGameOver = true;
         }
     }
 }

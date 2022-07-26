@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -11,10 +12,10 @@ public class PlayerManager : MonoBehaviour
         return _instance;
     }
 
-    public Vector3 lastCPPos;
+    public Vector3 lastCPPos = new Vector3(105, 67, 0);
 
-    public bool alive;
-    private GameObject gameOverPanel;
+    public bool isGameOver;
+    [SerializeField] private GameObject gameOverPanel;
 
     private void Awake()
     {
@@ -27,7 +28,6 @@ public class PlayerManager : MonoBehaviour
         {
             _instance = this;
         }
-        gameOverPanel = GameObject.Find("GameOverPanel");
     }
     
     private void Update()
@@ -36,15 +36,21 @@ public class PlayerManager : MonoBehaviour
     }
     private void Init()
     {
-        alive = true;
+        isGameOver = false;
+        GameObject.FindWithTag("Player").transform.position = lastCPPos;
     }
 
     private void CheckGameOver()
     {
-        if(!alive)
+        if(isGameOver)
         {
             Debug.Log("Player dead");
-            //gameOverPanel.SetActive(true);
+            gameOverPanel.SetActive(true);
         }
+    }
+
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
