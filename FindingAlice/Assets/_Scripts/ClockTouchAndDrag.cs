@@ -5,27 +5,33 @@ using UnityEngine.EventSystems;
 
 public class ClockTouchAndDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    [SerializeField] Vector3 dragStartPos;
-    [SerializeField] Vector3 posToDrag;
-
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
+    [SerializeField] Vector3 dragStartPos = Vector3.zero;
+    [SerializeField] Vector3 posToDrag = Vector3.zero;
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        dragStartPos = Input.mousePosition;
+        if (ClockManager.C.clockCounter > 0 && ClockManager.C.CS == ClockState.idle)
+        {
+            ClockManager.C.CS = ClockState.shoot;
+            ClockManager.C.clockPreparatoryAction();
+            dragStartPos = Input.mousePosition;
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        posToDrag = Input.mousePosition;
+        if (ClockManager.C.CS == ClockState.shoot)
+        {
+            posToDrag = Input.mousePosition;
+            ClockManager.C.touchAndDragPos = (posToDrag - dragStartPos).normalized;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-
+        ClockManager.C.CS = ClockState.follow;
+        ClockManager.C.clockFollowAction();
+        dragStartPos = Vector3.zero;
+        posToDrag = Vector3.zero;
     }
 }

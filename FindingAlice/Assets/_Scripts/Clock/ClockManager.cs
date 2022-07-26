@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public enum ClockState
 {
+    cooldown,
     idle,
     shoot,
     follow
@@ -34,9 +35,6 @@ public class ClockManager : MonoBehaviour
 
     public GameObject clock;
 
-    //lever UI Transform
-    //public RectTransform rect;
-
     //ClockBackEffect의 메테리얼 저장
     Material clockBackMat;
     //clockBackMat의 Alpha 값 저장
@@ -50,7 +48,7 @@ public class ClockManager : MonoBehaviour
     Text text;
 
     //lever의 transform 저장 벡터
-    Vector3 leverTransform;
+    [SerializeField] Vector3 _touchAndDragPos = Vector3.zero;
 
     float playerColliderHeight;
     float playerColliderRadius;
@@ -79,6 +77,12 @@ public class ClockManager : MonoBehaviour
     [SerializeField] Vector3 keepDir = Vector3.zero;
     [SerializeField] float theta;
 
+    public Vector3 touchAndDragPos
+    {
+        get { return _touchAndDragPos; }
+        set { _touchAndDragPos = value; }
+    }
+
     public ClockState CS
     {
         get { return _CS; }
@@ -104,6 +108,7 @@ public class ClockManager : MonoBehaviour
         set { _clockCounter = Mathf.Clamp(value, 0, 2); }
     }
 
+
     private void Start()
     {
         rb = player.GetComponent<Rigidbody>();
@@ -119,9 +124,8 @@ public class ClockManager : MonoBehaviour
     void Update()
     {
         text.text = "Clock : " + clockCounter;
-        //leverTransform = rect.anchoredPosition.normalized;
-        dX = leverTransform.x;
-        dY = leverTransform.y;
+        dX = touchAndDragPos.x;
+        dY = touchAndDragPos.y;
 
         //시계 발사 횟수가 2회 이하면서 재충전 시간이 충족된다면 시계 횟수 증가
         if (clockCounter < 2 && Time.time - clockReloadStart > clockReloadTime)
@@ -130,87 +134,73 @@ public class ClockManager : MonoBehaviour
             clockReloadStart = Time.time;
         }
 
-        //X를 눌렀을 때 시간 느리게 만들고 Clock 활성화
-        if (Input.GetKeyDown(KeyCode.X) && clockCounter > 0 && CS == ClockState.idle && Time.time - clockEndTime > clockCooldown)
+        switch(CS)
         {
-            CS = ClockState.shoot;
-
-            clockCooldown = 0.5f;
-            clockStartTime = Time.time;
-            Time.timeScale = timeScaleValue;
-            Time.fixedDeltaTime = 0.02f * Time.timeScale;
-            range.SetActive(true);
-            clock.SetActive(true);
-            if (dX < 0) dxIsPositive = false;
-        }
-
-        //X를 누르고 있을 때 시계 사출
-        if (CS == ClockState.shoot)
-        {
-            if (distance < clockMaxRange)
-            {
-                // 시계 사출 중일 때는 뒷 배경을 어둡게 만듦
-                clockBackMatAlpha += Time.deltaTime * 20f;
-                clockBackMat.color = new Color(0, 0, 0, clockBackMatAlpha);
-
-                distance += clockSpeed * Time.deltaTime;
-                //theta = Mathf.Atan2(dY, dX);
-                if (leverTransform == Vector3.zero && distance != 0)
+            // 시계 사출 중이 아닐 때는 어두워진 화면을 원래대로 되돌림
+            case ClockState.cooldown:
+                if (clockBackMat.color.a > 0)
                 {
-                    keepDir = new Vector3(clock.transform.localPosition.x,
-                        clock.transform.localPosition.y, 0).normalized;
-                    keepDir.x *= distance;
-                    keepDir.y *= distance;
+                    clockBackMatAlpha = Mathf.Lerp(clockBackMatAlpha, 0, Time.deltaTime * 5f);
+                    clockBackMat.color = new Color(0, 0, 0, clockBackMatAlpha);
+                }
+                if (Time.time - clockEndTime > clockCooldown)
+                {
+                    CS = ClockState.idle;
+                }
+                break;
+
+            // 시계 사출 중이 아닐 때는 어두워진 화면을 원래대로 되돌림
+            case ClockState.idle:
+                if (clockBackMat.color.a > 0)
+                {
+                    clockBackMatAlpha = Mathf.Lerp(clockBackMatAlpha, 0, Time.deltaTime * 5f);
+                    clockBackMat.color = new Color(0, 0, 0, clockBackMatAlpha);
+                }
+                break;
+
+            //X를 누르고 있을 때 시계 사출
+            case ClockState.shoot:
+                if (distance < clockMaxRange)
+                {
+                    // 시계 사출 중일 때는 뒷 배경을 어둡게 만듦
+                    clockBackMatAlpha += Time.deltaTime * 20f;
+                    clockBackMat.color = new Color(0, 0, 0, clockBackMatAlpha);
+
+                    distance += clockSpeed * Time.deltaTime;
+                    //theta = Mathf.Atan2(dY, dX);
+                    keepDir = new Vector3(dX * distance, dY * distance, 0);
                     clock.transform.localPosition = keepDir;
                 }
-                if (leverTransform != Vector3.zero)
+                else
                 {
-                    keepDir = new Vector3(dX * distance, dY * distance, 0);
-                    //keepDir = new Vector3(Mathf.Cos(theta) * distance, Mathf.Sin(theta) * distance, 0);
-                    if (!dxIsPositive) keepDir.x *= -1;
-                    clock.transform.localPosition = keepDir; 
-                }  
-            }
-            else
-            {
-                clockReset();
-                return;
-            }
+                    clockReset();
+                    return;
+                }
+                break;
+
+            //X를 뗄 때 정상 시간 복귀, Clock으로 플레이어가 날아갈 준비
+            case ClockState.follow:
+
+                break;
         }
 
-        //X를 뗄 때 정상 시간 복귀, Clock으로 플레이어가 날아갈 준비
-        if (Input.GetKeyUp(KeyCode.X) && CS == ClockState.shoot)
-        {
-            CS = ClockState.follow;
+    }
 
-            clockCounter--;
-            Time.timeScale = 1f;
-            Time.fixedDeltaTime = 0.02f * Time.timeScale;
-            clock.transform.parent = null;
-            rb.useGravity = false;
-            rb.velocity = Vector3.zero;
-            clockPushUpTime = Time.time;
-            _clockPushTime = clockPushUpTime - clockStartTime;
-            range.SetActive(false);
-
-            player.GetComponent<CapsuleCollider>().height = 0;
-            player.GetComponent<CapsuleCollider>().radius = 0.3f;
-            //화면에 시계가 존재할 때 캐릭터의 속도를 0으로 초기화, 시계의 방향으로 캐릭터 이동
-            rb.AddForce((clock.transform.position - player.transform.position).normalized * 
-                (30 + Mathf.Pow(Vector3.Distance(clock.transform.position, player.transform.position) / 3, 2)), ForceMode.Impulse);
-        }
-
-        // 시계 사출 중이 아닐 때는 어두워진 화면을 원래대로 되돌림
-        if (CS == ClockState.idle)
-        {
-            clockBackMatAlpha = Mathf.Lerp(clockBackMatAlpha, 0, Time.deltaTime * 5f);
-            clockBackMat.color = new Color(0, 0, 0, clockBackMatAlpha);
-        }
+    public void clockPreparatoryAction()
+    {
+        clockCooldown = 0.5f;
+        clockStartTime = Time.time;
+        Time.timeScale = timeScaleValue;
+        Time.fixedDeltaTime = 0.02f * Time.timeScale;
+        range.SetActive(true);
+        clock.SetActive(true);
+        if (dX < 0) dxIsPositive = false;
     }
 
     public void clockReset()
     {
-        CS = ClockState.idle;
+        Debug.Log("Reset");
+        CS = ClockState.cooldown;
 
         if (Time.timeScale != 1f)
         {
@@ -228,5 +218,25 @@ public class ClockManager : MonoBehaviour
         dxIsPositive = true;
         player.GetComponent<CapsuleCollider>().height = playerColliderHeight;
         player.GetComponent<CapsuleCollider>().radius = playerColliderRadius;
+    }
+
+    public void clockFollowAction()
+    {
+        clockCounter--;
+        Time.timeScale = 1f;
+        Time.fixedDeltaTime = 0.02f * Time.timeScale;
+        clock.transform.parent = null;
+        rb.useGravity = false;
+        rb.velocity = Vector3.zero;
+        clockPushUpTime = Time.time;
+        _clockPushTime = clockPushUpTime - clockStartTime;
+        range.SetActive(false);
+
+        player.GetComponent<CapsuleCollider>().height = 0;
+        player.GetComponent<CapsuleCollider>().radius = 0.3f;
+        //화면에 시계가 존재할 때 캐릭터의 속도를 0으로 초기화, 시계의 방향으로 캐릭터 이동
+        rb.AddForce((clock.transform.position - player.transform.position).normalized *
+            (20 + Mathf.Pow(Vector3.Distance(clock.transform.position, player.transform.position) / 3, 2)), ForceMode.Impulse);
+        Debug.Log("follow 모든 동작 완료");
     }
 }

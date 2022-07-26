@@ -16,7 +16,7 @@ public class CameraTarget : MonoBehaviour
 
     void LateUpdate()
     {
-        if (ClockManager.C.CS != ClockState.idle)
+        if (ClockManager.C.CS != ClockState.idle || ClockManager.C.CS != ClockState.cooldown)
         {
             targetPosition = followTarget.transform.position;
             transform.position = targetPosition;

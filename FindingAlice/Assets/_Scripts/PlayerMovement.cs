@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void Move(float dir = 0){
-        if (ClockManager.C.CS == ClockState.idle)
+        if (ClockManager.C.CS == ClockState.idle || ClockManager.C.CS == ClockState.cooldown)
         {
             if (dir == 0) inputDir = Input.GetAxisRaw("Horizontal");
             else inputDir = dir;
