@@ -16,10 +16,4 @@ public class Rock : MonoBehaviour
         yield return new WaitForSeconds(2f);
         Destroy(this.gameObject);
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
-            Debug.Log("사망!");
-    }
 }

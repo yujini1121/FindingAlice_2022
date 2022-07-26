@@ -9,6 +9,7 @@ TagManager:
   - Clock
   - CameraTarget
   - DieZone
+  - Attack
   layers:
   - Default
   - TransparentFX

@@ -137,16 +137,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        switch(other.tag)
+        if(other.CompareTag("Attack"))
         {
-            case "DieZone":
-            PlayerManager.Instance().pHP = 0;
-            break;
-            case "Attack":
-            PlayerManager.Instance().pHP--;
-            break;
-            default:
-            break;
+            PlayerManager.Instance().alive = false;
         }
     }
 }

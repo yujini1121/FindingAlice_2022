@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7907813447015254987}
   - component: {fileID: 7907813447015254984}
+  - component: {fileID: 6300821715410392596}
   m_Layer: 0
   m_Name: Claw
-  m_TagString: Untagged
+  m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,3 +82,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!65 &6300821715410392596
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7907813447015254985}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1741738, y: 6.5, z: 1.1203369}
+  m_Center: {x: 0.12934636, y: 7.489125e-10, z: 0.46016842}

@@ -13,7 +13,7 @@ public class PlayerManager : MonoBehaviour
 
     public Vector3 lastCPPos;
 
-    public int pHP;
+    public bool alive;
     private GameObject gameOverPanel;
 
     private void Awake()
@@ -36,14 +36,15 @@ public class PlayerManager : MonoBehaviour
     }
     private void Init()
     {
-        pHP = 5;
+        alive = true;
     }
 
     private void CheckGameOver()
     {
-        if(pHP < 0)
+        if(!alive)
         {
-            gameOverPanel.SetActive(true);
+            Debug.Log("Player dead");
+            //gameOverPanel.SetActive(true);
         }
     }
 }
