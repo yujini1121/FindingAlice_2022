@@ -24,15 +24,16 @@ public class Fade : MonoBehaviour
     {
         Init();
     }
-    
-    public void FadeInOut()
+    private void OnEnable()
     {
-        StopCoroutine(FadeFlow());
-        StartCoroutine(FadeFlow());
-    }
+        StopCoroutine(FadeOutFlow());
+        StartCoroutine(FadeOutFlow());
+    }    
 
-    private IEnumerator FadeFlow()
+    private IEnumerator FadeOutFlow()
     {
+        time = 0;
+
         Color color = fadeImage.color;
         while(color.a < end)
         {
@@ -42,7 +43,9 @@ public class Fade : MonoBehaviour
             yield return null;
         }
         
-        time = 0;
+        GameObject.FindWithTag("Player").transform.position =
+            DataController.Instance.gameData.playerPosition;
+            time = 0;
 
         while(color.a > start)
         {
@@ -51,9 +54,8 @@ public class Fade : MonoBehaviour
             fadeImage.color = color;
             yield return null;
         }
+        this.gameObject.SetActive(false);
+
         yield return null;
-        fadeImage.gameObject.SetActive(false);
-
     }
-
 }

@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene("LSCGameScene");
+            SceneManager.LoadScene("GameScene");
         }
     }
 }

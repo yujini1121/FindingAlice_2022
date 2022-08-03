@@ -36,11 +36,7 @@ public class PlayerManager : MonoBehaviour
         if(isGameOver)
         {
             FadeImage.SetActive(true);
-            FadeImage.GetComponent<Fade>().FadeInOut();
             isGameOver = false;
-            GameObject.FindWithTag("Player").transform.position =
-            DataController.Instance.gameData.playerPosition;
-            // FadeImage.SetActive(false);
         }
     }
 
@@ -49,27 +45,5 @@ public class PlayerManager : MonoBehaviour
         isGameOver = false;
     }
 
-//     private void CheckGameOver()
-//     {
-//         // fade out 은 Update에서 계속 불러주지만 isGameOver가 false가 되면 LoadCheckPoint는 한번만 호출이 되었기 때문.
-//         if(isGameOver)
-//         {
-//             FadeImage.SendMessage("FadeOut");
-//             isGameOver = false;
-//         }
-//         else
-//         {
-//             return;
-//         }
-//     }
-// public void LoadCheckPoint()
-//     {
-//         GameObject.FindWithTag("Player").transform.position =
-//             DataController.Instance.gameData.playerPosition;
-//         isGameOver = false;
-//         FadeImage.GetComponent<Fade>().SendMessage("FadeIn");
-//         // FadeImage.GetComponent<Fade>().FadeIn();
-//         // if(FadeImage.GetComponent<Fade>().endFade)
-//         //     FadeImage.SetActive(false);
-//     }
+
 }
