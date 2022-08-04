@@ -43,9 +43,9 @@ public class PlayerMovement : MonoBehaviour
     private void Start(){
         player = GameObject.FindGameObjectWithTag("Player");
         playerRigidbody = player.GetComponent<Rigidbody>();
-        // if(GameSceneChange.checkLoad){
-        //     player.transform.position = DataController.Instance.gameData.playerPosition;
-        // }
+        if(GameSceneChange.checkLoad){
+            player.transform.position = DataController.Instance.gameData.playerPosition;
+        }
     }
 
     private void Update() {
