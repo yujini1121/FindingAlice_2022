@@ -9,8 +9,6 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Jump")]
     [SerializeField] private float jumpForce;
-    [SerializeField] float gravity = 3f;
-    
     private Animator playerAnim;
 
     //Scene - Player 오브젝트
@@ -22,9 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private float       inputDir;
 
     //state
-    public bool isGround;
-    private bool isJumping;
-    private bool isFalling;
+    private bool isGround, isJumping, isFalling;
 
     [SerializeField]
     private bool _collisionToWall = false;
@@ -53,11 +49,6 @@ public class PlayerMovement : MonoBehaviour
         {
             Move();
             Jump();
-            // if (!(GameManager.instance.isGround || GameManager.instance.clock))
-            //     //playerRigidbody.velocity = new Vector3(0, -gravity, 0);
-            //     playerRigidbody.AddForce(new Vector3(0, -gravity, 0), ForceMode.Force);
-            // physics의 gravity를 10배함.
-            // jumpForce를 30
             CheckJumping();
         }
     }
@@ -70,17 +61,12 @@ public class PlayerMovement : MonoBehaviour
             
             if (!_collisionToWall)
             {
-                //Debug.Log(dir);
-                //Debug.Log(inputDir);
                 moveDirX = new Vector3(inputDir, 0, 0).normalized;
-                //Debug.Log(moveDirX);
 
-                //playerRigidbody.velocity += moveDirX * speed;
                 transform.position += moveDirX * speed * Time.deltaTime;
 
                 playerAnim.SetBool("isWalk", inputDir != 0);
             }
-
             if (inputDir == 0) return;
             transform.rotation = Quaternion.LookRotation(new Vector3(0, 0, inputDir));
         }
@@ -92,7 +78,6 @@ public class PlayerMovement : MonoBehaviour
         {
             playerAnim.SetBool("isJumping", true);
             isJumping = true;
-            //playerRigidbody.velocity = transform.up * jumpForce;
             playerRigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
             return;
         }
@@ -117,11 +102,6 @@ public class PlayerMovement : MonoBehaviour
                 playerAnim.SetBool("isGrounded", false);
                 return;
             }
-            //if (ClockManager.C.CS == ClockState.follow)
-            //{
-            //    Debug.Log("충돌1!");
-            //    //GameObject.Find("ClockManager").SendMessage("clockReset");
-            //}
         }
         playerAnim.SetBool("isRolling", false);
         playerAnim.SetBool("isGrounded", true);
@@ -147,13 +127,3 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 }
-
-    //사출된 시계와 충돌한 후 감속
-    //IEnumerator deceleration()
-    //{
-    //    for (int i = 0; i < 6; i++)
-    //    {
-    //        playerRigidbody.velocity *= decelSpeed;
-    //        yield return new WaitForSeconds(0.05f);
-    //    }
-    //}
