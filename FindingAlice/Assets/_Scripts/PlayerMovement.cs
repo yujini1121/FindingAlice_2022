@@ -67,8 +67,15 @@ public class PlayerMovement : MonoBehaviour
 
                 playerAnim.SetBool("isWalk", inputDir != 0);
             }
-            if (inputDir == 0) return;
-            transform.rotation = Quaternion.LookRotation(new Vector3(0, 0, inputDir));
+
+            if ((transform.localScale.x > 0 && inputDir < 0) || (transform.localScale.x < 0 && inputDir > 0))
+            {
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                //turnCharacter();
+            }
+
+            //if (inputDir == 0) return;
+            //transform.rotation = Quaternion.LookRotation(new Vector3(0, 0, inputDir));
         }
     }
     
@@ -89,6 +96,12 @@ public class PlayerMovement : MonoBehaviour
             playerAnim.SetBool("isFalling", true);
             isFalling = true;
         }
+    }
+
+    private void turnCharacter()
+    {
+        //Debug.Log("회전");
+        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
 
     //플랫폼의 기울기에 따라 점프의 여부 판단

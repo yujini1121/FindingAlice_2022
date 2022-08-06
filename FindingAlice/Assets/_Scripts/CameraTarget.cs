@@ -19,7 +19,8 @@ public class CameraTarget : MonoBehaviour
         if (ClockManager.C.CS != ClockState.idle || ClockManager.C.CS != ClockState.cooldown)
         {
             targetPosition = followTarget.transform.position;
-            transform.position = targetPosition;
+            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 3f);
+            //transform.position = targetPosition;
         }
         else
         {

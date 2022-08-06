@@ -168,6 +168,13 @@ public class ClockManager : MonoBehaviour
 
                     distance += clockSpeed * Time.deltaTime;
                     //theta = Mathf.Atan2(dY, dX);
+
+                    if (player.transform.localScale.x * dX < 0)
+                        player.SendMessage("turnCharacter");
+
+                    if (player.transform.localScale.x < 0)
+                        dX = -dX;
+
                     keepDir = new Vector3(dX * distance, dY * distance, 0);
                     clock.transform.localPosition = keepDir;
                 }
