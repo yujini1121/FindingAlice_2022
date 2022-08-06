@@ -70,8 +70,8 @@ public class PlayerMovement : MonoBehaviour
 
             if ((transform.localScale.x > 0 && inputDir < 0) || (transform.localScale.x < 0 && inputDir > 0))
             {
-                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-                //turnCharacter();
+                //transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+                turnCharacter();
             }
 
             //if (inputDir == 0) return;
