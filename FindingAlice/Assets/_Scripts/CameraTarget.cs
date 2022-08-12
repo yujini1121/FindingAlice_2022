@@ -16,11 +16,11 @@ public class CameraTarget : MonoBehaviour
 
     void LateUpdate()
     {
-        if (ClockManager.C.CS != ClockState.idle || ClockManager.C.CS != ClockState.cooldown)
+        if (ClockManager.C.CS != ClockState.idle && ClockManager.C.CS != ClockState.cooldown)
         {
             targetPosition = followTarget.transform.position;
-            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 3f);
-            //transform.position = targetPosition;
+            //transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 7f);
+            transform.position = targetPosition;
         }
         else
         {

@@ -50,10 +50,10 @@ public class CameraMovement : MonoBehaviour
         if (ClockManager.C.CS == ClockState.shoot)
         {
             //시계와 플레이어의 높이(yValue)와 거리를 곱해서 수직으로 쏠 땐 급격한 축소를 함
-            targetPosition.z = -10 + (yValue + 3) * Vector3.Distance(clockPos, playerPos) * -0.1f;
+            targetPosition.z = -15 + (yValue + 10) * Vector3.Distance(clockPos, playerPos) * -0.1f;
         }
         //시계 쏜 후에 카메라 확대
-        if (ClockManager.C.CS == ClockState.follow)
+        if (ClockManager.C.CS != ClockState.shoot)
         {
             //멈춤
             if (Time.time - GameManager.instance.idleTime > 3f && GameManager.instance.isGround
