@@ -181,13 +181,12 @@ public class ClockManager : MonoBehaviour
                 else
                 {
                     clockReset();
-                    return;
+                    //return;
                 }
                 break;
 
             //X를 뗄 때 정상 시간 복귀, Clock으로 플레이어가 날아갈 준비
             case ClockState.follow:
-
                 break;
         }
 

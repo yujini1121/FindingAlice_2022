@@ -29,9 +29,12 @@ public class ClockTouchAndDrag : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        ClockManager.C.CS = ClockState.follow;
-        ClockManager.C.clockFollowAction();
-        dragStartPos = Vector3.zero;
-        posToDrag = Vector3.zero;
+        if (ClockManager.C.CS == ClockState.shoot)
+        {
+            ClockManager.C.CS = ClockState.follow;
+            ClockManager.C.clockFollowAction();
+            dragStartPos = Vector3.zero;
+            posToDrag = Vector3.zero;
+        }
     }
 }

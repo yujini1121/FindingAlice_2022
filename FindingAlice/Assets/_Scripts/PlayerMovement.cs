@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     //키보드로부터 X축 값 얻음
     private float       inputDir;
 
+    [SerializeField] private bool isMoving = false;
+
     //state
     private bool isGround, isJumping, isFalling;
 
@@ -47,18 +49,25 @@ public class PlayerMovement : MonoBehaviour
     private void Update() {
         if(!PlayerManager.Instance().isGameOver)
         {
-            Move();
-            Jump();
+            isMoving = false;
+
+            if (Input.GetAxis("Horizontal") != 0)
+                Move(Input.GetAxisRaw("Horizontal"));
+            if (Input.GetKeyDown(KeyCode.Z))
+                Jump();
             CheckJumping();
         }
     }
 
     public void Move(float dir = 0){
+        if (isMoving) return;
+
         if (ClockManager.C.CS == ClockState.idle || ClockManager.C.CS == ClockState.cooldown)
         {
-            if (dir == 0) inputDir = Input.GetAxisRaw("Horizontal");
-            else inputDir = dir;
-            
+            isMoving = true;
+
+            inputDir = dir;
+
             if (!_collisionToWall)
             {
                 moveDirX = new Vector3(inputDir, 0, 0).normalized;
@@ -70,18 +79,14 @@ public class PlayerMovement : MonoBehaviour
 
             if ((transform.localScale.x > 0 && inputDir < 0) || (transform.localScale.x < 0 && inputDir > 0))
             {
-                //transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
                 turnCharacter();
             }
-
-            //if (inputDir == 0) return;
-            //transform.rotation = Quaternion.LookRotation(new Vector3(0, 0, inputDir));
         }
     }
     
-    public void Jump(bool pressButton = false){
+    public void Jump(){
         // z키를 누르거나 점프 버튼이 눌렸을 때 플레이어가 땅에 있을 경우 점프
-        if ((Input.GetKeyDown(KeyCode.Z) || pressButton == true) && isGround)
+        if (isGround)
         {
             playerAnim.SetBool("isJumping", true);
             isJumping = true;
@@ -89,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
     }
+
     private void CheckJumping()
     {
         if ((isJumping && playerRigidbody.velocity.y < 0) || playerRigidbody.velocity.y < -2)
