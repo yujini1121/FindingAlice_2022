@@ -53,7 +53,7 @@ public class CameraMovement : MonoBehaviour
             targetPosition.z = -15 + (yValue + 10) * Vector3.Distance(clockPos, playerPos) * -0.1f;
         }
         //시계 쏜 후에 카메라 확대
-        if (ClockManager.C.CS != ClockState.shoot)
+        if (!(ClockManager.C.CS == ClockState.shoot || ClockManager.C.CS == ClockState.shootMaximum))
         {
             //멈춤
             if (Time.time - GameManager.instance.idleTime > 3f && GameManager.instance.isGround

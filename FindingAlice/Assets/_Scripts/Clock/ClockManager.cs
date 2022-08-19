@@ -8,6 +8,7 @@ public enum ClockState
     cooldown,
     idle,
     shoot,
+    shootMaximum,
     follow
 }
 
@@ -71,11 +72,12 @@ public class ClockManager : MonoBehaviour
 
     [SerializeField] int _clockCounter = 2;
 
-    [SerializeField] float dX;
-    [SerializeField] float dY;
+    float dX;
+    float dY;
     //이동 중이던 방향 저장
-    [SerializeField] Vector3 keepDir = Vector3.zero;
-    [SerializeField] float theta;
+    Vector3 keepDir = Vector3.zero;
+    float theta;
+    float clockDistanceMaximumTime;
 
     public Vector3 touchAndDragPos
     {
@@ -127,6 +129,9 @@ public class ClockManager : MonoBehaviour
         dX = touchAndDragPos.x;
         dY = touchAndDragPos.y;
 
+        if (clockCounter == 2)
+            clockReloadStart = Time.time;
+
         //시계 발사 횟수가 2회 이하면서 재충전 시간이 충족된다면 시계 횟수 증가
         if (clockCounter < 2 && Time.time - clockReloadStart > clockReloadTime)
         {
@@ -169,9 +174,32 @@ public class ClockManager : MonoBehaviour
                     distance += clockSpeed * Time.deltaTime;
                     //theta = Mathf.Atan2(dY, dX);
 
+                    //시계 방향에 따라 캐릭터 회전
                     if (player.transform.localScale.x * dX < 0)
                         player.SendMessage("turnCharacter");
 
+                    //캐릭터 방향에 따라 dX의 부호 변환(안 할 시 시계 방향 오류 생김)
+                    if (player.transform.localScale.x < 0)
+                        dX = -dX;
+
+                    keepDir = new Vector3(dX * distance, dY * distance, 0);
+                    clock.transform.localPosition = keepDir;
+                }
+                else
+                {
+                    clockDistanceMaximumTime = Time.time;
+                    CS = ClockState.shootMaximum;
+                }
+                break;
+
+            case ClockState.shootMaximum:
+                if (Time.time - clockDistanceMaximumTime < 0.25f)
+                {
+                    //시계 방향에 따라 캐릭터 회전
+                    if (player.transform.localScale.x * dX < 0)
+                        player.SendMessage("turnCharacter");
+
+                    //캐릭터 방향에 따라 dX의 부호 변환(안 할 시 시계 방향 오류 생김)
                     if (player.transform.localScale.x < 0)
                         dX = -dX;
 
@@ -181,15 +209,15 @@ public class ClockManager : MonoBehaviour
                 else
                 {
                     clockReset();
-                    //return;
                 }
                 break;
 
             //X를 뗄 때 정상 시간 복귀, Clock으로 플레이어가 날아갈 준비
             case ClockState.follow:
+                clockBackMatAlpha = Mathf.Lerp(clockBackMatAlpha, 0, Time.deltaTime * 5f);
+                clockBackMat.color = new Color(0, 0, 0, clockBackMatAlpha);
                 break;
         }
-
     }
 
     public void clockPreparatoryAction()

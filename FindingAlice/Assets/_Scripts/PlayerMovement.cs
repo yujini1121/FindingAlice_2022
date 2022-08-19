@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetAxis("Horizontal") != 0)
                 Move(Input.GetAxisRaw("Horizontal"));
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetKeyDown(KeyCode.Space))
                 Jump();
             CheckJumping();
         }

@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    GameObject option;
+    GameObject optionButton;
+
     [SerializeField]
     bool _patternSwitch = false;
     [SerializeField]
@@ -75,6 +78,8 @@ public class GameManager : MonoBehaviour
     {
         GameObject clockBackEffect = GameObject.Find("ClockBackEffect");
         clockBackEffect.transform.localScale = new Vector3(40000f, 20000f, 0);
+        option = GameObject.Find("Option").transform.GetChild(0).gameObject;
+        optionButton = GameObject.Find("OptionButton");
     }
 
     private void Update()
@@ -83,5 +88,24 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("GameScene");
         }
+    }
+
+    public void PopUpOption()
+    {
+        Time.timeScale = 0;
+        optionButton.SetActive(false);
+        option.SetActive(true);
+    }
+
+    public void PressContinue()
+    {
+        Time.timeScale = 1;
+        option.SetActive(false);
+        optionButton.SetActive(true);
+    }
+
+    public void PressExitGame()
+    {
+        SceneManager.LoadScene("SelectChapterScene");
     }
 }

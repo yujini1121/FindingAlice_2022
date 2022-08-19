@@ -42,6 +42,10 @@ public class WatchBand : MonoBehaviour
             x += 0.003f;
             mat.mainTextureScale = new Vector2(x, 1f);
         }
+        else if (ClockManager.C.CS == ClockState.shootMaximum)
+        {
+            mat.mainTextureScale = new Vector2(x, 1f);
+        }
         else
         {
             x = 0;

@@ -20,7 +20,7 @@ public class ClockTouchAndDrag : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (ClockManager.C.CS == ClockState.shoot)
+        if (ClockManager.C.CS == ClockState.shoot || ClockManager.C.CS == ClockState.shootMaximum)
         {
             posToDrag = Input.mousePosition;
             ClockManager.C.touchAndDragPos = (posToDrag - dragStartPos).normalized;
@@ -29,7 +29,7 @@ public class ClockTouchAndDrag : MonoBehaviour, IBeginDragHandler, IDragHandler,
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (ClockManager.C.CS == ClockState.shoot)
+        if (ClockManager.C.CS == ClockState.shoot || ClockManager.C.CS == ClockState.shootMaximum)
         {
             ClockManager.C.CS = ClockState.follow;
             ClockManager.C.clockFollowAction();
