@@ -33,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
         set { _collisionToWall = value; }
     }
 
+    [SerializeField] private DialogueManager dManager;
+
     private void Awake()
     {
         playerAnim = this.GetComponent<Animator>();
@@ -47,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Update() {
-        if(!PlayerManager.Instance().isGameOver)
+        if(!PlayerManager.Instance().isGameOver && !dManager.isActive)
         {
             isMoving = false;
 
@@ -143,6 +145,16 @@ public class PlayerMovement : MonoBehaviour
         if(other.CompareTag("Attack"))
         {
             PlayerManager.Instance().isGameOver = true;
+        }
+        switch(other.tag){
+            case "Attack":
+            PlayerManager.Instance().isGameOver = true;
+            break;
+            case "NPC":
+            dManager.Action(other.gameObject);
+            break;
+            default:
+            return;
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Transparent : MonoBehaviour
 {
     static public bool require = false;
-    private float holdingTime = 5.0f;
+    [SerializeField] private float holdingTime = 5.0f;
     private bool isAction = false;
 
     public GameObject[] platform;
