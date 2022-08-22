@@ -6,7 +6,6 @@ using UnityEngine;
 public class TalkManager : MonoBehaviour
 {
     Dictionary<int, string[]> talkData;
-
     private void Awake()
     {
         talkData = new Dictionary<int, string[]>();
@@ -20,6 +19,10 @@ public class TalkManager : MonoBehaviour
 
     public string GetTalk(int id, int talkIndex)
     {
-        return talkData[id][talkIndex];
+        if(talkIndex == talkData[id].Length)
+            
+            return null;
+        else
+            return talkData[id][talkIndex];
     }
 }
