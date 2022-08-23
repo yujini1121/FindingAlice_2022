@@ -9,9 +9,7 @@
 *****
    
 ## - 게임 예시 이미지<br/>
-<div style="text-align:center"></div>
-![Alt Text](/Deck/Rabbit_Sprite.PNG)
-</div>
+  <img src="https://github.com/SeungminYeom/FindingAlice/blob/main/Deck/Rabbit_Sprite.PNG">
 - 캐릭터 스프라이트 이미지<br/><br/><br/>
 
 ![Alt Text](/Deck/Game_Sample_1.png)
