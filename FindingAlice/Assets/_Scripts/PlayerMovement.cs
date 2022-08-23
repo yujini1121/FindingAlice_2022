@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Update() {
-        if(!PlayerManager.Instance().isGameOver && !dManager.isActive)
+        if(!PlayerManager.Instance().isGameOver /*&& !dManager.isActive*/)
         {
             isMoving = false;
 
@@ -90,8 +90,12 @@ public class PlayerMovement : MonoBehaviour
         // z키를 누르거나 점프 버튼이 눌렸을 때 플레이어가 땅에 있을 경우 점프
         if (isGround)
         {
+            //수정점
+            isGround = false;
+
             playerAnim.SetBool("isJumping", true);
             isJumping = true;
+            playerRigidbody.velocity = Vector3.zero;
             playerRigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
             return;
         }
@@ -136,7 +140,12 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionExit(Collision other)
     {
         if (other.gameObject.CompareTag("Platform"))
-            isGround = false;
+        {
+            //수정점
+            StartCoroutine(SmoothJump());
+            //isGround = false;
+        }
+            
         playerAnim.SetBool("isGrounded", false);
     }
 
@@ -156,5 +165,11 @@ public class PlayerMovement : MonoBehaviour
             default:
             return;
         }
+    }
+
+    IEnumerator SmoothJump()
+    {
+        yield return new WaitForSeconds(0.15f);
+        isGround = false;
     }
 }

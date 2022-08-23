@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlanetRotate : MonoBehaviour
 {
-    float x = 0;
-    float z = 0;
+    float value = 0;
+    [SerializeField] float speed = 100;
 
     void Start()
     {
@@ -14,9 +14,8 @@ public class PlanetRotate : MonoBehaviour
 
     void Update()
     {
-        x++;
-        z++;
+        value += speed * Time.deltaTime;
 
-        transform.localRotation = Quaternion.Euler(new Vector3(x, 0, 0));
+        transform.localRotation = Quaternion.Euler(new Vector3(0, value, 0));
     }
 }

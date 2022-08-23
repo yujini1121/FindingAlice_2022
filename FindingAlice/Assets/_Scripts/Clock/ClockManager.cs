@@ -46,7 +46,7 @@ public class ClockManager : MonoBehaviour
     public GameObject range;
     Rigidbody rb;
 
-    Text text;
+    GameObject[] clock_UI = new GameObject[2];
 
     //lever의 transform 저장 벡터
     [SerializeField] Vector3 _touchAndDragPos = Vector3.zero;
@@ -107,7 +107,15 @@ public class ClockManager : MonoBehaviour
     public int clockCounter
     {
         get { return _clockCounter; }
-        set { _clockCounter = Mathf.Clamp(value, 0, 2); }
+        set
+        {
+            int temp = _clockCounter;
+            _clockCounter = Mathf.Clamp(value, 0, 2);
+            if (temp < _clockCounter)
+                clock_UI[_clockCounter - 1].SetActive(true);
+            else if (temp > _clockCounter)
+                clock_UI[_clockCounter].SetActive(false);
+        }
     }
 
 
@@ -116,7 +124,10 @@ public class ClockManager : MonoBehaviour
         rb = player.GetComponent<Rigidbody>();
         clockBackMat = GameObject.Find("ClockBackEffect").GetComponent<Renderer>().material;
         clockBackMatAlpha = clockBackMat.color.a;
-        text = GameObject.Find("ClockCounter").GetComponent<Text>();
+        
+        for (int i = 0; i < 2; i++)
+            clock_UI[i] = GameObject.Find("ClockCounter").transform.GetChild(i).gameObject;
+
         clockMaxRange = range.transform.lossyScale.x * 3.0f;
         playerColliderHeight = player.GetComponent<CapsuleCollider>().height;
         playerColliderRadius = player.GetComponent<CapsuleCollider>().radius;
@@ -125,7 +136,6 @@ public class ClockManager : MonoBehaviour
 
     void Update()
     {
-        text.text = "Clock : " + clockCounter;
         dX = touchAndDragPos.x;
         dY = touchAndDragPos.y;
 
@@ -257,6 +267,7 @@ public class ClockManager : MonoBehaviour
     public void clockFollowAction()
     {
         clockCounter--;
+        
         Time.timeScale = 1f;
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
         clock.transform.parent = null;
