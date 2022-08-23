@@ -95,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
 
             playerAnim.SetBool("isJumping", true);
             isJumping = true;
+            playerRigidbody.velocity = Vector3.zero;
             playerRigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
             return;
         }
@@ -168,7 +169,7 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator SmoothJump()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.15f);
         isGround = false;
     }
 }
