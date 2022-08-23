@@ -5,10 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
-    public void Update()
+    [SerializeField] private DataController dCtrl;
+    
+    private void Awake()
+    {
+        dCtrl.LoadGameData();
+    }
+
+    private void Update()
     {
         if(Input.GetMouseButtonDown(0)){
-            SceneManager.LoadScene("SelectChapterScene");
+            if(dCtrl._gameData.isClearT)
+            {
+                SceneManager.LoadScene("SelectChapterScene");
+            }
+            else
+            {
+                SceneManager.LoadScene("TutorialScene");
+            }
         }
     }
 }
