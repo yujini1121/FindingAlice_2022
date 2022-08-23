@@ -4,10 +4,11 @@
 - 기간 : 2022.04.06 ~   
 - 장르 : 
 - 플랫폼 : 
+- 연락처 : 
 <br/><br/><br/>
 *****
    
-## 게임 예시 이미지
+## 게임 예시 이미지<br/>
 ![Alt Text](/Deck/Rabbit_Sprite.PNG)<br/>
 - 캐릭터 스프라이트 이미지<br/><br/>
 ![Alt Text](/Deck/Game_Sample_1.png)<br/>
