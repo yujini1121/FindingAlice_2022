@@ -9,7 +9,7 @@
 *****
    
 ## - 게임 예시 이미지<br/>
-<div align='center'>
+<div style="text-align: center">
 ![Alt Text](/Deck/Rabbit_Sprite.PNG)
 </div>
 - 캐릭터 스프라이트 이미지<br/><br/><br/>
