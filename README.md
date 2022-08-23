@@ -2,10 +2,15 @@
 - 동의대학교 Newbies의 모바일팀   
 - 프로젝트 : FindingAlice   
 - 기간 : 2022.04.06 ~   
-
+- 장르 : 
+- 플랫폼 : 
+<br/><br/><br/>
 *****
-      
-# 게임 예시 이미지
-![Alt Text](/Deck/KakaoTalk_20220819_223458274.gif)   
-![Alt Text](/Deck/Rabbit_Sprite.PNG)   
-![Alt Text](/Deck/Game_Sample_1.png)   
+   
+## 게임 예시 이미지
+![Alt Text](/Deck/Rabbit_Sprite.PNG)<br/>
+- 캐릭터 스프라이트 이미지<br/><br/>
+![Alt Text](/Deck/Game_Sample_1.png)<br/>
+- 게임 플레이 예시 이미지<br/><br/>
+![Alt Text](/Deck/KakaoTalk_20220819_223458274.gif)<br/>
+- 플랫폼 디자인 예시 이미지<br/><br/>
