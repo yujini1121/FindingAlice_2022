@@ -7,7 +7,7 @@
 - 연락처 : 
 <br/><br/><br/>
 *****
-<br/><br/>
+<br/>
 ## - 게임 예시 이미지<br/>
 ![Alt Text](/Deck/Rabbit_Sprite.PNG)
 - 캐릭터 스프라이트 이미지<br/><br/><br/>
