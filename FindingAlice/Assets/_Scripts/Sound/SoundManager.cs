@@ -7,10 +7,10 @@ public class SoundManager : MonoBehaviour
     public static SoundManager SM;
 
     [SerializeField] float _bgmSoundValue;
-    float _effectSoundValue;
+    [SerializeField] float _effectSoundValue;
 
-    bool _bgmSoundMute = false;
-    bool _effectSoundMute = false;
+    [SerializeField] bool _bgmSoundMute = false;
+    [SerializeField] bool _effectSoundMute = false;
 
     public float bgmSoundValue
     {
