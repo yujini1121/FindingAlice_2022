@@ -29,7 +29,7 @@ public class DataController : MonoBehaviour
     public GameData gameData{
         get{
             if(_gameData == null){
-                LoadGameData();
+                _gameData = LoadGameData();
                 SaveGameData();
             }
             return _gameData;
@@ -42,21 +42,21 @@ public class DataController : MonoBehaviour
     }
 
     private void Start(){
-        LoadGameData();
+        _gameData = LoadGameData();
         SaveGameData();
     }
 
-    public void LoadGameData(){
+    public GameData LoadGameData(){
         string filePath = Application.dataPath + "/SaveFile/" + GameDataFileName;
 
         if(File.Exists(filePath)){
             Debug.Log("Load Succes");
             string FromJsonData = File.ReadAllText(filePath);
-            _gameData = JsonUtility.FromJson<GameData>(FromJsonData);
+            return JsonUtility.FromJson<GameData>(FromJsonData);
         }
         else{
             Debug.Log("Create New File");
-            _gameData = new GameData();
+            return new GameData();
         }
     }
 
