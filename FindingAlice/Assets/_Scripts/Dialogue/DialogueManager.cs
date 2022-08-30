@@ -9,14 +9,13 @@ public class DialogueManager : MonoBehaviour
     public GameObject talkPanel;
     public Text talkText;
     public Text talkName;
+    public Image[] talkImage;
     public GameObject scanObject;
     public int talkIndex;
 
     public bool isActive = false;
 
     public ObjData objData;
-    // 팝업 관리X, 넘기는 것 관리 해야함.
-    // 넘기는 키는 업데이트에 있어야함. // gameManager에 넣기
 
     private void Update()
     {
@@ -26,7 +25,7 @@ public class DialogueManager : MonoBehaviour
             {
                 if(objData == null)
                 return;
-                Talk(objData.id, objData.isNpc);
+                Talk(objData.id);
             }
         }
     }
@@ -34,37 +33,43 @@ public class DialogueManager : MonoBehaviour
     {
         if(!isActive)
         {
-            isActive = true;
             scanObject = scanObj;
             objData = scanObject.GetComponent<ObjData>();
-            Talk(objData.id, objData.isNpc);            
+            if (objData.checkRead)
+                return;
+            isActive = true;
+            Talk(objData.id);            
         }
-        // else
-        // {
-        //     isActive = false;
-        // }
 
         talkPanel.SetActive(isActive);
     }
 
-    private void Talk(int id, bool isNpc)
+    private void Talk(int id)
     {
-        string talkData = talkManager.GetTalk(id,talkIndex);
-        if(talkData == null)
+        TalkData talkData = talkManager.GetTalk(id, talkIndex);
+        if (talkData == null)
         {
             isActive = false;
             talkIndex = 0;
-            talkPanel.SetActive(isActive);    
+            talkPanel.SetActive(isActive);
+            objData.checkRead = true;
             return;
         }
-        if(isNpc)
+        talkName.text = talkData.name;
+        
+        for (int i = 0; i < (int)Position.max; i++)
         {
-            talkText.text = talkData;
+            if((int)talkData.position == i)
+            {
+                talkImage[(int)talkData.position].color = Color.white;
+            }
+            else
+            {
+                talkImage[i].color = Color.gray;
+            }
         }
-        else
-        {
-            talkText.text = talkData;
-        }
+        talkImage[(int)talkData.position].sprite = talkData.sprite;
+        talkText.text = talkData.talkContents;
         isActive = true;
         talkIndex++;
     }
