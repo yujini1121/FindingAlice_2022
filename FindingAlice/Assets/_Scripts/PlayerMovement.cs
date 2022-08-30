@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Update() {
-        if(!PlayerManager.Instance().isGameOver /*&& !dManager.isActive*/)
+        if(!PlayerManager.Instance().isGameOver && !dManager.isActive)
         {
             isMoving = false;
 
@@ -156,9 +156,11 @@ public class PlayerMovement : MonoBehaviour
             PlayerManager.Instance().isGameOver = true;
         }
         switch(other.tag){
-            case "Attack":
-            PlayerManager.Instance().isGameOver = true;
-            break;
+            // case "Attack":
+            // PlayerManager.Instance().isGameOver = true;
+            // break;
+
+            // 팝업만 떠야함
             case "NPC":
             dManager.Action(other.gameObject);
             break;
