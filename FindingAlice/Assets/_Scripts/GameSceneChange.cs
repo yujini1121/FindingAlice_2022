@@ -18,9 +18,11 @@ public class GameSceneChange : MonoBehaviour
     }
 
     public void LoadGame(){
-
+        if (DataController.Instance._gameData.playerPosition == new Vector3(0, 0, 0))
+        {
+            return;
+        }
             checkLoad = true;
             SceneManager.LoadScene("GameScene");
-
     }
 }

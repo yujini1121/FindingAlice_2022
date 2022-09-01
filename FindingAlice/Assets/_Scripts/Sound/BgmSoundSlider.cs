@@ -6,12 +6,19 @@ using UnityEngine.UI;
 public class BgmSoundSlider : MonoBehaviour
 {
     Slider slider;
-
-    void Start()
+    private void Awake()
     {
+        //SoundManager.SM.bgmSoundValue;
         slider = gameObject.GetComponent<Slider>();
         slider.value = SoundManager.SM.bgmSoundValue;
     }
+
+#if false
+    void Start()
+    {
+
+    }
+#endif
 
     void Update()
     {

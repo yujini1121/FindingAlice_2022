@@ -38,7 +38,8 @@ public class TalkManager : MonoBehaviour
         a.talkContents = "hello";
         a.position = Position.left;
         TalkData b = new TalkData() { name = "너", sprite = null, talkContents = "bye", position = Position.right };
-        talkData.Add(1000, new TalkData[]{ a, b });
+        TalkData c = new TalkData() { name = "나", sprite = null, talkContents = "bye", position = Position.left };
+        talkData.Add(1000, new TalkData[]{ a, b, c });
         Debug.Log(talkData[1000][0].name);
     }
 
@@ -50,4 +51,32 @@ public class TalkManager : MonoBehaviour
         else
             return talkData[id][talkIndex];
     }
+#if false
+    public string GameDataFileName = "FindingAlliceData.json";
+
+    public GameData LoadGameData(){
+        string filePath = Application.dataPath + "/SaveFile/" + GameDataFileName;
+
+        if(File.Exists(filePath)){
+            Debug.Log("Load Succes");
+            string FromJsonData = File.ReadAllText(filePath);
+            return JsonUtility.FromJson<GameData>(FromJsonData);
+        }
+        else{
+            Debug.Log("Create New File");
+            return new GameData();
+        }
+    }
+
+    public void SaveGameData(){
+        string ToJsonData = JsonUtility.ToJson(gameData);
+        string filePath = Application.dataPath + "/SaveFile/" + GameDataFileName;
+
+        File.WriteAllText(filePath, ToJsonData);
+
+        Debug.Log("Save Succes");
+        Debug.Log("savePoint"+ gameData.playerPosition);
+    }
+#endif
+
 }
