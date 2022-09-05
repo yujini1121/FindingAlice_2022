@@ -17,11 +17,13 @@ public class ChangeScene : MonoBehaviour
         if(Input.GetMouseButtonDown(0)){
             if(gameData.isClearT)
             {
-                SceneManager.LoadScene("SelectChapterScene");
+                AsyncLoading.LoadScene("SelectChapterScene");
+                //SceneManager.LoadScene("SelectChapterScene");
             }
             else
             {
-                SceneManager.LoadScene("TutorialScene");
+                AsyncLoading.LoadScene("TutorialScene");
+                //SceneManager.LoadScene("TutorialScene");
             }
         }
     }
