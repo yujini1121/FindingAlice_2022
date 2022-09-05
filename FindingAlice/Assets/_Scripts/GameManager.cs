@@ -106,6 +106,7 @@ public class GameManager : MonoBehaviour
 
     public void PressExitGame()
     {
-        SceneManager.LoadScene("SelectChapterScene");
+        AsyncLoading.LoadScene("SelectChapterScene");
+        //SceneManager.LoadScene("SelectChapterScene");
     }
 }
