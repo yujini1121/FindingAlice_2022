@@ -6,8 +6,7 @@ public class ButtonTrigger : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Player")){
-            Debug.Log("ButtonTrigger");
-            Transparent.require = true;
+            GetComponentInParent<Transparent>().require = true;
         }
     }
 }
