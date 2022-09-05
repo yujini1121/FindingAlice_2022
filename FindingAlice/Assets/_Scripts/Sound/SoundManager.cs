@@ -46,16 +46,18 @@ public class SoundManager : MonoBehaviour
 
     void Start()
     {
-        bgmSoundValue = 1f;
-        effectSoundValue = 1f;
-        bgmSoundMute = false;
-        effectSoundMute = false;
+        bgmSoundValue = DataController.Instance.gameData.bgmValue;
+        effectSoundValue = DataController.Instance.gameData.effectValue;
+        bgmSoundMute = DataController.Instance.gameData.bgmMute;
+        effectSoundMute = DataController.Instance.gameData.effectMute;
     }
 
+#if false
     void Update()
     {
 
     }
+#endif
 
     public void BgmMute(bool mute)
     {
@@ -64,7 +66,6 @@ public class SoundManager : MonoBehaviour
             _bgmSoundMute = false;
             return;
         }
-        
         _bgmSoundMute = true;
     }
 
@@ -75,7 +76,14 @@ public class SoundManager : MonoBehaviour
             _effectSoundMute = false;
             return;
         }
-
         _effectSoundMute = true;
+    }
+
+    private void OnApplicationQuit()
+    {
+        DataController.Instance.gameData.effectValue = effectSoundValue;
+        DataController.Instance.gameData.bgmValue = bgmSoundValue;
+        DataController.Instance.gameData.effectMute = effectSoundMute;
+        DataController.Instance.gameData.bgmMute = bgmSoundMute;
     }
 }

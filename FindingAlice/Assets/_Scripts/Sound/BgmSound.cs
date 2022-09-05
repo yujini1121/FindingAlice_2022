@@ -11,6 +11,7 @@ public class BgmSound : MonoBehaviour
         _as = GetComponent<AudioSource>();
     }
 
+
     void Update()
     {
         _as.volume = SoundManager.SM.bgmSoundValue;

@@ -11,16 +11,23 @@ public class GameSceneChange : MonoBehaviour
         if(DataController.Instance._gameData.playerPosition != new Vector3(0,0,0))
         {
             Debug.Log("데이터 소멸 경고");
-            SceneManager.LoadScene("GameScene");
+
+            AsyncLoading.LoadScene("GameScene");
+            //SceneManager.LoadScene("GameScene");
         }
         else
-        SceneManager.LoadScene("GameScene");
+        AsyncLoading.LoadScene("GameScene");
+        //SceneManager.LoadScene("GameScene");
     }
 
     public void LoadGame(){
+        if (DataController.Instance._gameData.playerPosition == new Vector3(0, 0, 0))
+        {
+            return;
+        }
+        checkLoad = true;
 
-            checkLoad = true;
-            SceneManager.LoadScene("GameScene");
-
+        AsyncLoading.LoadScene("GameScene");
+        //SceneManager.LoadScene("GameScene");
     }
 }

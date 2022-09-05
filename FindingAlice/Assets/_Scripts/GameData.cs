@@ -11,11 +11,15 @@ public class GameData{
     public bool isClear2;
     public bool isClear3;
 
-
+    public float bgmValue;
+    public float effectValue;
+    public bool bgmMute;
+    public bool effectMute;
     // playerPosition은 분할 필요.
     public Vector3 playerPosition;
 }
 
+#if false
 [Serializable]
 public class Chaper1Data
 {
@@ -27,4 +31,11 @@ public class Chaper1Data
     // 필요한 state(추후 필요시 마다 추가.)
     // 호랑이 추격 state
     // 
+}
+#endif
+
+[Serializable]
+public class DialogData
+{
+    Dictionary<int, TalkData[]> talkData;
 }
