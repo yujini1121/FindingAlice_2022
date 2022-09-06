@@ -26,12 +26,11 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
 
     void Update() {
         //조이스틱을 눌렀을 때 PlayerMovement의 Move함수 호출
-        if (touchFlag)
-        {
-            // GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().Move(lever.anchoredPosition.x);
-            GameObject.FindWithTag("Player").SendMessage("Move", lever.anchoredPosition.x);
-            //Debug.Log(lever.anchoredPosition.x);
-        }
+        //if (touchFlag)
+        //{
+        //    // GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().Move(lever.anchoredPosition.x);
+        //    //Debug.Log(lever.anchoredPosition.x);
+        //}
     }
     
     public void OnPointerDown(PointerEventData eventData)
@@ -51,6 +50,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         }
         //터치 위치로 레버 이동
         lever.position = lever_original_transform + length;
+        GameObject.FindWithTag("Player").SendMessage("Move", lever.anchoredPosition.x);
     }
 
     //레버의 위치 초기화
