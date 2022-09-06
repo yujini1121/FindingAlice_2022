@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Update() {
-        if(!PlayerManager.Instance().isGameOver && !dManager.isActive)
+        if(!PlayerManager.Instance().isGameOver /*&& !dManager.isActive*/)
         {
             isMoving = false;
 // 디버깅 개발용 추후 false =======================================================
