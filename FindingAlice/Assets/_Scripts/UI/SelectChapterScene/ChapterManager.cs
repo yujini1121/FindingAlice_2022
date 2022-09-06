@@ -29,16 +29,24 @@ public class ChapterManager : MonoBehaviour
         chapterInfoImage.sprite = chapterSO.chapterSprite;
         chapterInfoSynopsys.text = chapterSO.synopsys;
 #if true
-        collectionCount.text = DataController.Instance.gameData.collection.Length.ToString();
+        collectionCount.text = $"{CalCollections()} / {DataController.Instance.gameData.collection.Length.ToString()}";
 #else
 #endif
         optionButton.SetActive(false);
         chapterInfo.SetActive(true);
     }
 
-    private void CalCollections()
+    private int CalCollections()
     {
-
+        int count = 0;
+        for(int i = 0; i < DataController.Instance.gameData.collection.Length - 1; i++)
+        {
+            if (DataController.Instance.gameData.collection[i])
+            {
+                count++;
+            }
+        }
+        return count;
     }
 
 
