@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Jump")]
     [SerializeField] private float jumpForce;
-    private Animator playerAnim;
+    [HideInInspector] public  Animator playerAnim;
 
     //Scene - Player 오브젝트
     private GameObject  player;
@@ -52,11 +52,13 @@ public class PlayerMovement : MonoBehaviour
         if(!PlayerManager.Instance().isGameOver && !dManager.isActive)
         {
             isMoving = false;
-
+// 디버깅 개발용 추후 false =======================================================
+#if true
             if (Input.GetAxis("Horizontal") != 0)
                 Move(Input.GetAxisRaw("Horizontal"));
             if (Input.GetKeyDown(KeyCode.Space))
                 Jump();
+#endif
             CheckJumping();
         }
     }
@@ -128,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
                 return;
             }
         }
-        playerAnim.SetBool("isRolling", false);
+        //playerAnim.SetBool("isRolling", false);
         playerAnim.SetBool("isGrounded", true);
         isGround = true;
         playerAnim.SetBool("isJumping", false);

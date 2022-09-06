@@ -28,12 +28,12 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         //조이스틱을 눌렀을 때 PlayerMovement의 Move함수 호출
         if (touchFlag)
         {
-            // GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().Move(lever.anchoredPosition.x);
             GameObject.FindWithTag("Player").SendMessage("Move", lever.anchoredPosition.x);
-            //Debug.Log(lever.anchoredPosition.x);
         }
+        else
+            GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().playerAnim.SetBool("isWalk", false);
     }
-    
+
     public void OnPointerDown(PointerEventData eventData)
     {
         touchFlag = true;

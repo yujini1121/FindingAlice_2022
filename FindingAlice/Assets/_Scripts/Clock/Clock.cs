@@ -9,6 +9,9 @@ public class Clock : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             ClockManager.C.clockReset();
+#if true
+        other.gameObject.GetComponent<PlayerMovement>().playerAnim.SetTrigger("isRolling");
+#endif
         }
     }
 }

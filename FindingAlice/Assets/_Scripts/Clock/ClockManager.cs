@@ -260,6 +260,8 @@ public class ClockManager : MonoBehaviour
         clockReloadStart = clockEndTime = Time.time;
         clock.transform.localPosition = Vector3.zero;
         dxIsPositive = true;
+
+
         player.GetComponent<CapsuleCollider>().height = playerColliderHeight;
         player.GetComponent<CapsuleCollider>().radius = playerColliderRadius;
     }
