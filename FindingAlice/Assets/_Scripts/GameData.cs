@@ -17,6 +17,7 @@ public class GameData{
     public bool effectMute;
     // playerPosition은 분할 필요.
     public Vector3 playerPosition;
+    public bool[] collection;
 }
 
 [Serializable]

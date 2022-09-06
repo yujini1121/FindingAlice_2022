@@ -11,6 +11,7 @@ public class ChapterManager : MonoBehaviour
     private GameObject optionButton;
     private Image chapterInfoImage;
     private Text chapterInfoSynopsys;
+    private Text collectionCount;
 
     private void Awake() {
         chapterInfo = GameObject.FindWithTag("ChapterInfo").transform.GetChild(0).gameObject;
@@ -20,15 +21,26 @@ public class ChapterManager : MonoBehaviour
         // chapterSO = eachChapter.GetComponent<ChapterButton>().chapterSO;
         chapterInfoImage = chapterInfo.transform.Find("ChapterImage").GetComponent<Image>();
         chapterInfoSynopsys = chapterInfo.transform.Find("ChapterSynopsys").GetComponent<Text>();
+        collectionCount = chapterInfo.transform.Find("Collections").GetComponent<Text>();
     }
     
     public void PopUpChapter(int i){
         chapterSO = eachChapter[i].GetComponent<ChapterButton>().chapterSO;
         chapterInfoImage.sprite = chapterSO.chapterSprite;
         chapterInfoSynopsys.text = chapterSO.synopsys;
+#if true
+        collectionCount.text = DataController.Instance.gameData.collection.Length.ToString();
+#else
+#endif
         optionButton.SetActive(false);
         chapterInfo.SetActive(true);
     }
+
+    private void CalCollections()
+    {
+
+    }
+
 
     public void PopUpOption()
     {

@@ -67,7 +67,6 @@ public class DataController : MonoBehaviour
         File.WriteAllText(filePath, ToJsonData);
 
         Debug.Log("Save Succes");
-        Debug.Log("savePoint"+ gameData.playerPosition);
     }
 #if true
     public string ChapterDataFileName = "ChapterData.json";
