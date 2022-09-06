@@ -24,7 +24,8 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         lever_original_transform = lever.position;
     }
 
-    void Update() {
+    void Update()
+    {
         //조이스틱을 눌렀을 때 PlayerMovement의 Move함수 호출
         if (touchFlag)
         {
@@ -32,6 +33,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
         }
         else
             GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().playerAnim.SetBool("isWalk", false);
+    }
 
     public void OnPointerDown(PointerEventData eventData)
     {
