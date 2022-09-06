@@ -110,7 +110,5 @@ public class GameManager : MonoBehaviour
     {
         AsyncLoading.LoadScene("SelectChapterScene");
         //SceneManager.LoadScene("SelectChapterScene");
-        //AsyncLoading.LoadScene("SelectChapterScene");
-        //SceneManager.LoadScene("SelectChapterScene");
     }
 }

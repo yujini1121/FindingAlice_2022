@@ -40,15 +40,21 @@ public class AsyncLoading : MonoBehaviour
         yield return null;
         //AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
         //AsyncOperation op;
+        //Debug.Log("!!!");
         op = SceneManager.LoadSceneAsync(nextScene);
-        op.allowSceneActivation = false;
+        op.allowSceneActivation = true;
         //float timer = 0.0f;
 
         //if (nr.changeSceneFlag)
-        if (op.isDone)
+        while (true)
         {
-            op.allowSceneActivation = true;
-            yield break;
+            Debug.Log("?");
+            if (op.isDone)
+            {
+                Debug.Log("!");
+                //op.allowSceneActivation = true;
+                //yield break;
+            }
         }
 
         //while (!op.isDone)
