@@ -104,6 +104,8 @@ public class GameManager : MonoBehaviour
         optionButton.SetActive(true);
     }
 
+
+
     public void PressExitGame()
     {
         AsyncLoading.LoadScene("SelectChapterScene");
