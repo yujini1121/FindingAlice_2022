@@ -384,7 +384,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b60d29861e381bd439f0efa55693b465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeValue: 0
+  timer: 0
+  timeValue: 0
+  _changeSceneFlag: 0
 --- !u!1 &301894839
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,7 +849,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 70
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
