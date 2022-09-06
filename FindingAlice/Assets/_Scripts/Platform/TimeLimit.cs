@@ -20,9 +20,22 @@ public class TimeLimit : MonoBehaviour
         }
     }
 
+#if false
     private IEnumerator TimeLimitFunc(){
         platform.SetActive(true);
         yield return new WaitForSeconds(holdingTime);
+        PlatformManager.SetActive(platform);
+    }
+#else
+    private IEnumerator TimeLimitFunc()
+    {
+        platform.SetActive(true);
+        if (platform.GetComponent<Sink>() != null)
+        {
+            platform.GetComponent<Sink>().active = true;
+        }
+        yield return new WaitForSeconds(holdingTime);
         platform.SetActive(false);
     }
+#endif
 }

@@ -18,10 +18,11 @@ public class AsyncLoading : MonoBehaviour
 
     void Start()
     {
+        StopAllCoroutines();
         StartCoroutine(LoadScene());
         nr = minute.GetComponent<NiddleRotate>();
         FillText();
-        text.text = loadingText[Random.Range(0, 14)];
+        text.text = loadingText[Random.Range(0, 13)];
     }
 
     public static void LoadScene(string sceneName)
@@ -36,6 +37,7 @@ public class AsyncLoading : MonoBehaviour
         AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
         op.allowSceneActivation = false;
         float timer = 0.0f;
+        // test
         while (!op.isDone)
         {
             yield return null;
@@ -53,6 +55,7 @@ public class AsyncLoading : MonoBehaviour
                 if (progressBar.fillAmount == 1.0f && nr.timeValue > 3f)
                 {
                     op.allowSceneActivation = true;
+                    //test
                     yield break;
                 }
             }

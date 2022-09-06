@@ -14,6 +14,8 @@ public class Sink : MonoBehaviour
 
     private GameObject player;
 
+    public bool active = false;
+
     private void Awake(){
         platform = transform.GetChild(0).gameObject;
         startPosY = transform.position.y;
@@ -46,11 +48,14 @@ public class Sink : MonoBehaviour
     }
 
     private void OnDisable() {
-        transform.position = new Vector3(transform.position.x, startPosY, transform.position.z);
-        if (player.transform.parent != null)
+        if (active)
         {
+            transform.position = new Vector3(transform.position.x, startPosY, transform.position.z);
             player.transform.SetParent(null);
+            checkCollison = false;
+            active = false;
         }
-        checkCollison = false;
+        else
+            return;
     }
 }
