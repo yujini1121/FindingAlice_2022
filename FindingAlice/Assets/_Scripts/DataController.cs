@@ -69,18 +69,19 @@ public class DataController : MonoBehaviour
         Debug.Log("Save Succes");
         Debug.Log("savePoint"+ gameData.playerPosition);
     }
-#if false
-    public string DialogDataFileName = "DialogData.json";
+#if true
+    public string ChapterDataFileName = "ChapterData.json";
 
-    public DialogData LoadDialogueData()
+    public ChapterData LoadChapterData()
     {
-        string filePath = Application.dataPath + "/SaveFile/" + DialogDataFileName;
+        string filePath = Application.dataPath + "/SaveFile/" + ChapterDataFileName;
 
         if (File.Exists(filePath))
         {
             string FromJsonData = File.ReadAllText(filePath);
-            return JsonUtility.FromJson<DialogData>(FromJsonData);
+            return JsonUtility.FromJson<ChapterData>(FromJsonData);
         }
+        else return new ChapterData();
     }
 #endif
     private void OnApplicationQuit() {

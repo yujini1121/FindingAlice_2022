@@ -19,23 +19,16 @@ public class GameData{
     public Vector3 playerPosition;
 }
 
-#if false
 [Serializable]
-public class Chaper1Data
+public class ChapterData
 {
     // checkPoint info
     // checkPoint에 각각의 숫자를 붙임.
     // 마지막에 닿은 체크포인트의 숫자를 저장
     public int checkNum;
-
+    public Vector3 playerPosition;
+    public bool chase;
     // 필요한 state(추후 필요시 마다 추가.)
     // 호랑이 추격 state
     // 
-}
-#endif
-
-[Serializable]
-public class DialogData
-{
-    Dictionary<int, TalkData[]> talkData;
 }

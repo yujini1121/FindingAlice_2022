@@ -24,6 +24,9 @@ public class AsyncLoading : MonoBehaviour
         FillText();
         text.text = loadingText[Random.Range(0, 13)];
         StartCoroutine(LoadScene());
+        
+        //StopAllCoroutines();
+        //StartCoroutine(LoadScene());
     }
 
     public static void LoadScene(string sceneName)
