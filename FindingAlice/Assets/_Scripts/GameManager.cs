@@ -108,10 +108,7 @@ public class GameManager : MonoBehaviour
 
     public void PressExitGame()
     {
-#if true
         AsyncLoading.LoadScene("SelectChapterScene");
-#else
-        SceneManager.LoadScene("SelectChapterScene");
-#endif
+        //SceneManager.LoadScene("SelectChapterScene");
     }
 }

@@ -203,7 +203,7 @@ public class ClockManager : MonoBehaviour
                 break;
 
             case ClockState.shootMaximum:
-                if (Time.time - clockDistanceMaximumTime < 0.025f)
+                if (Time.time - clockDistanceMaximumTime < 0.25f)
                 {
                     //시계 방향에 따라 캐릭터 회전
                     if (player.transform.localScale.x * dX < 0)
