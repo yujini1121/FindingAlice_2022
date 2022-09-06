@@ -4,21 +4,31 @@ using UnityEngine;
 
 public class NiddleRotate : MonoBehaviour
 {
-    [SerializeField] float _timeValue;
+    [SerializeField] float timer = 0;
+    [SerializeField] int timeValue = 0;
+    [SerializeField] bool _changeSceneFlag;
 
-    public float timeValue
+    public bool changeSceneFlag
     {
-        get { return _timeValue; }
+        get { return _changeSceneFlag; }
     }
 
-    void Start()
+    private void Update()
     {
-        InvokeRepeating("Rotate", 0f, 1f);
-    }
+        if (timer < 1)
+        {
+            timer += Time.deltaTime;
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, -30 + transform.rotation.eulerAngles.z));
+            timer = 0;
+            timeValue++;
+        }
 
-    void Rotate()
-    {
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, -timeValue * 30));
-        _timeValue++;
+        if (timeValue >= 3)
+        {
+            _changeSceneFlag = true;
+        }
     }
 }

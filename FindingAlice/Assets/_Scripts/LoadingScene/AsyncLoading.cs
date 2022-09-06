@@ -16,12 +16,14 @@ public class AsyncLoading : MonoBehaviour
 
     [SerializeField] string[] loadingText;
 
+    AsyncOperation op;
+
     void Start()
     {
-        StartCoroutine(LoadScene());
         nr = minute.GetComponent<NiddleRotate>();
         FillText();
-        text.text = loadingText[Random.Range(0, 14)];
+        text.text = loadingText[Random.Range(0, 13)];
+        StartCoroutine(LoadScene());
     }
 
     public static void LoadScene(string sceneName)
@@ -33,30 +35,42 @@ public class AsyncLoading : MonoBehaviour
     IEnumerator LoadScene()
     {
         yield return null;
-        AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
+        //AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
+        //AsyncOperation op;
+        op = SceneManager.LoadSceneAsync(nextScene);
         op.allowSceneActivation = false;
-        float timer = 0.0f;
-        while (!op.isDone)
-        {
-            yield return null;
-            timer += Time.deltaTime;
+        //float timer = 0.0f;
 
-            if (op.progress < 0.9f)
-            {
-                progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, op.progress, timer);
-                if (progressBar.fillAmount >= op.progress)
-                    timer = 0;
-            }
-            else
-            {
-                progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, 1f, timer);
-                if (progressBar.fillAmount == 1.0f && nr.timeValue > 3f)
-                {
-                    op.allowSceneActivation = true;
-                    yield break;
-                }
-            }
+        //if (nr.changeSceneFlag)
+        if (op.isDone)
+        {
+            op.allowSceneActivation = true;
+            yield break;
         }
+
+        //while (!op.isDone)
+        //while (progressBar.fillAmount <= 1f)
+        //{
+        //    yield return null;
+        //    timer += Time.deltaTime;
+
+        //    if (op.progress < 0.9f)
+        //    {
+        //        progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, op.progress, timer);
+        //        if (progressBar.fillAmount >= op.progress)
+        //            timer = 0;
+        //    }
+        //    else
+        //    {
+        //        progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, 1f, timer);
+        //        if (progressBar.fillAmount == 1.0f && nr.changeSceneFlag)
+        //        {
+        //            op.allowSceneActivation = true;
+        //            yield break;
+        //        }
+        //    }
+        //}
+        //yield return null;
     }
 
     void FillText()
