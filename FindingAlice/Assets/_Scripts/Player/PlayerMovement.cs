@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
 #if true
             if (Input.GetAxis("Horizontal") != 0)
                 Move(Input.GetAxisRaw("Horizontal"));
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && isGround)
                 Jump();
 #endif
             CheckJumping();
@@ -90,17 +90,14 @@ public class PlayerMovement : MonoBehaviour
     
     public void Jump(){
         // z키를 누르거나 점프 버튼이 눌렸을 때 플레이어가 땅에 있을 경우 점프
-        if (isGround)
-        {
-            //수정점
-            isGround = false;
+        //수정점
+        isGround = false;
 
-            playerAnim.SetBool("isJumping", true);
-            isJumping = true;
-            playerRigidbody.velocity = Vector3.zero;
-            playerRigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-            return;
-        }
+        playerAnim.SetBool("isJumping", true);
+        isJumping = true;
+        playerRigidbody.velocity = Vector3.zero;
+        playerRigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+        return;
     }
 
     private void CheckJumping()
