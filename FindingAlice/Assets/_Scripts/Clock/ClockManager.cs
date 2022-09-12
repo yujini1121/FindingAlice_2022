@@ -194,6 +194,7 @@ public class ClockManager : MonoBehaviour
 
                     keepDir = new Vector3(dX * distance, dY * distance, 0);
                     clock.transform.localPosition = keepDir;
+                    clock.transform.LookAt(player.transform);
                 }
                 else
                 {
