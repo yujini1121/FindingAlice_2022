@@ -50,7 +50,7 @@ public class DataController : MonoBehaviour
         string filePath = Application.dataPath + "/SaveFile/" + GameDataFileName;
 
         if(File.Exists(filePath)){
-            Debug.Log("Load Succes");
+            Debug.Log("Load Success");
             string FromJsonData = File.ReadAllText(filePath);
             return JsonUtility.FromJson<GameData>(FromJsonData);
         }
@@ -66,10 +66,9 @@ public class DataController : MonoBehaviour
 
         File.WriteAllText(filePath, ToJsonData);
 
-        Debug.Log("Save Succes");
-        Debug.Log("savePoint"+ gameData.playerPosition);
+        Debug.Log("Save Success");
     }
-#if true
+#if false
     public string ChapterDataFileName = "ChapterData.json";
 
     public ChapterData LoadChapterData()

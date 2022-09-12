@@ -194,6 +194,7 @@ public class ClockManager : MonoBehaviour
 
                     keepDir = new Vector3(dX * distance, dY * distance, 0);
                     clock.transform.localPosition = keepDir;
+                    clock.transform.LookAt(player.transform);
                 }
                 else
                 {
@@ -260,6 +261,8 @@ public class ClockManager : MonoBehaviour
         clockReloadStart = clockEndTime = Time.time;
         clock.transform.localPosition = Vector3.zero;
         dxIsPositive = true;
+
+
         player.GetComponent<CapsuleCollider>().height = playerColliderHeight;
         player.GetComponent<CapsuleCollider>().radius = playerColliderRadius;
     }
