@@ -20,9 +20,10 @@ public class PlayerMovement : MonoBehaviour
     private float       inputDir;
 
     [SerializeField] private bool isMoving = false;
+    [SerializeField] private bool isPressSpace = false;
 
     //state
-    private bool isGround, isJumping, isFalling;
+    [SerializeField] private bool isGround, isJumping, isFalling;
 
     [SerializeField]
     private bool _collisionToWall = false;
@@ -56,11 +57,18 @@ public class PlayerMovement : MonoBehaviour
 #if true
             if (Input.GetAxis("Horizontal") != 0)
                 Move(Input.GetAxisRaw("Horizontal"));
-            if (Input.GetKeyDown(KeyCode.Space) && isGround)
+            if (Input.GetKeyDown(KeyCode.Space) && isGround && !isPressSpace)
+            {
+                isPressSpace = true;
                 Jump();
+            }
 #endif
             CheckJumping();
         }
+        if (isGround)
+            Debug.Log("점프 가능!!!");
+        if (!isJumping)
+            Debug.Log("점프 중 아님!!!");
     }
 
     public void Move(float dir = 0){
@@ -127,6 +135,7 @@ public class PlayerMovement : MonoBehaviour
                 return;
             }
         }
+        Debug.Log("닿음!!!");
         //playerAnim.SetBool("isRolling", false);
         playerAnim.SetBool("isGrounded", true);
         isGround = true;
@@ -134,6 +143,7 @@ public class PlayerMovement : MonoBehaviour
         isJumping = false;
         playerAnim.SetBool("isFalling", false);
         isFalling = false;
+        isPressSpace = false;
     }
     //플랫폼에서 떨어졌을 때 점프 제한
     private void OnCollisionExit(Collision other)
@@ -141,6 +151,8 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Platform"))
         {
             //수정점
+            if (isPressSpace)
+                return;
             StartCoroutine(SmoothJump());
             //isGround = false;
         }
@@ -170,7 +182,7 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator SmoothJump()
     {
-        yield return new WaitForSeconds(0.15f);
+        yield return new WaitForSeconds(0.25f);
         isGround = false;
     }
 }
