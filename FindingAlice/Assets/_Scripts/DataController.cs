@@ -25,7 +25,7 @@ public class DataController : MonoBehaviour
     }
     public string GameDataFileName = "FindingAlliceData.json";
 
-    public GameData _gameData;
+    [SerializeField] private GameData _gameData;
     public GameData gameData{
         get{
             if(_gameData == null){

@@ -66,6 +66,8 @@ public class ClockManager : MonoBehaviour
     //시계를 누르고 있던 시간(뗀 시간 - 누른 시간)
     float _clockPushTime = 0f;
 
+    bool dxIsPositive = true;
+
     [SerializeField] float distance = 2f;
 
     [SerializeField] int _clockCounter = 2;
@@ -171,7 +173,7 @@ public class ClockManager : MonoBehaviour
                 }
                 break;
 
-            //화면 드래그 시 시계 사출
+            //X를 누르고 있을 때 시계 사출
             case ClockState.shoot:
                 if (distance < clockMaxRange)
                 {
@@ -180,6 +182,11 @@ public class ClockManager : MonoBehaviour
                     clockBackMat.color = new Color(0, 0, 0, clockBackMatAlpha);
 
                     distance += clockSpeed * Time.deltaTime;
+                    //theta = Mathf.Atan2(dY, dX);
+
+                    //시계 방향에 따라 캐릭터 회전
+                    if (player.transform.localScale.x * dX < 0)
+                        player.SendMessage("turnCharacter");
 
                     //캐릭터 방향에 따라 dX의 부호 변환(안 할 시 시계 방향 오류 생김)
                     if (player.transform.localScale.x < 0)
@@ -187,9 +194,7 @@ public class ClockManager : MonoBehaviour
 
                     keepDir = new Vector3(dX * distance, dY * distance, 0);
                     clock.transform.localPosition = keepDir;
-                    clock.transform.rotation = Quaternion.Euler(new Vector3(Mathf.Atan2(
-                        clock.transform.position.x - player.transform.position.x,
-                        clock.transform.position.y - player.transform.position.y) * (180f / Mathf.PI), 90f, -90f));
+                    clock.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(clock.transform.position.x - player.transform.position.x, clock.transform.position.y - player.transform.position.y) * Mathf.Rad2Deg));
                 }
                 else
                 {
@@ -201,20 +206,16 @@ public class ClockManager : MonoBehaviour
             case ClockState.shootMaximum:
                 if (Time.time - clockDistanceMaximumTime < 0.25f)
                 {
-                    Vector3 clockRotate = new Vector3(Mathf.Atan2(
-                        clock.transform.position.x - player.transform.position.x,
-                        clock.transform.position.y - player.transform.position.y) * (180f / Mathf.PI), 90f, -90f);
+                    //시계 방향에 따라 캐릭터 회전
+                    if (player.transform.localScale.x * dX < 0)
+                        player.SendMessage("turnCharacter");
 
                     //캐릭터 방향에 따라 dX의 부호 변환(안 할 시 시계 방향 오류 생김)
                     if (player.transform.localScale.x < 0)
-                    {
                         dX = -dX;
-                        clockRotate.x += 180f;
-                    }
 
                     keepDir = new Vector3(dX * distance, dY * distance, 0);
                     clock.transform.localPosition = keepDir;
-                    clock.transform.rotation = Quaternion.Euler(clockRotate);
                 }
                 else
                 {
@@ -238,6 +239,7 @@ public class ClockManager : MonoBehaviour
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
         range.SetActive(true);
         clock.SetActive(true);
+        if (dX < 0) dxIsPositive = false;
     }
 
     public void clockReset()
@@ -258,6 +260,7 @@ public class ClockManager : MonoBehaviour
 
         clockReloadStart = clockEndTime = Time.time;
         clock.transform.localPosition = Vector3.zero;
+        dxIsPositive = true;
 
 
         player.GetComponent<CapsuleCollider>().height = playerColliderHeight;
