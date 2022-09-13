@@ -7,7 +7,7 @@ public class _SavePoint : MonoBehaviour
     void OnTriggerEnter(Collider other){
         if(other.CompareTag("Player")){
             PlayerManager.Instance().lastCPPos = transform.position;
-            DataController.Instance._gameData.playerPosition = this.transform.position;
+            DataController.Instance.gameData.playerPosition = this.transform.position;
         }
     }
 }

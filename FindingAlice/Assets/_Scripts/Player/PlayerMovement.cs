@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start(){
         player = GameObject.FindGameObjectWithTag("Player");
         playerRigidbody = player.GetComponent<Rigidbody>();
-        if(GameSceneChange.checkLoad){
+        if(ChapterManager.checkLoad){
             player.transform.position = DataController.Instance.gameData.playerPosition;
         }
     }
@@ -80,6 +80,14 @@ public class PlayerMovement : MonoBehaviour
 
                 playerAnim.SetBool("isWalk", inputDir != 0);
             }
+            else
+            {
+                if(inputDir > 0)
+                {
+                    playerAnim.SetBool("isWalk", false);
+                }
+            }
+            
 
             if ((transform.localScale.x > 0 && inputDir < 0) || (transform.localScale.x < 0 && inputDir > 0))
             {
@@ -115,6 +123,19 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
 
+    //private void OnCollisionEnter(Collision other)
+    //{
+    //    if (other.gameObject.CompareTag("Platform"))
+    //    {
+    //        playerAnim.SetBool("isGrounded", true);
+    //        isGround = true;
+    //        playerAnim.SetBool("isJumping", false);
+    //        isJumping = false;
+    //        playerAnim.SetBool("isFalling", false);
+    //        isFalling = false;
+    //    }
+    //}
+
     //플랫폼의 기울기에 따라 점프의 여부 판단
     private void OnCollisionStay(Collision other)
     {
@@ -126,14 +147,18 @@ public class PlayerMovement : MonoBehaviour
                 playerAnim.SetBool("isGrounded", false);
                 return;
             }
+            else
+            {
+                playerAnim.SetBool("isGrounded", true);
+                isGround = true;
+                playerAnim.SetBool("isJumping", false);
+                isJumping = false;
+                playerAnim.SetBool("isFalling", false);
+                isFalling = false;
+                return;
+            }
         }
         //playerAnim.SetBool("isRolling", false);
-        playerAnim.SetBool("isGrounded", true);
-        isGround = true;
-        playerAnim.SetBool("isJumping", false);
-        isJumping = false;
-        playerAnim.SetBool("isFalling", false);
-        isFalling = false;
     }
     //플랫폼에서 떨어졌을 때 점프 제한
     private void OnCollisionExit(Collision other)
