@@ -108,6 +108,7 @@ public class GameManager : MonoBehaviour
 
     public void PressExitGame()
     {
+        GameObject.Find("CollectionManager").GetComponent<CollectionManager>().SaveCollectionData();
         AsyncLoading.LoadScene("SelectChapterScene");
         //SceneManager.LoadScene("SelectChapterScene");
     }

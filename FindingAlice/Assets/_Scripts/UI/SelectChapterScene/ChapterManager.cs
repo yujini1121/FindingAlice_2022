@@ -96,13 +96,13 @@ public class ChapterManager : MonoBehaviour
                 //SceneManager.LoadScene("GameScene");
             }
             else
-                AsyncLoading.LoadScene("GameScene");
+                AsyncLoading.LoadScene("Chapter_1");
             //SceneManager.LoadScene("GameScene");
         }
         else
         {
             notice.SetActive(false);
-            AsyncLoading.LoadScene("GameScene");
+            AsyncLoading.LoadScene("Chapter_1");
         }
     }
 
@@ -110,7 +110,7 @@ public class ChapterManager : MonoBehaviour
     {
         checkLoad = true;
 
-        AsyncLoading.LoadScene("GameScene");
+        AsyncLoading.LoadScene("Chapter_1");
         //SceneManager.LoadScene("GameScene");
     }
 }
