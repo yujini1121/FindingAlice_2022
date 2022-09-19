@@ -8,6 +8,10 @@ public class _SavePoint : MonoBehaviour
         if(other.CompareTag("Player")){
             PlayerManager.Instance().lastCPPos = transform.position;
             DataController.Instance.gameData.playerPosition = this.transform.position;
+            if (!DataController.Instance.gameData.hasCP[0])
+            {
+                DataController.Instance.gameData.hasCP[0] = true;
+            }
         }
     }
 }

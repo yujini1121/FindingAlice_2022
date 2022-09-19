@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                if(inputDir > 0)
+                if(inputDir != 0)
                 {
                     playerAnim.SetBool("isWalk", false);
                 }
