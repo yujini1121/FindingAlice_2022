@@ -32,7 +32,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
             GameObject.FindWithTag("Player").SendMessage("Move", lever.anchoredPosition.x);
         }
         else
-            GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().playerAnim.SetBool("isWalk", false);
+            GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().AnimControl("isWalk", false);
     }
 
     public void OnPointerDown(PointerEventData eventData)
