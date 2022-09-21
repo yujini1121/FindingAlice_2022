@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Jump")]
     [SerializeField] private float jumpForce;
-    [HideInInspector] public  Animator playerAnim;
+    [HideInInspector] private Animator playerAnim;
 
     //Scene - Player 오브젝트
     private GameObject  player;
@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool isMoving = false;
 
     //state
-    [SerializeField] private bool isGround, isJumping, isFalling;
+    [SerializeField] private bool _isGround, isJumping, isFalling;
 
     [SerializeField]
     private bool _collisionToWall = false;
@@ -31,6 +31,12 @@ public class PlayerMovement : MonoBehaviour
     {
         get { return _collisionToWall; }
         set { _collisionToWall = value; }
+    }
+
+    public bool isGround
+    {
+        get { return _isGround; }
+        set { _isGround = value; }
     }
 
     [SerializeField] private DialogueManager dManager;
@@ -72,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
 
             inputDir = dir;
 
-            if (!_collisionToWall)
+            if (!collisionToWall)
             {
                 moveDirX = new Vector3(inputDir, 0, 0).normalized;
 
@@ -128,12 +134,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Platform"))
         {
-            playerAnim.SetBool("isGrounded", true);
-            isGround = true;
-            playerAnim.SetBool("isJumping", false);
-            isJumping = false;
-            playerAnim.SetBool("isFalling", false);
-            isFalling = false;
+            if (other.contacts[0].normal.y >= 0.7f || other.contacts[1].normal.y >= 0.7f)
+            {
+                playerAnim.SetBool("isGrounded", true);
+                isGround = true;
+                playerAnim.SetBool("isJumping", false);
+                isJumping = false;
+                playerAnim.SetBool("isFalling", false);
+                isFalling = false;
+            }
         }
     }
 
@@ -143,12 +152,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Platform"))
         {
-            if (other.contacts[0].normal.y <= 0.7f)
-            {
-                isGround = false;
-                playerAnim.SetBool("isGrounded", false);
-                return;
-            }
+            //if (other.contacts[0].normal.y <= 0.7f)
+            //{
+            //    isGround = false;
+            //    playerAnim.SetBool("isGrounded", false);
+            //    return;
+            //}
             //else
             //{
             //    playerAnim.SetBool("isGrounded", true);
@@ -167,7 +176,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Platform"))
         {
-            StartCoroutine(SmoothJump());
+            //StartCoroutine(SmoothJump());
         }
             
         playerAnim.SetBool("isGrounded", false);
@@ -191,6 +200,16 @@ public class PlayerMovement : MonoBehaviour
             default:
             return;
         }
+    }
+
+    public void AnimControl(string anim, bool boolean)
+    {
+        playerAnim.SetBool(anim, boolean);
+    }
+
+    public void AnimControl(string anim)
+    {
+        playerAnim.SetTrigger(anim);
     }
 
     IEnumerator SmoothJump()

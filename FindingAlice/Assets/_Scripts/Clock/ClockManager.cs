@@ -177,6 +177,7 @@ public class ClockManager : MonoBehaviour
             case ClockState.shoot:
                 if (distance < clockMaxRange)
                 {
+                    player.GetComponent<PlayerMovement>().isGround = false;
                     // 시계 사출 중일 때는 뒷 배경을 어둡게 만듦
                     clockBackMatAlpha += Time.deltaTime * 20f;
                     clockBackMat.color = new Color(0, 0, 0, clockBackMatAlpha);
