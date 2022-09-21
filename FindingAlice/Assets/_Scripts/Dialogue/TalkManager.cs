@@ -33,46 +33,6 @@ public class TalkManager : MonoBehaviour
 
     private void GenerateData() // 데이터 만드는 함수
     {
-        //TalkData a = new TalkData() { name = "토끼",
-        //    sprite = Resources.LoadAll<Sprite>("토끼_2")[0],
-        //    talkContents = "윽... 머리야.", position = Position.left };
-        //TalkData b = new TalkData() { name = "토끼",
-        //    sprite = Resources.LoadAll<Sprite>("토끼_2")[0],
-        //    talkContents = "제대로 온 건가..?", position = Position.left };
-        //
-        //TalkData c = new TalkData() { name = "???",
-        //    sprite = Resources.LoadAll<Sprite>("선비_스프라이트")[0],
-        //    talkContents = "사람 살려!!!", position = Position.right };
-        //TalkData d = new TalkData() { name = "토끼",
-        //    sprite = Resources.LoadAll<Sprite>("토끼_2")[0],
-        //    talkContents = "무슨 일이 일어나는 거지?", position = Position.left };
-        //
-        //TalkData e = new TalkData() { name = "호랑이",
-        //    sprite = Resources.LoadAll<Sprite>("선비_스프라이트")[0],
-        //    talkContents = "이 녀석! 붙잡히면 가만 안 둔다!!!",
-        //    position = Position.right };
-        //TalkData f = new TalkData() { name = "선비",
-        //    sprite = Resources.LoadAll<Sprite>("토끼_2")[0],
-        //    talkContents = "끼야아아악!", 
-        //    position = Position.right };
-        //TalkData g = new TalkData()
-        //{
-        //    name = "???",
-        //    sprite = Resources.LoadAll<Sprite>("선비_스프라이트")[0],
-        //    talkContents = "사람 살려!!!",
-        //    position = Position.right
-        //};
-        //TalkData h = new TalkData()
-        //{
-        //    name = "토끼",
-        //    sprite = Resources.LoadAll<Sprite>("토끼_2")[0],
-        //    talkContents = "무슨 일이 일어나는 거지?",
-        //    position = Position.left
-        //};
-        //
-        //
-        //talkData.Add(1, new TalkData[]{ a, b });
-        //talkData.Add(2, new TalkData[] { c, d });
         TalkData[] a = new TalkData[]
         {
             new TalkData(){

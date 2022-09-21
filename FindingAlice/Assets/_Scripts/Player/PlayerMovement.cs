@@ -87,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
             }
             playerAnim.SetBool("isWalk", !_collisionToWall);
 
+
             if ((transform.localScale.x > 0 && inputDir < 0) || (transform.localScale.x < 0 && inputDir > 0))
             {
                 turnCharacter();
