@@ -154,9 +154,6 @@ public class PlayerMovement : MonoBehaviour
                 isJumping = false;
                 playerAnim.SetBool("isFalling", false);
                 isFalling = false;
-                if (other.gameObject.GetComponent<PlatformManager>() != null)
-                    other.gameObject.GetComponent<PlatformManager>().Function(1);
-                return;
             }
         }
         //playerAnim.SetBool("isRolling", false);
