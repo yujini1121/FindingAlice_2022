@@ -30,16 +30,20 @@ public class WatchBand : MonoBehaviour
         Vector3 vec = new Vector3((clockPosition.x + playerPosition.x)/2, (clockPosition.y + playerPosition.y)/2, 0);
         transform.position = vec;
 
-        float dx = clockPosition.x - playerPosition.x;
-        float dy = clockPosition.y - playerPosition.y;
+        float dx = playerPosition.x - clockPosition.x;
+        float dy = playerPosition.y - clockPosition.y;
+
+        //float dx = clockPosition.x - playerPosition.x;
+        //float dy = clockPosition.y - playerPosition.y;
         angle = new Vector3(0, 0, Mathf.Atan2(dy, dx) * (180f / Mathf.PI));
         transform.rotation = Quaternion.Euler(angle);
 
-        Vector3 scale = new Vector3(Vector3.Distance(clockPosition, playerPosition), 0.3f, 0f);
+        Vector3 scale = new Vector3(Vector3.Distance(clockPosition, playerPosition), 2.4f, 0f);
         transform.localScale = scale;
         if (ClockManager.C.CS == ClockState.shoot)
         {
-            x += 0.003f;
+            //x -= 0.006f;
+            x -= Time.deltaTime * 24;
             mat.mainTextureScale = new Vector2(x, 1f);
         }
         else if (ClockManager.C.CS == ClockState.shootMaximum)
