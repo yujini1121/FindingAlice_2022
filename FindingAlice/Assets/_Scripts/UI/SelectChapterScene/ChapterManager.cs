@@ -15,7 +15,7 @@ public class ChapterManager : MonoBehaviour
     public Button loadBtn;
 
     private int cpN;
-    static public bool checkLoad = false;
+    static public bool checkLoad;
     public GameObject notice;
 
     private void Awake() {
@@ -27,6 +27,8 @@ public class ChapterManager : MonoBehaviour
         chapterInfoImage = chapterInfo.transform.Find("ChapterImage").GetComponent<Image>();
         chapterInfoSynopsys = chapterInfo.transform.Find("ChapterSynopsys").GetComponent<Text>();
         collectionCount = chapterInfo.transform.Find("Collections").GetComponent<Text>();
+
+        checkLoad = false;
     }
 
     public void PopUpChapter(int i){

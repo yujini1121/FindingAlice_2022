@@ -17,16 +17,29 @@ public class DialogueManager : MonoBehaviour
 
     public ObjData objData;
 
+
     private void Update()
     {
         if(isActive)
         {
-            if(Input.GetKeyDown(KeyCode.Space))
+#if UNITY_ANDROID
+            for (int touch = 0; touch < Input.touchCount; touch++)
             {
-                if(objData == null)
-                return;
+                if (Input.GetTouch(0).phase == TouchPhase.Began)
+                {
+                    if (objData == null)
+                        return;
+                    Talk(objData.id);
+                }
+            }
+#elif UNITY_EDITOR_WIN 
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (objData == null)
+                    return;
                 Talk(objData.id);
             }
+#endif
         }
     }
     public void Action(GameObject scanObj)
@@ -59,9 +72,14 @@ public class DialogueManager : MonoBehaviour
         
         for (int i = 0; i < (int)Position.max; i++)
         {
-            if((int)talkData.position == i)
+            if (talkData.sprite != null)
             {
-                talkImage[(int)talkData.position].color = Color.white;
+                RectTransform r = (RectTransform)talkImage[i].transform;
+                r.sizeDelta = new Vector2(talkData.sprite.rect.width, talkData.sprite.rect.height);
+            }
+            if(i == (int)talkData.position)
+            {
+                talkImage[i].color = Color.white;
             }
             else
             {

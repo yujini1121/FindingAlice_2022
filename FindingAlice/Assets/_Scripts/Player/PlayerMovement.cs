@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Timeline;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -49,11 +50,11 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Update() {
-        if(!PlayerManager.Instance().isGameOver /*&& !dManager.isActive*/)
+        if(!PlayerManager.Instance().isGameOver)
         {
             isMoving = false;
 // 디버깅 개발용 추후 false =======================================================
-#if true
+#if UNITY_EDITOR_WIN
             if (Input.GetAxis("Horizontal") != 0)
                 Move(Input.GetAxisRaw("Horizontal"));
             if (Input.GetKeyDown(KeyCode.Space) && isGround)
@@ -64,6 +65,11 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void Move(float dir = 0){
+        if (dManager.isActive)
+        {
+            playerAnim.SetBool("isWalk", !dManager.isActive);
+            return;
+        }
         if (isMoving) return;
 
         if (ClockManager.C.CS == ClockState.idle || ClockManager.C.CS == ClockState.cooldown)
@@ -78,16 +84,8 @@ public class PlayerMovement : MonoBehaviour
 
                 transform.position += moveDirX * speed * Time.deltaTime;
 
-                playerAnim.SetBool("isWalk", inputDir != 0);
             }
-            else
-            {
-                if(inputDir != 0)
-                {
-                    playerAnim.SetBool("isWalk", false);
-                }
-            }
-            
+            playerAnim.SetBool("isWalk", !_collisionToWall);
 
             if ((transform.localScale.x > 0 && inputDir < 0) || (transform.localScale.x < 0 && inputDir > 0))
             {
@@ -155,6 +153,8 @@ public class PlayerMovement : MonoBehaviour
                 isJumping = false;
                 playerAnim.SetBool("isFalling", false);
                 isFalling = false;
+                if (other.gameObject.GetComponent<PlatformManager>() != null)
+                    other.gameObject.GetComponent<PlatformManager>().Function(1);
                 return;
             }
         }
