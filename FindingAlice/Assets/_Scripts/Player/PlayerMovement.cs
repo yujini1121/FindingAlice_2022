@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start(){
         player = GameObject.FindGameObjectWithTag("Player");
         playerRigidbody = player.GetComponent<Rigidbody>();
-        if(ChapterManager.checkLoad){
+        if(GameSceneChange.checkLoad){
             player.transform.position = DataController.Instance.gameData.playerPosition;
         }
     }
@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
 #if true
             if (Input.GetAxis("Horizontal") != 0)
                 Move(Input.GetAxisRaw("Horizontal"));
-            if (Input.GetKeyDown(KeyCode.Space) && isGround)
+            if (Input.GetKeyDown(KeyCode.Space))
                 Jump();
 #endif
             CheckJumping();
@@ -80,14 +80,6 @@ public class PlayerMovement : MonoBehaviour
 
                 playerAnim.SetBool("isWalk", inputDir != 0);
             }
-            else
-            {
-                if(inputDir != 0)
-                {
-                    playerAnim.SetBool("isWalk", false);
-                }
-            }
-            
 
             if ((transform.localScale.x > 0 && inputDir < 0) || (transform.localScale.x < 0 && inputDir > 0))
             {
@@ -98,14 +90,17 @@ public class PlayerMovement : MonoBehaviour
     
     public void Jump(){
         // z키를 누르거나 점프 버튼이 눌렸을 때 플레이어가 땅에 있을 경우 점프
-        //수정점
-        isGround = false;
+        if (isGround)
+        {
+            //수정점
+            isGround = false;
 
-        playerAnim.SetBool("isJumping", true);
-        isJumping = true;
-        playerRigidbody.velocity = Vector3.zero;
-        playerRigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-        return;
+            playerAnim.SetBool("isJumping", true);
+            isJumping = true;
+            playerRigidbody.velocity = Vector3.zero;
+            playerRigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+            return;
+        }
     }
 
     private void CheckJumping()
@@ -123,19 +118,6 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
 
-    //private void OnCollisionEnter(Collision other)
-    //{
-    //    if (other.gameObject.CompareTag("Platform"))
-    //    {
-    //        playerAnim.SetBool("isGrounded", true);
-    //        isGround = true;
-    //        playerAnim.SetBool("isJumping", false);
-    //        isJumping = false;
-    //        playerAnim.SetBool("isFalling", false);
-    //        isFalling = false;
-    //    }
-    //}
-
     //플랫폼의 기울기에 따라 점프의 여부 판단
     private void OnCollisionStay(Collision other)
     {
@@ -147,18 +129,14 @@ public class PlayerMovement : MonoBehaviour
                 playerAnim.SetBool("isGrounded", false);
                 return;
             }
-            else
-            {
-                playerAnim.SetBool("isGrounded", true);
-                isGround = true;
-                playerAnim.SetBool("isJumping", false);
-                isJumping = false;
-                playerAnim.SetBool("isFalling", false);
-                isFalling = false;
-                return;
-            }
         }
         //playerAnim.SetBool("isRolling", false);
+        playerAnim.SetBool("isGrounded", true);
+        isGround = true;
+        playerAnim.SetBool("isJumping", false);
+        isJumping = false;
+        playerAnim.SetBool("isFalling", false);
+        isFalling = false;
     }
     //플랫폼에서 떨어졌을 때 점프 제한
     private void OnCollisionExit(Collision other)

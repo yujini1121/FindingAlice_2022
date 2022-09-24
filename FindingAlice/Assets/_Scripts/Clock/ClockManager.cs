@@ -194,7 +194,6 @@ public class ClockManager : MonoBehaviour
 
                     keepDir = new Vector3(dX * distance, dY * distance, 0);
                     clock.transform.localPosition = keepDir;
-                    clock.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(clock.transform.position.x - player.transform.position.x, clock.transform.position.y - player.transform.position.y) * Mathf.Rad2Deg));
                 }
                 else
                 {

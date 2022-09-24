@@ -25,7 +25,7 @@ public class DataController : MonoBehaviour
     }
     public string GameDataFileName = "FindingAlliceData.json";
 
-    [SerializeField] private GameData _gameData;
+    public GameData _gameData;
     public GameData gameData{
         get{
             if(_gameData == null){
@@ -50,7 +50,7 @@ public class DataController : MonoBehaviour
         string filePath = Application.dataPath + "/SaveFile/" + GameDataFileName;
 
         if(File.Exists(filePath)){
-            Debug.Log("Load Success");
+            Debug.Log("Load Succes");
             string FromJsonData = File.ReadAllText(filePath);
             return JsonUtility.FromJson<GameData>(FromJsonData);
         }
@@ -66,9 +66,9 @@ public class DataController : MonoBehaviour
 
         File.WriteAllText(filePath, ToJsonData);
 
-        Debug.Log("Save Success");
+        Debug.Log("Save Succes");
     }
-#if false
+#if true
     public string ChapterDataFileName = "ChapterData.json";
 
     public ChapterData LoadChapterData()

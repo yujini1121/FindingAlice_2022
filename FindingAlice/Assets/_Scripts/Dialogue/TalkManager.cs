@@ -33,13 +33,14 @@ public class TalkManager : MonoBehaviour
 
     private void GenerateData() // 데이터 만드는 함수
     {
-        TalkData a = new TalkData() { name = "토끼", sprite = null, talkContents = "윽... 머리야.", position = Position.left };
-        TalkData b = new TalkData() { name = "토끼", sprite = null, talkContents = "제대로 온 건가..?", position = Position.left };
-
-        TalkData c = new TalkData() { name = "???", sprite = null, talkContents = "사람 살려!!!", position = Position.right };
-        TalkData d = new TalkData() { name = "토끼", sprite = null, talkContents = "무슨 일이 일어나는 거지?", position = Position.left };
-        talkData.Add(1, new TalkData[]{ a, b });
-        talkData.Add(2, new TalkData[] { c, d });
+        TalkData a = new TalkData();
+        a.name = "나";
+        a.talkContents = "hello";
+        a.position = Position.left;
+        TalkData b = new TalkData() { name = "너", sprite = null, talkContents = "bye", position = Position.right };
+        TalkData c = new TalkData() { name = "나", sprite = null, talkContents = "bye", position = Position.left };
+        talkData.Add(1000, new TalkData[]{ a, b, c });
+        Debug.Log(talkData[1000][0].name);
     }
 
     public TalkData GetTalk(int id, int talkIndex)

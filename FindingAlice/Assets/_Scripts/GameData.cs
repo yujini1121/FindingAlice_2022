@@ -11,18 +11,13 @@ public class GameData{
     public bool isClear2;
     public bool isClear3;
 
-    public bool []hasCP = new bool[3];
-
     public float bgmValue;
     public float effectValue;
     public bool bgmMute;
     public bool effectMute;
     // playerPosition은 분할 필요.
     public Vector3 playerPosition;
-    public bool[] chT_Collection = new bool[5];
-    public bool[] ch1_Collection = new bool[5];
-    public bool[] ch2_Collection = new bool[5];
-    public bool[] ch3_Collection = new bool[5];
+    public bool[] collection = new bool[5];
 }
 
 [Serializable]
