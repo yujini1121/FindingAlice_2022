@@ -44,36 +44,25 @@ public class ChapterManager : MonoBehaviour
             loadBtn.interactable = true;
 
 #if true
-        switch (cpN)
-        {
-            case 0:
-                collectionCount.text = CalCollections(DataController.Instance.gameData.ch1_Collection);
-                break;
-            case 1:
-                collectionCount.text = CalCollections(DataController.Instance.gameData.ch2_Collection); ;
-                break;
-            case 2:
-                collectionCount.text = CalCollections(DataController.Instance.gameData.ch3_Collection); ;
-                break;
-        }
+        //collectionCount.text = $"{CalCollections()} / {DataController.Instance.gameData.collection.Length.ToString()}";
 #else
 #endif
         optionButton.SetActive(false);
         chapterInfo.SetActive(true);
     }
 
-    private string CalCollections(bool[] gameData)
-    {
-        int count = 0;
-        for (int i = 0; i < gameData.Length - 1; i++)
-        {
-            if (gameData[i])
-            {
-                count++;
-            }
-        }
-        return $"{count} / {gameData.Length.ToString()}";
-    }
+    // private int CalCollections()
+    // {
+    //     int count = 0;
+    //     for(int i = 0; i < DataController.Instance.gameData.collection.Length - 1; i++)
+    //     {
+    //         if (DataController.Instance.gameData.collection[i])
+    //         {
+    //             count++;
+    //         }
+    //     }
+    //     return count;
+    // }
 
 
 
@@ -109,13 +98,13 @@ public class ChapterManager : MonoBehaviour
                 //SceneManager.LoadScene("GameScene");
             }
             else
-                AsyncLoading.LoadScene("Chapter_1");
+                AsyncLoading.LoadScene("GameScene");
             //SceneManager.LoadScene("GameScene");
         }
         else
         {
             notice.SetActive(false);
-            AsyncLoading.LoadScene("Chapter_1");
+            AsyncLoading.LoadScene("GameScene");
         }
     }
 
@@ -123,7 +112,7 @@ public class ChapterManager : MonoBehaviour
     {
         checkLoad = true;
 
-        AsyncLoading.LoadScene("Chapter_1");
+        AsyncLoading.LoadScene("GameScene");
         //SceneManager.LoadScene("GameScene");
     }
 }

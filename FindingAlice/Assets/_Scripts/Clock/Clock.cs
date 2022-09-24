@@ -10,7 +10,7 @@ public class Clock : MonoBehaviour
         {
             ClockManager.C.clockReset();
 #if true
-            other.gameObject.GetComponent<PlayerMovement>().AnimControl("isRolling");
+        other.gameObject.GetComponent<PlayerMovement>().playerAnim.SetTrigger("isRolling");
 #endif
         }
     }

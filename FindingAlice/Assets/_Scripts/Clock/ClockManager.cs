@@ -177,12 +177,16 @@ public class ClockManager : MonoBehaviour
             case ClockState.shoot:
                 if (distance < clockMaxRange)
                 {
-                    player.GetComponent<PlayerMovement>().isGround = false;
                     // 시계 사출 중일 때는 뒷 배경을 어둡게 만듦
                     clockBackMatAlpha += Time.deltaTime * 20f;
                     clockBackMat.color = new Color(0, 0, 0, clockBackMatAlpha);
 
                     distance += clockSpeed * Time.deltaTime;
+                    //theta = Mathf.Atan2(dY, dX);
+
+                    //시계 방향에 따라 캐릭터 회전
+                    if (player.transform.localScale.x * dX < 0)
+                        player.SendMessage("turnCharacter");
 
                     //캐릭터 방향에 따라 dX의 부호 변환(안 할 시 시계 방향 오류 생김)
                     if (player.transform.localScale.x < 0)
@@ -190,9 +194,7 @@ public class ClockManager : MonoBehaviour
 
                     keepDir = new Vector3(dX * distance, dY * distance, 0);
                     clock.transform.localPosition = keepDir;
-                    clock.transform.rotation = Quaternion.Euler(new Vector3(Mathf.Atan2(
-                        clock.transform.position.x - player.transform.position.x,
-                        clock.transform.position.y - player.transform.position.y) * Mathf.Rad2Deg, 90f, -90f));
+                    clock.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Atan2(clock.transform.position.x - player.transform.position.x, clock.transform.position.y - player.transform.position.y) * Mathf.Rad2Deg));
                 }
                 else
                 {
@@ -204,20 +206,16 @@ public class ClockManager : MonoBehaviour
             case ClockState.shootMaximum:
                 if (Time.time - clockDistanceMaximumTime < 0.25f)
                 {
-                    Vector3 rotation = new Vector3(Mathf.Atan2(
-                        clock.transform.position.x - player.transform.position.x,
-                        clock.transform.position.y - player.transform.position.y) * Mathf.Rad2Deg, 90f, -90f);
+                    //시계 방향에 따라 캐릭터 회전
+                    if (player.transform.localScale.x * dX < 0)
+                        player.SendMessage("turnCharacter");
 
                     //캐릭터 방향에 따라 dX의 부호 변환(안 할 시 시계 방향 오류 생김)
                     if (player.transform.localScale.x < 0)
-                    {
                         dX = -dX;
-                        rotation.x += 180;
-                    }
 
                     keepDir = new Vector3(dX * distance, dY * distance, 0);
                     clock.transform.localPosition = keepDir;
-                    clock.transform.rotation = Quaternion.Euler(rotation);
                 }
                 else
                 {
