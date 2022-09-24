@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Jump")]
     [SerializeField] private float jumpForce;
-    [HideInInspector] private Animator playerAnim;
+    [HideInInspector] public  Animator playerAnim;
 
     //Scene - Player 오브젝트
     private GameObject  player;
@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool isMoving = false;
 
     //state
-    [SerializeField] private bool _isGround, isJumping, isFalling;
+    private bool isGround, isJumping, isFalling;
 
     [SerializeField]
     private bool _collisionToWall = false;
@@ -32,12 +32,6 @@ public class PlayerMovement : MonoBehaviour
     {
         get { return _collisionToWall; }
         set { _collisionToWall = value; }
-    }
-
-    public bool isGround
-    {
-        get { return _isGround; }
-        set { _isGround = value; }
     }
 
     [SerializeField] private DialogueManager dManager;
@@ -63,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
 #if UNITY_EDITOR_WIN
             if (Input.GetAxis("Horizontal") != 0)
                 Move(Input.GetAxisRaw("Horizontal"));
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && isGround)
                 Jump();
 #endif
             CheckJumping();
@@ -84,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
 
             inputDir = dir;
 
-            if (!collisionToWall)
+            if (!_collisionToWall)
             {
                 moveDirX = new Vector3(inputDir, 0, 0).normalized;
 
@@ -103,15 +97,14 @@ public class PlayerMovement : MonoBehaviour
     
     public void Jump(){
         // z키를 누르거나 점프 버튼이 눌렸을 때 플레이어가 땅에 있을 경우 점프
-        if (isGround)
-        {
-            isGround = false;
+        //수정점
+        isGround = false;
 
-            playerAnim.SetBool("isJumping", true);
-            isJumping = true;
-            playerRigidbody.velocity = Vector3.zero;
-            playerRigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-        }
+        playerAnim.SetBool("isJumping", true);
+        isJumping = true;
+        playerRigidbody.velocity = Vector3.zero;
+        playerRigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+        return;
     }
 
     private void CheckJumping()
@@ -129,11 +122,31 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
 
-    private void OnCollisionEnter(Collision other)
+    //private void OnCollisionEnter(Collision other)
+    //{
+    //    if (other.gameObject.CompareTag("Platform"))
+    //    {
+    //        playerAnim.SetBool("isGrounded", true);
+    //        isGround = true;
+    //        playerAnim.SetBool("isJumping", false);
+    //        isJumping = false;
+    //        playerAnim.SetBool("isFalling", false);
+    //        isFalling = false;
+    //    }
+    //}
+
+    //플랫폼의 기울기에 따라 점프의 여부 판단
+    private void OnCollisionStay(Collision other)
     {
         if (other.gameObject.CompareTag("Platform"))
         {
-            if (other.contacts[0].normal.y >= 0.7f || other.contacts[1].normal.y >= 0.7f)
+            if (other.contacts[0].normal.y <= 0.7f)
+            {
+                isGround = false;
+                playerAnim.SetBool("isGrounded", false);
+                return;
+            }
+            else
             {
                 playerAnim.SetBool("isGrounded", true);
                 isGround = true;
@@ -143,31 +156,6 @@ public class PlayerMovement : MonoBehaviour
                 isFalling = false;
             }
         }
-    }
-
-
-    //플랫폼의 기울기에 따라 점프의 여부 판단
-    private void OnCollisionStay(Collision other)
-    {
-        if (other.gameObject.CompareTag("Platform"))
-        {
-            //if (other.contacts[0].normal.y <= 0.7f)
-            //{
-            //    isGround = false;
-            //    playerAnim.SetBool("isGrounded", false);
-            //    return;
-            //}
-            //else
-            //{
-            //    playerAnim.SetBool("isGrounded", true);
-            //    isGround = true;
-            //    playerAnim.SetBool("isJumping", false);
-            //    isJumping = false;
-            //    playerAnim.SetBool("isFalling", false);
-            //    isFalling = false;
-            //    return;
-            //}
-        }
         //playerAnim.SetBool("isRolling", false);
     }
     //플랫폼에서 떨어졌을 때 점프 제한
@@ -175,7 +163,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Platform"))
         {
-            //StartCoroutine(SmoothJump());
+            //수정점
+            StartCoroutine(SmoothJump());
+            //isGround = false;
         }
             
         playerAnim.SetBool("isGrounded", false);
@@ -201,20 +191,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void AnimControl(string anim, bool boolean)
-    {
-        playerAnim.SetBool(anim, boolean);
-    }
-
-    public void AnimControl(string anim)
-    {
-        playerAnim.SetTrigger(anim);
-    }
-
     IEnumerator SmoothJump()
     {
         yield return new WaitForSeconds(0.15f);
-        if (!isGround)
-            isGround = false;
+        isGround = false;
     }
 }
