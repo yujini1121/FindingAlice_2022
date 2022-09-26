@@ -43,7 +43,7 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.24201775
-  m_Height: 4.1640344
+  m_Height: 3.6
   m_Direction: 1
   m_Center: {x: 0.83984053, y: -0.66100436, z: 0}
 --- !u!114 &3369036195018448034
@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 3562820504012061773}
   - component: {fileID: 3562820504012061772}
   - component: {fileID: 3562820504012061775}
+  - component: {fileID: 1805218143}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -209,10 +210,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jumpForce: 40
-  playerAnim: {fileID: 0}
   isMoving: 0
+  _isGround: 0
+  isJumping: 0
+  isFalling: 0
   _collisionToWall: 0
   dManager: {fileID: 0}
+--- !u!135 &1805218143
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3369036195289620115}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.6049161
+  m_Center: {x: 0.1284846, y: -1.97, z: 0}
 --- !u!1 &3562820504777039333
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,7 +338,7 @@ PrefabInstance:
     - target: {fileID: 2090029234509617240, guid: a9f583308fd379e42ab9f1682c7abfea,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2090029234509617240, guid: a9f583308fd379e42ab9f1682c7abfea,
         type: 3}
@@ -342,12 +358,12 @@ PrefabInstance:
     - target: {fileID: 5525676322115637670, guid: a9f583308fd379e42ab9f1682c7abfea,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.568
+      value: 0.4544
       objectReference: {fileID: 0}
     - target: {fileID: 5525676322115637670, guid: a9f583308fd379e42ab9f1682c7abfea,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.602
+      value: 0.4816
       objectReference: {fileID: 0}
     - target: {fileID: 5525676322115637670, guid: a9f583308fd379e42ab9f1682c7abfea,
         type: 3}
