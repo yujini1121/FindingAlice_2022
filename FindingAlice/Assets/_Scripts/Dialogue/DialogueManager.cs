@@ -57,6 +57,7 @@ public class DialogueManager : MonoBehaviour
         talkPanel.SetActive(isActive);
     }
 
+    RectTransform r;
     private void Talk(int id)
     {
         TalkData talkData = talkManager.GetTalk(id, talkIndex);
@@ -64,6 +65,10 @@ public class DialogueManager : MonoBehaviour
         {
             isActive = false;
             talkIndex = 0;
+            for(int i = 0; i< talkImage.Length; i++)
+            {
+                talkImage[i].sprite = null;
+            }
             talkPanel.SetActive(isActive);
             objData.checkRead = true;
             return;
@@ -74,16 +79,16 @@ public class DialogueManager : MonoBehaviour
         {
             if (talkData.sprite != null)
             {
-                RectTransform r = (RectTransform)talkImage[i].transform;
-                r.sizeDelta = new Vector2(talkData.sprite.rect.width, talkData.sprite.rect.height);
-            }
-            if(i == (int)talkData.position)
-            {
-                talkImage[i].color = Color.white;
-            }
-            else
-            {
-                talkImage[i].color = Color.gray;
+                if(i == (int)talkData.position)
+                {
+                    talkImage[i].color = Color.white;
+                    r = (RectTransform)talkImage[i].transform;
+                    r.sizeDelta = new Vector2(talkData.sprite.rect.width, talkData.sprite.rect.height);
+                }
+                else
+                {
+                    talkImage[i].color = Color.gray;
+                }
             }
         }
         talkImage[(int)talkData.position].sprite = talkData.sprite;
