@@ -100,6 +100,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MoonPlatform(Normal)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: de0b2c8da944a1a4f8164d6adb34ed1e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de0b2c8da944a1a4f8164d6adb34ed1e, type: 3}
 --- !u!1 &3191190852713957951 stripped
