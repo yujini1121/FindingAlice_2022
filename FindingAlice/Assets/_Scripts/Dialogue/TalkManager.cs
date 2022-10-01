@@ -69,7 +69,7 @@ public class TalkManager : MonoBehaviour
         {
             new TalkData(){
             name = "호랑이",
-            sprite = Resources.Load<Sprite>("Tiger"),
+            sprite = Resources.LoadAll<Sprite>("tigerSprite")[0],
             talkContents = "이 녀석! 붙잡히면 가만 안 둔다!!!",
             position = Position.right
             },
@@ -151,7 +151,7 @@ public class TalkManager : MonoBehaviour
             },
             new TalkData(){
             name = "호랑이",
-            sprite = Resources.Load<Sprite>("Tiger"),
+            sprite = Resources.LoadAll<Sprite>("tigerSprite")[0],
             talkContents = "단체로 나를 놀리는군! 잡히기만 해봐라!!",
             position = Position.right
             }
@@ -291,7 +291,7 @@ public class TalkManager : MonoBehaviour
         {
             new TalkData(){
             name = "호랑이",
-            sprite = Resources.Load<Sprite>("Tiger"),
+            sprite = Resources.LoadAll<Sprite>("tigerSprite")[0],
             talkContents = "거기 앞에 토끼 정지.",
             position = Position.right
             },
@@ -303,7 +303,7 @@ public class TalkManager : MonoBehaviour
             },
             new TalkData(){
             name = "호랑이",
-            sprite = Resources.Load<Sprite>("Tiger"),
+            sprite = Resources.LoadAll<Sprite>("tigerSprite")[0],
             talkContents = "형이 3초 준다.",
             position = Position.right
             },
@@ -315,13 +315,13 @@ public class TalkManager : MonoBehaviour
             },
             new TalkData(){
             name = "호랑이",
-            sprite = Resources.Load<Sprite>("Tiger"),
+            sprite = Resources.LoadAll<Sprite>("tigerSprite")[0],
             talkContents = "3..",
             position = Position.right
             },
             new TalkData(){
             name = "호랑이",
-            sprite = Resources.Load<Sprite>("Tiger"),
+            sprite = Resources.LoadAll<Sprite>("tigerSprite")[0],
             talkContents = "저 토끼 자식이!!",
             position = Position.right
             }
@@ -331,7 +331,7 @@ public class TalkManager : MonoBehaviour
         {
             new TalkData(){
             name = "호랑이",
-            sprite = Resources.Load<Sprite>("Tiger"),
+            sprite = Resources.LoadAll<Sprite>("tigerSprite")[0],
             talkContents = "이노오오놈!",
             position = Position.right
             },
