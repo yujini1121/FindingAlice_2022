@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6247971272183261888}
   m_Layer: 0
   m_Name: MoonPlatform (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 5263578128274499539}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 6616286292746520892}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (4)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 4924735300359930030}
   m_Layer: 0
   m_Name: MoonPlatform(Normal)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -386,7 +386,7 @@ GameObject:
   - component: {fileID: 1844605499683760612}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (9)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 2770276791690035759}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (6)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -572,7 +572,7 @@ GameObject:
   - component: {fileID: 2770276791860859974}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -665,7 +665,7 @@ GameObject:
   - component: {fileID: 2770276791942793811}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (5)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -758,7 +758,7 @@ GameObject:
   - component: {fileID: 2770276791983723787}
   m_Layer: 0
   m_Name: MoonPlatform (8)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -893,7 +893,7 @@ GameObject:
   - component: {fileID: 2770276792068331742}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -986,7 +986,7 @@ GameObject:
   - component: {fileID: 2770276792178995978}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (5)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1079,7 +1079,7 @@ GameObject:
   - component: {fileID: 2770276792197972181}
   m_Layer: 0
   m_Name: MoonPlatform (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1172,7 +1172,7 @@ GameObject:
   - component: {fileID: 2770276792222473651}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (4)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1265,7 +1265,7 @@ GameObject:
   - component: {fileID: 2770276792294421295}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1400,7 +1400,7 @@ GameObject:
   - component: {fileID: 2770276792370544331}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1493,7 +1493,7 @@ GameObject:
   - component: {fileID: 2770276792441692876}
   m_Layer: 0
   m_Name: MoonPlatform (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1586,7 +1586,7 @@ GameObject:
   - component: {fileID: 2770276792492099813}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (4)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1679,7 +1679,7 @@ GameObject:
   - component: {fileID: 2770276792512632997}
   m_Layer: 0
   m_Name: MoonPlatform (7)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1772,7 +1772,7 @@ GameObject:
   - component: {fileID: 2770276792515101424}
   m_Layer: 0
   m_Name: MoonPlatform (5)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1865,7 +1865,7 @@ GameObject:
   - component: {fileID: 2770276792597836076}
   m_Layer: 0
   m_Name: MoonPlatform (7)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1958,7 +1958,7 @@ GameObject:
   - component: {fileID: 2770276792602232648}
   m_Layer: 0
   m_Name: MoonPlatform (8)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2051,7 +2051,7 @@ GameObject:
   - component: {fileID: 2770276792625092495}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (6)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2144,7 +2144,7 @@ GameObject:
   - component: {fileID: 2770276792687849235}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2237,7 +2237,7 @@ GameObject:
   - component: {fileID: 2770276792863787722}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (4)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2330,7 +2330,7 @@ GameObject:
   - component: {fileID: 2770276792863985516}
   m_Layer: 0
   m_Name: MoonPlatform (8)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2423,7 +2423,7 @@ GameObject:
   - component: {fileID: 2770276792890493488}
   m_Layer: 0
   m_Name: MoonPlatform (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2516,7 +2516,7 @@ GameObject:
   - component: {fileID: 2770276792900458990}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (7)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2609,7 +2609,7 @@ GameObject:
   - component: {fileID: 2770276792911229306}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (5)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2702,7 +2702,7 @@ GameObject:
   - component: {fileID: 2770276792958224864}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2795,7 +2795,7 @@ GameObject:
   - component: {fileID: 2770276793034766191}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (6)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2888,7 +2888,7 @@ GameObject:
   - component: {fileID: 2770276793118464497}
   m_Layer: 0
   m_Name: MoonPlatform (12)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2981,7 +2981,7 @@ GameObject:
   - component: {fileID: 2770276793123586084}
   m_Layer: 0
   m_Name: MoonPlatform (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3119,7 +3119,7 @@ GameObject:
   - component: {fileID: 2770276793209150843}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3212,7 +3212,7 @@ GameObject:
   - component: {fileID: 2770276793220180693}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (7)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3305,7 +3305,7 @@ GameObject:
   - component: {fileID: 2770276793245250771}
   m_Layer: 0
   m_Name: MoonPlatform (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3398,7 +3398,7 @@ GameObject:
   - component: {fileID: 2770276793255839996}
   m_Layer: 0
   m_Name: MoonPlatform (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3533,7 +3533,7 @@ GameObject:
   - component: {fileID: 2770276793447355621}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3626,7 +3626,7 @@ GameObject:
   - component: {fileID: 2770276793496344489}
   m_Layer: 0
   m_Name: MoonPlatform (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3719,7 +3719,7 @@ GameObject:
   - component: {fileID: 2770276793549281107}
   m_Layer: 0
   m_Name: MoonPlatform (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3812,7 +3812,7 @@ GameObject:
   - component: {fileID: 2770276793563583859}
   m_Layer: 0
   m_Name: MoonPlatform (6)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3947,7 +3947,7 @@ GameObject:
   - component: {fileID: 2770276793709561168}
   m_Layer: 0
   m_Name: MoonPlatform (6)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4040,7 +4040,7 @@ GameObject:
   - component: {fileID: 2770276793733919009}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4133,7 +4133,7 @@ GameObject:
   - component: {fileID: 2770276793743699535}
   m_Layer: 0
   m_Name: MoonPlatform(Normal)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4226,7 +4226,7 @@ GameObject:
   - component: {fileID: 2770276793795138798}
   m_Layer: 0
   m_Name: MoonPlatform (4)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4319,7 +4319,7 @@ GameObject:
   - component: {fileID: 3147969354269694717}
   m_Layer: 0
   m_Name: MoonPlatform (4)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4412,7 +4412,7 @@ GameObject:
   - component: {fileID: 8211490078216182627}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (8)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4505,7 +4505,7 @@ GameObject:
   - component: {fileID: 2131015563980834717}
   m_Layer: 0
   m_Name: MoonPlatform (5)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4598,7 +4598,7 @@ GameObject:
   - component: {fileID: 6680593572095922957}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4691,7 +4691,7 @@ GameObject:
   - component: {fileID: 1030423350483319233}
   m_Layer: 0
   m_Name: MoonPlatform (6)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4784,7 +4784,7 @@ GameObject:
   - component: {fileID: 1789784117844713082}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (6)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4919,7 +4919,7 @@ GameObject:
   - component: {fileID: 9044638472742463255}
   m_Layer: 0
   m_Name: MoonPlatform (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5012,7 +5012,7 @@ GameObject:
   - component: {fileID: 8080528298245040837}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (11)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5105,7 +5105,7 @@ GameObject:
   - component: {fileID: 340588156053261223}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (5)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5198,7 +5198,7 @@ GameObject:
   - component: {fileID: 135133856422200992}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (5)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5291,7 +5291,7 @@ GameObject:
   - component: {fileID: 1791281251281646105}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (12)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5384,7 +5384,7 @@ GameObject:
   - component: {fileID: 6311647698053777891}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5477,7 +5477,7 @@ GameObject:
   - component: {fileID: 1719971023769513677}
   m_Layer: 0
   m_Name: MoonPlatform (7)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5570,7 +5570,7 @@ GameObject:
   - component: {fileID: 7270731694938943579}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (7)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5663,7 +5663,7 @@ GameObject:
   - component: {fileID: 7710142039325140097}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (10)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5756,7 +5756,7 @@ GameObject:
   - component: {fileID: 6423579908403478337}
   m_Layer: 0
   m_Name: MoonPlatform (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5842,10 +5842,55 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2770276793134180869}
     m_Modifications:
+    - target: {fileID: 255027327699447192, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059615931615787254, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182064159648044832, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192157382437624956, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310535659859971242, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183207270874281708, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4510897135106301300, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 4809720596590141254, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
         type: 3}
       propertyPath: m_Name
       value: DefaultPlatform_Part0 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4881894646894719513, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 6036793637771389721, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6346392762357671543, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
         type: 3}
@@ -5902,6 +5947,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7227413421201563325, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683144259593998063, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 9068082807094554752, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b, type: 3}
 --- !u!4 &4675560932759485907 stripped
@@ -5917,10 +5977,55 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2770276793134180869}
     m_Modifications:
+    - target: {fileID: 255027327699447192, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059615931615787254, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182064159648044832, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192157382437624956, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310535659859971242, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183207270874281708, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4510897135106301300, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 4809720596590141254, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
         type: 3}
       propertyPath: m_Name
       value: DefaultPlatform_Part0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4881894646894719513, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 6036793637771389721, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6346392762357671543, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
         type: 3}
@@ -5977,6 +6082,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7227413421201563325, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683144259593998063, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 9068082807094554752, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b, type: 3}
 --- !u!4 &8665424510963936495 stripped
@@ -5992,10 +6112,55 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2770276793134180869}
     m_Modifications:
+    - target: {fileID: 255027327699447192, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059615931615787254, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182064159648044832, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192157382437624956, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310535659859971242, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183207270874281708, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4510897135106301300, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 4809720596590141254, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
         type: 3}
       propertyPath: m_Name
       value: DefaultPlatform_Part0 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4881894646894719513, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 6036793637771389721, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6346392762357671543, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
         type: 3}
@@ -6052,6 +6217,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7227413421201563325, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683144259593998063, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 9068082807094554752, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b, type: 3}
 --- !u!4 &8556171979279454235 stripped
@@ -6067,10 +6247,55 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2770276793134180869}
     m_Modifications:
+    - target: {fileID: 255027327699447192, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059615931615787254, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182064159648044832, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192157382437624956, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310535659859971242, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183207270874281708, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4510897135106301300, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 4809720596590141254, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
         type: 3}
       propertyPath: m_Name
       value: DefaultPlatform_Part0 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4881894646894719513, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 6036793637771389721, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6346392762357671543, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
         type: 3}
@@ -6127,6 +6352,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7227413421201563325, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683144259593998063, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 9068082807094554752, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b, type: 3}
 --- !u!4 &7485708596954861617 stripped
@@ -6142,10 +6382,55 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2770276793134180869}
     m_Modifications:
+    - target: {fileID: 255027327699447192, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059615931615787254, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182064159648044832, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192157382437624956, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310535659859971242, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183207270874281708, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4510897135106301300, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 4809720596590141254, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
         type: 3}
       propertyPath: m_Name
       value: DefaultPlatform_Part0 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4881894646894719513, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 6036793637771389721, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6346392762357671543, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
         type: 3}
@@ -6202,6 +6487,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7227413421201563325, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683144259593998063, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 9068082807094554752, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b, type: 3}
 --- !u!4 &1161078151960229609 stripped
@@ -6217,10 +6517,55 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2770276793134180869}
     m_Modifications:
+    - target: {fileID: 255027327699447192, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059615931615787254, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182064159648044832, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192157382437624956, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310535659859971242, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183207270874281708, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4510897135106301300, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 4809720596590141254, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
         type: 3}
       propertyPath: m_Name
       value: DefaultPlatform_Part0 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4881894646894719513, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 6036793637771389721, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6346392762357671543, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
         type: 3}
@@ -6277,6 +6622,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7227413421201563325, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683144259593998063, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 9068082807094554752, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b, type: 3}
 --- !u!4 &687098603136065326 stripped
@@ -6292,10 +6652,55 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2770276793134180869}
     m_Modifications:
+    - target: {fileID: 255027327699447192, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059615931615787254, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182064159648044832, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192157382437624956, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310535659859971242, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183207270874281708, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4510897135106301300, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 4809720596590141254, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
         type: 3}
       propertyPath: m_Name
       value: DefaultPlatform_Part0 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4881894646894719513, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 6036793637771389721, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6346392762357671543, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
         type: 3}
@@ -6352,6 +6757,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7227413421201563325, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683144259593998063, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 9068082807094554752, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b, type: 3}
 --- !u!4 &3488760043217422987 stripped
@@ -6367,10 +6787,55 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2770276793134180869}
     m_Modifications:
+    - target: {fileID: 255027327699447192, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059615931615787254, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182064159648044832, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192157382437624956, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310535659859971242, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183207270874281708, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4510897135106301300, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 4809720596590141254, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
         type: 3}
       propertyPath: m_Name
       value: DefaultPlatform_Part0 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4881894646894719513, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 6036793637771389721, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6346392762357671543, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
         type: 3}
@@ -6427,6 +6892,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7227413421201563325, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683144259593998063, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 9068082807094554752, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b, type: 3}
 --- !u!4 &3680135469832712216 stripped
@@ -6442,10 +6922,55 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2770276793134180869}
     m_Modifications:
+    - target: {fileID: 255027327699447192, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059615931615787254, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182064159648044832, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192157382437624956, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310535659859971242, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183207270874281708, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4510897135106301300, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 4809720596590141254, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
         type: 3}
       propertyPath: m_Name
       value: DefaultPlatform_Part0 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4881894646894719513, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 6036793637771389721, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6346392762357671543, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
         type: 3}
@@ -6502,6 +7027,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7227413421201563325, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683144259593998063, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 9068082807094554752, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b, type: 3}
 --- !u!4 &3776738473432075031 stripped
@@ -6517,10 +7057,55 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2770276793134180869}
     m_Modifications:
+    - target: {fileID: 255027327699447192, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1059615931615787254, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2182064159648044832, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2192157382437624956, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310535659859971242, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4183207270874281708, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4510897135106301300, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 4809720596590141254, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
         type: 3}
       propertyPath: m_Name
       value: DefaultPlatform_Part0 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4881894646894719513, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 6036793637771389721, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
       objectReference: {fileID: 0}
     - target: {fileID: 6346392762357671543, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
         type: 3}
@@ -6576,6 +7161,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7227413421201563325, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683144259593998063, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 9068082807094554752, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d8c7f00c7ec21146a4cfd7563b9c67b, type: 3}

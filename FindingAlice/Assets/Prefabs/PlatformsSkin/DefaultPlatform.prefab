@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2488929134981317663}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 2488929135014520844}
   m_Layer: 0
   m_Name: MoonPlatform (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 2488929135053069397}
   m_Layer: 0
   m_Name: MoonPlatform (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 2488929135061578073}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -386,7 +386,7 @@ GameObject:
   - component: {fileID: 2488929135100884460}
   m_Layer: 0
   m_Name: MoonPlatform(Normal)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 2488929135101651253}
   m_Layer: 0
   m_Name: MoonPlatform(Normal)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -614,7 +614,7 @@ GameObject:
   - component: {fileID: 2488929135303179242}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (4)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -749,7 +749,7 @@ GameObject:
   - component: {fileID: 2488929135368468775}
   m_Layer: 0
   m_Name: MoonPlatform (5)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -842,7 +842,7 @@ GameObject:
   - component: {fileID: 2488929135369952712}
   m_Layer: 0
   m_Name: MoonPlatform (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -935,7 +935,7 @@ GameObject:
   - component: {fileID: 2488929135378376827}
   m_Layer: 0
   m_Name: MoonPlatform (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1028,7 +1028,7 @@ GameObject:
   - component: {fileID: 2488929135498131588}
   m_Layer: 0
   m_Name: MoonPlatform (4)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1121,7 +1121,7 @@ GameObject:
   - component: {fileID: 2488929135531332589}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (4)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1214,7 +1214,7 @@ GameObject:
   - component: {fileID: 2488929135554781237}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1307,7 +1307,7 @@ GameObject:
   - component: {fileID: 2488929135602087323}
   m_Layer: 0
   m_Name: MoonPlatform (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1400,7 +1400,7 @@ GameObject:
   - component: {fileID: 2488929135616877680}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1493,7 +1493,7 @@ GameObject:
   - component: {fileID: 2488929135643247051}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (5)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1586,7 +1586,7 @@ GameObject:
   - component: {fileID: 2488929135660751098}
   m_Layer: 0
   m_Name: MoonPlatform (5)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1721,7 +1721,7 @@ GameObject:
   - component: {fileID: 2488929135773108147}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1814,7 +1814,7 @@ GameObject:
   - component: {fileID: 2488929135875250833}
   m_Layer: 0
   m_Name: MoonPlatform (4)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1907,7 +1907,7 @@ GameObject:
   - component: {fileID: 2488929135878804919}
   m_Layer: 0
   m_Name: MoonPlatform (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2000,7 +2000,7 @@ GameObject:
   - component: {fileID: 2488929135912529511}
   m_Layer: 0
   m_Name: MoonPlatform (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2093,7 +2093,7 @@ GameObject:
   - component: {fileID: 2488929135995343175}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (6)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2186,7 +2186,7 @@ GameObject:
   - component: {fileID: 2488929136052048167}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2279,7 +2279,7 @@ GameObject:
   - component: {fileID: 2488929136237061258}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2372,7 +2372,7 @@ GameObject:
   - component: {fileID: 2488929136240567761}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2465,7 +2465,7 @@ GameObject:
   - component: {fileID: 2488929136240787684}
   m_Layer: 0
   m_Name: MoonPlatform (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2600,7 +2600,7 @@ GameObject:
   - component: {fileID: 2488929136389110112}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (6)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2728,7 +2728,7 @@ GameObject:
   - component: {fileID: 2488929136491954718}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2821,7 +2821,7 @@ GameObject:
   - component: {fileID: 2488929136514155980}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (5)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2914,7 +2914,7 @@ GameObject:
   - component: {fileID: 2488929136531178364}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3007,7 +3007,7 @@ GameObject:
   - component: {fileID: 2488929136542756796}
   m_Layer: 0
   m_Name: MoonPlatform(Normal)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3100,7 +3100,7 @@ GameObject:
   - component: {fileID: 2488929136551966572}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (4)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3193,7 +3193,7 @@ GameObject:
   - component: {fileID: 2488929136605384724}
   m_Layer: 0
   m_Name: MoonPlatform (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3286,7 +3286,7 @@ GameObject:
   - component: {fileID: 2488929136624548516}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (6)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3379,7 +3379,7 @@ GameObject:
   - component: {fileID: 2488929136679335111}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3472,7 +3472,7 @@ GameObject:
   - component: {fileID: 2488929136695096775}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (6)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3565,7 +3565,7 @@ GameObject:
   - component: {fileID: 2488929136722575156}
   m_Layer: 0
   m_Name: MoonPlatform (5)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3658,7 +3658,7 @@ GameObject:
   - component: {fileID: 2488929136727330972}
   m_Layer: 0
   m_Name: MoonPlatform (5)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3751,7 +3751,7 @@ GameObject:
   - component: {fileID: 2488929136732775738}
   m_Layer: 0
   m_Name: MoonPlatform (4)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3844,7 +3844,7 @@ GameObject:
   - component: {fileID: 2488929136783287643}
   m_Layer: 0
   m_Name: MoonPlatform(Normal)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3937,7 +3937,7 @@ GameObject:
   - component: {fileID: 2488929136784138875}
   m_Layer: 0
   m_Name: MoonPlatform (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4030,7 +4030,7 @@ GameObject:
   - component: {fileID: 2488929136808014588}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4123,7 +4123,7 @@ GameObject:
   - component: {fileID: 2488929136815197499}
   m_Layer: 0
   m_Name: MoonPlatform (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4216,7 +4216,7 @@ GameObject:
   - component: {fileID: 2488929136939629502}
   m_Layer: 0
   m_Name: MoonPlatform (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4309,7 +4309,7 @@ GameObject:
   - component: {fileID: 2488929137012630527}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (5)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4402,7 +4402,7 @@ GameObject:
   - component: {fileID: 2488929137032366983}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (5)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4495,7 +4495,7 @@ GameObject:
   - component: {fileID: 2488929137048289917}
   m_Layer: 0
   m_Name: MoonPlatform (4)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4588,7 +4588,7 @@ GameObject:
   - component: {fileID: 2488929137074121396}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (4)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4674,6 +4674,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2488929136427821736}
     m_Modifications:
+    - target: {fileID: 841777157346077147, guid: b1d6a9516e5462542b393bd1b4c00c9e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 1419126707078870874, guid: b1d6a9516e5462542b393bd1b4c00c9e,
         type: 3}
       propertyPath: m_RootOrder
@@ -4729,10 +4734,65 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1938971804380413854, guid: b1d6a9516e5462542b393bd1b4c00c9e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4357351498654374116, guid: b1d6a9516e5462542b393bd1b4c00c9e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595038216784787386, guid: b1d6a9516e5462542b393bd1b4c00c9e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4921313985612815306, guid: b1d6a9516e5462542b393bd1b4c00c9e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 5019759063287863215, guid: b1d6a9516e5462542b393bd1b4c00c9e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 5674196068873078830, guid: b1d6a9516e5462542b393bd1b4c00c9e,
         type: 3}
       propertyPath: m_Name
       value: DefaultPlatform_Part
+      objectReference: {fileID: 0}
+    - target: {fileID: 6833713978734617090, guid: b1d6a9516e5462542b393bd1b4c00c9e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 6869957183966349428, guid: b1d6a9516e5462542b393bd1b4c00c9e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 6935344074716203284, guid: b1d6a9516e5462542b393bd1b4c00c9e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 7205374576160794337, guid: b1d6a9516e5462542b393bd1b4c00c9e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 7372861832090138903, guid: b1d6a9516e5462542b393bd1b4c00c9e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 7404361750911687938, guid: b1d6a9516e5462542b393bd1b4c00c9e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Platform
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1d6a9516e5462542b393bd1b4c00c9e, type: 3}
