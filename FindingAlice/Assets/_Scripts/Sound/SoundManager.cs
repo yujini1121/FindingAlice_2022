@@ -6,6 +6,9 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager SM;
 
+    
+    public SerializableDictionary<int, AudioClip> BGM_Dic = new SerializableDictionary<int, AudioClip>();
+
     [SerializeField] float _bgmSoundValue;
     [SerializeField] float _effectSoundValue;
 
@@ -78,6 +81,11 @@ public class SoundManager : MonoBehaviour
         }
         _effectSoundMute = true;
     }
+
+    //public AudioClip GetBGM(int key)
+    //{
+    //    BGM_Dic
+    //}
 
     private void OnApplicationQuit()
     {

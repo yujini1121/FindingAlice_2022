@@ -59,7 +59,8 @@ public class PlayerMovement : MonoBehaviour
         if(!PlayerManager.Instance().isGameOver)
         {
             Physics.SphereCast(transform.position, 0.5f, -transform.up, out RaycastHit hit, 1.35f);
-            if (hit.collider != null && hit.collider.tag == "Platform")
+            if (hit.collider == null) isGround = false;
+            else if (hit.collider.tag == "Platform")
             {
                 playerAnim.SetBool("isGrounded", true);
                 isGround = true;
