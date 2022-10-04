@@ -11,6 +11,8 @@ public class Fade : MonoBehaviour
     private Image fadeImage;
     private float time, fadeTime, start, end;
 
+
+
     private void Init()
     {
         fadeImage = GetComponent<Image>();
@@ -46,6 +48,7 @@ public class Fade : MonoBehaviour
         GameObject.FindWithTag("Player").transform.position =
             DataController.Instance.gameData.playerPosition;
             time = 0;
+        GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().isDie = false;
 
         while(color.a > start)
         {

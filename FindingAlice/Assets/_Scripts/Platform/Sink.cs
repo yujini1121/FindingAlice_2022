@@ -47,15 +47,14 @@ public class Sink : MonoBehaviour
         }
     }
 
-    private void OnDisable() {
-        if (active)
+    private void OnDisable()
+    {
+        if (GetComponentInParent<Transparent>().require == false)
         {
             transform.position = new Vector3(transform.position.x, startPosY, transform.position.z);
             player.transform.SetParent(null);
             checkCollison = false;
             active = false;
         }
-        else
-            return;
     }
 }

@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     //state
     [SerializeField] private bool _isGround, isJumping, isFalling;
+    public bool isDie;
 
     [SerializeField]
     private bool _collisionToWall = false;
@@ -58,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update() {
         if(!PlayerManager.Instance().isGameOver)
         {
+            
             isMoving = false;
 // 디버깅 개발용 추후 false =======================================================
 #if UNITY_EDITOR_WIN
@@ -67,16 +69,17 @@ public class PlayerMovement : MonoBehaviour
                 Jump();
 #endif
             CheckJumping();
+            playerAnim.SetBool("isDie", isDie);
         }
     }
 
     public void Move(float dir = 0){
-        if (dManager.isActive)
+        if (dManager.isActive || isDie)
         {
             playerAnim.SetBool("isWalk", !dManager.isActive);
             return;
         }
-        if (isMoving) return;
+        
 
         if (ClockManager.C.CS == ClockState.idle || ClockManager.C.CS == ClockState.cooldown)
         {
@@ -183,14 +186,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Attack"))
-        {
-            PlayerManager.Instance().isGameOver = true;
-        }
+        //if(other.CompareTag("Attack"))
+        //{
+        //    PlayerManager.Instance().isGameOver = true;
+        //}
         switch(other.tag){
-            // case "Attack":
-            // PlayerManager.Instance().isGameOver = true;
-            // break;
+            case "Attack":
+                isDie = true;
+                PlayerManager.Instance().isGameOver = true;
+            break;
 
             // 팝업만 떠야함
             case "NPC":

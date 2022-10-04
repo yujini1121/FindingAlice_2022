@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Packages.Rider.Editor.UnitTesting;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditorInternal;
 using UnityEngine;
@@ -12,6 +13,7 @@ enum Attr
 public class Transparent : MonoBehaviour
 {
     public bool require = false;
+    public bool disable = false;
     [SerializeField] private float holdingTime = 5.0f;
     private bool isAction = false;
 
@@ -56,9 +58,7 @@ public class Transparent : MonoBehaviour
         for(int i = 0; i < platform.Length; i++){
             if (platform[i].gameObject.activeSelf == false)
                 break;
-
             platform[i].SetActive(false);
-            Debug.Log($"Destroy{this.gameObject.name}");
         }
     }
 }
