@@ -8,5 +8,6 @@ public class Jump_button : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         //GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().Jump();
+        GameObject.FindWithTag("Player").SendMessage("Jump");
     }
 }
