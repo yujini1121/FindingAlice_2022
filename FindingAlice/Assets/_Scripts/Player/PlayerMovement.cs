@@ -57,6 +57,17 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Update() {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            Time.timeScale = 0.01f;
+            Time.fixedDeltaTime = Time.timeScale * 0.02f;
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Time.timeScale = 1f;
+            Time.fixedDeltaTime = Time.timeScale * 0.02f;
+        }
+
         if(!PlayerManager.Instance().isGameOver)
         {
 
@@ -93,7 +104,8 @@ public class PlayerMovement : MonoBehaviour
             playerAnim.SetBool("isWalk", !dManager.isActive);
             return;
         }
-        
+        if (isMoving)
+            return;
 
         if (ClockManager.C.CS == ClockState.idle || ClockManager.C.CS == ClockState.cooldown)
         {

@@ -15,6 +15,8 @@ public class ChangeScene : MonoBehaviour
     private void Update()
     {
         if(Input.GetMouseButtonDown(0)){
+#if false
+//for testing
             if(gameData.isClearT)
             {
                 AsyncLoading.LoadScene("SelectChapterScene");
@@ -25,6 +27,8 @@ public class ChangeScene : MonoBehaviour
                 AsyncLoading.LoadScene("TutorialScene");
                 //SceneManager.LoadScene("TutorialScene");
             }
+#endif
+            AsyncLoading.LoadScene("SelectChapterScene");
         }
     }
 }
