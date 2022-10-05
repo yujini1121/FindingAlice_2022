@@ -25,7 +25,6 @@ public class Transparent : MonoBehaviour
                 platform[i].SetActive(false);
             }
         }
-        
     }
     
     private void Update() {
@@ -51,7 +50,7 @@ public class Transparent : MonoBehaviour
     }
 
     private void DestroyPlatform(){
-        for(int i = 0; i < platform.Length; i++){
+        for (int i = 0; i < platform.Length; i++){
             if (platform[i].gameObject.activeSelf == false)
                 break;
             platform[i].SetActive(false);
