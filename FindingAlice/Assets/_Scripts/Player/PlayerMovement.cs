@@ -74,9 +74,9 @@ public class PlayerMovement : MonoBehaviour
         if(!PlayerManager.Instance().isGameOver)
         {
 
-            Physics.SphereCast(transform.position, 0.5f, -transform.up, out RaycastHit hit, 1.33f);
-            if (hit.collider != null) {
-                if (hit.collider.tag == "Platform")
+            Physics.SphereCast(transform.position, 0.2f, -transform.up, out RaycastHit hit_1, 1.63f);
+            if (hit_1.collider != null) {
+                if (hit_1.collider.tag == "Platform" && LayerMask.LayerToName(hit_1.collider.gameObject.layer) != "PassingPlatform")
                 {
                     playerAnim.SetBool("isGrounded", true);
                     isGround = true;
@@ -85,8 +85,45 @@ public class PlayerMovement : MonoBehaviour
                     playerAnim.SetBool("isFalling", false);
                     isFalling = false;
                 }
+                else if (hit_1.collider.tag == "Platform" && LayerMask.LayerToName(hit_1.collider.gameObject.layer) == "PassingPlatform")
+                {
+                    playerAnim.SetBool("isGrounded", true);
+                    isGround = true;
+                    playerAnim.SetBool("isJumping", false);
+                    isJumping = false;
+                    playerAnim.SetBool("isFalling", false);
+                    isFalling = false;
+                    hit_1.collider.GetComponent<BoxCollider>().isTrigger = false;
+                }
             }
             else isGround = false;
+
+            if (ClockManager.C.CS == ClockState.follow)
+            {
+                Physics.SphereCast(transform.position, 0.5f, -transform.up, out RaycastHit hit_2, 0.2f);
+                if (hit_2.collider != null)
+                {
+                    Debug.Log(hit_2.collider.name);
+                    if (hit_2.collider.tag == "Platform" && LayerMask.LayerToName(hit_2.collider.gameObject.layer) == "PassingPlatform")
+                    {
+                        hit_2.collider.GetComponent<BoxCollider>().isTrigger = true;
+                    }
+                }
+            }
+            else
+            {
+                Physics.SphereCast(transform.position, 0.5f, transform.up, out RaycastHit hit_2, 0.55f);
+                if (hit_2.collider != null)
+                {
+                    Debug.Log(hit_2.collider.name);
+                    if (hit_2.collider.tag == "Platform" && LayerMask.LayerToName(hit_2.collider.gameObject.layer) == "PassingPlatform")
+                    {
+                        hit_2.collider.GetComponent<BoxCollider>().isTrigger = true;
+                    }
+                }
+            }
+            
+
 
             isMoving = false;
 // 디버깅 개발용 추후 false =======================================================
@@ -267,6 +304,8 @@ public class PlayerMovement : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position, -transform.up * 1.33f);
-        Gizmos.DrawWireSphere(transform.position + (-transform.up * 1.33f), 0.5f);
+        Gizmos.DrawWireSphere(transform.position + (-transform.up * 1.63f), 0.2f);
+        Gizmos.DrawWireSphere(transform.position + (transform.up * 0.55f), 0.5f);
+
     }
 }
