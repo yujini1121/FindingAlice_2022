@@ -13,8 +13,8 @@ public class Check_CollisionToWall : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        playerMovement.isGround = false;
-        playerMovement.AnimControl("isGrounded", false);
+        //playerMovement.isGround = false;
+        //playerMovement.AnimControl("isGrounded", false);
     }
 
     private void OnTriggerStay(Collider other)
@@ -33,7 +33,7 @@ public class Check_CollisionToWall : MonoBehaviour
     {
         if (other.gameObject.tag == "Platform")
         {
-            playerMovement.isGround = true;
+            //playerMovement.isGround = true;
             playerMovement.collisionToWall = false;
             //playerMovement.isGround = true;
         }

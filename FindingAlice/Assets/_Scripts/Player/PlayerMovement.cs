@@ -59,7 +59,21 @@ public class PlayerMovement : MonoBehaviour
     private void Update() {
         if(!PlayerManager.Instance().isGameOver)
         {
-            
+
+            Physics.SphereCast(transform.position, 0.5f, -transform.up, out RaycastHit hit, 1.33f);
+            if (hit.collider != null) {
+                if (hit.collider.tag == "Platform")
+                {
+                    playerAnim.SetBool("isGrounded", true);
+                    isGround = true;
+                    playerAnim.SetBool("isJumping", false);
+                    isJumping = false;
+                    playerAnim.SetBool("isFalling", false);
+                    isFalling = false;
+                }
+            }
+            else isGround = false;
+
             isMoving = false;
 // 디버깅 개발용 추후 false =======================================================
 #if UNITY_EDITOR_WIN
@@ -109,7 +123,7 @@ public class PlayerMovement : MonoBehaviour
         if (isGround)
         {
             isGround = false;
-
+            playerAnim.Play("Jumping");
             playerAnim.SetBool("isJumping", true);
             isJumping = true;
             playerRigidbody.velocity = Vector3.zero;
@@ -134,18 +148,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Platform"))
-        {
-            if (other.contacts[0].normal.y >= 0.7f || other.contacts[1].normal.y >= 0.7f)
-            {
-                playerAnim.SetBool("isGrounded", true);
-                isGround = true;
-                playerAnim.SetBool("isJumping", false);
-                isJumping = false;
-                playerAnim.SetBool("isFalling", false);
-                isFalling = false;
-            }
-        }
+        //if (other.gameObject.CompareTag("Platform"))
+        //{
+        //    if (other.contacts[0].normal.y >= 0.7f)
+        //    {
+        //        playerAnim.SetBool("isGrounded", true);
+        //        isGround = true;
+        //        playerAnim.SetBool("isJumping", false);
+        //        isJumping = false;
+        //        playerAnim.SetBool("isFalling", false);
+        //        isFalling = false;
+        //    }
+        //}
     }
 
 
@@ -220,5 +234,12 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(0.15f);
         if (!isGround)
             isGround = false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, -transform.up * 1.33f);
+        Gizmos.DrawWireSphere(transform.position + (-transform.up * 1.33f), 0.5f);
     }
 }
