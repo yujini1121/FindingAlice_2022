@@ -9,6 +9,8 @@ public class Clock : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             ClockManager.C.clockReset();
+            PlayerMovement player = other.GetComponent<PlayerMovement>();
+            player.DecreaseSpeed();
 #if true
             other.gameObject.GetComponent<PlayerMovement>().AnimControl("isRolling");
 #endif
