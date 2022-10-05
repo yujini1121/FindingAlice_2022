@@ -6,7 +6,7 @@ public class Disappear : MonoBehaviour
 {
     public bool checkCollision;
     private float holdingTime = 1.5f;
-    private float appearTime = 3.0f;
+    private float appearTime = 2.5f; //10월 5일 3.0f -> 2.5f로 변경
     [SerializeField] private float realTime = 0.0f;
 
     private GameObject platform;

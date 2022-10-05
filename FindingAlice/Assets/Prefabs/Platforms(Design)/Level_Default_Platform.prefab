@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7073351502926186395}
   m_Layer: 0
   m_Name: dirt (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 3884144454451454200}
   m_Layer: 0
   m_Name: dirt (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 1351540195490051180}
   m_Layer: 0
   m_Name: dirt
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 4028055839153106073}
   m_Layer: 0
   m_Name: dirt (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -386,7 +386,7 @@ GameObject:
   - component: {fileID: 3973967291787845181}
   m_Layer: 0
   m_Name: dirt (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 1736130193224332943}
   m_Layer: 0
   m_Name: dirt
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 635399990175504253}
   m_Layer: 0
   m_Name: dirt (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -733,7 +733,7 @@ GameObject:
   - component: {fileID: 3383165995415678623}
   m_Layer: 0
   m_Name: dirt (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -826,7 +826,7 @@ GameObject:
   - component: {fileID: 2390993296661325941}
   m_Layer: 0
   m_Name: dirt (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -919,7 +919,7 @@ GameObject:
   - component: {fileID: 8093042758006493748}
   m_Layer: 0
   m_Name: dirt (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1012,7 +1012,7 @@ GameObject:
   - component: {fileID: 7220979725727125970}
   m_Layer: 0
   m_Name: dirt (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1105,7 +1105,7 @@ GameObject:
   - component: {fileID: 7091763671777085094}
   m_Layer: 0
   m_Name: dirt (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1232,7 +1232,7 @@ GameObject:
   - component: {fileID: 7285435544956948478}
   m_Layer: 0
   m_Name: dirt (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1359,7 +1359,7 @@ GameObject:
   - component: {fileID: 8478532178781792343}
   m_Layer: 0
   m_Name: dirt (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1452,7 +1452,7 @@ GameObject:
   - component: {fileID: 7968638780789396214}
   m_Layer: 0
   m_Name: dirt (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1579,7 +1579,7 @@ GameObject:
   - component: {fileID: 1095040334623529954}
   m_Layer: 0
   m_Name: dirt
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1672,7 +1672,7 @@ GameObject:
   - component: {fileID: 5275085776964555892}
   m_Layer: 0
   m_Name: dirt (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1765,7 +1765,7 @@ GameObject:
   - component: {fileID: 6088659951169386759}
   m_Layer: 0
   m_Name: dirt (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1892,7 +1892,7 @@ GameObject:
   - component: {fileID: 3123441702328814275}
   m_Layer: 0
   m_Name: dirt (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2019,7 +2019,7 @@ GameObject:
   - component: {fileID: 380779438722532989}
   m_Layer: 0
   m_Name: dirt (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2112,7 +2112,7 @@ GameObject:
   - component: {fileID: 8770800245458100211}
   m_Layer: 0
   m_Name: dirt (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2205,7 +2205,7 @@ GameObject:
   - component: {fileID: 395456614148062297}
   m_Layer: 0
   m_Name: dirt (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2298,7 +2298,7 @@ GameObject:
   - component: {fileID: 2980579844467024271}
   m_Layer: 0
   m_Name: dirt (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2391,7 +2391,7 @@ GameObject:
   - component: {fileID: 2619882870081901264}
   m_Layer: 0
   m_Name: dirt (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2518,7 +2518,7 @@ GameObject:
   - component: {fileID: 3780858933225029056}
   m_Layer: 0
   m_Name: dirt
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2611,7 +2611,7 @@ GameObject:
   - component: {fileID: 1507859933733941265}
   m_Layer: 0
   m_Name: dirt (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2748,7 +2748,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3966710808731412961}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -740, y: 42.5, z: -0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8843226423212846774}
@@ -2783,7 +2783,7 @@ GameObject:
   - component: {fileID: 4616164097895233315}
   m_Layer: 0
   m_Name: dirt (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2876,7 +2876,7 @@ GameObject:
   - component: {fileID: 404353598939904620}
   m_Layer: 0
   m_Name: dirt
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2969,7 +2969,7 @@ GameObject:
   - component: {fileID: 4851883511292680802}
   m_Layer: 0
   m_Name: dirt
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3062,7 +3062,7 @@ GameObject:
   - component: {fileID: 3137993731844356304}
   m_Layer: 0
   m_Name: dirt
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3155,7 +3155,7 @@ GameObject:
   - component: {fileID: 8997969112152853316}
   m_Layer: 0
   m_Name: dirt (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3248,7 +3248,7 @@ GameObject:
   - component: {fileID: 577198391682876149}
   m_Layer: 0
   m_Name: dirt (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3341,7 +3341,7 @@ GameObject:
   - component: {fileID: 2345682376825535069}
   m_Layer: 0
   m_Name: dirt (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3468,7 +3468,7 @@ GameObject:
   - component: {fileID: 7347851079876971123}
   m_Layer: 0
   m_Name: dirt (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3595,7 +3595,7 @@ GameObject:
   - component: {fileID: 6893840260463006414}
   m_Layer: 0
   m_Name: dirt (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3688,7 +3688,7 @@ GameObject:
   - component: {fileID: 8626275362962696140}
   m_Layer: 0
   m_Name: dirt
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3781,7 +3781,7 @@ GameObject:
   - component: {fileID: 8907370091774286951}
   m_Layer: 0
   m_Name: dirt
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3874,7 +3874,7 @@ GameObject:
   - component: {fileID: 8490981042873343165}
   m_Layer: 0
   m_Name: dirt
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4001,7 +4001,7 @@ GameObject:
   - component: {fileID: 2828613206828688119}
   m_Layer: 0
   m_Name: dirt (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4094,7 +4094,7 @@ GameObject:
   - component: {fileID: 7698194007413945}
   m_Layer: 0
   m_Name: dirt
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4187,7 +4187,7 @@ GameObject:
   - component: {fileID: 2668468129267320793}
   m_Layer: 0
   m_Name: dirt (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4280,7 +4280,7 @@ GameObject:
   - component: {fileID: 3455239268176086768}
   m_Layer: 0
   m_Name: dirt (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4373,7 +4373,7 @@ GameObject:
   - component: {fileID: 8007780394169421914}
   m_Layer: 0
   m_Name: dirt (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4466,7 +4466,7 @@ GameObject:
   - component: {fileID: 2442860833283601864}
   m_Layer: 0
   m_Name: dirt
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4559,7 +4559,7 @@ GameObject:
   - component: {fileID: 3718769302806887629}
   m_Layer: 0
   m_Name: dirt (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4652,7 +4652,7 @@ GameObject:
   - component: {fileID: 8831349489094897407}
   m_Layer: 0
   m_Name: dirt
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4745,7 +4745,7 @@ GameObject:
   - component: {fileID: 7854805510265778301}
   m_Layer: 0
   m_Name: dirt (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4872,7 +4872,7 @@ GameObject:
   - component: {fileID: 6083518122905602502}
   m_Layer: 0
   m_Name: dirt (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4999,7 +4999,7 @@ GameObject:
   - component: {fileID: 3942451368197805763}
   m_Layer: 0
   m_Name: dirt
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5092,7 +5092,7 @@ GameObject:
   - component: {fileID: 1058323251068863438}
   m_Layer: 0
   m_Name: dirt (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5185,7 +5185,7 @@ GameObject:
   - component: {fileID: 2846755416665717842}
   m_Layer: 0
   m_Name: dirt (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5278,7 +5278,7 @@ GameObject:
   - component: {fileID: 1987786824235459276}
   m_Layer: 0
   m_Name: dirt (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5405,7 +5405,7 @@ GameObject:
   - component: {fileID: 3382320273378018548}
   m_Layer: 0
   m_Name: dirt (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5498,7 +5498,7 @@ GameObject:
   - component: {fileID: 7730459462189188803}
   m_Layer: 0
   m_Name: dirt
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5591,7 +5591,7 @@ GameObject:
   - component: {fileID: 4301081542370650445}
   m_Layer: 0
   m_Name: dirt (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5684,7 +5684,7 @@ GameObject:
   - component: {fileID: 5258828712201789920}
   m_Layer: 0
   m_Name: dirt (1)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5777,7 +5777,7 @@ GameObject:
   - component: {fileID: 644032296541288337}
   m_Layer: 0
   m_Name: dirt (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5870,7 +5870,7 @@ GameObject:
   - component: {fileID: 2570337438453446971}
   m_Layer: 0
   m_Name: dirt (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5963,7 +5963,7 @@ GameObject:
   - component: {fileID: 4158728694075209247}
   m_Layer: 0
   m_Name: dirt (2)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6056,7 +6056,7 @@ GameObject:
   - component: {fileID: 3051399309728727357}
   m_Layer: 0
   m_Name: dirt (3)
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

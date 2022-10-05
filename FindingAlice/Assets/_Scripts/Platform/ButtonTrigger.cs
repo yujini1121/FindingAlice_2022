@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class ButtonTrigger : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+
+    Vector3 rot;
+
+    private void Start()
     {
-        if (other.CompareTag("Player"))
-        {
+        //rot = this.gameObject.transform.Rotate(this, this, this);
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if(other.CompareTag("Player")){
             GetComponentInParent<Transparent>().require = true;
-            return;
+            //transform.rotation = Quaternion.Euler(x, 180, z);
         }
     }
 }

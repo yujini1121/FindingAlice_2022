@@ -165,6 +165,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1798409364, guid: aa6de0c9c76003f4390d2bc349e2cade, type: 3}
+      propertyPath: m_Size.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798409364, guid: aa6de0c9c76003f4390d2bc349e2cade, type: 3}
+      propertyPath: m_Size.y
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798409364, guid: aa6de0c9c76003f4390d2bc349e2cade, type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798409364, guid: aa6de0c9c76003f4390d2bc349e2cade, type: 3}
+      propertyPath: m_Center.y
+      value: -3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1458349528067368482, guid: aa6de0c9c76003f4390d2bc349e2cade,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
