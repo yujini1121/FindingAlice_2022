@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Move")]
     [SerializeField] private float speed;
+    private float originSpeed;
 
     [Header("Jump")]
     [SerializeField] private float jumpForce;
@@ -48,7 +49,9 @@ public class PlayerMovement : MonoBehaviour
         playerAnim = this.GetComponent<Animator>();
     }
 
-    private void Start(){
+    private void Start()
+    {
+        originSpeed = speed;
         player = GameObject.FindGameObjectWithTag("Player");
         playerRigidbody = player.GetComponent<Rigidbody>();
         if(ChapterManager.checkLoad){
@@ -106,7 +109,6 @@ public class PlayerMovement : MonoBehaviour
                 moveDirX = new Vector3(inputDir, 0, 0).normalized;
 
                 transform.position += moveDirX * speed * Time.deltaTime;
-
             }
             playerAnim.SetBool("isWalk", !_collisionToWall);
 
@@ -148,8 +150,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        //if (other.gameObject.CompareTag("Platform"))
-        //{
+        if (other.gameObject.CompareTag("Platform"))
+        {
+            speed = originSpeed;
         //    if (other.contacts[0].normal.y >= 0.7f)
         //    {
         //        playerAnim.SetBool("isGrounded", true);
@@ -159,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
         //        playerAnim.SetBool("isFalling", false);
         //        isFalling = false;
         //    }
-        //}
+        }
     }
 
 
@@ -227,6 +230,18 @@ public class PlayerMovement : MonoBehaviour
     public void AnimControl(string anim)
     {
         playerAnim.SetTrigger(anim);
+    }
+
+    public void DecreaseSpeed()
+    {
+        StartCoroutine(_DecreaseSpeed());
+    }
+
+    IEnumerator _DecreaseSpeed()
+    {
+        speed /= 2;
+        yield return new WaitForSeconds(0.65f);
+        speed = originSpeed;
     }
 
     IEnumerator SmoothJump()

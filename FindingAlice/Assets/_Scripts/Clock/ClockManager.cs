@@ -202,7 +202,7 @@ public class ClockManager : MonoBehaviour
                 break;
 
             case ClockState.shootMaximum:
-                if (Time.time - clockDistanceMaximumTime < 0.25f)
+                if (Time.time - clockDistanceMaximumTime < 0.1f)
                 {
                     Vector3 rotation = new Vector3(Mathf.Atan2(
                         clock.transform.position.x - player.transform.position.x,
