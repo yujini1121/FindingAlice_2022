@@ -10,7 +10,8 @@ public class Transparent : MonoBehaviour
 {
     public bool require = false;
     public bool disable = false;
-    [SerializeField] private float holdingTime = 5.0f;
+    //[SerializeField] private float holdingTime = 5.0f; 1006 수정, 스위치를 위한 public 선언하게 바꿈
+    public float holdingTime = 5.0f;
     private bool isAction = false;
 
     public int attr;
@@ -30,10 +31,12 @@ public class Transparent : MonoBehaviour
     private void Update() {
         if (!require)
             return;
+
         if(attr == (int)Attr.Inst) 
         {
             VisibleFunc();
         }
+
         if(attr == (int)Attr.Destroy)
         {
             DestroyPlatform();
