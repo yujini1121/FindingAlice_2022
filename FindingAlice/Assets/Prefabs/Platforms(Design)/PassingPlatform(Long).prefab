@@ -175,11 +175,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1798409364, guid: aa6de0c9c76003f4390d2bc349e2cade, type: 3}
       propertyPath: m_Size.y
-      value: 6.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1798409364, guid: aa6de0c9c76003f4390d2bc349e2cade, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1798409364, guid: aa6de0c9c76003f4390d2bc349e2cade, type: 3}
       propertyPath: m_Center.x
@@ -187,7 +187,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1798409364, guid: aa6de0c9c76003f4390d2bc349e2cade, type: 3}
       propertyPath: m_Center.y
-      value: -3.5
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 1458349528067368482, guid: aa6de0c9c76003f4390d2bc349e2cade,
         type: 3}
@@ -269,8 +269,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: PassingPlatform(Long)
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1798409366, guid: aa6de0c9c76003f4390d2bc349e2cade, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa6de0c9c76003f4390d2bc349e2cade, type: 3}
 --- !u!4 &3211134324476920094 stripped
 Transform:

@@ -24,7 +24,7 @@ public class Check_CollisionToWall : MonoBehaviour
             playerMovement.collisionToWall = true;
             //playerMovement.isGround = false;
             //playerMovement.AnimControl("isGrounded", false);
-            if(ClockManager.C.CS == ClockState.follow)
+            if(LayerMask.LayerToName(other.gameObject.layer) != "PassingPlatform" && ClockManager.C.CS == ClockState.follow)
                 ClockManager.C.clockReset();
         }
     }
