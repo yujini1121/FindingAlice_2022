@@ -14,8 +14,8 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] private Animator playerAnim;
 
     //Scene - Player 오브젝트
-    private GameObject  player;
-    private Rigidbody   playerRigidbody;
+    public GameObject  player;
+    public Rigidbody   playerRigidbody;
     //캐릭터 좌우로 이동
     private Vector3     moveDirX;
     //키보드로부터 X축 값 얻음
@@ -259,6 +259,9 @@ public class PlayerMovement : MonoBehaviour
         switch(other.tag){
             case "Attack":
                 isDie = true;
+                //1007
+                //playerRigidbody.useGravity = false;
+                //playerRigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY;
                 PlayerManager.Instance().isGameOver = true;
             break;
 

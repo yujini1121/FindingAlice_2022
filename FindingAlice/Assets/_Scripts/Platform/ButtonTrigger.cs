@@ -6,24 +6,29 @@ public class ButtonTrigger : MonoBehaviour
 {
     float x, y, z;
 
+    float transHoldingTime;
+
     private void Start()
     {
         x = transform.localScale.x;
         y = transform.localScale.y;
         z = transform.localScale.z;
+
+        transHoldingTime = transform.parent.GetComponentInParent<Transparent>().holdingTime;
     }
 
     private void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Player")){
             GetComponentInParent<Transparent>().require = true;
 
-            this.transform.localScale = new Vector3(-x, y, z);
-            Invoke("ReturnScale", GetComponentInChildren<Transparent>().holdingTime);
+            transform.localScale = new Vector3(-x, y, z);
+            CancelInvoke();
+            Invoke("ReturnScale", transHoldingTime);
         }
     }
 
-    private void ReturnScale()
+    public void ReturnScale()
     {
-        this.transform.localScale = new Vector3(x, y, z);
+        transform.localScale = new Vector3(x, y, z);
     }
 }
