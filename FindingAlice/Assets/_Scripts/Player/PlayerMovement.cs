@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(!PlayerManager.Instance().isGameOver)
         {
-
+            //플레이어 발 밑 레이캐스트
             Physics.SphereCast(transform.position, 0.2f, -transform.up, out RaycastHit hit_1, 1.63f);
             if (hit_1.collider != null) {
                 if (hit_1.collider.tag == "Platform" && LayerMask.LayerToName(hit_1.collider.gameObject.layer) != "PassingPlatform")
@@ -93,35 +93,34 @@ public class PlayerMovement : MonoBehaviour
                     isJumping = false;
                     playerAnim.SetBool("isFalling", false);
                     isFalling = false;
-                    hit_1.collider.GetComponent<BoxCollider>().isTrigger = false;
                 }
             }
             else isGround = false;
 
-            if (ClockManager.C.CS == ClockState.follow)
-            {
-                Physics.SphereCast(transform.position, 0.5f, -transform.up, out RaycastHit hit_2, 0.2f);
-                if (hit_2.collider != null)
-                {
-                    Debug.Log(hit_2.collider.name);
-                    if (hit_2.collider.tag == "Platform" && LayerMask.LayerToName(hit_2.collider.gameObject.layer) == "PassingPlatform")
-                    {
-                        hit_2.collider.GetComponent<BoxCollider>().isTrigger = true;
-                    }
-                }
-            }
-            else
-            {
-                Physics.SphereCast(transform.position, 0.5f, transform.up, out RaycastHit hit_2, 0.55f);
-                if (hit_2.collider != null)
-                {
-                    Debug.Log(hit_2.collider.name);
-                    if (hit_2.collider.tag == "Platform" && LayerMask.LayerToName(hit_2.collider.gameObject.layer) == "PassingPlatform")
-                    {
-                        hit_2.collider.GetComponent<BoxCollider>().isTrigger = true;
-                    }
-                }
-            }
+            ////플레이어 머리 위 레이캐스트
+            //if (ClockManager.C.CS == ClockState.follow)
+            //{
+            //    Physics.SphereCast(transform.position, 0.5f, -transform.up, out RaycastHit hit_2, 0.2f);
+            //    if (hit_2.collider != null)
+            //    {
+            //        if (hit_2.collider.tag == "Platform" && LayerMask.LayerToName(hit_2.collider.gameObject.layer) == "PassingPlatform")
+            //        {
+            //            hit_2.collider.GetComponent<BoxCollider>().isTrigger = true;
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    Physics.SphereCast(transform.position, 0.5f, transform.up, out RaycastHit hit_2, 0.55f);
+            //    if (hit_2.collider != null)
+            //    {
+            //        Debug.Log(hit_2.collider.name);
+            //        if (hit_2.collider.tag == "Platform" && LayerMask.LayerToName(hit_2.collider.gameObject.layer) == "PassingPlatform")
+            //        {
+            //            hit_2.collider.GetComponent<BoxCollider>().isTrigger = true;
+            //        }
+            //    }
+            //}
             
 
 

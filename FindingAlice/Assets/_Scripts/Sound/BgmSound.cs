@@ -9,12 +9,19 @@ public class BgmSound : MonoBehaviour
     void Start()
     {
         _as = GetComponent<AudioSource>();
+        _as.Play();
     }
-
 
     void Update()
     {
         _as.volume = SoundManager.SM.bgmSoundValue;
         _as.mute = SoundManager.SM.bgmSoundMute;
+    }
+
+    public void PlayBGM(int key)
+    {
+        AudioClip audio = SoundManager.SM.GetBGM(key);
+        _as.clip = audio;
+        _as.Play();
     }
 }
