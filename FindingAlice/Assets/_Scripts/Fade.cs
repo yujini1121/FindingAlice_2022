@@ -26,6 +26,7 @@ public class Fade : MonoBehaviour
     {
         Init();
     }
+
     private void OnEnable()
     {
         StopCoroutine(FadeOutFlow());
@@ -44,11 +45,21 @@ public class Fade : MonoBehaviour
             fadeImage.color = color;
             yield return null;
         }
+
+        GameObject player;
+        Rigidbody playerRigid;
+
+        player = GameObject.FindWithTag("Player");
+        playerRigid = player.GetComponent<Rigidbody>();
+
+        player.transform.position = DataController.Instance.gameData.playerPosition;
+        time = 0;
+
         
-        GameObject.FindWithTag("Player").transform.position =
-            DataController.Instance.gameData.playerPosition;
-            time = 0;
-        GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().isDie = false;
+        playerRigid.constraints = RigidbodyConstraints.None;
+        playerRigid.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+
+        player.GetComponent<PlayerMovement>().isDie = false;
 
         while(color.a > start)
         {
