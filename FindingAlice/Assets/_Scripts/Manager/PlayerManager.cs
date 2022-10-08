@@ -17,6 +17,8 @@ public class PlayerManager : MonoBehaviour
     public bool isGameOver;
     [SerializeField] private GameObject FadeImage;
 
+
+
     private void Awake()
     {
         Init();
@@ -29,6 +31,7 @@ public class PlayerManager : MonoBehaviour
         {
             _instance = this;
         }
+
     }
 
     private void Update()

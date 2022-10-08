@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   require: 0
+  disable: 0
   holdingTime: 5
   attr: 0
   platform:
@@ -155,7 +156,17 @@ PrefabInstance:
     - target: {fileID: 1060049544516603664, guid: 5fac94727eccedb4caf533d875b7c762,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060049544516603664, guid: 5fac94727eccedb4caf533d875b7c762,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1060049544516603664, guid: 5fac94727eccedb4caf533d875b7c762,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1060049544516603664, guid: 5fac94727eccedb4caf533d875b7c762,
         type: 3}

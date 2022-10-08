@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     //Scene - Player 오브젝트
     private GameObject  player;
-    private Rigidbody   playerRigidbody;
+    public Rigidbody   playerRigidbody; //1008 PlayerManager에서 사용하기 위한
     //캐릭터 좌우로 이동
     private Vector3     moveDirX;
     //키보드로부터 X축 값 얻음
@@ -138,11 +138,28 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public void Move(float dir = 0){
+#if false
         if (dManager.isActive || isDie)
         {
             playerAnim.SetBool("isWalk", !dManager.isActive);
             return;
         }
+
+#else 
+        if (dManager.isActive || isDie)
+        {
+            playerAnim.SetBool("isWalk", !dManager.isActive);
+
+            //playerRigidbody.constraints = RigidbodyConstraints.FreezePositionX |RigidbodyConstraints.FreezePositionY;
+            //playerRigidbody.constraints = ~RigidbodyConstraints.FreezePositionX | ~RigidbodyConstraints.FreezePositionY;
+            //StartCoroutine(FreezeFalse());
+
+            return;
+        }
+
+
+#endif
+
         if (isMoving)
             return;
 
@@ -258,6 +275,9 @@ public class PlayerMovement : MonoBehaviour
         switch(other.tag){
             case "Attack":
                 isDie = true;
+                //1007 충돌 시 freezeposition 후, 체크포인트 리스폰 시 다시 해제
+                playerRigidbody.constraints = RigidbodyConstraints.FreezeAll;
+
                 PlayerManager.Instance().isGameOver = true;
             break;
 
@@ -298,6 +318,16 @@ public class PlayerMovement : MonoBehaviour
         if (!isGround)
             isGround = false;
     }
+
+    //1008 freeposition
+    IEnumerator FreezeFalse()
+    {
+        yield return new WaitForSeconds(1f);
+        //playerRigidbody.constraints = RigidbodyConstraints.None;
+        //playerRigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+        //playerRigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
+    }
+
 
     private void OnDrawGizmos()
     {
