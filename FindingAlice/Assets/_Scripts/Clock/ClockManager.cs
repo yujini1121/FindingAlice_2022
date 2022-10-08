@@ -111,10 +111,16 @@ public class ClockManager : MonoBehaviour
         {
             int temp = _clockCounter;
             _clockCounter = Mathf.Clamp(value, 0, 2);
+
             if (temp < _clockCounter)
-                clock_UI[_clockCounter - 1].SetActive(true);
+                for (int i = 0; i< _clockCounter; i++)
+                    clock_UI[i].SetActive(true);
             else if (temp > _clockCounter)
                 clock_UI[_clockCounter].SetActive(false);
+            //if (temp < _clockCounter)
+            //    clock_UI[_clockCounter - 1].SetActive(true);
+            //else if (temp > _clockCounter)
+            //    clock_UI[_clockCounter].SetActive(false);
         }
     }
 
