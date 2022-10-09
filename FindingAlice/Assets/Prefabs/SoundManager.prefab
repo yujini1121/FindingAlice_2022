@@ -43,4 +43,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1486886173f985242aff14720366fa04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bgmSoundValue: 0
+  BGM_Dic:
+    array:
+    - Key: 1
+      Value: {fileID: 8300000, guid: 77472faff8a3e134ba84c2b6a86f9287, type: 3}
+    - Key: 2
+      Value: {fileID: 8300000, guid: e4ef038bc6d4a204ab2e75b9b03ff8c9, type: 3}
+    - Key: 3
+      Value: {fileID: 8300000, guid: 0ac7f09942a81204f9ce242f77926f17, type: 3}
+    - Key: 4
+      Value: {fileID: 8300000, guid: dbcfe6c8f2f7b884ebf72087912d8582, type: 3}
+    - Key: 5
+      Value: {fileID: 8300000, guid: 5f5b0da912813f94380da343e20c50fd, type: 3}
+    - Key: 6
+      Value: {fileID: 8300000, guid: bef0c4d119b394e4092dfb1a0781d14d, type: 3}
+  _bgmSoundValue: 1
+  _effectSoundValue: 1
+  _bgmSoundMute: 0
+  _effectSoundMute: 0
