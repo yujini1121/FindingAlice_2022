@@ -6,9 +6,12 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
     private GameData gameData;
+    private int[] countLoad;
+    GameObject fade;
     private void Awake()
     {
         gameData = DataController.Instance.LoadGameData();
+        DontDestroyOnLoad(this.gameObject);
     }
     private void Update()
     {
@@ -29,14 +32,23 @@ public class SceneController : MonoBehaviour
                 AsyncLoading.LoadScene("SelectChapterScene");
             }
         }
-        //else
-        //{
-        //    for (int i = 0; i < 4; i++)
-        //    {
-        //        if (SceneManager.GetActiveScene().name == "Chapter_" + i)
-        //        {
-        //        }
-        //    }
-        //}
+        else if(CheckChapter(SceneManager.GetActiveScene().name))
+        {
+            if (fade == null)
+                fade = GameObject.Find("FadeImage");
+            if (fade.GetComponent<Fade>().check)
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
+    bool CheckChapter(string curr)
+    {
+        for(int i = 0; i < 4; i++)
+        {
+            if (curr == "Chapter_" + i)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

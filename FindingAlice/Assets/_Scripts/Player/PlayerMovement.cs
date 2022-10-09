@@ -47,17 +47,25 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         playerAnim = this.GetComponent<Animator>();
-    }
-
-    private void Start()
-    {
         originSpeed = speed;
         player = GameObject.FindGameObjectWithTag("Player");
         playerRigidbody = player.GetComponent<Rigidbody>();
-        if(ChapterManager.checkLoad){
+        if (ChapterManager.checkLoad)
+        {
             player.transform.position = DataController.Instance.gameData.playerPosition;
         }
     }
+
+    //private void Start()
+    //{
+    //    originSpeed = speed;
+    //    player = GameObject.FindGameObjectWithTag("Player");
+    //    playerRigidbody = player.GetComponent<Rigidbody>();
+    //    if(ChapterManager.checkLoad)
+    //    {
+    //        player.transform.position = DataController.Instance.gameData.playerPosition;
+    //    }
+    //}
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Z))

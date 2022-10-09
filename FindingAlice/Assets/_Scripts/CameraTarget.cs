@@ -12,6 +12,7 @@ public class CameraTarget : MonoBehaviour
     bool joystickUpNDown = false;
     float joystickUpNDownStartTime;
 
+#if false
     void Start()
     {
         playerMove = GameObject.Find("Player").GetComponent<PlayerMovement>();
@@ -19,6 +20,17 @@ public class CameraTarget : MonoBehaviour
         followTarget = playerTrans.Find("Clock").gameObject;
         joystickPos = GameObject.Find("Joystick").transform.GetChild(0).gameObject.GetComponent<RectTransform>();
     }
+#else
+    void Awake()
+    {
+        playerMove = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        playerTrans = GameObject.Find("Player").transform;
+        targetPosition = playerTrans.position;
+        followTarget = playerTrans.Find("Clock").gameObject;
+        joystickPos = GameObject.Find("Joystick").transform.GetChild(0).gameObject.GetComponent<RectTransform>();
+        transform.position = targetPosition;
+    }
+#endif
 
     void LateUpdate()
     {

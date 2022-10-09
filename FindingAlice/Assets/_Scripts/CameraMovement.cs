@@ -25,6 +25,10 @@ public class CameraMovement : MonoBehaviour
     {
         target = GameObject.FindWithTag("CameraTarget").gameObject;
         clock = player.transform.Find("Clock").gameObject;
+#if true
+        //for testing
+        targetPosition = target.transform.position;
+#endif
     }
 
     private void Start()

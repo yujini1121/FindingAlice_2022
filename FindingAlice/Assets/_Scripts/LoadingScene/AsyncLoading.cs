@@ -16,6 +16,8 @@ public class AsyncLoading : MonoBehaviour
 
     [SerializeField] string[] loadingText;
 
+    int attr;
+
     void Start()
     {
         Time.timeScale = 1f;

@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene("GameScene");
+            SceneManager.LoadScene("Chapter_1");
         }
     }
 

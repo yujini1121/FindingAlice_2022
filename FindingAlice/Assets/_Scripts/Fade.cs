@@ -12,7 +12,8 @@ public class Fade : MonoBehaviour
     private Image fadeImage;
     private float time, fadeTime, start, end;
 
-
+    public bool check;
+    private bool firstTime;
 
     private void Init()
     {
@@ -21,17 +22,23 @@ public class Fade : MonoBehaviour
         fadeTime = 1;
         start = 0;
         end = 1;
+        firstTime = true;
     }
     
     private void Awake()
     {
         Init();
+        StopCoroutine(FadeInFlow());
+        StartCoroutine(FadeInFlow());
     }
 
     private void OnEnable()
     {
-        StopCoroutine(FadeOutFlow());
-        StartCoroutine(FadeOutFlow());
+        if (!firstTime)
+        {
+            StopCoroutine(FadeOutFlow());
+            StartCoroutine(FadeOutFlow());
+        }
     }    
 
     private IEnumerator FadeOutFlow()
@@ -46,21 +53,60 @@ public class Fade : MonoBehaviour
             fadeImage.color = color;
             yield return null;
         }
+        check = true;
+        //GameObject player;
+        //Rigidbody playerRigid;
+        //
+        //player = GameObject.FindWithTag("Player");
+        //playerRigid = player.GetComponent<Rigidbody>();
+        //
+        //player.transform.position = DataController.Instance.gameData.playerPosition;
+        //time = 0;
+        //
+        //
+        //playerRigid.constraints = RigidbodyConstraints.None;
+        //playerRigid.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+        //
+        //player.GetComponent<PlayerMovement>().isDie = false;
 
-        GameObject player;
-        Rigidbody playerRigid;
+        //while(color.a > start)
+        //{
+        //    time += Time.deltaTime / fadeTime;
+        //    color.a = Mathf.Lerp(end, start, time);
+        //    fadeImage.color = color;
+        //    yield return null;
+        //}
+        //this.gameObject.SetActive(false);
 
-        player = GameObject.FindWithTag("Player");
-        playerRigid = player.GetComponent<Rigidbody>();
+        yield return null;
+    }
 
-        player.transform.position = DataController.Instance.gameData.playerPosition;
+    private IEnumerator FadeInFlow()
+    {
         time = 0;
 
-        
-        playerRigid.constraints = RigidbodyConstraints.None;
-        playerRigid.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+        Color color = fadeImage.color;
+        //while (color.a < end)
+        //{
+        //    time += Time.deltaTime / fadeTime;
+        //    color.a = Mathf.Lerp(start, end, time);
+        //    fadeImage.color = color;
+        //    yield return null;
+        //}
 
-        player.GetComponent<PlayerMovement>().isDie = false;
+        //GameObject player;
+        //Rigidbody playerRigid;
+        //
+        //player = GameObject.FindWithTag("Player");
+        //playerRigid = player.GetComponent<Rigidbody>();
+        //
+        //player.transform.position = DataController.Instance.gameData.playerPosition;
+        //
+        //
+        //playerRigid.constraints = RigidbodyConstraints.None;
+        //playerRigid.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+        //
+        //player.GetComponent<PlayerMovement>().isDie = false;
 
         while(color.a > start)
         {
@@ -70,9 +116,7 @@ public class Fade : MonoBehaviour
             yield return null;
         }
         this.gameObject.SetActive(false);
-
-
+        firstTime = false;
         yield return null;
-        
     }
 }
