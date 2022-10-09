@@ -171,11 +171,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1798409364, guid: aa6de0c9c76003f4390d2bc349e2cade, type: 3}
       propertyPath: m_Size.x
-      value: 20
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1798409364, guid: aa6de0c9c76003f4390d2bc349e2cade, type: 3}
       propertyPath: m_Size.y
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1798409364, guid: aa6de0c9c76003f4390d2bc349e2cade, type: 3}
       propertyPath: m_Enabled
@@ -187,7 +187,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1798409364, guid: aa6de0c9c76003f4390d2bc349e2cade, type: 3}
       propertyPath: m_Center.y
-      value: -7
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 1458349528067368482, guid: aa6de0c9c76003f4390d2bc349e2cade,
         type: 3}
