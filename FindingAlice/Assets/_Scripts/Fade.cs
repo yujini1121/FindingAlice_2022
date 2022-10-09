@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Fade : MonoBehaviour
@@ -61,15 +62,17 @@ public class Fade : MonoBehaviour
 
         player.GetComponent<PlayerMovement>().isDie = false;
 
-        while(color.a > start)
-        {
-            time += Time.deltaTime / fadeTime;
-            color.a = Mathf.Lerp(end, start, time);
-            fadeImage.color = color;
-            yield return null;
-        }
-        this.gameObject.SetActive(false);
+        //while(color.a > start)
+        //{
+        //    time += Time.deltaTime / fadeTime;
+        //    color.a = Mathf.Lerp(end, start, time);
+        //    fadeImage.color = color;
+        //    yield return null;
+        //}
+        //this.gameObject.SetActive(false);
+
 
         yield return null;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
