@@ -14,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] private Animator playerAnim;
 
     //Scene - Player 오브젝트
-    private GameObject  player;
     public Rigidbody   playerRigidbody; //1008 PlayerManager에서 사용하기 위한
     //캐릭터 좌우로 이동
     private Vector3     moveDirX;
@@ -44,16 +43,14 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private DialogueManager dManager;
 
+    static bool respawn;
+
     private void Awake()
     {
         playerAnim = this.GetComponent<Animator>();
+        playerRigidbody = GetComponent<Rigidbody>();
         originSpeed = speed;
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerRigidbody = player.GetComponent<Rigidbody>();
-        if (ChapterManager.checkLoad)
-        {
-            player.transform.position = DataController.Instance.gameData.playerPosition;
-        }
+        transform.position = DataController.Instance.gameData.playerPosition;
     }
 
     //private void Start()
@@ -286,6 +283,7 @@ public class PlayerMovement : MonoBehaviour
                 //1007 충돌 시 freezeposition 후, 체크포인트 리스폰 시 다시 해제
                 playerRigidbody.constraints = RigidbodyConstraints.FreezeAll;
 
+                respawn = true;
                 PlayerManager.Instance().isGameOver = true;
             break;
 

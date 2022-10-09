@@ -109,11 +109,15 @@ public class ChapterManager : MonoBehaviour
                 //SceneManager.LoadScene("GameScene");
             }
             else
+            {
                 AsyncLoading.LoadScene("Chapter_1");
+                DataController.Instance._gameData.playerPosition = new Vector3(-822, 10, 0);
+            }
             //SceneManager.LoadScene("GameScene");
         }
         else
         {
+            DataController.Instance._gameData.playerPosition = new Vector3(-822, 10, 0);
             notice.SetActive(false);
             AsyncLoading.LoadScene("Chapter_1");
         }
