@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Jump_button : MonoBehaviour, IPointerDownHandler
+public class Jump_button : MonoBehaviour
 {
-    public void OnPointerDown(PointerEventData eventData)
+    private void Update()
     {
-        //GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().Jump();
-        GameObject.FindWithTag("Player").SendMessage("Jump");
+        for (int i = 0; i < Input.touchCount; i++)
+        {
+            if (Input.GetTouch(i).fingerId == Joystick.jumpId)
+            {
+                GameObject.FindWithTag("Player").SendMessage("Jump");
+            }
+        }
     }
 }
