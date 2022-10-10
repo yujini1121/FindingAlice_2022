@@ -9,7 +9,7 @@ public class Jump_button : MonoBehaviour
     {
         for (int i = 0; i < Input.touchCount; i++)
         {
-            if (Input.GetTouch(i).fingerId == Joystick.jumpId)
+            if (Input.GetTouch(i).fingerId == iTouch.jumpId)
             {
                 GameObject.FindWithTag("Player").SendMessage("Jump");
             }

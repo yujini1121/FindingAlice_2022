@@ -21,11 +21,6 @@ public class Joystick : MonoBehaviour
     bool touchFlag;
     GameObject player;
 
-    public static int joystickId = -1, clockId = -1, jumpId = -1;
-    [SerializeField] RectTransform jsAreaRect;
-
-    bool checkJump = false;
-
     private void Awake()
     {
         Input.multiTouchEnabled = true;
@@ -34,39 +29,15 @@ public class Joystick : MonoBehaviour
     {
         lever = GetComponent<RectTransform>();
         lever_original_transform = lever.position;
-        jsAreaRect = GetComponentInParent<RectTransform>();
         player = GameObject.FindWithTag("Player");
     }
 
     void Update()
     {
-        for (int i = 0; i < Input.touchCount; i++)
-        {
-            Touch t = Input.GetTouch(i);
-            if (t.phase == TouchPhase.Began)
-            {
-                if (joystickId == -1 && CheckRect(jsAreaRect, t.position))
-                    joystickId = Input.GetTouch(i).fingerId;
-                if (jumpId == -1 && checkJump)
-                    jumpId = Input.GetTouch(i).fingerId;
-                else if (clockId == -1 && t.position.x > Screen.width / 2)
-                    clockId = Input.GetTouch(i).fingerId;
-
-            }
-            if (t.phase == TouchPhase.Ended)
-            {
-                if (i == joystickId)
-                    joystickId = -1;
-                if (i == jumpId)
-                    jumpId = -1;
-                if (i == clockId)
-                    clockId = -1;
-            }
-        }
         //조이스틱을 눌렀을 때 PlayerMovement의 Move함수 호출
         for (int i = 0; i < Input.touchCount; i++)
         {
-            if (Input.GetTouch(i).fingerId == joystickId)
+            if (Input.GetTouch(i).fingerId == iTouch.joystickId)
             {
                 if (Input.GetTouch(i).phase == TouchPhase.Stationary || Input.GetTouch(i).phase == TouchPhase.Moved)
                 {
@@ -90,28 +61,12 @@ public class Joystick : MonoBehaviour
                 }
             }   
         }
-        if (joystickId == -1)
+        if (iTouch.joystickId == -1)
         {
                 //레버의 위치 초기화
             player.GetComponent<PlayerMovement>().AnimControl("isWalk", false);
             lever.position = lever_original_transform;
         }
-    }
-
-
-    public void JumpBtn(bool b)
-    {
-        checkJump = b;
-    }
-
-    private bool CheckRect(RectTransform rt, Vector2 touchPos)
-    {
-        float posX = rt.localPosition.x * rt.lossyScale.x;
-        float posY = rt.localPosition.y * rt.lossyScale.y;
-        return (touchPos.x > (rt.transform.position.x - posX)) &&
-            (touchPos.x < (rt.transform.position.x + posX)) &&
-            (touchPos.y > (rt.transform.position.y - posY)) &&
-            (touchPos.y < (rt.transform.position.y + posY));
     }
 }
 

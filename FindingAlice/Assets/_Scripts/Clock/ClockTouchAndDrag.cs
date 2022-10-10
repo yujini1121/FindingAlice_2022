@@ -13,7 +13,7 @@ public class ClockTouchAndDrag : MonoBehaviour
     {
         for (int i = 0; i < Input.touchCount; i++)
         {
-            if (Input.GetTouch(i).fingerId == Joystick.clockId)
+            if (Input.GetTouch(i).fingerId == iTouch.clockId)
             {
                 if (Input.GetTouch(i).phase == TouchPhase.Stationary || Input.GetTouch(i).phase == TouchPhase.Moved)
                 {
@@ -31,7 +31,7 @@ public class ClockTouchAndDrag : MonoBehaviour
                 }
             }
         }
-        if (Joystick.clockId == -1)
+        if (iTouch.clockId == -1)
         {
             if (ClockManager.C.CS == ClockState.shoot || ClockManager.C.CS == ClockState.shootMaximum)
             {

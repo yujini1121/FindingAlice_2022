@@ -92,6 +92,7 @@ public class GameManager : MonoBehaviour
 
     public void PopUpOption()
     {
+        iTouch.checkEvent = true;
         Time.timeScale = 0;
         optionButton.SetActive(false);
         option.SetActive(true);
@@ -102,12 +103,15 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         option.SetActive(false);
         optionButton.SetActive(true);
+        iTouch.checkEvent = false;
     }
 
 
 
     public void PressExitGame()
     {
+        iTouch.checkEvent = false;
+        iTouch.checkEvent = true;
         GameObject.Find("CollectionManager").GetComponent<CollectionManager>().SaveCollectionData();
         AsyncLoading.LoadScene("SelectChapterScene");
         //SceneManager.LoadScene("SelectChapterScene");
