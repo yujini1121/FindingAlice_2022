@@ -13,9 +13,9 @@ public class _SavePoint : MonoBehaviour
             {
                 ClockManager.C.clockCounter = 2;
             }
+            //22.10.10. 체크포인트 없어지도록 설정
+            Destroy(this.gameObject);
             
-            //ClockManager.C.clockCounter++;
-            //ClockManager.C.clockCounter++;
         }
     }
 }

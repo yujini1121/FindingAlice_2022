@@ -43,7 +43,7 @@ public class CameraTarget : MonoBehaviour
                     joystickUpNDownStartTime = Time.time;
                 }
                 //시간이 흐른 후 카메라 이동
-                if (joystickUpNDown && Time.time - joystickUpNDownStartTime > 1f)
+                if (joystickUpNDown && Time.time - joystickUpNDownStartTime > 0.5f)
                 {
                     if (Vector2.Dot(joystickPos.anchoredPosition.normalized, joystickPos.up) > 0.9f)
                         targetPosition = playerTrans.position + new Vector3(0, 7, 0);
