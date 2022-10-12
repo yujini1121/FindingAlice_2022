@@ -18,8 +18,11 @@ public class GameManager : MonoBehaviour
     GameObject option;
     GameObject optionButton;
 
-    [SerializeField]
-    bool _patternSwitch = false;
+    //10.12. public으로 수정
+    //[SerializeField]
+    //bool _patternSwitch = false;
+
+    public bool _patternSwitch = false;
     [SerializeField]
     bool _isGround;
 

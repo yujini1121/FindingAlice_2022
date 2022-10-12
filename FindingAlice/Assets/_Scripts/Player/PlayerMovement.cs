@@ -5,6 +5,8 @@ using UnityEngine.Timeline;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public uint deathCounter; //10.12. 데스카운터 추가
+
     [Header("Move")]
     [SerializeField] private float speed;
     private float originSpeed;
