@@ -9,7 +9,7 @@ public class Item_Clock : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter(Collider other)

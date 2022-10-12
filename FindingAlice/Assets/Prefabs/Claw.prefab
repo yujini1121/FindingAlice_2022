@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7907813447015254985}
   m_LocalRotation: {x: 0, y: 0, z: 0.32040626, w: 0.9472802}
-  m_LocalPosition: {x: 58.211216, y: 54.657368, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 5, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -47,6 +47,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
