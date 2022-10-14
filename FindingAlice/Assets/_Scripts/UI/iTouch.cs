@@ -9,6 +9,9 @@ public class iTouch : MonoBehaviour
     [SerializeField] RectTransform jumpRect;
     public static bool checkEvent = false;
 
+    public bool checkClockbtn = false;
+
+
     private void Awake()
     {
         Input.multiTouchEnabled = true;
@@ -27,7 +30,8 @@ public class iTouch : MonoBehaviour
                     joystickId = Input.GetTouch(i).fingerId;
                 if (jumpId == -1 && CheckRect(jumpRect, t.position))
                     jumpId = Input.GetTouch(i).fingerId;
-                else if (clockId == -1 && t.position.x > Screen.width / 2)
+                //else if (clockId == -1 && t.position.x > Screen.width / 2)
+                else if (clockId == -1 && checkClockbtn)
                     clockId = Input.GetTouch(i).fingerId;
 
             }
@@ -51,6 +55,11 @@ public class iTouch : MonoBehaviour
             (touchPos.x < (rt.transform.position.x + posX)) &&
             (touchPos.y > (rt.transform.position.y - posY)) &&
             (touchPos.y < (rt.transform.position.y + posY));
+    }
+
+    public void CheckTouch(bool check)
+    {
+        checkClockbtn = check;
     }
 
 }

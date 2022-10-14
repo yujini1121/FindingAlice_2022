@@ -49,10 +49,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        transform.position = DataController.Instance.gameData.playerPosition;
         playerAnim = this.GetComponent<Animator>();
         playerRigidbody = GetComponent<Rigidbody>();
         originSpeed = speed;
-        transform.position = DataController.Instance.gameData.playerPosition;
     }
 
     //private void Start()
@@ -194,7 +194,7 @@ public class PlayerMovement : MonoBehaviour
     
     public void Jump(){
         // z키를 누르거나 점프 버튼이 눌렸을 때 플레이어가 땅에 있을 경우 점프
-        if (isGround)
+        if (isGround && !isJumping)
         {
             isGround = false;
             playerAnim.Play("Jumping");
@@ -202,6 +202,7 @@ public class PlayerMovement : MonoBehaviour
             isJumping = true;
             playerRigidbody.velocity = Vector3.zero;
             playerRigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+
         }
     }
 

@@ -52,9 +52,9 @@ public class Sink : MonoBehaviour
         if (GetComponentInParent<Transparent>().require == false)
         {
             transform.position = new Vector3(transform.position.x, startPosY, transform.position.z);
-            player.transform.SetParent(null);
             checkCollison = false;
             active = false;
         }
+        player.transform.SetParent(null);
     }
 }

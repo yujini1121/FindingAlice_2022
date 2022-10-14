@@ -25,10 +25,14 @@ public class CameraTarget : MonoBehaviour
     {
         playerMove = GameObject.Find("Player").GetComponent<PlayerMovement>();
         playerTrans = GameObject.Find("Player").transform;
-        targetPosition = playerTrans.position;
         followTarget = playerTrans.Find("Clock").gameObject;
         joystickPos = GameObject.Find("Joystick").transform.GetChild(0).gameObject.GetComponent<RectTransform>();
+    }
+    private void Start()
+    {
+        targetPosition = playerTrans.position;
         transform.position = targetPosition;
+        
     }
 #endif
 
