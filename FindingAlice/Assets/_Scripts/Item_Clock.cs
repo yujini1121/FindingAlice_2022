@@ -7,7 +7,6 @@ public class Item_Clock : MonoBehaviour
     float collidedTime = 0f;
     float appearTime = 3f;
 
-
     private void OnTriggerEnter(Collider other)
     {
 

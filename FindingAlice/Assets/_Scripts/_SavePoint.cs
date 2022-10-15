@@ -24,8 +24,6 @@ public class _SavePoint : MonoBehaviour
                 ClockManager.C.clockCounter++;
             }
 
-            //++deathCounter;
-
             //22.10.10. 체크포인트 없어지도록 설정
             gameObject.SetActive(false);
         }
