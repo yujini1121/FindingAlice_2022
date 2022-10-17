@@ -35,6 +35,7 @@ public class TalkManager : MonoBehaviour
     Sprite rabbit;
     Sprite tiger;
     Sprite sunbi;
+
     private void Awake()
     {
         talkData = new Dictionary<int, TalkData[]>();
@@ -46,6 +47,7 @@ public class TalkManager : MonoBehaviour
 
     private void GenerateData() // 데이터 만드는 함수
     {
+        //a~g까지 챕터1 스토리
         TalkData[] a = new TalkData[]
         {
             new TalkData("토끼", rabbit, "윽... 머리야.",Position.left),
@@ -118,7 +120,7 @@ public class TalkManager : MonoBehaviour
             new TalkData("토끼", rabbit,"아하하...",Position.left),
             new TalkData("호랑이", tiger,"형이 3초 준다.",Position.right),
             new TalkData("토끼", rabbit, "아까는 오해했습니다, 죄송합니다!",Position.left),
-            new TalkData("호랑이", tiger,"3.. 저 토끼 녀석이!!",Position.right),
+            new TalkData("호랑이", tiger,"3.. 저 토끼 녀석이!!",Position.right)
         };
         talkData.Add(6, f);
 
@@ -128,6 +130,45 @@ public class TalkManager : MonoBehaviour
             new TalkData("토끼", rabbit,"바다에는 처음 들어가 본 적이 없지만.. 에라, 모르겠다!",Position.right)
         };
         talkData.Add(7, g);
+
+        //h~m까지 튜토리얼 스토리 및 가이드 대사
+        //h는 초반 스토리
+        TalkData[] h = new TalkData[]
+        {
+            new TalkData("토끼", rabbit, "",Position.left),
+        };
+        talkData.Add(8, h);
+
+        TalkData[] i = new TalkData[]
+        {
+            new TalkData("토끼", rabbit, "역시 아침 공기는 상쾌해.",Position.left),
+            new TalkData("토끼", rabbit, "부모님이 걱정되지만 내가 집으로 돌아가도 바뀌는 게 하나도 없어.",Position.left),
+            new TalkData("토끼", rabbit, "그렇다면 앨리스를 찾아서 보여드리겠어... 나도 동화 속 시계 토끼처럼... 할 수 있다는 것을!",Position.left)
+        };
+        talkData.Add(9, i);
+
+        TalkData[] k = new TalkData[]
+        {
+            new TalkData("토끼", rabbit, "저 절벽은 생각보다 높아보이네?",Position.left),
+            new TalkData("토끼", rabbit, "이 시계를 사용하면 넘어갈 수 있지 않을까?",Position.left)
+        };
+        talkData.Add(10, k);
+
+        TalkData[] l = new TalkData[]
+        {
+            new TalkData("토끼", rabbit, "뭔가 아무것도 보이지 않아..", Position.left),
+            new TalkData("토끼", rabbit, "아래로 숙여볼까?", Position.left)
+        };
+        talkData.Add(11, l);
+
+        TalkData[] m = new TalkData[]
+        {
+            new TalkData("토끼", rabbit, "얼마나 걸었을까? 더이상 집도, 앨리스도 보이지 않아..", Position.left),
+            new TalkData("토끼", rabbit, "이제 찾을 곳은 지구 밖에 없어.", Position.left),
+            new TalkData("토끼", rabbit, "앨리스를 찾으러 지구로 가보자.", Position.left)
+        };
+        talkData.Add(12, m);
+
     }
 
     public TalkData GetTalk(int id, int talkIndex)
