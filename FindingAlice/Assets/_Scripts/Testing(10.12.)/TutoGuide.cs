@@ -6,26 +6,23 @@ public class TutoGuide : MonoBehaviour
 {
     [SerializeField] Sprite[] sprites = new Sprite[2];
 
-    SpriteRenderer spriterenderer;
+    SpriteRenderer spriteRenderer;
 
     void Start()
     {
-        spriterenderer = GetComponent<SpriteRenderer>();
-    }
-
-    void Update()
-    {
-        
-    }
-
-    void SpriteChange()
-    {
-
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        StartCoroutine(SpriteChanging());
     }
 
     IEnumerator SpriteChanging()
     {
-        yield return new WaitForSeconds(5.0f);
-    }
+        while (true)
+        {
+            yield return new WaitForSeconds(1.0f);
+            spriteRenderer.sprite = sprites[1];
+            yield return new WaitForSeconds(1.0f);
+            spriteRenderer.sprite = sprites[0];
 
+        }
+    }
 }
