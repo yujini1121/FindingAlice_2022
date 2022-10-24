@@ -52,7 +52,7 @@ public class ClockManager : MonoBehaviour
     [SerializeField] Vector3 _touchAndDragPos = Vector3.zero;
 
     float playerColliderHeight;
-    float playerColliderRadius;
+    float playerColliderCenterY;
 
     //시계 발사 중 시간 속도 설정
     float timeScaleValue = 0.05f;
@@ -136,7 +136,7 @@ public class ClockManager : MonoBehaviour
 
         clockMaxRange = range.transform.lossyScale.x * 3.0f;
         playerColliderHeight = player.GetComponent<CapsuleCollider>().height;
-        playerColliderRadius = player.GetComponent<CapsuleCollider>().radius;
+        playerColliderCenterY = player.GetComponent<CapsuleCollider>().center.y;
         clockReset();
     }
 
@@ -272,7 +272,9 @@ public class ClockManager : MonoBehaviour
 
 
         player.GetComponent<CapsuleCollider>().height = playerColliderHeight;
-        player.GetComponent<CapsuleCollider>().radius = playerColliderRadius;
+        player.GetComponent<CapsuleCollider>().center = new Vector3(player.GetComponent<CapsuleCollider>().center.x,
+                                                                    playerColliderCenterY,
+                                                                    player.GetComponent<CapsuleCollider>().center.z);
     }
 
     public void clockFollowAction()
@@ -289,7 +291,9 @@ public class ClockManager : MonoBehaviour
         range.SetActive(false);
 
         player.GetComponent<CapsuleCollider>().height = 0;
-        player.GetComponent<CapsuleCollider>().radius = 0.3f;
+        player.GetComponent<CapsuleCollider>().center = new Vector3(player.GetComponent<CapsuleCollider>().center.x,
+                                                                    -0.15f,
+                                                                    player.GetComponent<CapsuleCollider>().center.z);
         //화면에 시계가 존재할 때 캐릭터의 속도를 0으로 초기화, 시계의 방향으로 캐릭터 이동
         rb.AddForce((clock.transform.position - player.transform.position).normalized *
             (20 + Mathf.Pow(Vector3.Distance(clock.transform.position, player.transform.position) / 3, 2)), ForceMode.Impulse);
