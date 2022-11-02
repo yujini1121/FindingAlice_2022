@@ -44,7 +44,7 @@ public class ClockTouchAndDrag : MonoBehaviour
     }
 }
 #elif UNITY_EDITOR_WIN
-public class ClockTouchAndDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+    public class ClockTouchAndDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [SerializeField] Vector3 dragStartPos = Vector3.zero;
     [SerializeField] Vector3 posToDrag = Vector3.zero;

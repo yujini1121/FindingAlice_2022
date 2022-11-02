@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class Jump_button : MonoBehaviour
 {
-    private void Update()
+    public void InputJumpBtn()
     {
         for (int i = 0; i < Input.touchCount; i++)
         {

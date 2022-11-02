@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        transform.position = DataController.Instance.gameData.playerPosition;
+        transform.position = DataController.Instance.gameData.playerPosition + new Vector3(0,10,0);
         playerAnim = this.GetComponent<Animator>();
         playerRigidbody = GetComponent<Rigidbody>();
         originSpeed = speed;

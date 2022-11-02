@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿#if false
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,3 +22,4 @@ public class CameraResolution : MonoBehaviour
 
     private void OnPreCull() => GL.Clear(true, true, Color.black);
 }
+#endif
