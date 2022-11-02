@@ -30,6 +30,9 @@ public class CollectionItem : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.clip = SoundManager.SM.GetSFX(200);
+            audio.Play();
             collection_M.GetItem(number);
             gameObject.SetActive(false);
         }

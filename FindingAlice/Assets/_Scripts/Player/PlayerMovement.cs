@@ -29,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private bool _collisionToWall = false;
 
+    AudioSource audio;
+
     public bool collisionToWall
     {
         get { return _collisionToWall; }
@@ -53,8 +55,9 @@ public class PlayerMovement : MonoBehaviour
         transform.position = DataController.Instance.gameData.playerPosition;
     }
 
-    //private void Start()
-    //{
+    private void Start()
+    {
+        audio = GetComponent<AudioSource>();
     //    originSpeed = speed;
     //    player = GameObject.FindGameObjectWithTag("Player");
     //    playerRigidbody = player.GetComponent<Rigidbody>();
@@ -62,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
     //    {
     //        player.transform.position = DataController.Instance.gameData.playerPosition;
     //    }
-    //}
+    }
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Z))
@@ -200,6 +203,8 @@ public class PlayerMovement : MonoBehaviour
             isJumping = true;
             playerRigidbody.velocity = Vector3.zero;
             playerRigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+            audio.clip = SoundManager.SM.GetSFX(100);
+            audio.Play();
         }
     }
 
@@ -279,6 +284,8 @@ public class PlayerMovement : MonoBehaviour
         //}
         switch(other.tag){
             case "Attack":
+                audio.clip = SoundManager.SM.GetSFX(1000);
+                audio.Play();
                 isDie = true;
                 //1007 충돌 시 freezeposition 후, 체크포인트 리스폰 시 다시 해제
                 playerRigidbody.constraints = RigidbodyConstraints.FreezeAll;

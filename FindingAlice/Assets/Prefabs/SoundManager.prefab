@@ -57,6 +57,16 @@ MonoBehaviour:
       Value: {fileID: 8300000, guid: 5f5b0da912813f94380da343e20c50fd, type: 3}
     - Key: 6
       Value: {fileID: 8300000, guid: bef0c4d119b394e4092dfb1a0781d14d, type: 3}
+  SFX_Dic:
+    array:
+    - Key: 100
+      Value: {fileID: 8300000, guid: b12776576a62fde49b84bf07abd73754, type: 3}
+    - Key: 200
+      Value: {fileID: 8300000, guid: 3dd9a78c1cc378a4d9c2c5cacc112b13, type: 3}
+    - Key: 1000
+      Value: {fileID: 8300000, guid: 90ff69515737f764abe93393ddd5fe22, type: 3}
+    - Key: 2000
+      Value: {fileID: 8300000, guid: 05342630d00b5f2408a0f5399c8424d9, type: 3}
   _bgmSoundValue: 1
   _effectSoundValue: 1
   _bgmSoundMute: 0
