@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 //public enum playerState{
@@ -14,6 +15,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
+    public RenderPipelineAsset defaultPipeline;
+    public RenderPipelineAsset blurPipeline;
 
     GameObject option;
     GameObject optionButton;
@@ -95,6 +99,7 @@ public class GameManager : MonoBehaviour
 
     public void PopUpOption()
     {
+        GraphicsSettings.renderPipelineAsset = blurPipeline;
         iTouch.checkEvent = true;
         Time.timeScale = 0;
         optionButton.SetActive(false);
@@ -103,6 +108,7 @@ public class GameManager : MonoBehaviour
 
     public void PressContinue()
     {
+        GraphicsSettings.renderPipelineAsset = defaultPipeline;
         Time.timeScale = 1;
         option.SetActive(false);
         optionButton.SetActive(true);
