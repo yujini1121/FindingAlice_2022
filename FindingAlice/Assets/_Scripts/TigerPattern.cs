@@ -101,14 +101,14 @@ public class TigerPattern : MonoBehaviour
 
                 while (pattern1_count < 5)
                 {
-                    anim.SetBool("doThrow", true);
+                    anim.SetTrigger("doThrow");
                     pattern.transform.position = new Vector3(player.transform.position.x + ((pattern1_order[pattern1_count] - 2) * 3),
                                                                 player.transform.position.y,
                                                                 pattern.transform.position.z);
                     yield return new WaitForSeconds(1f);
                     Instantiate(rock, pattern.transform.position + (pattern.transform.up * 50f), Quaternion.identity);
                     pattern1_count++;
-                    anim.SetBool("doThrow", false);
+                    //anim.SetBool("doThrow", false);
                 }
             }
             //패턴 2
