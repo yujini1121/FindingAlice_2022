@@ -2,15 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TutoGuide : MonoBehaviour
+public class TutoGuide_Icon : MonoBehaviour
 {
-    [SerializeField] Sprite[] sprites = new Sprite[2];
-
-    SpriteRenderer spriteRenderer;
+    [SerializeField] Vector3 writeNum;
 
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         StartCoroutine(SpriteChanging());
     }
 
@@ -19,10 +16,11 @@ public class TutoGuide : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1.0f);
-            spriteRenderer.sprite = sprites[1];
+            //transform.Translate(new Vector3(0, 1, 0));
+            transform.position += writeNum;
             yield return new WaitForSeconds(1.0f);
-            spriteRenderer.sprite = sprites[0];
-
+            //transform.Translate(new Vector3(0, -1, 0));
+            transform.position -= writeNum;
         }
     }
 }
