@@ -11,7 +11,9 @@ public class TigerPattern : MonoBehaviour
     GameObject player;
     GameObject tiger;
     GameObject tigerPlatform;
+
     Renderer patternColor;
+    Animator anim;
 
     //1번 패턴인지 2번 패턴인지 랜덤값을 저장
     int patternValue;
@@ -41,6 +43,7 @@ public class TigerPattern : MonoBehaviour
         patternColor = pattern.GetComponent<Renderer>();
         //pattern.transform.localScale = new Vector3(3, 100, 0);
         tiger = transform.Find("Tiger").gameObject;
+        anim = tiger.GetComponent<Animator>();
         tigerPlatform = transform.Find("TigerPlatform").gameObject;
     }
 
@@ -80,10 +83,11 @@ public class TigerPattern : MonoBehaviour
     {
         while (true)
         {
-            pattern.transform.parent = claw.transform.parent = null; ;
+            pattern.transform.parent = claw.transform.parent = null;
             pattern.SetActive(true);
             patternValue = Random.Range(0, 2);
             pattern2_time = 0;
+            pattern2_duration = 0;
 
             //패턴 1
             if (patternValue == 0)
@@ -95,21 +99,21 @@ public class TigerPattern : MonoBehaviour
                 pattern.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
                 patternColor.material.color = new Color(1, 0, 0, 0.5f);
 
+                anim.SetBool("doThrow", true);
                 while (pattern1_count < 5)
                 {
                     pattern.transform.position = new Vector3(player.transform.position.x + ((pattern1_order[pattern1_count] - 2) * 3),
                                                                 player.transform.position.y,
                                                                 pattern.transform.position.z);
+                    yield return new WaitForSeconds(1f);
                     Instantiate(rock, pattern.transform.position + (pattern.transform.up * 50f), Quaternion.identity);
                     pattern1_count++;
-                    yield return new WaitForSeconds(0.8f);
                 }
+                anim.SetBool("doThrow", false);
             }
             //패턴 2
             else if (patternValue == 1)
             {
-                tiger.SetActive(false);
-
                 pattern.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Random.Range(0, 360f)));
 
                 while (pattern2_duration <= 1f)
@@ -122,8 +126,13 @@ public class TigerPattern : MonoBehaviour
                     patternColor.material.color = new Color(1, 0, 0, Mathf.Lerp(0f, 1f, pattern2_duration));
                     yield return null;
                 }
-                yield return new WaitForSeconds(pattern2_launchTime);
+                //yield return new WaitForSeconds(pattern2_launchTime);
                 pattern.SetActive(false);
+                anim.SetBool("doJump", true);
+                yield return new WaitForSeconds(1f);
+                anim.SetBool("doJump", false);
+                tiger.SetActive(false);
+                yield return new WaitForSeconds(0.5f);
                 claw.transform.position = new Vector3(pattern.transform.position.x,
                                                         pattern.transform.position.y,
                                                         claw.transform.position.z);
@@ -132,6 +141,7 @@ public class TigerPattern : MonoBehaviour
                 yield return new WaitForSeconds(0.5f);
                 claw.SetActive(false);
                 tiger.SetActive(true);
+                tiger.transform.localPosition = new Vector3(0, 1.55f, 0);
             }
             pattern.SetActive(false);
 
