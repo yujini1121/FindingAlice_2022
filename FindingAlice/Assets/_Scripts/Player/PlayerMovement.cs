@@ -282,6 +282,8 @@ public class PlayerMovement : MonoBehaviour
         //}
         switch(other.tag){
             case "Attack":
+                ClockManager.C.clockReset();
+
                 isDie = true;
                 //1007 충돌 시 freezeposition 후, 체크포인트 리스폰 시 다시 해제
                 playerRigidbody.constraints = RigidbodyConstraints.FreezeAll;

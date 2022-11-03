@@ -85,8 +85,7 @@ public class TigerPattern : MonoBehaviour
         {
             pattern.transform.parent = claw.transform.parent = null;
             pattern.SetActive(true);
-            //patternValue = Random.Range(0, 2);
-            patternValue = 1;
+            patternValue = Random.Range(0, 2);
             pattern2_time = 0;
             pattern2_duration = 0;
 
@@ -100,23 +99,22 @@ public class TigerPattern : MonoBehaviour
                 pattern.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
                 patternColor.material.color = new Color(1, 0, 0, 0.5f);
 
-                anim.SetBool("doThrow", true);
                 while (pattern1_count < 5)
                 {
+                    anim.SetBool("doThrow", true);
                     pattern.transform.position = new Vector3(player.transform.position.x + ((pattern1_order[pattern1_count] - 2) * 3),
                                                                 player.transform.position.y,
                                                                 pattern.transform.position.z);
                     yield return new WaitForSeconds(1f);
                     Instantiate(rock, pattern.transform.position + (pattern.transform.up * 50f), Quaternion.identity);
                     pattern1_count++;
+                    anim.SetBool("doThrow", false);
                 }
-                anim.SetBool("doThrow", false);
             }
             //패턴 2
             else if (patternValue == 1)
             {
                 pattern.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Random.Range(0, 360f)));
-
                 //패턴 색 알파값 증가시키는 반복문
                 while (pattern2_duration <= 1f)
                 {
@@ -133,7 +131,7 @@ public class TigerPattern : MonoBehaviour
                 pattern.SetActive(false);
                 anim.SetBool("doJump", false);
                 tiger.SetActive(false);
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.3f);
                 claw.transform.position = new Vector3(pattern.transform.position.x,
                                                         pattern.transform.position.y,
                                                         claw.transform.position.z);

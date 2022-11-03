@@ -6,7 +6,7 @@ public class Clock : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (ClockManager.C.CS == ClockState.follow && other.gameObject.tag == "Player")
         {
             ClockManager.C.clockReset();
             PlayerMovement player = other.GetComponent<PlayerMovement>();
