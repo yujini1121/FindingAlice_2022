@@ -5,7 +5,7 @@ using UnityEngine.Timeline;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public uint deathCounter; //10.12. 데스카운터 추가
+    static public uint deathCounter; //10.12. 데스카운터 추가, 데스카운터는 
 
     [Header("Move")]
     [SerializeField] private float speed;
@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] private Animator playerAnim;
 
     //Scene - Player 오브젝트
-    public Rigidbody   playerRigidbody; //1008 PlayerManager에서 사용하기 위한
+    [HideInInspector] public Rigidbody playerRigidbody; //1008 PlayerManager에서 사용하기 위한
     //캐릭터 좌우로 이동
     private Vector3     moveDirX;
     //키보드로부터 X축 값 얻음
