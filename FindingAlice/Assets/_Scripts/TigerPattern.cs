@@ -17,8 +17,8 @@ public class TigerPattern : MonoBehaviour
 
     //1번 패턴인지 2번 패턴인지 랜덤값을 저장
     int patternValue;
+    //패턴 재발동 쿨타임
     float patternCooldown = 8f;
-    float thisPatternStartTime;
     //현재 패턴이 재생 중인지 확인
     bool isPatternPlay = false;
 
@@ -85,7 +85,8 @@ public class TigerPattern : MonoBehaviour
         {
             pattern.transform.parent = claw.transform.parent = null;
             pattern.SetActive(true);
-            patternValue = Random.Range(0, 2);
+            //patternValue = Random.Range(0, 2);
+            patternValue = 1;
             pattern2_time = 0;
             pattern2_duration = 0;
 
@@ -116,6 +117,7 @@ public class TigerPattern : MonoBehaviour
             {
                 pattern.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Random.Range(0, 360f)));
 
+                //패턴 색 알파값 증가시키는 반복문
                 while (pattern2_duration <= 1f)
                 {
                     pattern.transform.position = new Vector3(player.transform.position.x,
@@ -123,13 +125,12 @@ public class TigerPattern : MonoBehaviour
                                                                 pattern.transform.position.z);
                     pattern2_time += Time.deltaTime;
                     pattern2_duration = pattern2_time / pattern2_launchTime;
-                    patternColor.material.color = new Color(1, 0, 0, Mathf.Lerp(0f, 1f, pattern2_duration));
+                    patternColor.material.color = new Color(1, 0, 0, Mathf.Lerp(0f, 0.8f, pattern2_duration));
                     yield return null;
                 }
-                //yield return new WaitForSeconds(pattern2_launchTime);
-                pattern.SetActive(false);
                 anim.SetBool("doJump", true);
                 yield return new WaitForSeconds(1f);
+                pattern.SetActive(false);
                 anim.SetBool("doJump", false);
                 tiger.SetActive(false);
                 yield return new WaitForSeconds(0.5f);
@@ -141,7 +142,7 @@ public class TigerPattern : MonoBehaviour
                 yield return new WaitForSeconds(0.5f);
                 claw.SetActive(false);
                 tiger.SetActive(true);
-                tiger.transform.localPosition = new Vector3(0, 1.55f, 0);
+                tiger.transform.localPosition = new Vector3(0, 2.07f, 0);
             }
             pattern.SetActive(false);
 
