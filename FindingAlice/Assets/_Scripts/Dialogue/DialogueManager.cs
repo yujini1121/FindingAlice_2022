@@ -88,12 +88,22 @@ public class DialogueManager : MonoBehaviour
                 else
                 {
                     talkImage[i].color = Color.gray;
+                    if (talkImage[i].sprite == null)
+                        talkImage[i].color = SetColorAlpha(talkImage[i].color, 0);
                 }
             }
+            
         }
         talkImage[(int)talkData.position].sprite = talkData.sprite;
         talkText.text = talkData.talkContents;
         isActive = true;
         talkIndex++;
+    }
+    Color SetColorAlpha(Color c, float a)
+    {
+        Color color = c;
+        Color _color = new Color(color.r, color.g, color.b, a);
+
+        return _color;
     }
 }

@@ -6,8 +6,13 @@ using UnityEngine.SceneManagement;
 public class PlayerManager : MonoBehaviour
 {
     bool deathCheck = true;
+    static int deathCount = -1;
 
     private static PlayerManager _instance = null;
+    public int GetDeathCount()
+    {
+        return deathCount;
+    }
 
     public static PlayerManager Instance()
     {
@@ -56,6 +61,7 @@ public class PlayerManager : MonoBehaviour
     private void Init()
     {
         isGameOver = false;
+        deathCount++;
     }
 
 
