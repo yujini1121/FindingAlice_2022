@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public bool _patternSwitch = false;
     [SerializeField]
     bool _isGround;
+    bool isPaused;
 
     Vector3 size;
 
@@ -124,5 +125,18 @@ public class GameManager : MonoBehaviour
         GameObject.Find("CollectionManager").GetComponent<CollectionManager>().SaveCollectionData();
         AsyncLoading.LoadScene("SelectChapterScene");
         //SceneManager.LoadScene("SelectChapterScene");
+    }
+
+    private void OnApplicationPause(bool pause)
+    {
+        if (pause)
+        {
+            isPaused = true;
+            PopUpOption();
+        }
+        if (isPaused)
+        {
+            isPaused = false;
+        }
     }
 }
