@@ -124,6 +124,7 @@ public class GameManager : MonoBehaviour
         iTouch.checkEvent = true;
         GameObject.Find("CollectionManager").GetComponent<CollectionManager>().SaveCollectionData();
         AsyncLoading.LoadScene("SelectChapterScene");
+        GraphicsSettings.renderPipelineAsset = defaultPipeline;
         //SceneManager.LoadScene("SelectChapterScene");
     }
 
