@@ -15,7 +15,7 @@ MonoBehaviour:
   m_Active: 1
   settings:
     Event: 500
-    Algorithm: 1
+    Algorithm: 2
     BlurAmount: 2
     KernelSize: 2
     BlurMask: {fileID: 2800000, guid: 275941860ced1a146a8351128b49062a, type: 3}
