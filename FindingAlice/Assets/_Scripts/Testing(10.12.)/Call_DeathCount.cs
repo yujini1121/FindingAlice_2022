@@ -18,7 +18,7 @@ public class Call_DeathCount : MonoBehaviour
         if(gameObject.GetComponent<Text>() != null)
         {
             gameObject.GetComponent<Text>().text =
-                "deathCount : " + PlayerManager.Instance().GetDeathCount();
+                "»ç¸Á È½¼ö  " + PlayerManager.Instance().GetDeathCount();
         }
     }
 }
