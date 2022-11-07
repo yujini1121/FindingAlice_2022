@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class ColliderExpand : MonoBehaviour
 {
-    //[HideInInspector] public Collider expand;
-    public BoxCollider expand;
-    public BoxCollider parentCol;
+    BoxCollider expand;
+    BoxCollider parentCol;
+
+    bool col_To_Wall;
 
     void OnEnable()
     {
         expand = transform.Find("ExpandCollider").GetComponent<BoxCollider>();
         parentCol = this.gameObject.GetComponent<BoxCollider>();
+        col_To_Wall = GameObject.Find("Player").GetComponent<PlayerMovement>().collisionToWall;
     }
 
     void OnCollisionEnter(Collision collision)
@@ -20,13 +22,7 @@ public class ColliderExpand : MonoBehaviour
         {
             expand.enabled = true;
             parentCol.enabled = false;
-            //StartCoroutine(CollderDisable());
+            col_To_Wall = false;
         }
-    }
-
-    IEnumerator CollderDisable()
-    {
-        yield return new WaitForSeconds(0.02f);
-        parentCol.enabled = false;
     }
 }

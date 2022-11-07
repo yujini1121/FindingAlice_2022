@@ -4,29 +4,30 @@ using UnityEngine;
 
 public class ColliderContract : MonoBehaviour
 {
-    BoxCollider expandReturn;
-    BoxCollider parentReturn;
+    BoxCollider expandOff;
+    BoxCollider parentOn;
+
+    bool col_To_Wall;
 
     void Start()
     {
-        expandReturn = this.gameObject.GetComponent<BoxCollider>();
-        //parentReturn = gameObject.GetComponentInParent<BoxCollider>();
-        parentReturn = transform.parent.GetComponent<BoxCollider>();
+        expandOff = this.gameObject.GetComponent<BoxCollider>();
+        parentOn = transform.parent.GetComponent<BoxCollider>();
+        col_To_Wall = GameObject.Find("Player").GetComponent<PlayerMovement>().collisionToWall;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        col_To_Wall = false;
     }
 
     void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            parentReturn.enabled = true;
-            expandReturn.enabled = false;
-            //StartCoroutine(ColliderDisable());
+            parentOn.enabled = true;
+            expandOff.enabled = false;
+            col_To_Wall = false;
         }
-    }
-
-    IEnumerator ColliderDisable()
-    {
-        yield return new WaitForSeconds(0.02f);
-        expandReturn.enabled = false;
     }
 }
