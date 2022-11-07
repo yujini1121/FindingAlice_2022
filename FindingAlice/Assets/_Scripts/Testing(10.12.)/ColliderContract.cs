@@ -4,21 +4,29 @@ using UnityEngine;
 
 public class ColliderContract : MonoBehaviour
 {
-    Collider ExpandReturn;
-    Collider ParentReturn;
+    BoxCollider expandReturn;
+    BoxCollider parentReturn;
 
     void Start()
     {
-        ExpandReturn = gameObject.GetComponentInParent<ColliderExpand>().expand;
-        ParentReturn = gameObject.GetComponentInParent<ColliderExpand>().parentCol;
+        expandReturn = this.gameObject.GetComponent<BoxCollider>();
+        //parentReturn = gameObject.GetComponentInParent<BoxCollider>();
+        parentReturn = transform.parent.GetComponent<BoxCollider>();
     }
 
     void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.name == "Player")
+        if (collision.gameObject.tag == "Player")
         {
-            ExpandReturn.enabled = false;
-            ParentReturn.enabled = true;
+            parentReturn.enabled = true;
+            expandReturn.enabled = false;
+            //StartCoroutine(ColliderDisable());
         }
+    }
+
+    IEnumerator ColliderDisable()
+    {
+        yield return new WaitForSeconds(0.02f);
+        expandReturn.enabled = false;
     }
 }
