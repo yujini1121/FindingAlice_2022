@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class _SavePoint : MonoBehaviour
 {
@@ -14,8 +15,11 @@ public class _SavePoint : MonoBehaviour
 
     void OnTriggerEnter(Collider other){
         if(other.CompareTag("Player")){
-            PlayerManager.Instance().lastCPPos = transform.position;
-            DataController.Instance._gameData.playerPosition = this.transform.position;
+            //PlayerManager.Instance().lastCPPos = transform.position;
+            if(SceneManager.GetActiveScene().name == "tTutorial")
+                DataController.Instance._gameData.playerPositionTutorial = this.transform.position;
+            else if(SceneManager.GetActiveScene().name == "Chapter")
+                DataController.Instance._gameData.playerPositionChpater1 = this.transform.position;
             
             for (int i = 0; i < 2; i++)
             {

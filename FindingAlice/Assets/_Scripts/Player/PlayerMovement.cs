@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Timeline;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -49,7 +50,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        transform.position = DataController.Instance.gameData.playerPosition + new Vector3(0,10,0);
+        if (SceneManager.GetActiveScene().name == "tTutorial")
+            if (DataController.Instance.gameData.playerPositionTutorial != new Vector3(0, 0, 0))
+                transform.position = DataController.Instance.gameData.playerPositionTutorial + new Vector3(0,10,0);
+        else if(SceneManager.GetActiveScene().name =="Chpater1")
+            transform.position = DataController.Instance.gameData.playerPositionChpater1 + new Vector3(0,10,0);
+
         playerAnim = this.GetComponent<Animator>();
         playerRigidbody = GetComponent<Rigidbody>();
         originSpeed = speed;

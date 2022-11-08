@@ -19,10 +19,10 @@ public class PlayerManager : MonoBehaviour
         return _instance;
     }
 
-    public Vector3 lastCPPos = new Vector3(105, 67, 0);
+    //public Vector3 lastCPPos = new Vector3(105, 67, 0);
 
     public bool isGameOver;
-    [SerializeField] private GameObject FadeImage;
+    [SerializeField] private GameObject FadeImage; 
 
 
 

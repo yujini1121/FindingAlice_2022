@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -17,6 +18,19 @@ public class DialogueManager : MonoBehaviour
 
     public ObjData objData;
 
+    string sceanName;
+    private void Start()
+    {
+        sceanName = SceneManager.GetActiveScene().name;
+        for (int i = 1; i < 3; i++) {
+            if (sceanName == "TutoTalk " + i)
+            {
+                fade = GameObject.Find("FadeImage");
+                Talk(objData.id);
+                break;
+            }
+        }
+    }
 
     private void Update()
     {
@@ -58,6 +72,7 @@ public class DialogueManager : MonoBehaviour
     }
 
     RectTransform r;
+    GameObject fade;
     private void Talk(int id)
     {
         TalkData talkData = talkManager.GetTalk(id, talkIndex);
@@ -65,7 +80,16 @@ public class DialogueManager : MonoBehaviour
         {
             isActive = false;
             talkIndex = 0;
-            for(int i = 0; i< talkImage.Length; i++)
+            for (int i = 1; i < 3; i++)
+            {
+                if (sceanName == "TutoTalk " + i)
+                {
+                    
+                    fade.SetActive(true);
+                    break;
+                }
+            }
+            for (int i = 0; i< talkImage.Length; i++)
             {
                 talkImage[i].sprite = null;
             }
@@ -83,7 +107,13 @@ public class DialogueManager : MonoBehaviour
                 {
                     talkImage[i].color = Color.white;
                     r = (RectTransform)talkImage[i].transform;
-                    r.sizeDelta = new Vector2(talkData.sprite.rect.width, talkData.sprite.rect.height);
+                    if(talkData.sprite.name == "ParentRabbit")
+                    {
+                        float ratio = 600 / talkData.sprite.rect.height;
+                        r.sizeDelta = new Vector2(talkData.sprite.rect.width * ratio, talkData.sprite.rect.height * ratio);
+                    }
+                    else
+                        r.sizeDelta = new Vector2(talkData.sprite.rect.width, talkData.sprite.rect.height);
                 }
                 else
                 {

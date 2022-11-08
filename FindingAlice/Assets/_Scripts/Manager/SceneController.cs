@@ -13,7 +13,8 @@ public class SceneController : MonoBehaviour
 
     private void Awake()
     {
-        gameData = DataController.Instance.LoadGameData();
+        //gameData = DataController.Instance.LoadGameData();
+        gameData = DataController.Instance.gameData;
         DontDestroyOnLoad(this.gameObject);
     }
     private void Update()
@@ -30,7 +31,7 @@ public class SceneController : MonoBehaviour
                 else
                 {
                     //for testing apk
-                    AsyncLoading.LoadScene("SelectChapterScene");
+                    AsyncLoading.LoadScene("TutoTalk 1");
 
                     //AsyncLoading.LoadScene("TutorialScene");
                     //SceneManager.LoadScene("TutorialScene");
@@ -44,6 +45,18 @@ public class SceneController : MonoBehaviour
             if (fade.GetComponent<Fade>().check)
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+        for (int i = 1; i < 3; i++)
+        {
+            if (SceneManager.GetActiveScene().name == "TutoTalk " + i)
+            {
+                if (fade == null)
+                    fade = GameObject.Find("FadeImage");
+                if (fade.GetComponent<Fade>().check)
+                {
+                    SceneManager.LoadScene(i + 2);
+                }
+            }
+        }
     }
     
     public void TouchPanel()
@@ -56,6 +69,10 @@ public class SceneController : MonoBehaviour
         for(int i = 0; i < 4; i++)
         {
             if (curr == "Chapter_" + i)
+            {
+                return true;
+            }
+            else if(curr == "tTutorial")
             {
                 return true;
             }

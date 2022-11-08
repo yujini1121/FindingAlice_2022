@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: 1506115171930797801
     second: clock_skillpoint 1_1
+  - first:
+      213: 2194940667124246703
+    second: clock_skillpoint 1_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -44,7 +47,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -107,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: clock_skillpoint 1_1
+      name: clock_skillpoint 1_0
       rect:
         serializedVersion: 2
         x: 928
@@ -115,14 +118,14 @@ TextureImporter:
         width: 1647
         height: 1478
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e6f2c5e4cbc6e410800000000000000
-      internalID: 1506115171930797801
+      spriteID: fa8effe48eef57e10800000000000000
+      internalID: 2194940667124246703
       vertices: []
       indices: 
       edges: []

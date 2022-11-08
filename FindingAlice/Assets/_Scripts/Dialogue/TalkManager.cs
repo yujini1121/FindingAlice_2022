@@ -33,15 +33,19 @@ public class TalkManager : MonoBehaviour
     Dictionary<int, TalkData[]> talkData;
 
     Sprite rabbit;
+    Sprite parentRabbit;
     Sprite tiger;
     Sprite sunbi;
+    Sprite none;
 
     private void Awake()
     {
         talkData = new Dictionary<int, TalkData[]>();
         rabbit = Resources.LoadAll<Sprite>("토끼_2")[0];
+        parentRabbit = Resources.Load<Sprite>("ParentRabbit");
         tiger = Resources.LoadAll<Sprite>("tigerSprite")[0];
         sunbi = Resources.LoadAll<Sprite>("선비_스프라이트")[0];
+        none = null;
         GenerateData();
     }
 
@@ -169,6 +173,32 @@ public class TalkManager : MonoBehaviour
         };
         talkData.Add(12, m);
 
+        // 튜토리얼 전 대화
+        TalkData[] ta = new TalkData[]
+        {
+            new TalkData("", none, "달 속 토끼가 아침부터 세수를 하며 동화책을 손에 들고 있다.", Position.left),
+            new TalkData("", none, "침대 위에 앉아 동화책을 한 장 한 장 넘기면서 토끼는 입가에 미소가 생긴다.", Position.left),
+            new TalkData("토끼", rabbit, "내가 좋아하는 동화는 이상한 나라의 앨리스야.", Position.left),
+            new TalkData("토끼", rabbit, "하지만 나는 달 토끼라서 동화에 나오는 시계 토끼처럼 살 수가 없어.", Position.left),
+            new TalkData("토끼", rabbit, "그런 지겨운 삶을 살 바에는... 나중에 부모님께 설득해 봐야지!", Position.left),
+        };
+        talkData.Add(13, ta);
+        TalkData[] tb = new TalkData[]
+        {
+            new TalkData("아버지 토끼", parentRabbit, "오늘은 학교에 가지 않아도 된단다.", Position.right),
+            new TalkData("토끼", rabbit, "네???", Position.left),
+            new TalkData("아버지 토끼", parentRabbit, "너도 이제부터 제대로 일을 배워야 하지 않겠니?", Position.right),
+            new TalkData("토끼", rabbit, "저는...", Position.left),
+            new TalkData("어머니 토끼", parentRabbit, "우리 달 토끼는 달떡을 만드는 게 삶의 목표이자 일이란다.", Position.right),
+            new TalkData("토끼", rabbit, "일이라뇨?? 전 싫다고 말씀드렸잖아요!", Position.left),
+            new TalkData("어머니 토끼", parentRabbit, "아까도 말했잖니, 우리는 달 토...", Position.right),
+            new TalkData("토끼", rabbit, "달 토끼, 달 토끼... 정말 지긋지긋하다고요!", Position.left),
+            new TalkData("토끼", rabbit, "전 정말 하기 싫어요. 제가 하고 싶은 건 그런 게 아닐뿐더러 부모님처럼 살기 싫다고...", Position.left),
+            new TalkData("아버지 토끼", parentRabbit, "나가라.", Position.right),
+            new TalkData("토끼", rabbit, "네... 죄송합니다.", Position.left),
+
+        };
+        talkData.Add(14, tb);
     }
 
     public TalkData GetTalk(int id, int talkIndex)

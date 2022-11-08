@@ -17,7 +17,7 @@ public class iTouch : MonoBehaviour
         Input.multiTouchEnabled = true;
         checkEvent = false;
     }
-    private void Update()
+    public void Update()
     {
         for (int i = 0; i < Input.touchCount; i++)
         {
