@@ -43,7 +43,7 @@ public class TalkManager : MonoBehaviour
         talkData = new Dictionary<int, TalkData[]>();
         rabbit = Resources.LoadAll<Sprite>("토끼_2")[0];
         parentRabbit = Resources.Load<Sprite>("ParentRabbit");
-        tiger = Resources.LoadAll<Sprite>("tigerSprite")[0];
+        tiger = Resources.LoadAll<Sprite>("Tiger")[0];
         sunbi = Resources.LoadAll<Sprite>("선비_스프라이트")[0];
         none = null;
         GenerateData();

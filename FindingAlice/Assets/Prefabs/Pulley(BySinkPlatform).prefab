@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4624310140327895767}
   - component: {fileID: 3505511372801822269}
   - component: {fileID: 7293420823697593459}
-  - component: {fileID: 5866136940463855681}
   m_Layer: 0
   m_Name: Rope_R
   m_TagString: Untagged
@@ -82,20 +81,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5866136940463855681
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 962093868925732932}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &6246768616627335389
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,6 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rope_Length: 1
+  sinkPlatform: {fileID: 0}
 --- !u!1 &9015892277884561127
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,7 +190,6 @@ GameObject:
   - component: {fileID: 4978863998401448570}
   - component: {fileID: 7148894845164630883}
   - component: {fileID: 3487313100258168933}
-  - component: {fileID: 991543636057531102}
   m_Layer: 0
   m_Name: Rope_L
   m_TagString: Untagged
@@ -275,17 +260,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &991543636057531102
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9015892277884561127}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}

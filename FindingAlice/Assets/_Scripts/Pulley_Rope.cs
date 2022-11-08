@@ -6,6 +6,7 @@ public class Pulley_Rope : MonoBehaviour
 {
     [SerializeField] float rope_Length = 1;
     GameObject rope_L, rope_R;
+    public GameObject sinkPlatform;
     Vector3 origin_L, origin_R;
 
     void Start()
@@ -18,6 +19,7 @@ public class Pulley_Rope : MonoBehaviour
 
     void Update()
     {
+        rope_Length = Vector3.Distance(sinkPlatform.transform.position, transform.position) / 4;
         rope_L.transform.localScale = new Vector3(rope_L.transform.localScale.x, rope_Length, rope_L.transform.localScale.z);
         rope_R.transform.localScale = new Vector3(rope_R.transform.localScale.x, rope_Length, rope_R.transform.localScale.z);
         rope_L.transform.localPosition = origin_L + new Vector3(0, -rope_Length, 0);
