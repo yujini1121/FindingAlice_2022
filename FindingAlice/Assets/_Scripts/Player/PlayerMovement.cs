@@ -134,8 +134,6 @@ public class PlayerMovement : MonoBehaviour
             //        }
             //    }
             //}
-            
-
 
             isMoving = false;
 // 디버깅 개발용 추후 false =======================================================
@@ -180,8 +178,9 @@ public class PlayerMovement : MonoBehaviour
         {
             isMoving = true;
 
-            inputDir = dir;
 
+#if true
+            inputDir = dir;
             if (!collisionToWall)
             {
                 moveDirX = new Vector3(inputDir, 0, 0).normalized;
@@ -189,6 +188,13 @@ public class PlayerMovement : MonoBehaviour
                 transform.position += moveDirX * speed * Time.deltaTime;
             }
             playerAnim.SetBool("isWalk", !_collisionToWall);
+#else
+            inputDir = dir;
+            moveDirX = new Vector3(inputDir, 0, 0).normalized;
+
+            transform.position += moveDirX * speed * Time.deltaTime;
+            playerAnim.SetBool("isWalk", );
+#endif
 
 
             if ((transform.localScale.x > 0 && inputDir < 0) || (transform.localScale.x < 0 && inputDir > 0))
@@ -232,6 +238,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Platform"))
         {
             speed = originSpeed;
+            collisionToWall = false;
         //    if (other.contacts[0].normal.y >= 0.7f)
         //    {
         //        playerAnim.SetBool("isGrounded", true);
