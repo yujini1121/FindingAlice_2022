@@ -14,7 +14,7 @@ public class SceneController : MonoBehaviour
     private void Awake()
     {
         //gameData = DataController.Instance.LoadGameData();
-        gameData = DataController.Instance.gameData;
+        gameData = DataController.Instance.LoadGameData();
         DontDestroyOnLoad(this.gameObject);
     }
     private void Update()
@@ -36,7 +36,6 @@ public class SceneController : MonoBehaviour
                     //AsyncLoading.LoadScene("TutorialScene");
                     //SceneManager.LoadScene("TutorialScene");
                 }
-                AsyncLoading.LoadScene("SelectChapterScene");
 
             }
         }
