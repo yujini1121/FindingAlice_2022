@@ -11,17 +11,15 @@ public class SappearObject : MonoBehaviour
     void Start()
     {
         for (int i = 0; i < someGameobject.Length; i++)
-        {
             someName[i] = someGameobject[i].name;
-        }
+        
     }
 
     void OnCollisionEnter(Collision collision)
     {
         for (int i = 0; i < someGameobject.Length; i++)
-        {
-            GameObject.Find(name).transform.FindChild(someName[i]).gameObject.SetActive(true);
-        }
-        print("cc");
+            transform.GetChild(i).gameObject.SetActive(true);
+
+        gameObject.GetComponent<Collider>().enabled = false;
     }
 }
