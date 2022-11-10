@@ -36,6 +36,8 @@ public class SceneController : MonoBehaviour
                     //AsyncLoading.LoadScene("TutorialScene");
                     //SceneManager.LoadScene("TutorialScene");
                 }
+                AsyncLoading.LoadScene("SelectChapterScene");
+
             }
         }
         else if(CheckChapter(SceneManager.GetActiveScene().name))
