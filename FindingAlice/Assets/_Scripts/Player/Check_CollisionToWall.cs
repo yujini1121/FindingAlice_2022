@@ -11,12 +11,15 @@ public class Check_CollisionToWall : MonoBehaviour
         playerMovement = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        //playerMovement.isGround = false;
-        //playerMovement.AnimControl("isGrounded", false);
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    //playerMovement.isGround = false;
+    //    //playerMovement.AnimControl("isGrounded", false);
+    //}
 
+   
+
+#if true
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Platform")
@@ -27,6 +30,7 @@ public class Check_CollisionToWall : MonoBehaviour
             if(LayerMask.LayerToName(other.gameObject.layer) != "PassingPlatform" && ClockManager.C.CS == ClockState.follow)
                 ClockManager.C.clockReset();
         }
+        
     }
 
     private void OnTriggerExit(Collider other)
@@ -38,4 +42,5 @@ public class Check_CollisionToWall : MonoBehaviour
             //playerMovement.isGround = true;
         }
     }
+#endif
 }
