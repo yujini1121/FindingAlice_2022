@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 #if UNITY_ANDROID
 public class Joystick : MonoBehaviour
 {
+    [SerializeField] RectTransform jsAreaRect;
     [Header("Value")]
     //조이스틱 레버 반경
     [SerializeField] float radius = 250f;
@@ -21,17 +22,20 @@ public class Joystick : MonoBehaviour
     bool touchFlag;
     GameObject player;
 
+    int joystickId = -1;
     private void Awake()
     {
         Input.multiTouchEnabled = true;
     }
     void Start()
     {
+        jsAreaRect = GetComponentInParent<RectTransform>();
         lever = GetComponent<RectTransform>();
         lever_original_transform = lever.position;
         player = GameObject.FindWithTag("Player");
     }
 
+#if false
     void Update()
     {
         //조이스틱을 눌렀을 때 PlayerMovement의 Move함수 호출
@@ -68,10 +72,29 @@ public class Joystick : MonoBehaviour
             lever.position = lever_original_transform;
         }
     }
+#else
+    private void Update()
+    {
+        for (int i = 0; i < Input.touchCount; i++)
+        {
+            Touch t = Input.GetTouch(i);
+            if (t.phase == TouchPhase.Began)
+            {
+                if (joystickId == -1 && iTouch.CheckRect(jsAreaRect, t.position))
+                    joystickId = Input.GetTouch(i).fingerId;
+            }
+            else if (t.phase == TouchPhase.Ended)
+            {
+                if (i == joystickId)
+                    joystickId = -1;
+            }
+        }
+    }
+#endif
 }
 
 #elif UNITY_EDITOR_WIN
-public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
+    public class Joystick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
     [Header("Value")]
     //조이스틱 레버 반경

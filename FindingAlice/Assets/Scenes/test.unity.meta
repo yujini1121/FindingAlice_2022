@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:FindingAlice/Assets/Resources/Materials/Material(no_color).mat.meta
+guid: 99b59a1807d3bb64d8863ef62f5a94c4
+NativeFormatImporter:
+========
+guid: 59c0d5e3e9c3a4a4ea577cda8db72194
+DefaultImporter:
+>>>>>>>> revert_pr/27:FindingAlice/Assets/Scenes/tTutorial.unity.meta
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

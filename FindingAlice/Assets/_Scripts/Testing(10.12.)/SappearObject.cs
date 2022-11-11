@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SappearObject : MonoBehaviour
 {
-    //ÇØ´ç ºÎ¸ð¿¡°Ô ºÎµúÈ÷¸é ÀÎ½ºÆåÅÍÀÇ º¯¼ö¿¡ °¢°¢ ÇÒ´çÇÑ ÀÚ½ÄÀÇ ¿ÀºêÁ§Æ®µéÀÌ ÄÑÁö´Â ½ºÅ©¸³Æ®
+    //ï¿½Ø´ï¿½ ï¿½Î¸ð¿¡°ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ®
     [SerializeField] GameObject[] someGameobject;
     string[] someName;
 
@@ -20,7 +20,7 @@ public class SappearObject : MonoBehaviour
     {
         for (int i = 0; i < someGameobject.Length; i++)
         {
-            GameObject.Find(name).transform.FindChild(someName[i]).gameObject.SetActive(true);
+            GameObject.Find(name).transform.Find(someName[i]).gameObject.SetActive(true);
         }
         print("cc");
     }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class iTouch : MonoBehaviour
 {
+    public List<int> touches = new List<int>();
+
     public static int joystickId = -1, clockId = -1, jumpId = -1;
     [SerializeField]RectTransform jsAreaRect;
     [SerializeField] RectTransform jumpRect;
@@ -11,13 +13,13 @@ public class iTouch : MonoBehaviour
 
     public bool checkClockbtn = false;
 
-
     private void Awake()
     {
         Input.multiTouchEnabled = true;
         checkEvent = false;
     }
-    public void Update()
+#if true
+    private void Update()
     {
         for (int i = 0; i < Input.touchCount; i++)
         {
@@ -35,7 +37,7 @@ public class iTouch : MonoBehaviour
                     clockId = Input.GetTouch(i).fingerId;
 
             }
-            if (t.phase == TouchPhase.Ended)
+            else if (t.phase == TouchPhase.Ended)
             {
                 if (i == joystickId)
                     joystickId = -1;
@@ -47,7 +49,28 @@ public class iTouch : MonoBehaviour
         }
         Debug.Log($"jsId : {joystickId}\n\tjumpId : {jumpId}\n\tclockId : {clockId}");
     }
-    private bool CheckRect(RectTransform rt, Vector2 touchPos)
+#else
+    void Update()
+    {
+        int i = 0;
+        while (i < Input.touchCount)
+        {
+            Touch t = Input.GetTouch(i);
+            if (t.phase == TouchPhase.Began)
+            {
+                touches.Add();
+            }
+            else if (t.phase == TouchPhase.Ended)
+            {
+                touches.RemoveAt(touches.IndexOf(thisTouch));
+            }
+            else if (t.phase == TouchPhase.Moved)
+            {
+            }
+        }
+    }
+#endif
+    public static bool CheckRect(RectTransform rt, Vector2 touchPos)
     {
         float posX = rt.rect.width * rt.lossyScale.x * 0.5f + 10;
         float posY = rt.rect.height * rt.lossyScale.y * 0.5f + 10;
