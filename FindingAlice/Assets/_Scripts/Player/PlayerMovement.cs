@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Timeline;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -136,8 +137,13 @@ public class PlayerMovement : MonoBehaviour
             //}
 
             isMoving = false;
-// 디버깅 개발용 추후 false =======================================================
-#if UNITY_EDITOR_WIN
+            // 디버깅 개발용 추후 false =======================================================
+#if UNITY_ANDROID
+            if (CrossPlatformInputManager.GetAxisRaw("Horizontal") != 0)
+                Move(CrossPlatformInputManager.GetAxisRaw("Horizontal"));
+            if (CrossPlatformInputManager.GetButtonDown("Jump"))
+                Jump();
+#elif UNITY_EDITOR_WIN
             if (Input.GetAxis("Horizontal") != 0)
                 Move(Input.GetAxisRaw("Horizontal"));
             if (Input.GetKeyDown(KeyCode.Space))
