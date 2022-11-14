@@ -127,6 +127,7 @@ namespace UnityStandardAssets.CrossPlatformInput
 			return activeInput.GetButtonUp(name);
 		}
 
+
 		public static void SetButtonDown(string name)
 		{
 			activeInput.SetButtonDown(name);

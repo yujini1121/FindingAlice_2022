@@ -4036,50 +4036,58 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 768967412}
+    - target: {fileID: 164538578472409178, guid: 5e5c0f4c67600f749a461ce5c3d040a7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PopUpOption
+      objectReference: {fileID: 0}
+    - target: {fileID: 164538578472409178, guid: 5e5c0f4c67600f749a461ce5c3d040a7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 164538579603257794, guid: 5e5c0f4c67600f749a461ce5c3d040a7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 768967412}
+    - target: {fileID: 164538579603257794, guid: 5e5c0f4c67600f749a461ce5c3d040a7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PressContinue
+      objectReference: {fileID: 0}
+    - target: {fileID: 164538579603257794, guid: 5e5c0f4c67600f749a461ce5c3d040a7,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 164538579627280827, guid: 5e5c0f4c67600f749a461ce5c3d040a7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 768967412}
     - target: {fileID: 164538579627280827, guid: 5e5c0f4c67600f749a461ce5c3d040a7,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 768967412}
-    - target: {fileID: 8850639707818443989, guid: 5e5c0f4c67600f749a461ce5c3d040a7,
-        type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 654306311}
-    - target: {fileID: 8850639707818443989, guid: 5e5c0f4c67600f749a461ce5c3d040a7,
-        type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 654306311}
-    - target: {fileID: 8850639707818443989, guid: 5e5c0f4c67600f749a461ce5c3d040a7,
-        type: 3}
-      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetDownState
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PressExitGame
       objectReference: {fileID: 0}
-    - target: {fileID: 8850639707818443989, guid: 5e5c0f4c67600f749a461ce5c3d040a7,
+    - target: {fileID: 164538579627280827, guid: 5e5c0f4c67600f749a461ce5c3d040a7,
         type: 3}
-      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetUpState
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 164538579877705316, guid: 5e5c0f4c67600f749a461ce5c3d040a7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7544222824958902332, guid: 5e5c0f4c67600f749a461ce5c3d040a7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e5c0f4c67600f749a461ce5c3d040a7, type: 3}
---- !u!114 &654306311 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3836979506462347438, guid: 5e5c0f4c67600f749a461ce5c3d040a7,
-    type: 3}
-  m_PrefabInstance: {fileID: 654306310}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85bf3be603548374ca46f521a3aa7fda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &659834759
 GameObject:
   m_ObjectHideFlags: 0
@@ -9962,8 +9970,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   talkManager: {fileID: 1432575642}
   talkPanel: {fileID: 668253905}
-  joystick: {fileID: 0}
-  jumpButton: {fileID: 0}
   talkText: {fileID: 578019212}
   talkName: {fileID: 301964811}
   talkImage:

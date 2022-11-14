@@ -39,13 +39,10 @@ namespace UnityStandardAssets.CrossPlatformInput
 		bool m_UseY; // Toggle for using the Y axis
 		CrossPlatformInputManager.VirtualAxis m_HorizontalVirtualAxis; // Reference to the joystick in the cross platform input
 		CrossPlatformInputManager.VirtualAxis m_VerticalVirtualAxis; // Reference to the joystick in the cross platform input
-
-		private bool dragging;
-		public static bool m_Dragging;
+		bool m_Dragging;
 		int m_Id = -1;
 		Vector2 m_PreviousTouchPos; // swipe style control touch
 
-		public static Vector2 dragStartPos, posToDrag;
 
 #if !UNITY_EDITOR
     private Vector3 m_Center;
@@ -100,10 +97,6 @@ namespace UnityStandardAssets.CrossPlatformInput
 			}
 		}
 
-		//public override bool GetTouch()
-        //{
-		//	return false;
-        //}
 
 		public void OnPointerDown(PointerEventData data)
 		{
@@ -113,8 +106,6 @@ namespace UnityStandardAssets.CrossPlatformInput
         if (controlStyle != ControlStyle.Absolute )
             m_Center = data.position;
 #endif
-			dragStartPos = data.position;
-
 		}
 
 		void Update()
@@ -141,7 +132,6 @@ namespace UnityStandardAssets.CrossPlatformInput
 				pointerDelta.y = Input.mousePosition.y - m_PreviousMouse.y;
 				m_PreviousMouse = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
 #endif
-				posToDrag = Input.touches[m_Id].position;
 				UpdateVirtualAxes(new Vector3(pointerDelta.x, pointerDelta.y, 0));
 			}
 		}

@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4087890128900500515}
   - component: {fileID: 2478905580774955251}
   - component: {fileID: 998461505230474078}
+  - component: {fileID: 1254947190}
   - component: {fileID: 1064070765}
-  - component: {fileID: 5759111493789710870}
   m_Layer: 5
   m_Name: UI_Virtual_Button
   m_TagString: Untagged
@@ -124,6 +124,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1254947190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4091757288130996202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96bd5835b3262544cbd1f089137ea2a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1064070765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,10 +153,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 5759111493789710870}
-          m_TargetAssemblyTypeName: UnityStandardAssets.CrossPlatformInput.ButtonHandler,
-            Assembly-CSharp-firstpass
-          m_MethodName: SetDownState
+        - m_Target: {fileID: 1254947190}
+          m_TargetAssemblyTypeName: Jump_button, Assembly-CSharp
+          m_MethodName: InputJumpBtn
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -154,36 +165,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 5759111493789710870}
-          m_TargetAssemblyTypeName: UnityStandardAssets.CrossPlatformInput.ButtonHandler,
-            Assembly-CSharp-firstpass
-          m_MethodName: SetUpState
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
---- !u!114 &5759111493789710870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4091757288130996202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85bf3be603548374ca46f521a3aa7fda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: Jump
 --- !u!1 &4525221819527958844
 GameObject:
   m_ObjectHideFlags: 0

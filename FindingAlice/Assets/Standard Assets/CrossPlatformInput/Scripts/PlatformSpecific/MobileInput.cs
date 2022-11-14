@@ -38,6 +38,7 @@ namespace UnityStandardAssets.CrossPlatformInput.PlatformSpecific
             m_VirtualButtons[name].Pressed();
         }
 
+
         public override void SetButtonUp(string name)
         {
             if (!m_VirtualButtons.ContainsKey(name))

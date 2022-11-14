@@ -8,8 +8,6 @@ public class DialogueManager : MonoBehaviour
 {
     public TalkManager talkManager;
     public GameObject talkPanel;
-    public GameObject joystick;
-    public GameObject jumpButton;
     public Text talkText;
     public Text talkName;
     public Image[] talkImage;
@@ -71,8 +69,6 @@ public class DialogueManager : MonoBehaviour
         }
 
         talkPanel.SetActive(isActive);
-        jumpButton.SetActive(!isActive);
-        joystick.SetActive(!isActive);
     }
 
     RectTransform r;
@@ -98,8 +94,6 @@ public class DialogueManager : MonoBehaviour
                 talkImage[i].sprite = null;
             }
             talkPanel.SetActive(isActive);
-            jumpButton.SetActive(!isActive);
-            joystick.SetActive(!isActive);
             objData.checkRead = true;
             return;
         }
