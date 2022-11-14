@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityStandardAssets.CrossPlatformInput;
 public enum ClockState
 {
     cooldown,
@@ -125,6 +125,8 @@ public class ClockManager : MonoBehaviour
     }
 
 
+    Vector2 dragStartPos, posToDrag;
+
     private void Start()
     {
         rb = player.GetComponent<Rigidbody>();
@@ -155,7 +157,24 @@ public class ClockManager : MonoBehaviour
             clockReloadStart = Time.time;
         }
 
-        switch(CS)
+        if (CS == ClockState.shoot || CS == ClockState.shootMaximum)
+        {
+            if (TouchPad.m_Dragging)
+            {
+                posToDrag = TouchPad.posToDrag;
+
+                touchAndDragPos = (posToDrag - dragStartPos).normalized;
+            }
+            else
+            {
+                CS = ClockState.follow;
+                clockFollowAction();
+                dragStartPos = Vector3.zero;
+                posToDrag = Vector3.zero;
+            }
+        }
+
+        switch (CS)
         {
             // 시계 사출 중이 아닐 때는 어두워진 화면을 원래대로 되돌림
             case ClockState.cooldown:
@@ -176,6 +195,16 @@ public class ClockManager : MonoBehaviour
                 {
                     clockBackMatAlpha = Mathf.Lerp(clockBackMatAlpha, 0, Time.deltaTime * 5f);
                     clockBackMat.color = new Color(0, 0, 0, clockBackMatAlpha);
+                }
+                if (TouchPad.m_Dragging)
+                {
+                    if(clockCounter > 0)
+                    {
+                        CS = ClockState.shoot;
+                        clockPreparatoryAction();
+                        dragStartPos = TouchPad.dragStartPos;
+                        Debug.Log(dragStartPos);
+                    }
                 }
                 break;
 

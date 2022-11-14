@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+#if false
 #if UNITY_ANDROID
 public class ClockTouchAndDrag : MonoBehaviour
 {
@@ -44,6 +45,8 @@ public class ClockTouchAndDrag : MonoBehaviour
     }
 }
 #elif UNITY_EDITOR_WIN
+#endif
+#else
     public class ClockTouchAndDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [SerializeField] Vector3 dragStartPos = Vector3.zero;
