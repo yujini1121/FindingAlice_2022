@@ -26,7 +26,8 @@ public class CameraTarget : MonoBehaviour
         playerMove = GameObject.Find("Player").GetComponent<PlayerMovement>();
         playerTrans = GameObject.Find("Player").transform;
         followTarget = playerTrans.Find("Clock").gameObject;
-        joystickPos = GameObject.Find("Joystick").transform.GetChild(0).gameObject.GetComponent<RectTransform>();
+        //joystickPos = GameObject.Find("Joystick").transform.GetChild(0).gameObject.GetComponent<RectTransform>();
+        joystickPos = GameObject.Find("Lever").GetComponent<RectTransform>();
     }
     private void Start()
     {

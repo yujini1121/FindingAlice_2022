@@ -21,8 +21,8 @@ namespace UnityStandardAssets.CrossPlatformInput
         public string verticalAxisName = "Vertical"; // The name given to the vertical axis for the cross platform input
         public string JoystickBtnName = "JoystickBtn"; // The name given to the vertical axis for the cross platform input
 
-        Vector3 m_StartPosW;
-        Vector3 m_StartPosL;
+        Vector2 m_StartPosW;
+        Vector2 m_StartPosL;
         bool m_UseX; // Toggle for using the x axis
         bool m_UseY; // Toggle for using the Y axis
         CrossPlatformInputManager.VirtualAxis m_HorizontalVirtualAxis; // Reference to the joystick in the cross platform input
@@ -41,17 +41,18 @@ namespace UnityStandardAssets.CrossPlatformInput
         private void Awake()
         {
             CreateVirtualAxes();
-            m_StartPosW = GetComponent<RectTransform>().position;
-            m_StartPosL = GetComponent<RectTransform>().localPosition;
         }
 
         void Start()
         {
-            MovementRange = transform.parent.gameObject.GetComponent<RectTransform>().sizeDelta.x * 0.116f;
+            m_StartPosW = GetComponent<RectTransform>().position;
+            m_StartPosL = GetComponent<RectTransform>().localPosition;
+            MovementRange = GameObject.Find("Joystick").GetComponent<RectTransform>().sizeDelta.x;
+            //MovementRange = transform.parent.gameObject.GetComponent<RectTransform>().sizeDelta.x;
             //m_StartPos = GetComponent<RectTransform>().anchoredPosition;
         }
 
-        void UpdateVirtualAxes(Vector3 value)
+        void UpdateVirtualAxes(Vector2 value)
         {
             //
             var delta = m_StartPosW - value;
@@ -66,6 +67,8 @@ namespace UnityStandardAssets.CrossPlatformInput
             {
                 m_VerticalVirtualAxis.Update(delta.y);
             }
+
+            Debug.Log("Update");
         }
 
         void CreateVirtualAxes()
@@ -116,7 +119,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 newPos.y = delta;
             }
             //transform.position = new Vector3(m_StartPosW.x + newPos.x, m_StartPosW.y + newPos.y, m_StartPosW.z + newPos.z);
-            transform.position = new Vector3(m_StartPosW.x + newPos.x, m_StartPosW.y + newPos.y, m_StartPosW.z + newPos.z);
+            transform.position = new Vector3(m_StartPosW.x + newPos.x, m_StartPosW.y + newPos.y/*, m_StartPosW.z + newPos.z*/);
             //transform.position = new Vector3(newPos.x, newPos.y, newPos.z);
             //transform.localPosition = new Vector3(m_StartPosL.x + newPos.x, m_StartPosL.y + newPos.y, m_StartPosL.z + newPos.z);
             UpdateVirtualAxes(transform.position);
@@ -125,7 +128,9 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         public void OnPointerUp(PointerEventData data)
         {
-            transform.localPosition = m_StartPosL;
+            //transform.localPosition = m_StartPosL;
+            //transform.localPosition = m_StartPosW;
+            transform.position = m_StartPosW;
             
             //
             UpdateVirtualAxes(m_StartPosW);
@@ -136,14 +141,16 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         public void OnPointerDown(PointerEventData data)
         {
-            CrossPlatformInputManager.SetButtonDown(JoystickBtnName);
             Debug.Log(data.position);
             Debug.Log(new Vector2(m_StartPosW.x, m_StartPosW.y));
+            CrossPlatformInputManager.SetButtonDown(JoystickBtnName);
         }
 
         void OnDisable()
         {
-            transform.localPosition = m_StartPosL;
+            //transform.localPosition = m_StartPosL;
+            //transform.localPosition = m_StartPosW;
+            transform.position = m_StartPosW;
             CrossPlatformInputManager.SetButtonUp(JoystickBtnName);
             m_HorizontalVirtualAxis.Update(0);
             m_VerticalVirtualAxis.Update(0);

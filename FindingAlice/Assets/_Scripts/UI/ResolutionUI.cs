@@ -5,16 +5,14 @@ using UnityEngine.UI;
 
 public class ResolutionUI : MonoBehaviour
 {
-    RectTransform rt;
-    float canvasScalar;
-    void Start()
+    int width, height;
+    [SerializeField]GameObject textTest;
+    void Awake()
     {
-        rt = GetComponent<RectTransform>();
-    }
-
-    void Update()
-    {
-        rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, Screen.width * 0.5f);
-        rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, Screen.height);
+        width = Screen.currentResolution.width;
+        height = Screen.currentResolution.height;
+        //rt = GetComponent<RectTransform>();
+        textTest.GetComponent<Text>().text = $"width : {width} \nheight : {height}";
+        Screen.SetResolution(Screen.width, Screen.height, true);
     }
 }
