@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 1180081692185029764}
   - component: {fileID: 5598572424891948764}
   - component: {fileID: 8901248673130465248}
-  - component: {fileID: 7832983398577545675}
   m_Layer: 0
   m_Name: MoonPlatform
-  m_TagString: Platform
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,19 +81,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7832983398577545675
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 98335206028083446}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!1 &388965139136662846
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,10 +92,9 @@ GameObject:
   - component: {fileID: 2248785680130923648}
   - component: {fileID: 8246660485222341833}
   - component: {fileID: 8194553505625042964}
-  - component: {fileID: 5266415782471260031}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (7)
-  m_TagString: Platform
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -177,19 +162,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5266415782471260031
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 388965139136662846}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.49999997, y: 0.5, z: 0.5}
-  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!1 &874268133970077138
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,10 +173,9 @@ GameObject:
   - component: {fileID: 198239708569356350}
   - component: {fileID: 4564357537535228779}
   - component: {fileID: 493705866463311706}
-  - component: {fileID: 8749572592993804502}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (4)
-  m_TagString: Platform
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -272,19 +243,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8749572592993804502
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 874268133970077138}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.49999997, y: 0.5, z: 0.5}
-  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!1 &2232352293046268782
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,63 +324,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &4065055587951112236
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6524458726621203472}
-  - component: {fileID: 687477912324193449}
-  - component: {fileID: 1572421771437681450}
-  m_Layer: 0
-  m_Name: ExpandCollider
-  m_TagString: Platform
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6524458726621203472
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4065055587951112236}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7366421859025359188}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &687477912324193449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4065055587951112236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17b048624b431b04980a2f1622251712, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!65 &1572421771437681450
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4065055587951112236}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 3, y: 1, z: 1}
-  m_Center: {x: -0.5, y: -0.5, z: 0}
 --- !u!1 &4077604249807863919
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,7 +414,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7366421859025359188}
-  - component: {fileID: 5082928220754560522}
   - component: {fileID: 988933610731281015}
   m_Layer: 0
   m_Name: Wall3
@@ -543,22 +443,9 @@ Transform:
   - {fileID: 1180081692185029764}
   - {fileID: 1030489044222884741}
   - {fileID: 3223761331203520964}
-  - {fileID: 6524458726621203472}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5082928220754560522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4958513736737648626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0791730787abfac4987d675a7990e5d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &988933610731281015
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -570,8 +457,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 1, z: 1}
-  m_Center: {x: -0.5, y: -2.5, z: 0}
+  m_Size: {x: 2, y: 5, z: 1}
+  m_Center: {x: -0.5, y: -4.5, z: 0}
 --- !u!1 &5282671175608445804
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,10 +470,9 @@ GameObject:
   - component: {fileID: 9044223296955011424}
   - component: {fileID: 8204502949649555507}
   - component: {fileID: 1393256013510609396}
-  - component: {fileID: 2609502202539911993}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (3)
-  m_TagString: Platform
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -654,19 +540,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2609502202539911993
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5282671175608445804}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.49999997, y: 0.5, z: 0.5}
-  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!1 &5432504377726098250
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,10 +551,9 @@ GameObject:
   - component: {fileID: 659409394395495745}
   - component: {fileID: 180435780823024042}
   - component: {fileID: 1357186793541293893}
-  - component: {fileID: 7664822332332168996}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (1)
-  m_TagString: Platform
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -749,19 +621,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7664822332332168996
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5432504377726098250}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.49999997, y: 0.5, z: 0.5}
-  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!1 &5480331089288637022
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,10 +632,9 @@ GameObject:
   - component: {fileID: 6187735836819604144}
   - component: {fileID: 5457234131795460013}
   - component: {fileID: 344096177369968533}
-  - component: {fileID: 3641171770005106460}
   m_Layer: 0
   m_Name: MoonPlatform (2)
-  m_TagString: Platform
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -844,19 +702,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3641171770005106460
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5480331089288637022}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!1 &5523608041425090120
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,10 +713,9 @@ GameObject:
   - component: {fileID: 6684708389723269967}
   - component: {fileID: 2651741652505875845}
   - component: {fileID: 7579299180719050962}
-  - component: {fileID: 2331892757962761777}
   m_Layer: 0
   m_Name: MoonPlatform (1)
-  m_TagString: Platform
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -939,19 +783,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2331892757962761777
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5523608041425090120}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!1 &8436969600688950367
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,10 +794,9 @@ GameObject:
   - component: {fileID: 7977864352584103650}
   - component: {fileID: 8524729804170928501}
   - component: {fileID: 1270267025152061457}
-  - component: {fileID: 947109764494165768}
   m_Layer: 0
   m_Name: MoonPlatform(Normal) (2)
-  m_TagString: Platform
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1034,16 +864,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &947109764494165768
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8436969600688950367}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.49999997, y: 0.5, z: 0.5}
-  m_Center: {x: 0, y: 0.25, z: 0}

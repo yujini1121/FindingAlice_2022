@@ -44,6 +44,7 @@ public class ClockManager : MonoBehaviour
     //플레이어의 게임오브젝트와 리지드바디 저장
     GameObject player;
     public GameObject range;
+    public Transform playerTrans;
     Rigidbody rb;
 
     GameObject[] clock_UI = new GameObject[2];
@@ -174,6 +175,7 @@ public class ClockManager : MonoBehaviour
             }
         }
 
+
         switch (CS)
         {
             // 시계 사출 중이 아닐 때는 어두워진 화면을 원래대로 되돌림
@@ -261,8 +263,18 @@ public class ClockManager : MonoBehaviour
 
             //X를 뗄 때 정상 시간 복귀, Clock으로 플레이어가 날아갈 준비
             case ClockState.follow:
+                playerTrans = player.transform;
                 clockBackMatAlpha = Mathf.Lerp(clockBackMatAlpha, 0, Time.deltaTime * 5f);
                 clockBackMat.color = new Color(0, 0, 0, clockBackMatAlpha);
+
+                if (Vector3.Dot(clock.transform.position - playerTrans.position, clock.transform.position - player.transform.position) < 0 &&
+                    Vector3.Distance(clock.transform.position, player.transform.position) > 0.5f)
+                {
+                    clockReset();
+                }
+
+                if (rb.velocity == Vector3.zero)
+                    clockReset();
                 break;
         }
     }

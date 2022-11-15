@@ -52,10 +52,12 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         if (SceneManager.GetActiveScene().name == "tTutorial")
+        {
             if (DataController.Instance.gameData.playerPositionTutorial != new Vector3(0, 0, 0))
-                transform.position = DataController.Instance.gameData.playerPositionTutorial + new Vector3(0,10,0);
-        else if(SceneManager.GetActiveScene().name =="Chpater1")
-            transform.position = DataController.Instance.gameData.playerPositionChpater1 + new Vector3(0,10,0);
+                transform.position = DataController.Instance.gameData.playerPositionTutorial + new Vector3(0, 5, 0);
+        }
+        else if (SceneManager.GetActiveScene().name == "Chpater_1")
+            transform.position = DataController.Instance.gameData.playerPositionChpater1 + new Vector3(0, 5, 0);
 
         playerAnim = this.GetComponent<Animator>();
         playerRigidbody = GetComponent<Rigidbody>();
@@ -81,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
-            Time.timeScale = 1f;
+            Time.timeScale = 0.2f;
             Time.fixedDeltaTime = Time.timeScale * 0.02f;
         }
 
@@ -298,6 +300,11 @@ public class PlayerMovement : MonoBehaviour
         //    PlayerManager.Instance().isGameOver = true;
         //}
         switch(other.tag){
+            case "Platform":
+                if (ClockManager.C.CS == ClockState.follow)
+                    ClockManager.C.clockReset();
+
+                break;
             case "Attack":
                 ClockManager.C.clockReset();
 

@@ -6,4 +6,10 @@ public class ObjData : MonoBehaviour
 {
     public int id;
     public bool checkRead = false;
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "CheckWall" || collision.gameObject.name == "Player")
+            this.transform.gameObject.GetComponent<Collider>().enabled = false;
+    }
 }
