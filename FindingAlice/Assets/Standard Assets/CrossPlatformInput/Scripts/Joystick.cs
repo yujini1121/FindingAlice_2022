@@ -32,11 +32,11 @@ namespace UnityStandardAssets.CrossPlatformInput
         [SerializeField] Vector2 touchInputPos;
         [SerializeField] Vector2 joystickBtnPos;
 
-        void OnEnable()
-        {
-            //CreateVirtualAxes();
-            //transform.localPosition = m_StartPosL;
-        }
+        //void OnEnable()
+        //{
+        //    CreateVirtualAxes();
+        //    //transform.localPosition = m_StartPosL;
+        //}
 
         private void Awake()
         {
@@ -61,6 +61,8 @@ namespace UnityStandardAssets.CrossPlatformInput
             if (m_UseX)
             {
                 m_HorizontalVirtualAxis.Update(-delta.x);
+                //Debug.Log(m_HorizontalVirtualAxis.GetValue);
+                //Debug.Log(m_HorizontalVirtualAxis.GetValueRaw);
             }
 
             if (m_UseY)
@@ -68,7 +70,7 @@ namespace UnityStandardAssets.CrossPlatformInput
                 m_VerticalVirtualAxis.Update(delta.y);
             }
 
-            Debug.Log("Update");
+            //Debug.Log("Update");
         }
 
         void CreateVirtualAxes()
@@ -141,8 +143,8 @@ namespace UnityStandardAssets.CrossPlatformInput
 
         public void OnPointerDown(PointerEventData data)
         {
-            Debug.Log(data.position);
-            Debug.Log(new Vector2(m_StartPosW.x, m_StartPosW.y));
+            //Debug.Log(data.position);
+            //Debug.Log(new Vector2(m_StartPosW.x, m_StartPosW.y));
             CrossPlatformInputManager.SetButtonDown(JoystickBtnName);
         }
 
@@ -155,14 +157,14 @@ namespace UnityStandardAssets.CrossPlatformInput
             m_HorizontalVirtualAxis.Update(0);
             m_VerticalVirtualAxis.Update(0);
             // remove the joysticks from the cross platform input
-            //if (m_UseX)
-            //{
-            //    m_HorizontalVirtualAxis.Remove();
-            //}
-            //if (m_UseY)
-            //{
-            //    m_VerticalVirtualAxis.Remove();
-            //}
+            if (m_UseX)
+            {
+                m_HorizontalVirtualAxis.Remove();
+            }
+            if (m_UseY)
+            {
+                m_VerticalVirtualAxis.Remove();
+            }
         }
     }
 }

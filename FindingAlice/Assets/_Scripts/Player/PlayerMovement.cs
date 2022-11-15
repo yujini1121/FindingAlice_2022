@@ -204,9 +204,7 @@ public class PlayerMovement : MonoBehaviour
 
 
             if ((transform.localScale.x > 0 && inputDir < 0) || (transform.localScale.x < 0 && inputDir > 0))
-            {
                 turnCharacter();
-            }
         }
     }
     

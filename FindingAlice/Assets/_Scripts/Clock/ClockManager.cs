@@ -203,7 +203,6 @@ public class ClockManager : MonoBehaviour
                         CS = ClockState.shoot;
                         clockPreparatoryAction();
                         dragStartPos = TouchPad.dragStartPos;
-                        Debug.Log(dragStartPos);
                     }
                 }
                 break;
@@ -281,7 +280,6 @@ public class ClockManager : MonoBehaviour
 
     public void clockReset()
     {
-        Debug.Log("Reset");
         CS = ClockState.cooldown;
 
         if (Time.timeScale != 1f)

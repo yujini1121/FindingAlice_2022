@@ -47,7 +47,6 @@ public class iTouch : MonoBehaviour
                     clockId = -1;
             }
         }
-        Debug.Log($"jsId : {joystickId}\n\tjumpId : {jumpId}\n\tclockId : {clockId}");
     }
 #else
     void Update()
