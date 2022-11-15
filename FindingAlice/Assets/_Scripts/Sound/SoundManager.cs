@@ -7,6 +7,7 @@ public class SoundManager : MonoBehaviour
     public static SoundManager SM;
 
     [SerializeField] SerializableDictionary<int, AudioClip> BGM_Dic = new SerializableDictionary<int, AudioClip>();
+    [SerializeField] SerializableDictionary<int, AudioClip> SFX_Dic = new SerializableDictionary<int, AudioClip>();
 
     [SerializeField] float _bgmSoundValue;
     [SerializeField] float _effectSoundValue;

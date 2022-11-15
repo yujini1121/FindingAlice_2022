@@ -45,18 +45,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BGM_Dic:
     array:
-    - Key: 1
-      Value: {fileID: 8300000, guid: 77472faff8a3e134ba84c2b6a86f9287, type: 3}
-    - Key: 2
-      Value: {fileID: 8300000, guid: e4ef038bc6d4a204ab2e75b9b03ff8c9, type: 3}
-    - Key: 3
-      Value: {fileID: 8300000, guid: 0ac7f09942a81204f9ce242f77926f17, type: 3}
-    - Key: 4
-      Value: {fileID: 8300000, guid: dbcfe6c8f2f7b884ebf72087912d8582, type: 3}
-    - Key: 5
-      Value: {fileID: 8300000, guid: 5f5b0da912813f94380da343e20c50fd, type: 3}
-    - Key: 6
-      Value: {fileID: 8300000, guid: bef0c4d119b394e4092dfb1a0781d14d, type: 3}
+    - Key: 1000
+      Value: {fileID: 8300000, guid: 180590dfdb8e1f64cb0669d9f8b2bc0e, type: 3}
+    - Key: 2000
+      Value: {fileID: 8300000, guid: 727c2f9d1f7217e43b4babe24fc7bd7f, type: 3}
+    - Key: 3000
+      Value: {fileID: 8300000, guid: 310955df04c63434f9c7cd4bb9222dd8, type: 3}
+    - Key: 4000
+      Value: {fileID: 8300000, guid: 1c0c5865267fc5441bc6017f026142b7, type: 3}
+    - Key: 5000
+      Value: {fileID: 8300000, guid: 2a6092dbb88e627499bb70bb485c2ee7, type: 3}
+    - Key: 6000
+      Value: {fileID: 8300000, guid: d8ccee40906d6564eb3e457efefd504f, type: 3}
+  SFX_Dic:
+    array:
+    - Key: 7000
+      Value: {fileID: 8300000, guid: 45ee7bf4eb49f1e4f8a58fc6fe5d7f84, type: 3}
+    - Key: 8000
+      Value: {fileID: 8300000, guid: cd08904e2f59b094098fe881a1f5ca2c, type: 3}
+    - Key: 9000
+      Value: {fileID: 8300000, guid: 60068406e332aba4db680370d39fbe18, type: 3}
+    - Key: 10000
+      Value: {fileID: 8300000, guid: eb55a35164f31e0449ec5ce4ab61eec7, type: 3}
+    - Key: 11000
+      Value: {fileID: 8300000, guid: b7d5a8605fa3a8740b8e24babeb5b3bd, type: 3}
+    - Key: 12000
+      Value: {fileID: 8300000, guid: f3b7f1a7de7476e469504dc81c394e29, type: 3}
+    - Key: 13000
+      Value: {fileID: 8300000, guid: d6cd851fc33ad57419fcafe3ad83350f, type: 3}
+    - Key: 14000
+      Value: {fileID: 8300000, guid: bf7daab7589a71d4bad933b5a12d7052, type: 3}
+    - Key: 15000
+      Value: {fileID: 8300000, guid: dbcd7d6546099ec439478a8213f1b7b5, type: 3}
+    - Key: 16000
+      Value: {fileID: 8300000, guid: 262bb692ccb068040a946eb218fd605a, type: 3}
+    - Key: 17000
+      Value: {fileID: 8300000, guid: deeb2601b3fdbf04489750c2dede53bf, type: 3}
+    - Key: 18000
+      Value: {fileID: 8300000, guid: a74b265683d1271468db3664cfd2417c, type: 3}
+    - Key: 19000
+      Value: {fileID: 8300000, guid: b83474517fd793849ac00c1ed0507356, type: 3}
   _bgmSoundValue: 1
   _effectSoundValue: 1
   _bgmSoundMute: 0
