@@ -18,7 +18,7 @@ public class _SavePoint : MonoBehaviour
             //PlayerManager.Instance().lastCPPos = transform.position;
             if(SceneManager.GetActiveScene().name == "tTutorial")
                 DataController.Instance._gameData.playerPositionTutorial = this.transform.position;
-            else if(SceneManager.GetActiveScene().name == "Chapter")
+            else if(SceneManager.GetActiveScene().name == "Chapter_1")
                 DataController.Instance._gameData.playerPositionChpater1 = this.transform.position;
             
             for (int i = 0; i < 2; i++)
