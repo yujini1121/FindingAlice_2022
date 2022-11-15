@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0feb0b3f793f5fa4b9e9ca165035cfc5, type: 3}
   m_Name: Chapter3
   m_EditorClassIdentifier: 
-  synopsys: "\uCC55\uD130 3\uC774\uC58C"
-  chapterSprite: {fileID: 0}
+  synopsys: "\uC218\uC9D1\uD488"
+  chapterSprite: {fileID: 21300000, guid: ab250452361082046b3288888ebecf25, type: 3}
