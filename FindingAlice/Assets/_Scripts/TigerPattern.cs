@@ -11,6 +11,7 @@ public class TigerPattern : MonoBehaviour
     GameObject player;
     GameObject tiger;
     GameObject tigerPlatform;
+    GameObject tigerGround;
 
     Renderer patternColor;
     Animator anim;
@@ -21,6 +22,8 @@ public class TigerPattern : MonoBehaviour
     float patternCooldown = 8f;
     //현재 패턴이 재생 중인지 확인
     bool isPatternPlay = false;
+
+    bool checking = false;
 
     //패턴 1
     //돌 떨어지는 5개 자리 지정
@@ -45,6 +48,7 @@ public class TigerPattern : MonoBehaviour
         tiger = transform.Find("Tiger").gameObject;
         anim = tiger.GetComponent<Animator>();
         tigerPlatform = transform.Find("TigerPlatform").gameObject;
+        tigerGround = this.gameObject;
     }
 
     private void Update()
@@ -57,6 +61,25 @@ public class TigerPattern : MonoBehaviour
             PatternPlay();
         if (Input.GetKeyDown(KeyCode.E))
             PatternExit();
+
+        if (tigerGround)
+        {
+            if (!checking)
+            {
+                PatternPlay();
+                checking = true;
+            }
+        }    
+        else if (!tigerGround)
+        {
+            if (checking)
+            {
+                PatternExit();
+                checking = false;
+            }
+        }
+            
+
     }
 
     public void PatternPlay()

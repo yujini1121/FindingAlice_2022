@@ -300,11 +300,11 @@ public class PlayerMovement : MonoBehaviour
         //    PlayerManager.Instance().isGameOver = true;
         //}
         switch(other.tag){
-            case "Platform":
-                if (ClockManager.C.CS == ClockState.follow)
-                    ClockManager.C.clockReset();
+            //case "Platform":
+            //    if (ClockManager.C.CS == ClockState.follow)
+            //        ClockManager.C.clockReset();
 
-                break;
+            //    break;
             case "Attack":
                 ClockManager.C.clockReset();
 
@@ -314,7 +314,8 @@ public class PlayerMovement : MonoBehaviour
 
                 respawn = true;
                 PlayerManager.Instance().isGameOver = true;
-            break;
+                Debug.Log("으악!");
+                break;
 
             // 팝업만 떠야함
             case "NPC":

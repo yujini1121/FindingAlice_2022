@@ -11,15 +11,15 @@ GameObject:
   - component: {fileID: 1507306908597631914}
   - component: {fileID: 5157320104922208364}
   - component: {fileID: 4775135284549020340}
-  - component: {fileID: 100833219888750143}
   - component: {fileID: 1884067027120618176}
+  - component: {fileID: 358116488507036695}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1507306908597631914
 Transform:
   m_ObjectHideFlags: 0
@@ -101,19 +101,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &100833219888750143
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1268908344043001471}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.1875
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1884067027120618176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,3 +113,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a052e33480ed404ba93c3c0c729d93c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &358116488507036695
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268908344043001471}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.1875
+  m_Height: 4.43
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: -1.02}

@@ -80,6 +80,8 @@ public class ClockManager : MonoBehaviour
     float theta;
     float clockDistanceMaximumTime;
 
+    IEnumerator coEnu;
+
     public Vector3 touchAndDragPos
     {
         get { return _touchAndDragPos; }
@@ -267,14 +269,13 @@ public class ClockManager : MonoBehaviour
                 clockBackMatAlpha = Mathf.Lerp(clockBackMatAlpha, 0, Time.deltaTime * 5f);
                 clockBackMat.color = new Color(0, 0, 0, clockBackMatAlpha);
 
-                if (Vector3.Dot(clock.transform.position - playerTrans.position, clock.transform.position - player.transform.position) < 0 &&
+                if (Vector3.Dot(clock.transform.position - playerTrans.position, clock.transform.position - player.transform.position) < 0.95f &&
                     Vector3.Distance(clock.transform.position, player.transform.position) > 0.5f)
                 {
                     clockReset();
                 }
 
-                if (rb.velocity == Vector3.zero)
-                    clockReset();
+
                 break;
         }
     }
@@ -292,6 +293,12 @@ public class ClockManager : MonoBehaviour
 
     public void clockReset()
     {
+        if (coEnu != null)
+        {
+            StopCoroutine(coEnu);
+            coEnu = null;
+        }
+
         CS = ClockState.cooldown;
 
         if (Time.timeScale != 1f)
@@ -337,5 +344,23 @@ public class ClockManager : MonoBehaviour
         rb.AddForce((clock.transform.position - player.transform.position).normalized *
             (20 + Mathf.Pow(Vector3.Distance(clock.transform.position, player.transform.position) / 3, 2)), ForceMode.Impulse);
         Debug.Log("follow 모든 동작 완료");
+
+        coEnu = CheckVelocity();
+        StartCoroutine(coEnu);
+    }
+
+    IEnumerator CheckVelocity()
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        while(true)
+        {
+            if (CS == ClockState.follow && rb.velocity == Vector3.zero)
+            {
+                clockReset();
+                yield break;
+            }
+            yield return null;
+        }
     }
 }
