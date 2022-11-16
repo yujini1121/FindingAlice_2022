@@ -11,6 +11,7 @@ TagManager:
   - DieZone
   - Attack
   - NPC
+  - Item
   layers:
   - Default
   - TransparentFX

@@ -889,7 +889,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 141400052}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2, y: 20, z: 1}
@@ -2609,7 +2609,7 @@ PrefabInstance:
     - target: {fileID: 1990746026471399509, guid: 7885126799df9e343a5830ad5fca9770,
         type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1990746026471399512, guid: 7885126799df9e343a5830ad5fca9770,
         type: 3}
@@ -5476,7 +5476,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultPipeline: {fileID: 11400000, guid: 2c7ec2fc78d663342b0664ef093be3ce, type: 2}
   blurPipeline: {fileID: 11400000, guid: b91cf2d85e7101144848d68c6796ff8e, type: 2}
-  _patternSwitch: 0
   _isGround: 0
 --- !u!4 &768967413
 Transform:
@@ -9024,7 +9023,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1293916410}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2, y: 20, z: 1}
@@ -9315,7 +9314,7 @@ GameObject:
   - component: {fileID: 1321144280}
   - component: {fileID: 1321144279}
   m_Layer: 0
-  m_Name: CPCheck
+  m_Name: CPTalk
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9357,7 +9356,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1321144277}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2, y: 20, z: 1}
@@ -11221,49 +11220,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 87468865910584623}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1694552454
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1694552456}
-  - component: {fileID: 1694552455}
-  m_Layer: 0
-  m_Name: MoveChapterManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1694552455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1694552454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae1191aba4d728445a41ff9c31e9d584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1694552456
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1694552454}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 21
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1695426856
 GameObject:
   m_ObjectHideFlags: 0
@@ -49652,7 +49608,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7336420836732590338
 Transform:
   m_ObjectHideFlags: 0

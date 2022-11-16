@@ -160,7 +160,7 @@ public class TigerPattern : MonoBehaviour
                                                         claw.transform.position.z);
                 claw.transform.rotation = pattern.transform.rotation;
                 claw.SetActive(true);
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.4f); //기존 0.5f
                 claw.SetActive(false);
                 tiger.SetActive(true);
                 tiger.transform.localPosition = new Vector3(0, 2.07f, 0);

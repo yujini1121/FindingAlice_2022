@@ -23,7 +23,7 @@ public class WatchBand : MonoBehaviour
         mat = GetComponent<Renderer>().material;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         clockPosition = clock.position;
         playerPosition = player.position;
@@ -40,7 +40,7 @@ public class WatchBand : MonoBehaviour
         transform.localScale = scale;
         if (ClockManager.C.CS == ClockState.shoot)
         {
-            x -= Time.deltaTime * 24;
+            x -= Time.deltaTime * 18;
             mat.mainTextureScale = new Vector2(x, 1f);
             distance = Vector2.Distance(clockPosition, playerPosition);
         }

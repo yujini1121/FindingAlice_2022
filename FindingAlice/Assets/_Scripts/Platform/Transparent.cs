@@ -52,9 +52,13 @@ public class Transparent : MonoBehaviour
         require = false;
     }
 
-    private void DestroyPlatform(){
-        for (int i = 0; i < platform.Length; i++){
-            if (platform[i].gameObject.activeSelf == false)
+    private void DestroyPlatform() {
+        for (int i = 0; i < platform.Length; i++) {
+            //어차피 비활성화되면 다시 활성화가 안 되므로
+            if (platform[i].tag == "Item")
+                Destroy(platform[i]);
+
+            if (platform[i].gameObject.activeSelf == false || platform[i].gameObject == null)
                 break;
             platform[i].SetActive(false);
         }

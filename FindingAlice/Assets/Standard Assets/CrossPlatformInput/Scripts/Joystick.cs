@@ -47,7 +47,7 @@ namespace UnityStandardAssets.CrossPlatformInput
         {
             m_StartPosW = GetComponent<RectTransform>().position;
             m_StartPosL = GetComponent<RectTransform>().localPosition;
-            MovementRange = GameObject.Find("Joystick").GetComponent<RectTransform>().sizeDelta.x;
+            MovementRange = GameObject.Find("Joystick").GetComponent<RectTransform>().sizeDelta.x * 2.5f;
             //MovementRange = transform.parent.gameObject.GetComponent<RectTransform>().sizeDelta.x;
             //m_StartPos = GetComponent<RectTransform>().anchoredPosition;
         }
