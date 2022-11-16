@@ -87,84 +87,79 @@ public class PlayerMovement : MonoBehaviour
             Time.fixedDeltaTime = Time.timeScale * 0.02f;
         }
 
-        if(!PlayerManager.Instance().isGameOver)
-        {
+        if (PlayerManager.Instance().isGameOver)
+            return;
             //플레이어 발 밑 레이캐스트
-            Physics.SphereCast(transform.position, 0.2f, -transform.up, out RaycastHit hit_1, 1.63f);
-            if (hit_1.collider != null) {
-                if (hit_1.collider.tag == "Platform" && LayerMask.LayerToName(hit_1.collider.gameObject.layer) != "PassingPlatform")
+        Physics.SphereCast(transform.position, 0.2f, -transform.up, out RaycastHit hit_1, 1.63f);
+        if (hit_1.collider != null) {
+            if (hit_1.collider.tag == "Platform" && LayerMask.LayerToName(hit_1.collider.gameObject.layer) != "PassingPlatform")
+            {
+                playerAnim.SetBool("isGrounded", true);
+                isGround = true;
+                playerAnim.SetBool("isJumping", false);
+                isJumping = false;
+                playerAnim.SetBool("isFalling", false);
+                isFalling = false;
+            }
+            else if (hit_1.collider.tag == "Platform" && LayerMask.LayerToName(hit_1.collider.gameObject.layer) == "PassingPlatform")
+            {
+                playerAnim.SetBool("isGrounded", true);
+                isGround = true;
+                playerAnim.SetBool("isJumping", false);
+                isJumping = false;
+                playerAnim.SetBool("isFalling", false);
+                isFalling = false;
+            }
+        }
+        else isGround = false;
+
+#if false
+        //플레이어 머리 위 레이캐스트
+        if (ClockManager.C.CS == ClockState.follow)
+        {
+            Physics.SphereCast(transform.position, 0.5f, -transform.up, out RaycastHit hit_2, 0.2f);
+            if (hit_2.collider != null)
+            {
+                if (hit_2.collider.tag == "Platform" && LayerMask.LayerToName(hit_2.collider.gameObject.layer) == "PassingPlatform")
                 {
-                    playerAnim.SetBool("isGrounded", true);
-                    isGround = true;
-                    playerAnim.SetBool("isJumping", false);
-                    isJumping = false;
-                    playerAnim.SetBool("isFalling", false);
-                    isFalling = false;
-                }
-                else if (hit_1.collider.tag == "Platform" && LayerMask.LayerToName(hit_1.collider.gameObject.layer) == "PassingPlatform")
-                {
-                    playerAnim.SetBool("isGrounded", true);
-                    isGround = true;
-                    playerAnim.SetBool("isJumping", false);
-                    isJumping = false;
-                    playerAnim.SetBool("isFalling", false);
-                    isFalling = false;
+                    hit_2.collider.GetComponent<BoxCollider>().isTrigger = true;
                 }
             }
-            else isGround = false;
-
-            ////플레이어 머리 위 레이캐스트
-            //if (ClockManager.C.CS == ClockState.follow)
-            //{
-            //    Physics.SphereCast(transform.position, 0.5f, -transform.up, out RaycastHit hit_2, 0.2f);
-            //    if (hit_2.collider != null)
-            //    {
-            //        if (hit_2.collider.tag == "Platform" && LayerMask.LayerToName(hit_2.collider.gameObject.layer) == "PassingPlatform")
-            //        {
-            //            hit_2.collider.GetComponent<BoxCollider>().isTrigger = true;
-            //        }
-            //    }
-            //}
-            //else
-            //{
-            //    Physics.SphereCast(transform.position, 0.5f, transform.up, out RaycastHit hit_2, 0.55f);
-            //    if (hit_2.collider != null)
-            //    {
-            //        Debug.Log(hit_2.collider.name);
-            //        if (hit_2.collider.tag == "Platform" && LayerMask.LayerToName(hit_2.collider.gameObject.layer) == "PassingPlatform")
-            //        {
-            //            hit_2.collider.GetComponent<BoxCollider>().isTrigger = true;
-            //        }
-            //    }
-            //}
-
-            isMoving = false;
-            // 디버깅 개발용 추후 false =======================================================
-#if UNITY_ANDROID
-            if (CrossPlatformInputManager.GetAxisRaw("Horizontal") != 0)
-                Move(CrossPlatformInputManager.GetAxisRaw("Horizontal"));
-            if (CrossPlatformInputManager.GetButtonDown("Jump"))
-                Jump();
-#elif UNITY_EDITOR_WIN
-            if (Input.GetAxis("Horizontal") != 0)
-                Move(Input.GetAxisRaw("Horizontal"));
-            if (Input.GetKeyDown(KeyCode.Space))
-                Jump();
-#endif
-            CheckJumping();
-            playerAnim.SetBool("isDie", isDie);
         }
+        else
+        {
+            Physics.SphereCast(transform.position, 0.5f, transform.up, out RaycastHit hit_2, 0.55f);
+            if (hit_2.collider != null)
+            {
+                Debug.Log(hit_2.collider.name);
+                if (hit_2.collider.tag == "Platform" && LayerMask.LayerToName(hit_2.collider.gameObject.layer) == "PassingPlatform")
+                {
+                    hit_2.collider.GetComponent<BoxCollider>().isTrigger = true;
+                }
+            }
+        }
+#endif
+
+        isMoving = false;
+        // 디버깅 개발용 추후 false =======================================================
+#if UNITY_ANDROID
+        if (CrossPlatformInputManager.GetAxisRaw("Horizontal") != 0)
+            Move(CrossPlatformInputManager.GetAxisRaw("Horizontal"));
+        if (CrossPlatformInputManager.GetButtonDown("Jump"))
+            Jump();
+#elif UNITY_EDITOR_WIN
+        if (Input.GetAxis("Horizontal") != 0)
+            Move(Input.GetAxisRaw("Horizontal"));
+        if (Input.GetKeyDown(KeyCode.Space))
+            Jump();
+#endif
+        CheckJumping();
+        playerAnim.SetBool("isWalk", CrossPlatformInputManager.GetAxisRaw("Horizontal") != 0);
+        playerAnim.SetBool("isDie", isDie);
+
     }
 
     public void Move(float dir = 0){
-#if false
-        if (dManager.isActive || isDie)
-        {
-            playerAnim.SetBool("isWalk", !dManager.isActive);
-            return;
-        }
-
-#else 
         if (dManager.isActive || isDie)
         {
             playerAnim.SetBool("isWalk", !dManager.isActive);
@@ -172,12 +167,8 @@ public class PlayerMovement : MonoBehaviour
             //playerRigidbody.constraints = RigidbodyConstraints.FreezePositionX |RigidbodyConstraints.FreezePositionY;
             //playerRigidbody.constraints = ~RigidbodyConstraints.FreezePositionX | ~RigidbodyConstraints.FreezePositionY;
             //StartCoroutine(FreezeFalse());
-
             return;
         }
-
-
-#endif
 
         if (isMoving)
             return;
@@ -186,8 +177,6 @@ public class PlayerMovement : MonoBehaviour
         {
             isMoving = true;
 
-
-#if true
             inputDir = dir;
             if (!collisionToWall)
             {
@@ -196,14 +185,6 @@ public class PlayerMovement : MonoBehaviour
                 transform.position += moveDirX * speed * Time.deltaTime;
             }
             playerAnim.SetBool("isWalk", !_collisionToWall);
-#else
-            inputDir = dir;
-            moveDirX = new Vector3(inputDir, 0, 0).normalized;
-
-            transform.position += moveDirX * speed * Time.deltaTime;
-            playerAnim.SetBool("isWalk", );
-#endif
-
 
             if ((transform.localScale.x > 0 && inputDir < 0) || (transform.localScale.x < 0 && inputDir > 0))
                 turnCharacter();
