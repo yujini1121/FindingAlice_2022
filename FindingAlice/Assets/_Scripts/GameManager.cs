@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
     //[SerializeField]
     //bool _patternSwitch = false;
 
-    public bool _patternSwitch = false;
     [SerializeField]
     bool _isGround;
     bool isPaused;
@@ -63,17 +62,6 @@ public class GameManager : MonoBehaviour
     {
         get { return _idleTime; }
         set { _idleTime = value; }
-    }
-
-    public bool patternSwitch
-    {
-        get { return _patternSwitch; }
-        set
-        {
-            _patternSwitch = value;
-            if (_patternSwitch)
-                patternStartTime = Time.time;
-        }
     }
 
     public float patternStartTime

@@ -13,20 +13,13 @@ public class Pattern_OnOff : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (on)
+            if (on && tigerBackGround.activeSelf != true)
             {
                 tigerBackGround.SetActive(true);
-                GameObject.Find("GameManager").GetComponentInChildren<GameManager>()._patternSwitch = true;
             }
             
             else if (off)
-            {
-                GameObject.Find("GameManager").GetComponentInChildren<GameManager>()._patternSwitch = false;
-                tigerBackGround.GetComponent<TigerPattern>().pattern.SetActive(false);
-                tigerBackGround.GetComponent<TigerPattern>().claw.SetActive(false);
-                tigerBackGround.GetComponent<TigerPattern>().rock.SetActive(false);
                 tigerBackGround.SetActive(false);
-            }
 
         }
     }

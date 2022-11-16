@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
             if (DataController.Instance.gameData.playerPositionTutorial != new Vector3(0, 0, 0))
                 transform.position = DataController.Instance.gameData.playerPositionTutorial + new Vector3(0, 5, 0);
         }
-        else if (SceneManager.GetActiveScene().name == "Chpater_1")
+        else if (SceneManager.GetActiveScene().name == "Chapter_1")
             transform.position = DataController.Instance.gameData.playerPositionChpater1 + new Vector3(0, 5, 0);
 
         playerAnim = this.GetComponent<Animator>();
