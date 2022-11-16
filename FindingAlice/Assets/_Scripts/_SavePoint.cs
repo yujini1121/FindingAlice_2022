@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class _SavePoint : MonoBehaviour
 {
     //[SerializeField] uint deathCounter;
-
     void Start()
     {
         //deathCounter = transform.GetComponentInParent<Death_Counter>().deathCounter;
@@ -17,9 +16,14 @@ public class _SavePoint : MonoBehaviour
         if(other.CompareTag("Player")){
             //PlayerManager.Instance().lastCPPos = transform.position;
             if(SceneManager.GetActiveScene().name == "tTutorial")
+            {
                 DataController.Instance._gameData.playerPositionTutorial = this.transform.position;
+            }
             else if(SceneManager.GetActiveScene().name == "Chapter_1")
+            {
                 DataController.Instance._gameData.playerPositionChpater1 = this.transform.position;
+            }
+            //원래 위에 this.transform~ 인데 this.gameObject.transform으로 바꿈
             
             for (int i = 0; i < 2; i++)
             {
@@ -28,8 +32,8 @@ public class _SavePoint : MonoBehaviour
                 ClockManager.C.clockCounter++;
             }
 
-            //22.10.10. 체크포인트 없어지도록 설정
-            gameObject.SetActive(false);
+            //gameObject.Setactive(false);
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
     }
 }

@@ -544,7 +544,7 @@ GameObject:
   - component: {fileID: 6012518711918812166}
   - component: {fileID: 5546471238832208626}
   m_Layer: 0
-  m_Name: Skin
+  m_Name: ExpandCollider
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
