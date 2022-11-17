@@ -11,7 +11,8 @@ public class Transparent : MonoBehaviour
     public bool require = false;
     public bool disable = false;
     //[SerializeField] private float holdingTime = 5.0f; 1006 수정, 스위치를 위한 public 선언하게 바꿈
-    public float holdingTime = 5.0f;
+    //public float holdingTime = 5.0f;
+    public float holdingTime = 99f;
     private bool isAction = false;
 
     public int attr;

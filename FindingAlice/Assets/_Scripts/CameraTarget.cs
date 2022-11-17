@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class CameraTarget : MonoBehaviour
 {
@@ -48,10 +49,14 @@ public class CameraTarget : MonoBehaviour
         }
         else
         {
+#if UNITY_ANDROID
+            if (playerMove.isGround && (CrossPlatformInputManager.GetAxisRaw("Vertical") >= 0.8f || playerMove.isGround && CrossPlatformInputManager.GetAxisRaw("Vertical") <= -0.8f))
+#elif UNITY_EDITOR
             //땅에서 조이스틱을 움직이는 중에 내적값을 만족하는 경우
             if (joystickPos.localPosition != Vector3.zero && playerMove.isGround &&
                 (Vector2.Dot(joystickPos.anchoredPosition.normalized, joystickPos.up) > 0.9f ||
                 Vector2.Dot(joystickPos.anchoredPosition.normalized, joystickPos.up) < -0.9f))
+#endif
             {
                 //조이스틱을 위로 올리면 변수 활성화 후 시간 계산 시작
                 if (!joystickUpNDown)
@@ -62,7 +67,7 @@ public class CameraTarget : MonoBehaviour
                 //시간이 흐른 후 카메라 이동
                 if (joystickUpNDown && Time.time - joystickUpNDownStartTime > 0.5f)
                 {
-                    if (Vector2.Dot(joystickPos.anchoredPosition.normalized, joystickPos.up) > 0.9f)
+                    if (CrossPlatformInputManager.GetAxisRaw("Vertical") >= 0.8f)
                         targetPosition = playerTrans.position + new Vector3(0, 7, 0);
                     else targetPosition = playerTrans.position + new Vector3(0, -7, 0);
                     //transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 3f);

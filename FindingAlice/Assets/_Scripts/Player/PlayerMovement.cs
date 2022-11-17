@@ -76,6 +76,9 @@ public class PlayerMovement : MonoBehaviour
     //}
 
     private void Update() {
+        //Debug.Log(CrossPlatformInputManager.GetAxisRaw("Vertical"));
+        //Debug.Log(CrossPlatformInputManager.GetAxisRaw("Horizontal"));
+
         if (Input.GetKeyDown(KeyCode.Z))
         {
             Time.timeScale = 0.01f;
@@ -83,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
-            Time.timeScale = 0.2f;
+            Time.timeScale = 1f;
             Time.fixedDeltaTime = Time.timeScale * 0.02f;
         }
 
@@ -178,7 +181,7 @@ public class PlayerMovement : MonoBehaviour
             isMoving = true;
 
             inputDir = dir;
-            if (!collisionToWall)
+            if (!collisionToWall && !(CrossPlatformInputManager.GetAxisRaw("Vertical") >= 0.8f || CrossPlatformInputManager.GetAxisRaw("Vertical") <= -0.8f))
             {
                 moveDirX = new Vector3(inputDir, 0, 0).normalized;
 

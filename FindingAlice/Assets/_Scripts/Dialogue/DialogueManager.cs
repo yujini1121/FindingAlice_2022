@@ -67,9 +67,9 @@ public class DialogueManager : MonoBehaviour
             if (objData.checkRead)
                 return;
             isActive = true;
+            ClockManager.C.clockReset();
             Talk(objData.id);            
         }
-
         talkPanel.SetActive(isActive);
         jumpButton.SetActive(!isActive);
         joystick.SetActive(!isActive);

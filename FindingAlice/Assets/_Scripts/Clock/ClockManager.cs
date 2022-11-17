@@ -207,6 +207,7 @@ public class ClockManager : MonoBehaviour
                         CS = ClockState.shoot;
                         clockPreparatoryAction();
                         dragStartPos = TouchPad.dragStartPos;
+                        playerTrans = player.transform;
                     }
                 }
                 break;
@@ -265,7 +266,6 @@ public class ClockManager : MonoBehaviour
 
             //X를 뗄 때 정상 시간 복귀, Clock으로 플레이어가 날아갈 준비
             case ClockState.follow:
-                playerTrans = player.transform;
                 clockBackMatAlpha = Mathf.Lerp(clockBackMatAlpha, 0, Time.deltaTime * 5f);
                 clockBackMat.color = new Color(0, 0, 0, clockBackMatAlpha);
 
@@ -274,8 +274,6 @@ public class ClockManager : MonoBehaviour
                 {
                     clockReset();
                 }
-
-
                 break;
         }
     }
