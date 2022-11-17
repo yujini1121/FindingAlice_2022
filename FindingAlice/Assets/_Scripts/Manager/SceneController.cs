@@ -16,6 +16,7 @@ public class SceneController : MonoBehaviour
         //gameData = DataController.Instance.LoadGameData();
         gameData = DataController.Instance.LoadGameData();
         DontDestroyOnLoad(this.gameObject);
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
     private void Update()
     {
