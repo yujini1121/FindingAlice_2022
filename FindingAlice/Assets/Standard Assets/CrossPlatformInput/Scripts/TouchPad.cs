@@ -123,8 +123,13 @@ namespace UnityStandardAssets.CrossPlatformInput
 			{
 				return;
 			}
+#if !UNITY_EDITOR
 			if (Input.touchCount >= m_Id + 1 && m_Id != -1)
 			{
+#else
+			if (Input.touchCount >= m_Id + 1)
+			{
+#endif
 #if !UNITY_EDITOR
 
             if (controlStyle == ControlStyle.Swipe)
@@ -141,7 +146,11 @@ namespace UnityStandardAssets.CrossPlatformInput
 				pointerDelta.y = Input.mousePosition.y - m_PreviousMouse.y;
 				m_PreviousMouse = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0f);
 #endif
+#if !UNITY_EDITOR
 				posToDrag = Input.touches[m_Id].position;
+#else
+				posToDrag = m_PreviousMouse;
+#endif
 				UpdateVirtualAxes(new Vector3(pointerDelta.x, pointerDelta.y, 0));
 			}
 		}

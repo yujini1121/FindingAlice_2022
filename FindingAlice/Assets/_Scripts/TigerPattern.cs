@@ -104,6 +104,8 @@ public class TigerPattern : MonoBehaviour
 
     IEnumerator Pattern()
     {
+        yield return new WaitForSeconds(3f);
+
         while (true)
         {
             pattern.transform.parent = claw.transform.parent = null;

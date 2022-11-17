@@ -44,7 +44,7 @@ public class Transparent : MonoBehaviour
     }
 
     void VisibleFunc(){
-        for(int i = 0; i < platform.Length; i++){
+        for(int i = 0; i < platform.Length; i++) {
             platform[i].SetActive(true);
         }
         CancelInvoke();
