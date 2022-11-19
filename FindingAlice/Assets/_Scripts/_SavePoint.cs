@@ -32,8 +32,8 @@ public class _SavePoint : MonoBehaviour
                 ClockManager.C.clockCounter++;
             }
 
-            //gameObject.Setactive(false);
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            gameObject.SetActive(false);
+            //gameObject.GetComponent<MeshRenderer>().enabled = false;
         }
     }
 }
