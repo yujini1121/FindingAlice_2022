@@ -9,7 +9,7 @@ public class CollisionStayCheck : MonoBehaviour
     private void Awake(){
         sink = GetComponentInParent<Sink>();
     }
-    private void OnCollisionStay(Collision other) {
+    private void OnCollisionEnter(Collision other) {
         if(other.gameObject.CompareTag("Player") && other.contacts[0].normal.y < 0.0f){
             other.transform.SetParent(transform);
             sink.checkCollison = true;

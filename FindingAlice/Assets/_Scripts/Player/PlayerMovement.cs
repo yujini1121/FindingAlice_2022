@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Timeline;
 using UnityEngine.SceneManagement;
 using UnityStandardAssets.CrossPlatformInput;
+using UnityEditor;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -51,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        gameObject.transform.SetParent(null);
         if (SceneManager.GetActiveScene().name == "tTutorial")
         {
             if (DataController.Instance.gameData.playerPositionTutorial != new Vector3(0, 0, 0))
@@ -290,6 +292,9 @@ public class PlayerMovement : MonoBehaviour
 
             //    break;
             case "Attack":
+                GetComponent<Collider>().enabled = false;
+                if (transform.parent != null)
+                    transform.SetParent(null);
                 ClockManager.C.clockReset();
 
                 isDie = true;
