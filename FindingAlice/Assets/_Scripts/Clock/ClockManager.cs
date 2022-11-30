@@ -195,6 +195,7 @@ public class ClockManager : MonoBehaviour
 
             // 시계 사출 중이 아닐 때는 어두워진 화면을 원래대로 되돌림
             case ClockState.idle:
+                touchAndDragPos = new Vector3(0, 1, 0);
                 if (clockBackMat.color.a > 0)
                 {
                     clockBackMatAlpha = Mathf.Lerp(clockBackMatAlpha, 0, Time.deltaTime * 5f);
