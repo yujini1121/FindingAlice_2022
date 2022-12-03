@@ -31,6 +31,7 @@ public class CollectionItem : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             collection_M.GetItem(number);
+            DataController.Instance.SaveGameData();
             gameObject.SetActive(false);
         }
     }

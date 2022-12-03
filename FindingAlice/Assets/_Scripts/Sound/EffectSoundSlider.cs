@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿#if false
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,3 +20,4 @@ public class EffectSoundSlider : MonoBehaviour
         slider.value = Mathf.Round(SoundManager.SM.effectSoundValue * 4) / 4;
     }
 }
+#endif

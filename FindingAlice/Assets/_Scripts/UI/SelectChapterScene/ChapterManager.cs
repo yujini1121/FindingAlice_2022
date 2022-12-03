@@ -93,6 +93,7 @@ public class ChapterManager : MonoBehaviour
         {
             chapterInfo.SetActive(false);
             option.SetActive(false);
+            DataController.Instance.SaveGameData();
             optionButton.SetActive(true);
         }
     }

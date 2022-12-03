@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.UI;
 
 public class DataController : MonoBehaviour
 {
+#if true
     static GameObject _container;
     static GameObject Container{
         get{
@@ -47,8 +49,34 @@ public class DataController : MonoBehaviour
     }
 
     public GameData LoadGameData(){
+#if UNITY_ANDROID
+        string filePath = Path.Combine(Application.persistentDataPath, GameDataFileName);
+        Debug.Log(filePath);
+        if (File.Exists(filePath))
+        {
+#if true
+            //test
+            Text test = GameObject.Find("test").GetComponent<Text>();
+            if (test != null)
+                test.text = "Load Success";
+#endif
+            Debug.Log("Load Succes");
+            string FromJsonData = File.ReadAllText(filePath);
+            return JsonUtility.FromJson<GameData>(FromJsonData);
+        }
+        else
+        {
+#if true
+            //test
+            Text test = GameObject.Find("test").GetComponent<Text>();
+            if (test != null)
+                test.text = "Create New File";
+#endif
+            Debug.Log("Create New File");
+            return new GameData();
+        }
+#elif UNITY_EDITOR
         string filePath = Application.dataPath + "/SaveFile/" + GameDataFileName;
-
         if(File.Exists(filePath)){
             Debug.Log("Load Succes");
             string FromJsonData = File.ReadAllText(filePath);
@@ -58,17 +86,24 @@ public class DataController : MonoBehaviour
             Debug.Log("Create New File");
             return new GameData();
         }
+#endif
+
     }
 
-    public void SaveGameData(){
+    public void SaveGameData()
+    {
         string ToJsonData = JsonUtility.ToJson(gameData);
+#if UNITY_ANDROID
+        string filePath = Path.Combine(Application.persistentDataPath, GameDataFileName);
+#elif UNITY_EDITOR
         string filePath = Application.dataPath + "/SaveFile/" + GameDataFileName;
+#endif
 
         File.WriteAllText(filePath, ToJsonData);
 
         Debug.Log("Save Succes");
     }
-#if true
+#if false
     public string ChapterDataFileName = "ChapterData.json";
 
     public ChapterData LoadChapterData()
@@ -86,4 +121,7 @@ public class DataController : MonoBehaviour
     private void OnApplicationQuit() {
         SaveGameData();    
     }
+#else
+
+#endif
 }

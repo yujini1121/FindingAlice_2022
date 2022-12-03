@@ -18,11 +18,15 @@ public class _SavePoint : MonoBehaviour
             if(SceneManager.GetActiveScene().name == "tTutorial")
             {
                 DataController.Instance._gameData.playerPositionTutorial = this.transform.position;
+                DataController.Instance._gameData.hasCP[0] = true;
             }
             else if(SceneManager.GetActiveScene().name == "Chapter_1")
             {
                 DataController.Instance._gameData.playerPositionChpater1 = this.transform.position;
+                DataController.Instance._gameData.hasCP[1] = true;
+
             }
+            DataController.Instance.SaveGameData();
             //원래 위에 this.transform~ 인데 this.gameObject.transform으로 바꿈
             
             for (int i = 0; i < 2; i++)

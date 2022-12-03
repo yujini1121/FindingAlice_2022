@@ -2607,6 +2607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a30c12a0c34eab04a98368daf34f0179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 0}
 --- !u!1 &706492446
 GameObject:
   m_ObjectHideFlags: 0
@@ -23996,6 +23997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ab25ecb2d65d064e80e8855ccc9f6b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 0}
 --- !u!1 &875108037
 GameObject:
   m_ObjectHideFlags: 0
@@ -27233,5 +27235,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5592424447543219397, guid: 293d658b91c82114a82b28a5be173c27,
+        type: 3}
+      propertyPath: bgmSlider
+      value: 
+      objectReference: {fileID: 701609453}
+    - target: {fileID: 5592424447543219397, guid: 293d658b91c82114a82b28a5be173c27,
+        type: 3}
+      propertyPath: effectSlider
+      value: 
+      objectReference: {fileID: 848336245}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 293d658b91c82114a82b28a5be173c27, type: 3}

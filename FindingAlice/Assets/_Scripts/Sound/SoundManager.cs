@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
@@ -53,14 +54,31 @@ public class SoundManager : MonoBehaviour
         effectSoundValue = DataController.Instance.gameData.effectValue;
         bgmSoundMute = DataController.Instance.gameData.bgmMute;
         effectSoundMute = DataController.Instance.gameData.effectMute;
+
+        bgmSlider.value = bgmSoundValue;
+        effectSlider.value = effectSoundValue;
     }
 
-#if false
-    void Update()
+    [SerializeField] Slider bgmSlider;
+    [SerializeField] Slider effectSlider;
+
+    private void Update()
     {
-
+        if (bgmSlider.isActiveAndEnabled)
+        {
+            bgmSoundValue = bgmSlider.value;
+            bgmSlider.value = Mathf.Round(bgmSoundValue * 4) / 4;
+        }
+        if (effectSlider.isActiveAndEnabled)
+        {
+            effectSoundValue = effectSlider.value;
+            effectSlider.value = Mathf.Round(effectSoundValue * 4) / 4;
+        }
+        DataController.Instance._gameData.bgmValue = bgmSoundValue;
+        DataController.Instance._gameData.effectValue = effectSoundValue;
+        DataController.Instance._gameData.bgmMute = bgmSoundMute;
+        DataController.Instance._gameData.effectMute = effectSoundMute;
     }
-#endif
 
     public void BgmMute(bool mute)
     {
@@ -82,6 +100,7 @@ public class SoundManager : MonoBehaviour
         _effectSoundMute = true;
     }
 
+
     public AudioClip GetBGM(int key)
     {
         AudioClip v;
@@ -89,6 +108,7 @@ public class SoundManager : MonoBehaviour
         return v;
     }
 
+#if false
     private void OnApplicationQuit()
     {
         DataController.Instance.gameData.effectValue = effectSoundValue;
@@ -96,4 +116,5 @@ public class SoundManager : MonoBehaviour
         DataController.Instance.gameData.effectMute = effectSoundMute;
         DataController.Instance.gameData.bgmMute = bgmSoundMute;
     }
+#endif
 }
