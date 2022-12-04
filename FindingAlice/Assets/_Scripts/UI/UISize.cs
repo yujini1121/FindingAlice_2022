@@ -8,7 +8,7 @@ public class UISize : MonoBehaviour
     void Awake()
     {
         rt = GetComponent<RectTransform>();
-        rt.rect.Set(rt.rect.x, rt.rect.y, Screen.currentResolution.width, 600);
+        rt.rect.Set(rt.rect.x, rt.rect.y, Screen.currentResolution.width, this.rt.rect.height);
     }
 
     //void Update()
