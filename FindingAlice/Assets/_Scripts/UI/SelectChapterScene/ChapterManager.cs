@@ -156,7 +156,7 @@ public class ChapterManager : MonoBehaviour
         }
     }
 
-    public void LoadGame(int i)
+    public void LoadGame()
     {
         checkLoad = true;
         switch (cpN)
