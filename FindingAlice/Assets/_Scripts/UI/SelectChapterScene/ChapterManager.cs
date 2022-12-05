@@ -47,14 +47,18 @@ public class ChapterManager : MonoBehaviour
         switch (cpN)
         {
             case 0:
-                collectionCount.text = CalCollections(DataController.Instance.gameData.ch1_Collection);
+                collectionCount.text = CalCollections(DataController.Instance.gameData.chT_Collection);
                 break;
             case 1:
-                collectionCount.text = CalCollections(DataController.Instance.gameData.ch2_Collection); ;
+                collectionCount.text = CalCollections(DataController.Instance.gameData.ch1_Collection); ;
                 break;
             case 2:
+                collectionCount.text = CalCollections(DataController.Instance.gameData.ch2_Collection); ;
+                break;
+            case 3:
                 collectionCount.text = CalCollections(DataController.Instance.gameData.ch3_Collection); ;
                 break;
+
         }
 #else
 #endif
@@ -111,24 +115,66 @@ public class ChapterManager : MonoBehaviour
             }
             else
             {
-                AsyncLoading.LoadScene("Chapter_1");
-                DataController.Instance._gameData.playerPositionChpater1 = new Vector3(-822, 10, 0);
+                switch (cpN)
+                {
+                    case 0:
+                        AsyncLoading.LoadScene("tTutorial");
+                        break;
+                    case 1:
+                        AsyncLoading.LoadScene("Chapter_1");
+                        DataController.Instance._gameData.playerPositionChpater1 = new Vector3(-822, 10, 0);
+                        break;
+                    case 2:
+                        AsyncLoading.LoadScene("Chapter_2");
+                        break;
+                    case 3:
+                        AsyncLoading.LoadScene("Chapter_3");
+                        break;
+                }
             }
             //SceneManager.LoadScene("GameScene");
         }
         else
         {
-            DataController.Instance._gameData.playerPositionChpater1 = new Vector3(-822, 10, 0);
             notice.SetActive(false);
-            AsyncLoading.LoadScene("Chapter_1");
+            switch (cpN)
+            {
+                case 0:
+                    AsyncLoading.LoadScene("tTutorial");
+                    break;
+                case 1:
+                    AsyncLoading.LoadScene("Chapter_1");
+                    DataController.Instance._gameData.playerPositionChpater1 = new Vector3(-822, 10, 0);
+                    break;
+                case 2:
+                    AsyncLoading.LoadScene("Chapter_2");
+                    break;
+                case 3:
+                    AsyncLoading.LoadScene("Chapter_3");
+                    break;
+            }
         }
     }
 
-    public void LoadGame()
+    public void LoadGame(int i)
     {
         checkLoad = true;
-
-        AsyncLoading.LoadScene("Chapter_1");
+        switch (cpN)
+        {
+            case 0:
+                AsyncLoading.LoadScene("tTutorial");
+                break;
+            case 1:
+                AsyncLoading.LoadScene("Chapter_1");
+                break;
+            case 2:
+                AsyncLoading.LoadScene("Chapter_2");
+                break;
+            case 3:
+                AsyncLoading.LoadScene("Chapter_3");
+                break;
+        }
+        //AsyncLoading.LoadScene("Chapter_1");
         //SceneManager.LoadScene("GameScene");
     }
 }

@@ -1129,9 +1129,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1183653064}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: ChapterManager, Assembly-CSharp
         m_MethodName: NewGame
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1893,9 +1893,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1183653064}
-        m_TargetAssemblyTypeName: 
+        m_TargetAssemblyTypeName: ChapterManager, Assembly-CSharp
         m_MethodName: LoadGame
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2607,7 +2607,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a30c12a0c34eab04a98368daf34f0179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 0}
 --- !u!1 &706492446
 GameObject:
   m_ObjectHideFlags: 0
@@ -23997,7 +23996,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ab25ecb2d65d064e80e8855ccc9f6b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 0}
 --- !u!1 &875108037
 GameObject:
   m_ObjectHideFlags: 0
