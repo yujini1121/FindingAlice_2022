@@ -7,36 +7,30 @@ public class TurnOnGuideImage : MonoBehaviour
 {
     int parentChildCount;
 
-    bool[] nextButtons;
+    [SerializeField] bool[] nextButtons;
 
     [SerializeField] GameObject[] guideImages;
 
-    Image[] images;
-    Button[] buttons;
+    [SerializeField] Image[] images;
+    [SerializeField] Button[] buttons;
     
     void Start()
     {
         parentChildCount = GameObject.Find("GuideImages").transform.childCount;
 
-        for (int i = 0; i < parentChildCount; i++)
-        {
-            print("실행완료1");
-            //guideImages[i] = GameObject.Find("GuideImages").transform.GetChild(i).gameObject;
-
-            guideImages[i] = GameObject.Find("GuideImage" + i);
-
-            //guideImages[i] = GameObject.Find("Canvas").transform.Find("GuideImages").transform.GetChild(i).gameObject;
-
-
-
-        }
-        print("Normal"); //스크립트 그냥 분할할 것?
-        
+        guideImages = new GameObject[parentChildCount];
+        images = new Image[parentChildCount];
+        buttons = new Button[parentChildCount];
+        nextButtons = new bool[parentChildCount];
 
         for (int i = 0; i < parentChildCount; i++)
         {
+            guideImages[i] = GameObject.Find("GuideImages").transform.GetChild(i).gameObject;
             guideImages[i].SetActive(false);
-
+        }
+        
+        for (int i = 0; i < parentChildCount; i++)
+        {
             images[i] = guideImages[i].GetComponent<Image>();
             buttons[i] = guideImages[i].GetComponent<Button>();
 
@@ -45,11 +39,27 @@ public class TurnOnGuideImage : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        for (int i = parentChildCount - 2; i >= 0; i--)
+        {
+            if (!guideImages[i + 1].activeSelf)
+            {
+                guideImages[i].SetActive(true);
+                break;
+            }
+            break;
+            
+        }
+
+
+    }
+
     public void OffImages()
     {
         for (int i = 0; i < parentChildCount; i++)
         {
-            if (guideImages[i].activeSelf == false)
+            if (!guideImages[i].activeSelf)
                 continue;
             
             guideImages[i].SetActive(false);
@@ -58,13 +68,21 @@ public class TurnOnGuideImage : MonoBehaviour
         }
     }
 
+    //void OnDisable()
+    //{
+        
+    //}
+
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && other.transform.parent.gameObject == null)
+        if (other.gameObject.tag == "Player")
         {
-            for (int i = 0; i < parentChildCount; i++)
-                guideImages[i].SetActive(true);
-            
+            //for (int i = parentChildCount - 1; i >= 0; i--)
+            //{
+            //    guideImages[i].SetActive(true);
+            //}
+
+            guideImages[parentChildCount - 1].SetActive(true);
 
             StartCoroutine(TurnOnGuide());
         }
@@ -74,7 +92,10 @@ public class TurnOnGuideImage : MonoBehaviour
     {
         yield return new WaitForSeconds(3.0f);
 
-        for (int i = 0; i < parentChildCount; i++)
+        buttons[parentChildCount - 1].enabled = true;
+        nextButtons[parentChildCount - 1] = true;
+
+        for (int i = parentChildCount; i >= 0; i--)
         {
             if (nextButtons[i])
                 continue;

@@ -4,19 +4,31 @@ using UnityEngine;
 
 public class GuideImage : MonoBehaviour
 {
+    int childCount;
+
+    GameObject parent;
+    GameObject[] child;
+
     [SerializeField] GameObject[] guideImages;
 
     void Start()
     {
-        for (int i = 0; i < transform.childCount; i++)
+        parent = this.gameObject;
+        childCount = this.transform.childCount;
+
+
+
+        for (int i = 0; i < childCount; i++)
         {
-            //guideImages[i] = transform.GetChild(i).gameObject;
+            guideImages[i] = transform.GetChild(i).gameObject;
 
-            
-
-            //guideImages[i].SetActive(false);
+            guideImages[i].SetActive(false);
         }
 
+        //foreach (int count in childCount)
+        //{
+
+        //}
 
 
 
