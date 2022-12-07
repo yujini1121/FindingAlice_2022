@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class DataController : MonoBehaviour
 {
-#if true
     static GameObject _container;
     static GameObject Container{
         get{
@@ -54,24 +53,12 @@ public class DataController : MonoBehaviour
         Debug.Log(filePath);
         if (File.Exists(filePath))
         {
-#if true
-            //test
-            Text test = GameObject.Find("test").GetComponent<Text>();
-            if (test != null)
-                test.text = "Load Success";
-#endif
             Debug.Log("Load Succes");
             string FromJsonData = File.ReadAllText(filePath);
             return JsonUtility.FromJson<GameData>(FromJsonData);
         }
         else
         {
-#if true
-            //test
-            Text test = GameObject.Find("test").GetComponent<Text>();
-            if (test != null)
-                test.text = "Create New File";
-#endif
             Debug.Log("Create New File");
             return new GameData();
         }
@@ -103,25 +90,7 @@ public class DataController : MonoBehaviour
 
         Debug.Log("Save Succes");
     }
-#if false
-    public string ChapterDataFileName = "ChapterData.json";
-
-    public ChapterData LoadChapterData()
-    {
-        string filePath = Application.dataPath + "/SaveFile/" + ChapterDataFileName;
-
-        if (File.Exists(filePath))
-        {
-            string FromJsonData = File.ReadAllText(filePath);
-            return JsonUtility.FromJson<ChapterData>(FromJsonData);
-        }
-        else return new ChapterData();
-    }
-#endif
     private void OnApplicationQuit() {
         SaveGameData();    
     }
-#else
-
-#endif
 }

@@ -64,15 +64,21 @@ public class SoundManager : MonoBehaviour
 
     private void Update()
     {
-        if (bgmSlider.isActiveAndEnabled)
+        if(bgmSlider != null)
         {
-            bgmSoundValue = bgmSlider.value;
-            bgmSlider.value = Mathf.Round(bgmSoundValue * 4) / 4;
+            if (bgmSlider.isActiveAndEnabled)
+            {
+                bgmSoundValue = bgmSlider.value;
+                bgmSlider.value = Mathf.Round(bgmSoundValue * 4) / 4;
+            }
         }
-        if (effectSlider.isActiveAndEnabled)
+        if(effectSlider != null)
         {
-            effectSoundValue = effectSlider.value;
-            effectSlider.value = Mathf.Round(effectSoundValue * 4) / 4;
+            if (effectSlider.isActiveAndEnabled)
+            {
+                effectSoundValue = effectSlider.value;
+                effectSlider.value = Mathf.Round(effectSoundValue * 4) / 4;
+            }
         }
         DataController.Instance._gameData.bgmValue = bgmSoundValue;
         DataController.Instance._gameData.effectValue = effectSoundValue;

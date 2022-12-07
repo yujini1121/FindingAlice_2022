@@ -12,7 +12,6 @@ public class ResolutionUI : MonoBehaviour
         width = Screen.currentResolution.width;
         height = Screen.currentResolution.height;
         //rt = GetComponent<RectTransform>();
-        textTest.GetComponent<Text>().text = $"width : {width} \nheight : {height}";
         Screen.SetResolution(Screen.width, Screen.height, true);
     }
 }
