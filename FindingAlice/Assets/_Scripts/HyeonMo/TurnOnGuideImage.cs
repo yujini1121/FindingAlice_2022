@@ -9,16 +9,19 @@ public class TurnOnGuideImage : MonoBehaviour
 
     int childCount = 0;
 
-    [SerializeField] GameObject parentGuideImages; 
+    [SerializeField] GameObject parentGuideImages;
     //위의 변수에는 Inspector에서 키려는 GuideImages 오브젝트 할당
-    
+
+    [SerializeField] GameObject parent;
+
+    [SerializeField] GuideImage test;
 
     [SerializeField] bool[] nextButtons;
 
     [SerializeField] GameObject[] guideImages;
 
     [SerializeField] Image[] images;
-    [SerializeField] Button[] buttons; //응쓰게싸
+    [SerializeField] Button[] buttons;
 
     //void Awake()
     //{
@@ -40,55 +43,58 @@ public class TurnOnGuideImage : MonoBehaviour
 
     void Start()
     {
-        childCount = parentGuideImages.transform.childCount;
+        //childCount = parentGuideImages.transform.childCount;
 
-        guideImages = new GameObject[childCount];
-        images = new Image[childCount];
-        buttons = new Button[childCount];
-        nextButtons = new bool[childCount];
+        //guideImages = new GameObject[childCount];
+        //images = new Image[childCount];
+        //buttons = new Button[childCount];
+        //nextButtons = new bool[childCount];
 
-        //Debug.Log(this.gameObject.name + "Start 정상");
+        ////Debug.Log(this.gameObject.name + "Start 정상");
 
-        for (int i = 0; i < childCount; i++)
-        {
-            //Debug.Log(this.gameObject.name + "for문 시작 전");
-            guideImages[i] = parentGuideImages.transform.GetChild(i).gameObject;
-            
-            images[i] = guideImages[i].GetComponent<Image>();
-            buttons[i] = guideImages[i].GetComponent<Button>();
+        //for (int i = 0; i < childCount; i++)
+        //{
+        //    //Debug.Log(this.gameObject.name + "for문 시작 전");
+        //    guideImages[i] = parentGuideImages.transform.GetChild(i).gameObject;
 
-            buttons[i].enabled = false;
-            nextButtons[i] = false;
-            guideImages[i].SetActive(false);
+        //    images[i] = guideImages[i].GetComponent<Image>();
+        //    buttons[i] = guideImages[i].GetComponent<Button>();
 
-            //Debug.Log(this.gameObject.name + "for문 정상 실행, (" + i +")번째");
-        }
+        //    buttons[i].enabled = false;
+        //    nextButtons[i] = false;
+        //    guideImages[i].SetActive(false);
+
+        //    //Debug.Log(this.gameObject.name + "for문 정상 실행, (" + i +")번째");
+        //}
 
     }
 
-    public void OffImages()
-    {
-        for (int i = childCount - 1; i >= 0; i++)
-        {
-            if (i <= 0)
-                break;
+    //public void OffImages()
+    //{
+    //    for (int i = childCount - 1; i >= 0; i++)
+    //    {
+    //        if (i <= 0)
+    //            break;
 
-            if (!guideImages[i].activeSelf)
-                continue;
+    //        if (!guideImages[i].activeSelf)
+    //            continue;
             
-            guideImages[i].SetActive(false);
-            StartCoroutine(TurnOnGuide());
-            break;
-        }
-    }
+    //        guideImages[i].SetActive(false);
+    //        StartCoroutine(TurnOnGuide());
+    //        break;
+    //    }
+    //}
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            guideImages[childCount - 1].SetActive(true);
+            //guideImages[childCount - 1].SetActive(true);
 
-            StartCoroutine(TurnOnGuide());
+            //StartCoroutine(TurnOnGuide());
+            parent.GetComponent<GuideImage>().childCount--;
+            StartCoroutine(parent.GetComponent<GuideImage>().TurnOnGuide());
+
         }
     }
 
@@ -107,27 +113,27 @@ public class TurnOnGuideImage : MonoBehaviour
     //    }
     //}
 
-    IEnumerator TurnOnGuide()
-    {
-        yield return new WaitForSeconds(3.0f);
+    //IEnumerator TurnOnGuide()
+    //{
+    //    yield return new WaitForSeconds(3.0f);
 
-        buttons[childCount - 1].enabled = true;
-        nextButtons[childCount - 1] = true;
+    //    buttons[childCount - 1].enabled = true;
+    //    nextButtons[childCount - 1] = true;
 
-        for (int i = childCount - 1; i >= 0; i--)
-        {
-            if (i <= 0)
-                break;
+    //    for (int i = childCount - 1; i >= 0; i--)
+    //    {
+    //        if (i <= 0)
+    //            break;
 
-            if (nextButtons[i])
-                continue;
+    //        if (nextButtons[i])
+    //            continue;
 
-            buttons[i].enabled = true;
-            nextButtons[i] = true;
+    //        buttons[i].enabled = true;
+    //        nextButtons[i] = true;
 
-            break;
-        }
+    //        break;
+    //    }
 
-        yield break;
-    }
+    //    yield break;
+    //}
 }
