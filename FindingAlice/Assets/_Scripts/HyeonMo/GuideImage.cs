@@ -5,23 +5,18 @@ using UnityEngine.UI;
 
 public class GuideImage : MonoBehaviour
 {
-    //부모 오브젝트에 할당함
-    //부모가 OffImages()함수가 있다고 치면 마지막 자식이 Button이 활성화되고 누르면 마지막 - 1이 켜지도록 설계할 것
+    public int childCount = 0;
 
-    [HideInInspector] public int childCount = 0;
-
-    //GuideImage들의 부모에 스크립트 할당할 것
+    //GuideImage 관련 부모 오브젝트에 할당할 것
     [SerializeField] GameObject parentGuideImages;
 
-    [SerializeField] bool[] nextButtons;
-
-    //기본적으로 SetActive(false)로 할 것
-    [SerializeField] GameObject[] guideImages;
+    //기본적으로 SetActive(false)로 Inspector에서 체크 해제 할 것
+    public GameObject[] guideImages;
 
     [SerializeField] Image[] images;
     [SerializeField] Button[] buttons;
 
-    void Start()
+    void Awake()
     {
         parentGuideImages = this.gameObject;
 
@@ -30,10 +25,11 @@ public class GuideImage : MonoBehaviour
         guideImages = new GameObject[childCount];
         images = new Image[childCount];
         buttons = new Button[childCount];
-        nextButtons = new bool[childCount];
 
+        //각각 변수에 초기화하여 자식 오브젝트를 건들일 수 있게 반복문 설정
         for (int i = 0; i < childCount; i++)
         {
+            Debug.Log("Start(), for문 실행!");
             guideImages[i] = parentGuideImages.transform.GetChild(i).gameObject;
 
             images[i] = guideImages[i].GetComponent<Image>();
@@ -45,23 +41,10 @@ public class GuideImage : MonoBehaviour
 
     public void OffImages()
     {
-        //for (int i = childCount - 1; i >= 0; i++)
-        //{
-        //    if (i <= 0)
-        //        break;
-
-        //    //if (!guideImages[i].activeSelf)
-        //    //    continue;
-
-        //    if (nextButtons[i])
-        //        continue;
-
-        //    guideImages[i - 1].SetActive(true);
-        //    guideImages[i].SetActive(false);
-        //    StartCoroutine(TurnOnGuide());
-        //    break;
-        //}
-
+        //자식 오브젝트의 Button 컴포넌트에서 사용됩니다.
+        //자신 오브젝트의 - 1번째 오브젝트가 켜지고, 자신 오브젝트가 꺼집니다. 그리고 코루틴이 실행됩니다.
+        Debug.Log("OffImages()");
+        
         if (childCount == 0)
         {
             guideImages[childCount].SetActive(false);
@@ -70,32 +53,23 @@ public class GuideImage : MonoBehaviour
 
         guideImages[childCount - 1].SetActive(true);
         guideImages[childCount].SetActive(false);
+        childCount--;
         StartCoroutine(TurnOnGuide());
 
     }
 
     public IEnumerator TurnOnGuide()
     {
+        //3초 뒤에 버튼이 켜집니다.
+        Debug.Log("TurnOnGuide()");
         yield return new WaitForSeconds(3.0f);
 
-        //for (int i = childCount - 1; i >= 0; i--)
-        //{
-        //    if (i <= 0)
-        //        break;
-
-        //    if (nextButtons[i])
-        //        continue;
-
-        //    buttons[i].enabled = true;
-        //    nextButtons[i] = true;
-
-        //    break;
-        //}
-
         buttons[childCount].enabled = true;
-        childCount--;
+        //nextButtons[childCount] = true;
+        //childCount--;
+        
+        //yield return null;
 
         //yield break;
-        yield return null;
     }
 }
