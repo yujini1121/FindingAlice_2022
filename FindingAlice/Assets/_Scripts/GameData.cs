@@ -11,7 +11,7 @@ public class GameData{
     public bool isClear2;
     public bool isClear3;
 
-    public bool []hasCP = new bool[3];
+    public bool []hasCP = new bool[4];
 
     public float bgmValue;
     public float effectValue;

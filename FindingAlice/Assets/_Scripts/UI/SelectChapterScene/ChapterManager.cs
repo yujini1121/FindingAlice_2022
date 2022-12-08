@@ -119,10 +119,14 @@ public class ChapterManager : MonoBehaviour
                 {
                     case 0:
                         AsyncLoading.LoadScene("tTutorial");
+                        DataController.Instance._gameData.hasCP[0] = false;
+                        DataController.Instance.SaveGameData();
                         break;
                     case 1:
                         AsyncLoading.LoadScene("Chapter_1");
                         DataController.Instance._gameData.playerPositionChpater1 = new Vector3(-822, 10, 0);
+                        DataController.Instance._gameData.hasCP[1] = false;
+                        DataController.Instance.SaveGameData();
                         break;
                     case 2:
                         AsyncLoading.LoadScene("Chapter_2");
@@ -141,10 +145,15 @@ public class ChapterManager : MonoBehaviour
             {
                 case 0:
                     AsyncLoading.LoadScene("tTutorial");
+                    DataController.Instance._gameData.playerPositionTutorial = new Vector3(-270, 116, 0);
+                    DataController.Instance._gameData.hasCP[0] = false;
+                    DataController.Instance.SaveGameData();
                     break;
                 case 1:
                     AsyncLoading.LoadScene("Chapter_1");
                     DataController.Instance._gameData.playerPositionChpater1 = new Vector3(-822, 10, 0);
+                    DataController.Instance._gameData.hasCP[1] = false;
+                    DataController.Instance.SaveGameData();
                     break;
                 case 2:
                     AsyncLoading.LoadScene("Chapter_2");
