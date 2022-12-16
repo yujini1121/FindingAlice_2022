@@ -199,6 +199,12 @@ public class TalkManager : MonoBehaviour
 
         };
         talkData.Add(14, tb);
+
+        TalkData[] tD = new TalkData[]
+        {
+            new TalkData("토끼", rabbit, "이쪽이 아니라 반대편으로 가야해.", Position.left),
+        };
+        talkData.Add(100, tD);
     }
 
     public TalkData GetTalk(int id, int talkIndex)
