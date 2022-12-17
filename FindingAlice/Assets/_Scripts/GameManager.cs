@@ -21,10 +21,7 @@ public class GameManager : MonoBehaviour
 
     GameObject option;
     GameObject optionButton;
-
-    //10.12. public으로 수정
-    //[SerializeField]
-    //bool _patternSwitch = false;
+    GameObject playerMovement;
 
     [SerializeField]
     bool _isGround;
@@ -76,6 +73,8 @@ public class GameManager : MonoBehaviour
         clockBackEffect.transform.localScale = new Vector3(40000f, 20000f, 0);
         option = GameObject.Find("Option").transform.GetChild(0).gameObject;
         optionButton = GameObject.Find("OptionButton");
+
+        playerMovement = GameObject.Find("Player");
     }
 
     private void Update()
@@ -115,6 +114,25 @@ public class GameManager : MonoBehaviour
         GraphicsSettings.renderPipelineAsset = defaultPipeline;
         //SceneManager.LoadScene("SelectChapterScene");
     }
+
+    public void PressRetryGame()
+    {
+        GraphicsSettings.renderPipelineAsset = defaultPipeline;
+        Time.timeScale = 1;
+        option.SetActive(false);
+        optionButton.SetActive(true);
+        iTouch.checkEvent = false;
+
+        ClockManager.C.clockReset();
+        playerMovement.GetComponent<PlayerMovement>().isDie = true;
+
+        playerMovement.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+
+        PlayerMovement.respawn = true;
+
+        PlayerManager.Instance().isGameOver = true;
+    }
+
 
     private void OnApplicationPause(bool pause)
     {

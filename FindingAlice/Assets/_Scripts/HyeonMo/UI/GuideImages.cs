@@ -52,7 +52,6 @@ public class GuideImages : MonoBehaviour
         guideImages[index].SetActive(false);
     }
 
-
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
