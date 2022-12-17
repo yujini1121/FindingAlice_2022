@@ -20,15 +20,15 @@ public class FixImageSize : MonoBehaviour
     void Awake()
     {
         GameObject canvas = GameObject.Find("Canvas");
-
-        rect_SizeDelta = transform.gameObject.GetComponent<RectTransform>().sizeDelta;
-
         defaultWidth = canvas.gameObject.GetComponent<CanvasScaler>().referenceResolution.x;
         defaultHeight = canvas.gameObject.GetComponent<CanvasScaler>().referenceResolution.y;
-        deviceWidth = Screen.width;
-        deviceHeight = Screen.height;
+
+        rect_SizeDelta = transform.gameObject.GetComponent<RectTransform>().sizeDelta;
         ImageWidth = rect_SizeDelta.x;
         ImageHeight = rect_SizeDelta.y;
+
+        deviceWidth = Screen.width;
+        deviceHeight = Screen.height;
 
         deviceAspectRatio = deviceWidth / deviceHeight;
         defaultAspectRatio = defaultWidth / defaultHeight;
