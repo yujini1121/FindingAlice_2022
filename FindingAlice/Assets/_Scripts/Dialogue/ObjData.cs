@@ -7,13 +7,24 @@ public class ObjData : MonoBehaviour
     public int id;
     public bool checkRead = false;
 
-    private void OnTriggerEnter(Collider other)
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.tag != "Attack" &&
+    //        other.gameObject.tag != "Platform" &&
+    //        other.gameObject.tag != "Clock")
+    //    {
+    //        gameObject.GetComponent<Collider>().enabled = false;
+    //    }
+    //}
+
+    void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.tag != "Attack" &&
-            other.gameObject.tag != "Platform" &&
-            other.gameObject.tag != "Clock")
+        if (collision.gameObject.tag != "Attack" &&
+            collision.gameObject.tag != "Platform" &&
+            collision.gameObject.tag != "Clock")
         {
             gameObject.GetComponent<Collider>().enabled = false;
         }
     }
+
 }

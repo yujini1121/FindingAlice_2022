@@ -4,50 +4,32 @@ using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-    BoxCollider expand;
-    BoxCollider parentCol;
+    int childCount = 0;
 
-    bool col_To_Wall;
+    [SerializeField] GameObject parentGuideImages;
+    [SerializeField] GameObject nextGuideImage;
 
-    void OnEnable()
+    void Start()
     {
-        expand = transform.Find("ExpandCollider").GetComponent<BoxCollider>();
-        parentCol = this.gameObject.GetComponent<BoxCollider>();
-        col_To_Wall = GameObject.Find("Player").GetComponent<PlayerMovement>().collisionToWall;
-    }
+        parentGuideImages = transform.parent.gameObject;
+        childCount = parentGuideImages.transform.childCount;
 
-    //void FixedUpdate(Collision collision)
-    //{
-    //    if (collision.gameObject.tag == "Player")
-    //    {
-    //        expand.enabled = true;
-    //        parentCol.enabled = false;
-    //        col_To_Wall = false;
-    //        //StartCoroutine(OneMore());
-    //    }
-    //}
-
-    void OnCollisionEnter(Collision collision)
-    {
-        expand.enabled = true;
-        parentCol.enabled = false;
-        col_To_Wall = false;
-    }
-
-    void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == "Player")
+        for (int i = childCount - 1; i >= 0; i++)
         {
-            parentCol.enabled = true;
-            expand.enabled = false;
-            col_To_Wall = false;
+            if (i == 0)
+                break;
+            
+            if (this.gameObject.name == parentGuideImages.transform.GetChild(i).name)
+                nextGuideImage = parentGuideImages.transform.GetChild(i - 1).gameObject;
         }
 
     }
 
-    IEnumerator OneMore()
+    void OnDisable()
     {
-        yield return new WaitForSeconds(0.1f);
-        col_To_Wall = false;
+        nextGuideImage.SetActive(true);
+        this.gameObject.SetActive(false);
+
     }
+
 }

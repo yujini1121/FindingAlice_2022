@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private DialogueManager dManager;
 
-    static bool respawn;
+    [HideInInspector] public static bool respawn;
 
     private void Awake()
     {
