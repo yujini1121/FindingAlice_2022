@@ -15,7 +15,7 @@ public class FixImageSize : MonoBehaviour
     float defaultAspectRatio;
     float ImageAspectRatio;
 
-    Vector2 rect_SizeDelta;
+    RectTransform rectTransform;
 
     void Awake()
     {
@@ -23,9 +23,9 @@ public class FixImageSize : MonoBehaviour
         defaultWidth = canvas.gameObject.GetComponent<CanvasScaler>().referenceResolution.x;
         defaultHeight = canvas.gameObject.GetComponent<CanvasScaler>().referenceResolution.y;
 
-        rect_SizeDelta = transform.gameObject.GetComponent<RectTransform>().sizeDelta;
-        ImageWidth = rect_SizeDelta.x;
-        ImageHeight = rect_SizeDelta.y;
+        rectTransform = transform.gameObject.GetComponent<RectTransform>();
+        ImageWidth = rectTransform.sizeDelta.x;
+        ImageHeight = rectTransform.sizeDelta.y;
 
         deviceWidth = Screen.width;
         deviceHeight = Screen.height;
@@ -35,7 +35,7 @@ public class FixImageSize : MonoBehaviour
         ImageAspectRatio = ImageWidth / ImageHeight;
     }
 
-    void OnEnable()
+    void Start()
     {
         SetResolution();
     }
@@ -45,16 +45,18 @@ public class FixImageSize : MonoBehaviour
         if (ImageAspectRatio > deviceAspectRatio)
         {
             Debug.Log("way1");
-            rect_SizeDelta = new Vector2(
+            rectTransform.sizeDelta = new Vector2(
                 (int)(ImageWidth * (1.0 + defaultAspectRatio * 0.1)),
                 (int)(ImageHeight * (1.0 + defaultAspectRatio * 0.1)));
+            Debug.Log("way1 Normal");
         }
         else if (ImageAspectRatio < deviceAspectRatio)
         {
             Debug.Log("way2");
-            rect_SizeDelta = new Vector2(
+            rectTransform.sizeDelta = new Vector2(
                 (int)(ImageWidth * (1.0 - defaultAspectRatio * 0.1)),
                 (int)(ImageHeight * (1.0 - defaultAspectRatio * 0.1)));
+            Debug.Log("way2 Normal");
         }
     }
 }

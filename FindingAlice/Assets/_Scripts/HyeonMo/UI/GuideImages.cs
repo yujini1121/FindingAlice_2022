@@ -15,6 +15,8 @@ public class GuideImages : MonoBehaviour
     [SerializeField] GameObject jumpButton;
     [SerializeField] GameObject clockTouchZone;
 
+    //[SerializeField] Joystick joystickLevel;
+
     Button[] buttons;
 
     void Start()
@@ -28,6 +30,8 @@ public class GuideImages : MonoBehaviour
             guideImages[i].transform.GetChild(0).gameObject.SetActive(false);
             guideImages[i].SetActive(false);
         }
+
+        //joystickLevel = GameObject.Find("Canvas").transform.Find("Lever").GetComponent<Joystick>();
     }
 
     //버튼누르면 이 함수 호출되도록 할 때 쓸 것, guideImages 순서대로 Inspector 창에 index 기입
@@ -37,7 +41,9 @@ public class GuideImages : MonoBehaviour
         {
             guideImages[index].SetActive(false);
             joystick.SetActive(true);
-            joystickLevel.SetActive(true);
+            //joystickLevel.SetActive(true);
+            //joystickLevel.enabled = true;
+            joystickLevel.GetComponent<Joystick>().enabled = true;
             jumpButton.SetActive(true);
             clockTouchZone.SetActive(true);
             Destroy(gameObject);
@@ -52,34 +58,37 @@ public class GuideImages : MonoBehaviour
         guideImages[index].SetActive(false);
     }
 
-    void OnCollisionEnter(Collision collision)
+    //void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "Player")
+    //    {
+    //        joystick.SetActive(false);
+    //        //joystickLevel.SetActive(false);
+    //        //joystickLevel.enabled = false;
+    //        joystickLevel.GetComponent<Joystick>().enabled = false;
+    //        jumpButton.SetActive(false);
+    //        clockTouchZone.SetActive(false);
+
+    //        // 첫 번째 가이드 이미지를 활성화하고 3초 뒤에 Button 컴포넌트를 활성화
+    //        guideImages[0].SetActive(true);
+    //        StartCoroutine(ActivateButton(0));
+    //    }
+    //}
+    void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Player")
+        if (other.tag == "Player")
         {
             // 첫 번째 가이드 이미지를 활성화하고 3초 뒤에 Button 컴포넌트를 활성화
             guideImages[0].SetActive(true);
             StartCoroutine(ActivateButton(0));
 
             joystick.SetActive(false);
-            joystickLevel.SetActive(false);
+            //joystickLevel.SetActive(false);
+            joystickLevel.GetComponent<Joystick>().enabled = false;
             jumpButton.SetActive(false);
             clockTouchZone.SetActive(false);
         }
     }
-    //void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.tag == "Player")
-    //    {
-    //        // 첫 번째 가이드 이미지를 활성화하고 3초 뒤에 Button 컴포넌트를 활성화
-    //        guideImages[0].SetActive(true);
-    //        StartCoroutine(ActivateButton(0));
-
-    //        joystick.SetActive(false);
-    //        joystickLevel.SetActive(false);
-    //        jumpButton.SetActive(false);
-    //        clockTouchZone.SetActive(false);
-    //    }
-    //}
 
     IEnumerator ActivateButton(int index)
     {
