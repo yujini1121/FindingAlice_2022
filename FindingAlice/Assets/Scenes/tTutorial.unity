@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.25105238, g: 0.42788982, b: 0.67616683, a: 1}
+  m_IndirectSpecularColor: {r: 0.25105554, g: 0.42789313, b: 0.67617357, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4473,6 +4473,8 @@ MonoBehaviour:
   _effectSoundValue: 0
   _bgmSoundMute: 1
   _effectSoundMute: 0
+  bgmSlider: {fileID: 0}
+  effectSlider: {fileID: 0}
 --- !u!4 &399740010
 Transform:
   m_ObjectHideFlags: 0
@@ -11227,12 +11229,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b1cc7504f2d7748831df7238a5ce66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setWidth: 0
-  setHeight: 0
-  deviceWidth: 0
-  deviceHeight: 0
-  thisImageWidth: 0
-  thisImageHeight: 0
 --- !u!1001 &744396340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17905,12 +17901,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b1cc7504f2d7748831df7238a5ce66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setWidth: 0
-  setHeight: 0
-  deviceWidth: 0
-  deviceHeight: 0
-  thisImageWidth: 0
-  thisImageHeight: 0
 --- !u!1 &1199115059
 GameObject:
   m_ObjectHideFlags: 0
@@ -24922,12 +24912,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b1cc7504f2d7748831df7238a5ce66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setWidth: 0
-  setHeight: 0
-  deviceWidth: 0
-  deviceHeight: 0
-  thisImageWidth: 0
-  thisImageHeight: 0
 --- !u!1001 &1799261141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79904,6 +79888,7 @@ GameObject:
   - component: {fileID: 9125319501468755906}
   - component: {fileID: 7794180774214677633}
   - component: {fileID: 48969513}
+  - component: {fileID: 7323796156647130648}
   m_Layer: 0
   m_Name: Finish
   m_TagString: Untagged
@@ -79911,6 +79896,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7323796156647130648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7323796156647130647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a975c843b2849144ca2c55d3ed087868, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastCheck: 1
 --- !u!33 &7342664122524671410
 MeshFilter:
   m_ObjectHideFlags: 0
