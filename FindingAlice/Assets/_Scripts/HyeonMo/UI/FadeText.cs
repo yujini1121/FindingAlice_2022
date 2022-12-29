@@ -5,17 +5,14 @@ using UnityEngine.UI;
 
 public class FadeText : MonoBehaviour
 {
+    //보통 "화면을 눌러 창 닫기"라고 Text.text에 적음
     Text fadeText;
-
-    //Inspector 창에서 입력하려는 문구 
-    [SerializeField] string textContents;
 
     void OnEnable()
     {
         fadeText = this.GetComponent<Text>();
         //StartCoroutine(BlinkText());
 
-        fadeText.text = textContents;
         StartCoroutine(FadeTextToFullAlpha());
     }
 
