@@ -16,14 +16,20 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Jump")]
     [SerializeField] private float jumpForce;
+    [SerializeField] private float jumpCount = 0f;
+    [SerializeField] private float jumpTime = 0.0f;
     [HideInInspector] private Animator playerAnim;
+    private bool isSmartJump = false;
+    private float maxJumpCount = 2f;
+    private float maxJumpTime = 0.25f;
+
 
     //Scene - Player 오브젝트
     [HideInInspector] public Rigidbody playerRigidbody; //1008 PlayerManager에서 사용하기 위한
     //캐릭터 좌우로 이동
-    private Vector3     moveDirX;
+    private Vector3 moveDirX;
     //키보드로부터 X축 값 얻음
-    private float       inputDir;
+    private float inputDir;
 
     [SerializeField] private bool isMoving = false;
 
@@ -77,7 +83,8 @@ public class PlayerMovement : MonoBehaviour
     //    }
     //}
 
-    private void Update() {
+    private void Update()
+    {
         //Debug.Log(CrossPlatformInputManager.GetAxisRaw("Vertical"));
         //Debug.Log(CrossPlatformInputManager.GetAxisRaw("Horizontal"));
 
@@ -94,9 +101,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (PlayerManager.Instance().isGameOver)
             return;
-            //플레이어 발 밑 레이캐스트
+        //플레이어 발 밑 레이캐스트
         Physics.SphereCast(transform.position, 0.2f, -transform.up, out RaycastHit hit_1, 1.63f);
-        if (hit_1.collider != null) {
+        if (hit_1.collider != null)
+        {
             if (hit_1.collider.tag == "Platform" && LayerMask.LayerToName(hit_1.collider.gameObject.layer) != "PassingPlatform")
             {
                 playerAnim.SetBool("isGrounded", true);
@@ -164,7 +172,29 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    public void Move(float dir = 0){
+    private void LateUpdate()
+    {
+        if (isGround)
+        {
+            if (jumpCount == maxJumpCount && jumpTime < maxJumpTime)
+            {
+                Jump();
+            }
+
+            jumpCount = 0;
+            jumpTime = 0;
+            isSmartJump = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+            jumpCount++;
+
+        if (jumpCount == maxJumpCount)
+            jumpTime += Time.deltaTime;
+    }
+
+    public void Move(float dir = 0)
+    {
         if (dManager.isActive || isDie)
         {
             playerAnim.SetBool("isWalk", !dManager.isActive);
@@ -195,8 +225,9 @@ public class PlayerMovement : MonoBehaviour
                 turnCharacter();
         }
     }
-    
-    public void Jump(){
+
+    public void Jump()
+    {
         // z키를 누르거나 점프 버튼이 눌렸을 때 플레이어가 땅에 있을 경우 점프
         if (isGround && !isJumping)
         {
@@ -206,7 +237,6 @@ public class PlayerMovement : MonoBehaviour
             isJumping = true;
             playerRigidbody.velocity = Vector3.zero;
             playerRigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-
         }
     }
 
@@ -231,15 +261,15 @@ public class PlayerMovement : MonoBehaviour
         {
             speed = originSpeed;
             collisionToWall = false;
-        //    if (other.contacts[0].normal.y >= 0.7f)
-        //    {
-        //        playerAnim.SetBool("isGrounded", true);
-        //        isGround = true;
-        //        playerAnim.SetBool("isJumping", false);
-        //        isJumping = false;
-        //        playerAnim.SetBool("isFalling", false);
-        //        isFalling = false;
-        //    }
+            //    if (other.contacts[0].normal.y >= 0.7f)
+            //    {
+            //        playerAnim.SetBool("isGrounded", true);
+            //        isGround = true;
+            //        playerAnim.SetBool("isJumping", false);
+            //        isJumping = false;
+            //        playerAnim.SetBool("isFalling", false);
+            //        isFalling = false;
+            //    }
         }
     }
 
@@ -275,7 +305,7 @@ public class PlayerMovement : MonoBehaviour
         {
             //StartCoroutine(SmoothJump());
         }
-            
+
         playerAnim.SetBool("isGrounded", false);
     }
 
@@ -285,7 +315,8 @@ public class PlayerMovement : MonoBehaviour
         //{
         //    PlayerManager.Instance().isGameOver = true;
         //}
-        switch(other.tag){
+        switch (other.tag)
+        {
             //case "Platform":
             //    if (ClockManager.C.CS == ClockState.follow)
             //        ClockManager.C.clockReset();
@@ -308,10 +339,10 @@ public class PlayerMovement : MonoBehaviour
 
             // 팝업만 떠야함
             case "NPC":
-            dManager.Action(other.gameObject);
-            break;
+                dManager.Action(other.gameObject);
+                break;
             default:
-            return;
+                return;
         }
     }
 
