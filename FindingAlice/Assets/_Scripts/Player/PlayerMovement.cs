@@ -16,7 +16,13 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Jump")]
     [SerializeField] private float jumpForce;
+    [SerializeField] private float jumpCount = 0f;
+    [SerializeField] private float jumpTime = 0.0f;
     [HideInInspector] private Animator playerAnim;
+    private bool isSmartJump = false;
+    private float maxJumpCount = 2f;
+    private float maxJumpTime = 0.25f;
+
 
     //Scene - Player 오브젝트
     [HideInInspector] public Rigidbody playerRigidbody; //1008 PlayerManager에서 사용하기 위한
@@ -164,6 +170,26 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    private void LateUpdate() {
+        if (isGround)
+        {
+            if (jumpCount == maxJumpCount && jumpTime < maxJumpTime)
+            {
+                Jump();
+            }
+
+            jumpCount = 0;
+            jumpTime = 0;
+            isSmartJump = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+            jumpCount++;
+
+        if (jumpCount == maxJumpCount)
+            jumpTime += Time.deltaTime;        
+    }
+
     public void Move(float dir = 0){
         if (dManager.isActive || isDie)
         {
@@ -206,7 +232,6 @@ public class PlayerMovement : MonoBehaviour
             isJumping = true;
             playerRigidbody.velocity = Vector3.zero;
             playerRigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-
         }
     }
 
