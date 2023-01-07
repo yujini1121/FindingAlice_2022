@@ -5,15 +5,22 @@ using UnityEngine;
 public class Item_Clock : MonoBehaviour
 {
     float collidedTime = 0f;
-    float appearTime = 3f;
+    float appearTime = 3.0f;
+
+    [SerializeField] GameObject childObject;
+    Collider collider;
+
+    private void Awake()
+    {
+        collider = gameObject.GetComponent<Collider>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
 
         if (other.tag == "Player")
-        {   
-            Invoke("respawn", 3f);
-            gameObject.SetActive(false);
+        {
+            StartCoroutine(ReSpawn());
 
             if (ClockManager.C.clockCounter < 2)
             {
@@ -24,8 +31,13 @@ public class Item_Clock : MonoBehaviour
         }
     }
 
-    void respawn()
+    IEnumerator ReSpawn()
     {
-        gameObject.SetActive(true);
+        childObject.SetActive(false);
+        collider.enabled = false;
+        yield return new WaitForSeconds(appearTime);
+
+        childObject.SetActive(true);
+        collider.enabled = true;
     }
 }
