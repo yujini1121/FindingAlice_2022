@@ -19,11 +19,13 @@ public class TigerPattern : MonoBehaviour
     //1번 패턴인지 2번 패턴인지 랜덤값을 저장
     int patternValue;
     //패턴 재발동 쿨타임
-    float patternCooldown = 8f;
+    float patternCooldown = 5f;
     //현재 패턴이 재생 중인지 확인
     bool isPatternPlay = false;
 
     bool checking = false;
+
+    float startDelay = 2.0f;
 
     //패턴 1
     //돌 떨어지는 5개 자리 지정
@@ -31,6 +33,7 @@ public class TigerPattern : MonoBehaviour
     //몇번째 돌이 떨어지는지 저장
     int pattern1_count;
     float pattern1_time = 0;
+    float pattern1_Delay = 1.0f;
 
     //패턴 2
     //패턴 예고가 그려지는 시간
@@ -57,6 +60,7 @@ public class TigerPattern : MonoBehaviour
                                          this.transform.position.y,
                                          this.transform.position.z);
 
+        //테스팅 용
         if (Input.GetKeyDown(KeyCode.P))
             PatternPlay();
         if (Input.GetKeyDown(KeyCode.E))
@@ -104,7 +108,7 @@ public class TigerPattern : MonoBehaviour
 
     IEnumerator Pattern()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(startDelay);
 
         while (true)
         {
@@ -130,7 +134,7 @@ public class TigerPattern : MonoBehaviour
                     pattern.transform.position = new Vector3(player.transform.position.x + ((pattern1_order[pattern1_count] - 2) * 3),
                                                                 player.transform.position.y,
                                                                 pattern.transform.position.z);
-                    yield return new WaitForSeconds(1f);
+                    yield return new WaitForSeconds(pattern1_Delay);
                     Instantiate(rock, pattern.transform.position + (pattern.transform.up * 50f), Quaternion.identity);
                     pattern1_count++;
                     //anim.SetBool("doThrow", false);
@@ -162,7 +166,7 @@ public class TigerPattern : MonoBehaviour
                                                         claw.transform.position.z);
                 claw.transform.rotation = pattern.transform.rotation;
                 claw.SetActive(true);
-                yield return new WaitForSeconds(0.4f); //기존 0.5f
+                yield return new WaitForSeconds(0.4f);
                 claw.SetActive(false);
                 tiger.SetActive(true);
                 tiger.transform.localPosition = new Vector3(0, 2.07f, 0);

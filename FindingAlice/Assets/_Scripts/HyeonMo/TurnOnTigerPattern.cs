@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pattern_OnOff : MonoBehaviour
+public class TurnOnTigerPattern : MonoBehaviour
 {
-    [SerializeField] bool on = false;
-    [SerializeField] bool off = false;
+    [SerializeField] bool patternOn = false;
 
     [SerializeField] GameObject tigerBackGround;
 
@@ -13,14 +12,11 @@ public class Pattern_OnOff : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (on && tigerBackGround.activeSelf != true)
-            {
+            if (patternOn && !tigerBackGround.activeSelf)
                 tigerBackGround.SetActive(true);
-            }
             
-            else if (off)
+            else if (!patternOn)
                 tigerBackGround.SetActive(false);
-
         }
     }
 }

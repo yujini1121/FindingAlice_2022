@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 enum Attr
 {
@@ -9,59 +11,58 @@ enum Attr
 public class Transparent : MonoBehaviour
 {
     public bool require = false;
-    public bool disable = false;
-    //[SerializeField] private float holdingTime = 5.0f; 1006 수정, 스위치를 위한 public 선언하게 바꿈
-    //public float holdingTime = 5.0f;
-    public float holdingTime = 99f;
-    private bool isAction = false;
+
+    public float holdingTime = 5.0f;
 
     public int attr;
 
     public GameObject[] platform;
 
-    private void Start(){
+    void Start(){
         if (attr == (int)Attr.Inst)
         {
             for (int i = 0; i < platform.Length; i++)
-            {
                 platform[i].SetActive(false);
-            }
         }
     }
     
-    private void Update() {
+    void Update() {
         if (!require)
             return;
 
         if(attr == (int)Attr.Inst) 
-        {
             VisibleFunc();
-        }
+        
 
         if(attr == (int)Attr.Destroy)
-        {
-            DestroyPlatform();
-        }
+            StartCoroutine(DestroyPlatform()); 
     }
 
     void VisibleFunc(){
-        for(int i = 0; i < platform.Length; i++) {
+        for(int i = 0; i < platform.Length; i++) 
             platform[i].SetActive(true);
-        }
-        CancelInvoke();
-        Invoke("DestroyPlatform", holdingTime);
+        
+        StopCoroutine(DestroyPlatform());
+        StartCoroutine(DestroyPlatform());
         require = false;
     }
 
-    private void DestroyPlatform() {
-        for (int i = 0; i < platform.Length; i++) {
-            //어차피 비활성화되면 다시 활성화가 안 되므로
-            if (platform[i].tag == "Item")
-                Destroy(platform[i]);
+    IEnumerator DestroyPlatform() {
+        if (attr == (int)Attr.Inst)
+            yield return new WaitForSeconds(holdingTime);
 
+        for (int i = 0; i < platform.Length; i++) {
             if (platform[i].gameObject.activeSelf == false || platform[i].gameObject == null)
-                break;
+                continue;
+
             platform[i].SetActive(false);
         }
+
+        if (attr == (int)Attr.Destroy)
+        {
+            yield return new WaitForSeconds(0.1f);
+            this.gameObject.SetActive(false);
+        }
+        
     }
 }
