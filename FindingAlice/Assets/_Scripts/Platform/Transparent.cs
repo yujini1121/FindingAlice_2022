@@ -19,8 +19,7 @@ public class Transparent : MonoBehaviour
     public GameObject[] platform;
 
     void Start(){
-        if (attr == (int)Attr.Inst)
-        {
+        if (attr == (int)Attr.Inst){
             for (int i = 0; i < platform.Length; i++)
                 platform[i].SetActive(false);
         }
@@ -33,8 +32,7 @@ public class Transparent : MonoBehaviour
         if(attr == (int)Attr.Inst) 
             VisibleFunc();
         
-
-        if(attr == (int)Attr.Destroy)
+        else if(attr == (int)Attr.Destroy)
             StartCoroutine(DestroyPlatform()); 
     }
 
@@ -58,9 +56,8 @@ public class Transparent : MonoBehaviour
             platform[i].SetActive(false);
         }
 
-        if (attr == (int)Attr.Destroy)
-        {
-            yield return new WaitForSeconds(0.1f);
+        if (attr == (int)Attr.Destroy){
+            //yield return new WaitForSeconds(0.1f);
             this.gameObject.SetActive(false);
         }
         
