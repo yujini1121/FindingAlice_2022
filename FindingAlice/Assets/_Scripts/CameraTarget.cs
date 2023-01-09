@@ -11,7 +11,10 @@ public class CameraTarget : MonoBehaviour
     Vector3 targetPosition;
     RectTransform joystickPos;
     bool joystickUpNDown = false;
-    float joystickUpNDownStartTime;
+    float joystickUpNDownStartTime; 
+
+    float holdTime = 2.5f; 
+    float cameraMoveSpeed = 4f;
 
 #if false
     void Start()
@@ -64,8 +67,9 @@ public class CameraTarget : MonoBehaviour
                     joystickUpNDown = true;
                     joystickUpNDownStartTime = Time.time;
                 }
+
                 //시간이 흐른 후 카메라 이동
-                if (joystickUpNDown && Time.time - joystickUpNDownStartTime > 0.5f)
+                if (joystickUpNDown && Time.time - joystickUpNDownStartTime > holdTime)
                 {
                     if (CrossPlatformInputManager.GetAxisRaw("Vertical") >= 0.8f)
                         targetPosition = playerTrans.position + new Vector3(0, 7, 0);
@@ -73,6 +77,7 @@ public class CameraTarget : MonoBehaviour
                     //transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 3f);
                 }
             }
+
             //조건 만족 안 하면 변수 초기화 후 플레이어 위치를 타겟 위치로 전달
             else
             {
@@ -80,7 +85,8 @@ public class CameraTarget : MonoBehaviour
                 targetPosition = playerTrans.position;
                 //transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 3f);
             }
-            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 3f);
+            transform.position = Vector3.Lerp(transform.position, targetPosition, cameraMoveSpeed * Time.deltaTime);
+
         }
     }
 }

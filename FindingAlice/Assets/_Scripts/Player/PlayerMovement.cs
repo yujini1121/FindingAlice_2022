@@ -8,7 +8,7 @@ using UnityEditor;
 
 public class PlayerMovement : MonoBehaviour
 {
-    static public uint deathCounter; //10.12. 데스카운터 추가, 데스카운터는 
+    static public uint deathCounter;
 
     [Header("Move")]
     [SerializeField] private float speed;
@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     //Scene - Player 오브젝트
-    [HideInInspector] public Rigidbody playerRigidbody; //1008 PlayerManager에서 사용하기 위한
+    [HideInInspector] public Rigidbody playerRigidbody;
     //캐릭터 좌우로 이동
     private Vector3 moveDirX;
     //키보드로부터 X축 값 얻음
