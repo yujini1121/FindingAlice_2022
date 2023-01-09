@@ -172,15 +172,13 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private void LateUpdate()
+    void LateUpdate()
     {
         if (isGround)
         {
             if (jumpCount == maxJumpCount && jumpTime < maxJumpTime)
-            {
                 Jump();
-            }
-
+            
             jumpCount = 0;
             jumpTime = 0;
             isSmartJump = false;

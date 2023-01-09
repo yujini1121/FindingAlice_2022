@@ -5,7 +5,8 @@ using UnityEngine;
 enum Attr
 {
     Inst = 0,
-    Destroy,
+    Transparent,
+    appear,
 }
 
 public class Transparent : MonoBehaviour
@@ -19,7 +20,7 @@ public class Transparent : MonoBehaviour
     public GameObject[] platform;
 
     void Start(){
-        if (attr == (int)Attr.Inst){
+        if (attr == (int)Attr.Inst || attr == (int)Attr.appear){
             for (int i = 0; i < platform.Length; i++)
                 platform[i].SetActive(false);
         }
@@ -29,23 +30,37 @@ public class Transparent : MonoBehaviour
         if (!require)
             return;
 
-        if(attr == (int)Attr.Inst) 
-            VisibleFunc();
-        
-        else if(attr == (int)Attr.Destroy)
-            StartCoroutine(DestroyPlatform()); 
+        switch (attr)
+        {
+            case ((int)Attr.Inst):
+                VisibleFunc();
+                break;
+
+            case ((int)Attr.Transparent):
+                StartCoroutine(TransparentPlatform());
+                break;
+
+            case ((int)Attr.appear):
+                for (int i = 0; i < platform.Length; i++)
+                    platform[i].SetActive(true);
+                break;
+
+            default:
+                print("Attr를 다시 확인하세요.");
+                break;
+        }
     }
 
     void VisibleFunc(){
         for(int i = 0; i < platform.Length; i++) 
             platform[i].SetActive(true);
-        
-        StopCoroutine(DestroyPlatform());
-        StartCoroutine(DestroyPlatform());
+
+        StopCoroutine(TransparentPlatform());
+        StartCoroutine(TransparentPlatform());
         require = false;
     }
 
-    IEnumerator DestroyPlatform() {
+    IEnumerator TransparentPlatform() {
         if (attr == (int)Attr.Inst)
             yield return new WaitForSeconds(holdingTime);
 
@@ -55,11 +70,5 @@ public class Transparent : MonoBehaviour
 
             platform[i].SetActive(false);
         }
-
-        if (attr == (int)Attr.Destroy){
-            //yield return new WaitForSeconds(0.1f);
-            this.gameObject.SetActive(false);
-        }
-        
     }
 }

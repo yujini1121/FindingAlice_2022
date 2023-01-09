@@ -5,14 +5,14 @@ using UnityEngine;
 public class Sink : MonoBehaviour
 {
     public bool checkCollison = false;
-    private GameObject platform;
+    GameObject platform;
 
-    private float downVel = 1.0f;
-    private float upVel;
-    private float startPosY;
-    private float currentPosY;
+    float downVel = 1.5f;
+    float upVel;
+    float startPosY;
+    float currentPosY;
 
-    private GameObject player;
+    GameObject player;
 
     public bool active = false;
 

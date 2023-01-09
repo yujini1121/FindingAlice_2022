@@ -10,7 +10,7 @@ public class SappearObject : MonoBehaviour
     {
         for (int i = 0; i < someGameobject.Length; i++)
         {
-            if (someGameobject[0] == null)
+            if (someGameobject[i] == null)
                 break;
             transform.GetChild(i).gameObject.SetActive(true);
         }
