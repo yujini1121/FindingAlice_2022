@@ -23,7 +23,7 @@ public class TigerPattern : MonoBehaviour
     //현재 패턴이 재생 중인지 확인
     bool isPatternPlay = false;
 
-    bool checking = false;
+    [HideInInspector] public bool checking = false;
 
     float startDelay = 2.0f;
 
@@ -61,10 +61,10 @@ public class TigerPattern : MonoBehaviour
                                          this.transform.position.z);
 
         //테스팅 용
-        if (Input.GetKeyDown(KeyCode.P))
-            PatternPlay();
-        if (Input.GetKeyDown(KeyCode.E))
-            PatternExit();
+        //if (Input.GetKeyDown(KeyCode.P))
+        //    PatternPlay();
+        //if (Input.GetKeyDown(KeyCode.E))
+        //    PatternExit();
 
         if (tigerGround)
         {
