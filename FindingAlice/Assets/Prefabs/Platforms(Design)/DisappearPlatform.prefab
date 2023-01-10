@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 3584135551588415928}
   - component: {fileID: 3584135550636765462}
   m_Layer: 0
-  m_Name: DisappearPlatform (1)
+  m_Name: DisappearPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
