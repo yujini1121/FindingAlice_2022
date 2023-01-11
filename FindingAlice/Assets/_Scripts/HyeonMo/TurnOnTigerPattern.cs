@@ -9,9 +9,12 @@ public class TurnOnTigerPattern : MonoBehaviour
     [SerializeField] GameObject tigerBackGround;
     TigerPattern tigerPattern;
 
+    Collider collider;
+
     void Start()
     {
         tigerPattern = gameObject.GetComponent<TigerPattern>();
+        collider = this.gameObject.GetComponent<Collider>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -20,27 +23,26 @@ public class TurnOnTigerPattern : MonoBehaviour
         {
             if (patternOn && !tigerBackGround.activeSelf)
             {
-                //if (!tigerPattern.checking)
-                //{
-                //    tigerBackGround.SetActive(true);
 
-                //    tigerPattern.PatternPlay();
-                //    tigerPattern.checking = true;
-                //}
                 tigerBackGround.SetActive(true);
+
+                tigerPattern.PatternPlay();
+                
+                //tigerBackGround.SetActive(true);
             }
                 
             else if (!patternOn)
             {
-                //if (!tigerPattern.checking)
-                //{
-                //    tigerPattern.PatternExit();
-                //    tigerPattern.checking = false;
+                
+                tigerPattern.PatternExit();
 
-                //    tigerBackGround.SetActive(false);
-                //}
                 tigerBackGround.SetActive(false);
+                
+                //tigerBackGround.SetActive(false);
             }
+
+            //collider.enabled = false;
+            this.gameObject.SetActive(false);
         }
     }
 }
