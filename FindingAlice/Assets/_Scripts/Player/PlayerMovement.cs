@@ -88,25 +88,23 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log(CrossPlatformInputManager.GetAxisRaw("Vertical"));
         //Debug.Log(CrossPlatformInputManager.GetAxisRaw("Horizontal"));
 
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
+        if (Input.GetKeyDown(KeyCode.Z)) {
             Time.timeScale = 0.01f;
             Time.fixedDeltaTime = Time.timeScale * 0.02f;
         }
-        if (Input.GetKeyDown(KeyCode.X))
-        {
+
+        if (Input.GetKeyDown(KeyCode.X)) {
             Time.timeScale = 1f;
             Time.fixedDeltaTime = Time.timeScale * 0.02f;
         }
 
         if (PlayerManager.Instance().isGameOver)
             return;
+
         //플레이어 발 밑 레이캐스트
         Physics.SphereCast(transform.position, 0.2f, -transform.up, out RaycastHit hit_1, 1.63f);
-        if (hit_1.collider != null)
-        {
-            if (hit_1.collider.tag == "Platform" && LayerMask.LayerToName(hit_1.collider.gameObject.layer) != "PassingPlatform")
-            {
+        if (hit_1.collider != null) {
+            if (hit_1.collider.tag == "Platform" && LayerMask.LayerToName(hit_1.collider.gameObject.layer) != "PassingPlatform") {
                 playerAnim.SetBool("isGrounded", true);
                 isGround = true;
                 playerAnim.SetBool("isJumping", false);
@@ -114,8 +112,7 @@ public class PlayerMovement : MonoBehaviour
                 playerAnim.SetBool("isFalling", false);
                 isFalling = false;
             }
-            else if (hit_1.collider.tag == "Platform" && LayerMask.LayerToName(hit_1.collider.gameObject.layer) == "PassingPlatform")
-            {
+            else if (hit_1.collider.tag == "Platform" && LayerMask.LayerToName(hit_1.collider.gameObject.layer) == "PassingPlatform") {
                 playerAnim.SetBool("isGrounded", true);
                 isGround = true;
                 playerAnim.SetBool("isJumping", false);
