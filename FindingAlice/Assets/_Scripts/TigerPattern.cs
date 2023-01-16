@@ -143,7 +143,7 @@ public class TigerPattern : MonoBehaviour
             //패턴 2
             else if (patternValue == 1)
             {
-                pattern.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Random.Range(0, 360f)));
+                pattern.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Random.Range(-50f, 50f)));
                 //패턴 색 알파값 증가시키는 반복문
                 while (pattern2_duration <= 1f)
                 {
