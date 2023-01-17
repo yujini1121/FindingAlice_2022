@@ -21,12 +21,12 @@ public class TurnOnTigerPattern : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (patternOn && !tigerBackGround.activeSelf)
+            if (patternOn)
             {
 
                 tigerBackGround.SetActive(true);
 
-                tigerPattern.PatternPlay();
+                //tigerPattern.PatternPlay();
                 
                 //tigerBackGround.SetActive(true);
             }
@@ -34,7 +34,7 @@ public class TurnOnTigerPattern : MonoBehaviour
             else if (!patternOn)
             {
                 
-                tigerPattern.PatternExit();
+                //tigerPattern.PatternExit();
 
                 tigerBackGround.SetActive(false);
                 

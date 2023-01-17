@@ -23,7 +23,8 @@ public class ObjData : MonoBehaviour
             collision.gameObject.tag != "Platform" &&
             collision.gameObject.tag != "Clock")
         {
-            gameObject.GetComponent<Collider>().enabled = false;
+            //gameObject.GetComponent<Collider>().enabled = false;
+            Destroy(gameObject);
         }
     }
 

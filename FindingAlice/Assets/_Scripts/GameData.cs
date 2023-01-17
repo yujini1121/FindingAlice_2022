@@ -22,7 +22,7 @@ public class GameData{
     public Vector3 playerPositionTutorial;
     public bool[] collection = new bool[5];
     public bool[] chT_Collection = new bool[5];
-    public bool[] ch1_Collection = new bool[5];
+    public bool[] ch1_Collection = new bool[7];
     public bool[] ch2_Collection = new bool[5];
     public bool[] ch3_Collection = new bool[5];
 }

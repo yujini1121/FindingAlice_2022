@@ -2,25 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class GuideImages : MonoBehaviour
 {
     //각각 자식들을 Inspector 창에서 할당
     [SerializeField] GameObject[] guideImages;
 
-    //각각 Canvas에 있는 것들 할당
-    [Header ("Player UI")]
-    [SerializeField] GameObject joystick;
-    [SerializeField] GameObject joystickLevel;
-    [SerializeField] GameObject jumpButton;
-    [SerializeField] GameObject clockTouchZone;
-
-    //[SerializeField] Joystick joystickLevel;
+    [SerializeField] GameObject dontMoveObject;
+    GameObject clockTouchZone;
+    GameObject player;
 
     Button[] buttons;
 
     void Start()
     {
+        player = GameObject.Find("Player");
+        clockTouchZone = GameObject.Find("ClockTouchZone");
+
         buttons = new Button[guideImages.Length];
 
         for (int i = 0; i < guideImages.Length; i++)
@@ -31,7 +30,7 @@ public class GuideImages : MonoBehaviour
             guideImages[i].SetActive(false);
         }
 
-        //joystickLevel = GameObject.Find("Canvas").transform.Find("Lever").GetComponent<Joystick>();
+        dontMoveObject.SetActive(false);
     }
 
     //버튼누르면 이 함수 호출되도록 할 때 쓸 것, guideImages 순서대로 Inspector 창에 index 기입
@@ -40,11 +39,7 @@ public class GuideImages : MonoBehaviour
         if (index == guideImages.Length - 1)
         {
             guideImages[index].SetActive(false);
-            joystick.SetActive(true);
-            //joystickLevel.SetActive(true);
-            //joystickLevel.enabled = true;
-            joystickLevel.GetComponent<Joystick>().enabled = true;
-            jumpButton.SetActive(true);
+
             clockTouchZone.SetActive(true);
             Destroy(gameObject);
             return;
@@ -58,35 +53,18 @@ public class GuideImages : MonoBehaviour
         guideImages[index].SetActive(false);
     }
 
-    //void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.tag == "Player")
-    //    {
-    //        joystick.SetActive(false);
-    //        //joystickLevel.SetActive(false);
-    //        //joystickLevel.enabled = false;
-    //        joystickLevel.GetComponent<Joystick>().enabled = false;
-    //        jumpButton.SetActive(false);
-    //        clockTouchZone.SetActive(false);
-
-    //        // 첫 번째 가이드 이미지를 활성화하고 3초 뒤에 Button 컴포넌트를 활성화
-    //        guideImages[0].SetActive(true);
-    //        StartCoroutine(ActivateButton(0));
-    //    }
-    //}
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision collision)
     {
-        if (other.tag == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {
             // 첫 번째 가이드 이미지를 활성화하고 3초 뒤에 Button 컴포넌트를 활성화
             guideImages[0].SetActive(true);
             StartCoroutine(ActivateButton(0));
 
-            joystick.SetActive(false);
-            //joystickLevel.SetActive(false);
-            joystickLevel.GetComponent<Joystick>().enabled = false;
-            jumpButton.SetActive(false);
             clockTouchZone.SetActive(false);
+
+            dontMoveObject.SetActive(true);
+            dontMoveObject.transform.position = player.transform.position;
         }
     }
 
