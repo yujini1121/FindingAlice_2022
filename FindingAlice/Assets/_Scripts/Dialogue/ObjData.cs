@@ -19,13 +19,12 @@ public class ObjData : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag != "Attack" &&
-            collision.gameObject.tag != "Platform" &&
-            collision.gameObject.tag != "Clock")
-        {
-            //gameObject.GetComponent<Collider>().enabled = false;
-            Destroy(gameObject);
-        }
+        if (collision.gameObject.CompareTag("Player"))
+            gameObject.GetComponent<Collider>().enabled = false;
     }
-
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("CheckWall"))
+            gameObject.GetComponent<Collider>().enabled = false;
+    }
 }

@@ -15022,6 +15022,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1003430550}
   m_Mesh: {fileID: 5060444177187149915, guid: de0b2c8da944a1a4f8164d6adb34ed1e, type: 3}
+--- !u!1 &1018935307 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 393285901436780428, guid: 20d3bf39a542d23478806848be22b4a9,
+    type: 3}
+  m_PrefabInstance: {fileID: 3369036194828693451}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1018935312
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018935307}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 120
+  m_CollisionDetection: 0
 --- !u!1001 &1020812381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67064,15 +67086,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3369036195018448045, guid: 20d3bf39a542d23478806848be22b4a9,
+        type: 3}
+      propertyPath: m_TagString
+      value: CheckWall
+      objectReference: {fileID: 0}
     - target: {fileID: 3369036195289620112, guid: 20d3bf39a542d23478806848be22b4a9,
         type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3369036195289620112, guid: 20d3bf39a542d23478806848be22b4a9,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3369036195289620112, guid: 20d3bf39a542d23478806848be22b4a9,
         type: 3}

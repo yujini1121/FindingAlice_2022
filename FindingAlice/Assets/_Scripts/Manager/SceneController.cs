@@ -29,15 +29,17 @@ public class SceneController : MonoBehaviour
                     AsyncLoading.LoadScene("SelectChapterScene");
                     //SceneManager.LoadScene("SelectChapterScene");
                 }
-                else
+                else if (!DataController.Instance._gameData.readTutoTalk)
                 {
                     //for testing apk
                     AsyncLoading.LoadScene("TutoTalk 1");
+                    DataController.Instance._gameData.readTutoTalk = true;
 
                     //AsyncLoading.LoadScene("TutorialScene");
                     //SceneManager.LoadScene("TutorialScene");
                 }
-
+                else
+                    AsyncLoading.LoadScene("SelectChapterScene");
             }
         }
         else if(CheckChapter(SceneManager.GetActiveScene().name))
