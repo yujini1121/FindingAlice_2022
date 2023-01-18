@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,7 +21,10 @@ public class ObjData : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
             gameObject.GetComponent<Collider>().enabled = false;
-        
     }
-
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("CheckWall"))
+            gameObject.GetComponent<Collider>().enabled = false;
+    }
 }

@@ -6,6 +6,7 @@ using System;
 // 챕터에서 들어갈 것이 아닌 전체데이터 관리에 들어가야함.
 [Serializable]
 public class GameData{
+    public bool readTutoTalk;
     public bool isClearT;
     public bool isClear1;
     public bool isClear2;

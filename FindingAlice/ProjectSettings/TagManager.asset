@@ -12,6 +12,7 @@ TagManager:
   - Attack
   - NPC
   - Item
+  - CheckWall
   layers:
   - Default
   - TransparentFX
