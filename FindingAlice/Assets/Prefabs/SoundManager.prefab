@@ -89,3 +89,5 @@ MonoBehaviour:
   _effectSoundValue: 1
   _bgmSoundMute: 0
   _effectSoundMute: 0
+  bgmSlider: {fileID: 0}
+  effectSlider: {fileID: 0}

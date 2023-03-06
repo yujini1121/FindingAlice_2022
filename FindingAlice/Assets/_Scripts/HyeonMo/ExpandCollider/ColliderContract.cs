@@ -36,6 +36,13 @@ public class ColliderContract : MonoBehaviour
         }
     }
 
+    //void OnDisable()
+    //{
+    //    parentOn.enabled = true;
+    //    expandOff.enabled = false;
+    //    col_To_Wall = false;
+    //}
+
     IEnumerator OneMore()
     {
         yield return new WaitForSeconds(0.2f);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
@@ -72,6 +73,11 @@ public class SoundManager : MonoBehaviour
                 bgmSlider.value = Mathf.Round(bgmSoundValue * 4) / 4;
             }
         }
+        else if(SceneManager.GetActiveScene().name == "SelectChapterScene"
+            && GameObject.Find("Option").transform.GetChild(0).gameObject.activeSelf == true)
+        {
+            bgmSlider = GameObject.Find("BgmSlider").GetComponent<Slider>();
+        }
         if(effectSlider != null)
         {
             if (effectSlider.isActiveAndEnabled)
@@ -79,6 +85,11 @@ public class SoundManager : MonoBehaviour
                 effectSoundValue = effectSlider.value;
                 effectSlider.value = Mathf.Round(effectSoundValue * 4) / 4;
             }
+        }
+        else if (SceneManager.GetActiveScene().name == "SelectChapterScene"
+            && GameObject.Find("Option").transform.GetChild(0).gameObject.activeSelf == true)
+        {
+            effectSlider = GameObject.Find("SeSlider").GetComponent<Slider>();
         }
         DataController.Instance._gameData.bgmValue = bgmSoundValue;
         DataController.Instance._gameData.effectValue = effectSoundValue;
