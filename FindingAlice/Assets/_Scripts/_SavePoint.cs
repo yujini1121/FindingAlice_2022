@@ -8,6 +8,7 @@ public class _SavePoint : MonoBehaviour
     //[SerializeField] uint deathCounter;
     [SerializeField] bool lastCheck;
 
+
     void OnTriggerEnter(Collider other){
         if(other.CompareTag("Player")){
             //PlayerManager.Instance().lastCPPos = transform.position;

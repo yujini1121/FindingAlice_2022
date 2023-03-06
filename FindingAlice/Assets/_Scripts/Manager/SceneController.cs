@@ -39,7 +39,7 @@ public class SceneController : MonoBehaviour
                     //SceneManager.LoadScene("TutorialScene");
                 }
                 else
-                    AsyncLoading.LoadScene("SelectChapterScene");
+                    AsyncLoading.LoadScene("tTutorial");
             }
         }
         else if(CheckChapter(SceneManager.GetActiveScene().name))
