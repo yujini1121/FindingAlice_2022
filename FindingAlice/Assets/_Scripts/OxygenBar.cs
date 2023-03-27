@@ -7,27 +7,25 @@ public class OxygenBar : MonoBehaviour
 {
     // Start is called before the first frame update
     private Slider oxygenBar;
-    private float MaxOxygen = 15;
-    private float curOxygen = 15;
-   
+    private float maxOxygen;
+    private float curOxygen;
     void Start()
     {
         oxygenBar = GetComponent<Slider>();
-        oxygenBar.value = (float)curOxygen / (float)MaxOxygen;
+        maxOxygen = WaterManager.Instance._curOxygen;
+       curOxygen = (float)curOxygen / (float)maxOxygen;
+        oxygenBar.value = (float)curOxygen / (float)maxOxygen;
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         SetCurOxygenBar();
     }
+
     private void SetCurOxygenBar()
     {
-        curOxygen -= Time.deltaTime;
-        if (curOxygen < 0)
-        {
-            PlayerManager.Instance().isGameOver = true;
-        }
-        oxygenBar.value = (float)curOxygen / (float)MaxOxygen;
+        curOxygen = WaterManager.Instance._curOxygen;
+        oxygenBar.value = (float)curOxygen / (float)maxOxygen;
     }
 }
