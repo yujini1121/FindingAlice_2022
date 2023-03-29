@@ -13,6 +13,8 @@ TagManager:
   - NPC
   - Item
   - CheckWall
+  - TigerClaw
+  - TigerPattern
   layers:
   - Default
   - TransparentFX

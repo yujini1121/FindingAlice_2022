@@ -56,6 +56,8 @@ public class PlayerMovement : MonoBehaviour
 
     [HideInInspector] public static bool respawn;
 
+    EffectSound SFXSound;
+
     private void Awake()
     {
         gameObject.transform.SetParent(null);
@@ -70,7 +72,9 @@ public class PlayerMovement : MonoBehaviour
         playerAnim = this.GetComponent<Animator>();
         playerRigidbody = GetComponent<Rigidbody>();
         originSpeed = speed;
-    }
+
+		SFXSound = GameObject.Find("EffectSound").gameObject.GetComponent<EffectSound>();
+	}
 
     //private void Start()
     //{
@@ -230,6 +234,7 @@ public class PlayerMovement : MonoBehaviour
             playerAnim.Play("Jumping");
             playerAnim.SetBool("isJumping", true);
             isJumping = true;
+            SFXSound.PlaySFX(18000);
             playerRigidbody.velocity = Vector3.zero;
             playerRigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
         }
@@ -318,6 +323,7 @@ public class PlayerMovement : MonoBehaviour
 
             //    break;
             case "Attack":
+            case "TigerClaw":
                 GetComponent<Collider>().enabled = false;
                 if (transform.parent != null)
                     transform.SetParent(null);

@@ -42,6 +42,7 @@ public class TigerPattern : MonoBehaviour
     float pattern2_duration;
     float pattern2_time;
 
+    EffectSound SFXSound;
 
     void Start()
     {
@@ -52,6 +53,7 @@ public class TigerPattern : MonoBehaviour
         anim = tiger.GetComponent<Animator>();
         tigerPlatform = transform.Find("TigerPlatform").gameObject;
         tigerGround = this.gameObject;
+        SFXSound = GameObject.Find("EffectSound").gameObject.GetComponent<EffectSound>();
     }
 
     private void Update()
@@ -98,12 +100,12 @@ public class TigerPattern : MonoBehaviour
 
     public void PatternExit()
     {
-        if (isPatternPlay)
-        {
-            tiger.SetActive(false);
-            tigerPlatform.SetActive(false);
-            StopCoroutine(Pattern());
-        }
+        //if (isPatternPlay)
+        //{
+        tiger.SetActive(false);
+        tigerPlatform.SetActive(false);
+        StopCoroutine(Pattern());
+        //}
     }
 
     IEnumerator Pattern()
@@ -117,6 +119,7 @@ public class TigerPattern : MonoBehaviour
             patternValue = Random.Range(0, 2);
             pattern2_time = 0;
             pattern2_duration = 0;
+            SFXSound.PlaySFX(17000);
 
             //패턴 1
             if (patternValue == 0)
@@ -128,14 +131,18 @@ public class TigerPattern : MonoBehaviour
                 pattern.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
                 patternColor.material.color = new Color(1, 0, 0, 0.5f);
 
-                while (pattern1_count < 5)
+				while (pattern1_count < 5)
                 {
                     anim.SetTrigger("doThrow");
                     pattern.transform.position = new Vector3(player.transform.position.x + ((pattern1_order[pattern1_count] - 2) * 3),
                                                                 player.transform.position.y,
                                                                 pattern.transform.position.z);
                     yield return new WaitForSeconds(pattern1_Delay);
-                    Instantiate(rock, pattern.transform.position + (pattern.transform.up * 50f), Quaternion.identity);
+                    //돌 떨구는 사운드 1회 - 4초 가량으로 5번 째 돌 떨어지기 전에 끝남
+                    if(pattern1_count == 0)
+						SFXSound.PlaySFX(7000);
+
+					Instantiate(rock, pattern.transform.position + (pattern.transform.up * 50f), Quaternion.identity);
                     pattern1_count++;
                     //anim.SetBool("doThrow", false);
                 }
@@ -161,6 +168,8 @@ public class TigerPattern : MonoBehaviour
                 anim.SetBool("doJump", false);
                 tiger.SetActive(false);
                 yield return new WaitForSeconds(0.3f);
+                // 호랑이 Claw 사운드
+                SFXSound.PlaySFX(16000);
                 claw.transform.position = new Vector3(pattern.transform.position.x,
                                                         pattern.transform.position.y,
                                                         claw.transform.position.z);
