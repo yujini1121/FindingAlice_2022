@@ -63,8 +63,6 @@ public class SoundManager : MonoBehaviour
 	[SerializeField] Slider bgmSlider;
 	[SerializeField] Slider effectSlider;
 
-	bool tutoBGM;
-
 	private void Update()
 	{
 		if (bgmSlider != null)
@@ -92,18 +90,6 @@ public class SoundManager : MonoBehaviour
 			&& GameObject.Find("Option").transform.GetChild(0).gameObject.activeSelf == true)
 		{
 			effectSlider = GameObject.Find("SeSlider").GetComponent<Slider>();
-		}
-
-		if (SceneManager.GetActiveScene().name == "TutoTalk 1" && !tutoBGM)
-		{
-			GetComponent<AudioSource>().Play();
-			tutoBGM = true;
-		}
-		else if(SceneManager.GetActiveScene().name == "tTutorial"
-			|| SceneManager.GetActiveScene().name == "SelectChapterScene")
-		{
-			tutoBGM = false;
-			Destroy(GetComponent<AudioSource>());
 		}
 
 		DataController.Instance._gameData.bgmValue = bgmSoundValue;
