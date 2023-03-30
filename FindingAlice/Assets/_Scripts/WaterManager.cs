@@ -54,10 +54,11 @@ public class WaterManager : MonoBehaviour
 
     void Update()
     {
-        OnTriggerStay(playerCollider);      //산소 공간 입력 확인 
+/*      OnTriggerStay(playerCollider);      //산소 공간 입력 확인 
         OnTriggerExit(playerCollider);
+*/
 
-        if(curOxygen <= maxOxygen)
+        if (curOxygen <= maxOxygen)
         {
             curOxygen -= (int)oxygenType * Time.deltaTime;
         }

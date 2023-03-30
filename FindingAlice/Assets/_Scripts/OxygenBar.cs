@@ -28,4 +28,5 @@ public class OxygenBar : MonoBehaviour
         curOxygen = WaterManager.Instance._curOxygen;
         oxygenBar.value = (float)curOxygen / (float)maxOxygen;
     }
+
 }
