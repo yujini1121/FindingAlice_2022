@@ -7,8 +7,10 @@ using UnityEngine;
 public class WaterManager : MonoBehaviour
 {
     enum OxygenType {AddOxygen = -1,MinusOxygen = +1 }
+    //=========================================
     //싱글톤
     private WaterManager() { }
+    public GameObject waringImage;
     private static WaterManager instance = null;
     public static WaterManager Instance
     {
@@ -25,21 +27,29 @@ public class WaterManager : MonoBehaviour
     public float maxOxygen;
     private float curOxygen;
     private bool isInOxygenArea;
+
     private OxygenType oxygenType;
+
     private Collider playerCollider;
     public float _curOxygen
     {
         get { return curOxygen; }
         set { curOxygen = value; }
     }
+    public float _maxOxygen
+    {
+        get { return maxOxygen; }
+        set { maxOxygen = value; }
+    }
 
-    void Start()
+    void Awake()
     {
         instance = this;
         maxOxygen = 15.0f;
         curOxygen = maxOxygen;
         oxygenType = OxygenType.MinusOxygen;
         playerCollider = GetComponent<Collider>();
+        waringImage.SetActive(false);
     }
 
     void Update()
@@ -47,10 +57,22 @@ public class WaterManager : MonoBehaviour
         OnTriggerStay(playerCollider);      //산소 공간 입력 확인 
         OnTriggerExit(playerCollider);
 
-        curOxygen -= (int)oxygenType * Time.deltaTime;
+        if(curOxygen <= maxOxygen)
+        {
+            curOxygen -= (int)oxygenType * Time.deltaTime;
+        }
+
         if (curOxygen < 0)
         {
             PlayerManager.Instance().isGameOver = true;
+        }
+        else if (curOxygen > maxOxygen)
+        {
+            curOxygen = maxOxygen;
+        }
+        else if (curOxygen < 5)
+        {
+            waringImage.SetActive(true);
         }
     }
 

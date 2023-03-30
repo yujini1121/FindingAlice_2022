@@ -12,9 +12,9 @@ public class OxygenBar : MonoBehaviour
     void Start()
     {
         oxygenBar = GetComponent<Slider>();
-        maxOxygen = WaterManager.Instance._curOxygen;
-       curOxygen = (float)curOxygen / (float)maxOxygen;
-        oxygenBar.value = (float)curOxygen / (float)maxOxygen;
+        maxOxygen = WaterManager.Instance._maxOxygen;
+        Debug.Log(maxOxygen);
+        oxygenBar.value = 1;
     }
 
     // Update is called once per frame
