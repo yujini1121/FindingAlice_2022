@@ -29,7 +29,7 @@ public class WaterManager : MonoBehaviour
     private bool isInOxygenArea;
 
     private OxygenType oxygenType;
-
+    private bool isWaring = false;
     private Collider playerCollider;
     public float _curOxygen
     {
@@ -54,9 +54,7 @@ public class WaterManager : MonoBehaviour
 
     void Update()
     {
-/*      OnTriggerStay(playerCollider);      //산소 공간 입력 확인 
-        OnTriggerExit(playerCollider);
-*/
+        Mathf.Clamp(curOxygen, 0, maxOxygen);
 
         if (curOxygen <= maxOxygen)
         {
@@ -67,14 +65,17 @@ public class WaterManager : MonoBehaviour
         {
             PlayerManager.Instance().isGameOver = true;
         }
-        else if (curOxygen > maxOxygen)
+        else if (!isWaring && curOxygen < 5)
         {
-            curOxygen = maxOxygen;
-        }
-        else if (curOxygen < 5)
-        {
+            isWaring = true;
             waringImage.SetActive(true);
         }
+        else if(isWaring && curOxygen >= 5)
+        {
+            isWaring = false;
+            waringImage.SetActive(false);
+        }
+        
     }
 
     void OnTriggerStay(Collider collider)   //산소 공간 안으로 들어왔을때
