@@ -6,7 +6,13 @@ public class BgmSound : MonoBehaviour
 {
     AudioSource _as;
 
-    void Start()
+	void Awake()
+	{
+		if(gameObject.name == "BGMPlayer")
+			DontDestroyOnLoad(gameObject);
+	}
+
+	void Start()
     {
         _as = GetComponent<AudioSource>();
         _as.Play();

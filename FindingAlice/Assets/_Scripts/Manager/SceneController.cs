@@ -57,7 +57,9 @@ public class SceneController : MonoBehaviour
                     fade = GameObject.Find("FadeImage");
                 if (fade.GetComponent<Fade>().check)
                 {
-                    SceneManager.LoadScene(i + 2);
+                    if (SceneManager.GetActiveScene().name == "TutoTalk 2")
+                        Destroy(GameObject.Find("BGMPlayer"));
+					SceneManager.LoadScene(i + 2);
                 }
             }
         }

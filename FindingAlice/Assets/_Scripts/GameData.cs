@@ -14,8 +14,8 @@ public class GameData{
 
     public bool []hasCP = new bool[4];
 
-    public float bgmValue;
-    public float effectValue;
+    public float bgmValue = 1f;
+    public float effectValue = 1f;
     public bool bgmMute;
     public bool effectMute;
     // playerPosition은 분할 필요.

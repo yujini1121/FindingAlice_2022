@@ -9,12 +9,20 @@ public class TurnOnTigerPattern : MonoBehaviour
     [SerializeField] GameObject tigerBackGround;
     TigerPattern tigerPattern;
 
+    GameObject mainCamera;
+    AudioSource mcAudioSource;
+    BgmSound bgmSound;
+
     Collider collider;
 
     void Start()
     {
         tigerPattern = gameObject.GetComponent<TigerPattern>();
         collider = this.gameObject.GetComponent<Collider>();
+
+        mainCamera = GameObject.Find("Main Camera");
+        mcAudioSource = mainCamera.GetComponent<AudioSource>();
+		bgmSound = mainCamera.GetComponent<BgmSound>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -23,25 +31,24 @@ public class TurnOnTigerPattern : MonoBehaviour
         {
             if (patternOn)
             {
-
                 tigerBackGround.SetActive(true);
-
-                //tigerPattern.PatternPlay();
-                
-                //tigerBackGround.SetActive(true);
+                if(mcAudioSource.clip != SoundManager.SM.GetBGM(4000))
+                    bgmSound.PlayBGM(4000);
             }
                 
             else if (!patternOn)
             {
-                
-                //tigerPattern.PatternExit();
-
                 tigerBackGround.SetActive(false);
-                
-                //tigerBackGround.SetActive(false);
-            }
-
-            //collider.enabled = false;
+                if (GameObject.FindWithTag("TigerClaw") != null)
+                {
+                    GameObject.FindWithTag("TigerClaw").gameObject.SetActive(false);
+                }
+                else if(GameObject.FindWithTag("TigerPattern") != null)
+				{
+					GameObject.FindWithTag("TigerPattern").gameObject.SetActive(false);
+				}
+                bgmSound.PlayBGM(3000);
+			}
             this.gameObject.SetActive(false);
         }
     }
