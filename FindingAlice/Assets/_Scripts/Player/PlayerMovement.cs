@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
         playerRigidbody = GetComponent<Rigidbody>();
         originSpeed = speed;
 
-		SFXSound = GameObject.Find("EffectSound").gameObject.GetComponent<EffectSound>();
+		//SFXSound = GameObject.Find("EffectSound").gameObject.GetComponent<EffectSound>();
 	}
 
     //private void Start()
@@ -101,6 +101,25 @@ public class PlayerMovement : MonoBehaviour
             Time.timeScale = 1f;
             Time.fixedDeltaTime = Time.timeScale * 0.02f;
         }
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            playerAnim.SetBool("isLookUp", true);
+        }
+        else
+        {
+            playerAnim.SetBool("isLookUp", false);
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            playerAnim.SetBool("isLookDown", true);
+        }
+        else
+        {
+            playerAnim.SetBool("isLookDown", false);
+        }
+
 
         if (PlayerManager.Instance().isGameOver)
             return;
@@ -234,7 +253,7 @@ public class PlayerMovement : MonoBehaviour
             playerAnim.Play("Jumping");
             playerAnim.SetBool("isJumping", true);
             isJumping = true;
-            SFXSound.PlaySFX(18000);
+            //SFXSound.PlaySFX(18000);
             playerRigidbody.velocity = Vector3.zero;
             playerRigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
         }
