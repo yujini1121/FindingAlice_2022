@@ -22,6 +22,11 @@ public class PlayerMovement : MonoBehaviour
     private bool isSmartJump = false;
     private float maxJumpCount = 2f;
     private float maxJumpTime = 0.25f;
+    private bool testIsFalling = false;
+
+    //Chapter 2
+    private bool isInfiniteJump;
+    private float originGravity;
 
 
     //Scene - Player 오브젝트
@@ -67,10 +72,20 @@ public class PlayerMovement : MonoBehaviour
                 transform.position = DataController.Instance.gameData.playerPositionTutorial + new Vector3(0, 5, 0);
         }
         else if (SceneManager.GetActiveScene().name == "Chapter_1")
+        {
             transform.position = DataController.Instance.gameData.playerPositionChpater1 + new Vector3(0, 5, 0);
+        }
+        else if (SceneManager.GetActiveScene().name == "Chapter_2")
+        {
+            jumpForce = 32f;
+            speed = 8f;
+            isInfiniteJump = true;
+            originGravity = Physics.gravity.y;
+        }
 
         playerAnim = this.GetComponent<Animator>();
         playerRigidbody = GetComponent<Rigidbody>();
+        playerRigidbody.useGravity = false;
         originSpeed = speed;
 
 		//SFXSound = GameObject.Find("EffectSound").gameObject.GetComponent<EffectSound>();
@@ -86,6 +101,22 @@ public class PlayerMovement : MonoBehaviour
     //        player.transform.position = DataController.Instance.gameData.playerPosition;
     //    }
     //}
+
+    private void FixedUpdate()
+    {
+        if (SceneManager.GetActiveScene().name == "Chapter_2")
+        {
+            if (!testIsFalling && playerRigidbody.velocity.y < 0)
+            {
+                Physics.gravity = new Vector3(0, originGravity + 40f, 0);
+                testIsFalling = true;
+            }
+            else if (playerRigidbody.velocity.y > 0)
+            {
+                Physics.gravity = new Vector3(0, originGravity, 0);
+            }
+        }
+    }
 
     private void Update()
     {
@@ -120,6 +151,16 @@ public class PlayerMovement : MonoBehaviour
             playerAnim.SetBool("isLookDown", false);
         }
 
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (!isJumping || isInfiniteJump)
+            {
+                isJumping = true;
+                playerRigidbody.velocity = new Vector3(
+                    playerRigidbody.velocity.x, jumpForce, playerRigidbody.velocity.z);
+            }
+        }
 
         if (PlayerManager.Instance().isGameOver)
             return;
