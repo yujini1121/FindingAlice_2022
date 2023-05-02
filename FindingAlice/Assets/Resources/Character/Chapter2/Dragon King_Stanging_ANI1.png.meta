@@ -1,0 +1,325 @@
+fileFormatVersion: 2
+guid: e941e2a2ded9511419dfc6ff0fe38c0e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2171672020759315034
+    second: Dragon King_Stanging_ANI1_0
+  - first:
+      213: -318194618137095002
+    second: Dragon King_Stanging_ANI1_1
+  - first:
+      213: 8073024477723287614
+    second: Dragon King_Stanging_ANI1_2
+  - first:
+      213: -4900399966460784407
+    second: Dragon King_Stanging_ANI1_3
+  - first:
+      213: 2708063897753476098
+    second: Dragon King_Stanging_ANI1_4
+  - first:
+      213: -5543664822384414268
+    second: Dragon King_Stanging_ANI1_5
+  - first:
+      213: -500164008922374779
+    second: Dragon King_Stanging_ANI1_6
+  - first:
+      213: 43423704885043979
+    second: Dragon King_Stanging_ANI1_7
+  - first:
+      213: 1926345468873634710
+    second: Dragon King_Stanging_ANI1_8
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Dragon King_Stanging_ANI1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1111.1111
+        height: 1559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5283066234532e10800000000000000
+      internalID: 2171672020759315034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dragon King_Stanging_ANI1_1
+      rect:
+        serializedVersion: 2
+        x: 1111
+        y: 0
+        width: 1111.1111
+        height: 1559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a45f704eab859bf0800000000000000
+      internalID: -318194618137095002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dragon King_Stanging_ANI1_2
+      rect:
+        serializedVersion: 2
+        x: 2222
+        y: 0
+        width: 1111.1111
+        height: 1559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e30eab16df4290070800000000000000
+      internalID: 8073024477723287614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dragon King_Stanging_ANI1_3
+      rect:
+        serializedVersion: 2
+        x: 3333
+        y: 0
+        width: 1111.1111
+        height: 1559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e0d4c5a1384efbb0800000000000000
+      internalID: -4900399966460784407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dragon King_Stanging_ANI1_4
+      rect:
+        serializedVersion: 2
+        x: 4444
+        y: 0
+        width: 1111.1111
+        height: 1559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20cd7ae54c9f49520800000000000000
+      internalID: 2708063897753476098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dragon King_Stanging_ANI1_5
+      rect:
+        serializedVersion: 2
+        x: 5555
+        y: 0
+        width: 1111.1111
+        height: 1559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c1b2f33732f013b0800000000000000
+      internalID: -5543664822384414268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dragon King_Stanging_ANI1_6
+      rect:
+        serializedVersion: 2
+        x: 6666
+        y: 0
+        width: 1111.1111
+        height: 1559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58d1fbedb7f0f09f0800000000000000
+      internalID: -500164008922374779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dragon King_Stanging_ANI1_7
+      rect:
+        serializedVersion: 2
+        x: 7777
+        y: 0
+        width: 1111.1111
+        height: 1559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b03218821a54a9000800000000000000
+      internalID: 43423704885043979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dragon King_Stanging_ANI1_8
+      rect:
+        serializedVersion: 2
+        x: 8888
+        y: 0
+        width: 1111.1111
+        height: 1559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69375ea6ff0cbba10800000000000000
+      internalID: 1926345468873634710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 44c5f46fac3e8da47b69cf2831521f30
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

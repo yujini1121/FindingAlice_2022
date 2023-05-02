@@ -54,16 +54,17 @@ public class WaterManager : MonoBehaviour
 
     void Update()
     {
-        Mathf.Clamp(curOxygen, 0, maxOxygen);
-
-        if (curOxygen <= maxOxygen)
-        {
-            curOxygen -= (int)oxygenType * Time.deltaTime;
-        }
-
         if (curOxygen < 0)
         {
             PlayerManager.Instance().isGameOver = true;
+        }
+        else if (curOxygen <= maxOxygen)
+        {
+            curOxygen -= (int)oxygenType * Time.deltaTime;
+        }
+        else if(curOxygen> maxOxygen)
+        {
+            curOxygen = maxOxygen;
         }
         else if (!isWaring && curOxygen < 5)
         {
@@ -75,16 +76,21 @@ public class WaterManager : MonoBehaviour
             isWaring = false;
             waringImage.SetActive(false);
         }
-        
     }
-
+    public void GetOxygenItem()
+    {
+        curOxygen += 7.5f;
+        if(curOxygen > maxOxygen)
+        {
+            curOxygen = maxOxygen;
+        }
+    }
     void OnTriggerStay(Collider collider)   //산소 공간 안으로 들어왔을때
     {
         if (!isInOxygenArea && collider.gameObject.CompareTag("OxygenArea"))    //isInOxygenArea없으면 계속 게임오브젝트의 tag를 탐색하므로 비용 발생
         {
             isInOxygenArea = true;
             oxygenType = OxygenType.AddOxygen;
-            Debug.Log("플레이어가 박스 안으로 들어왔습니다.");
         }
     }
 
@@ -94,7 +100,6 @@ public class WaterManager : MonoBehaviour
         {
             isInOxygenArea = false;
             oxygenType =  OxygenType.MinusOxygen;
-            Debug.Log("플레이어가 박스 밖으로 떠났습니다.");
         }
     }
 }
