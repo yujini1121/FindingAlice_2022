@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityEditor;
 
+public enum JumpType {Normal,Infinity, Lock }
 public class PlayerMovement : MonoBehaviour
 {
     static public uint deathCounter;
@@ -24,8 +25,10 @@ public class PlayerMovement : MonoBehaviour
     private float maxJumpTime = 0.25f;
     private bool testIsFalling = false;
 
+    private Vector3 speedOffset = Vector3.zero; //속도 추가( ex) 이안류 )
     //Chapter 2
-    private bool isInfiniteJump;
+    private JumpType jumpType = JumpType.Normal;
+
     private float originGravity;
 
 
@@ -56,7 +59,16 @@ public class PlayerMovement : MonoBehaviour
         get { return _isGround; }
         set { _isGround = value; }
     }
-
+    public Vector3 _speedOffset
+    {
+        get { return speedOffset; }
+        set { speedOffset = value; }
+    }
+    public JumpType _jumpType
+    {
+        get { return jumpType; }
+        set { _jumpType = value; }
+    }
     [SerializeField] private DialogueManager dManager;
 
     [HideInInspector] public static bool respawn;
@@ -79,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
         {
             jumpForce = 32f;
             speed = 8f;
-            isInfiniteJump = true;
+            jumpType = JumpType.Infinity;
             originGravity = Physics.gravity.y;
         }
 
@@ -154,7 +166,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (!isJumping || isInfiniteJump)
+            if (jumpType == JumpType.Lock) return;
+            if ((!isJumping || jumpType == JumpType.Infinity))
             {
                 isJumping = true;
                 playerRigidbody.velocity = new Vector3(
@@ -219,13 +232,17 @@ public class PlayerMovement : MonoBehaviour
 #if UNITY_ANDROID
         if (CrossPlatformInputManager.GetAxisRaw("Horizontal") != 0)
             Move(CrossPlatformInputManager.GetAxisRaw("Horizontal"));
-        if (CrossPlatformInputManager.GetButtonDown("Jump"))
+        if (CrossPlatformInputManager.GetButtonDown("Jump"))    
             Jump();
 #elif UNITY_EDITOR_WIN
         if (Input.GetAxis("Horizontal") != 0)
             Move(Input.GetAxisRaw("Horizontal"));
         if (Input.GetKeyDown(KeyCode.Space))
             Jump();
+        else
+        {
+            Move();
+        }
 #endif
         CheckJumping();
         playerAnim.SetBool("isWalk", CrossPlatformInputManager.GetAxisRaw("Horizontal") != 0);
@@ -275,8 +292,7 @@ public class PlayerMovement : MonoBehaviour
             if (!collisionToWall && !(CrossPlatformInputManager.GetAxisRaw("Vertical") >= 0.8f || CrossPlatformInputManager.GetAxisRaw("Vertical") <= -0.8f))
             {
                 moveDirX = new Vector3(inputDir, 0, 0).normalized;
-
-                transform.position += moveDirX * speed * Time.deltaTime;
+                transform.position += moveDirX * speed * Time.deltaTime + speedOffset * Time.deltaTime;
             }
             playerAnim.SetBool("isWalk", !_collisionToWall);
 
@@ -437,6 +453,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //1008 freeposition
+   
     IEnumerator FreezeFalse()
     {
         yield return new WaitForSeconds(1f);
@@ -444,7 +461,7 @@ public class PlayerMovement : MonoBehaviour
         //playerRigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         //playerRigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
     }
-
+    
 
     private void OnDrawGizmos()
     {
@@ -452,6 +469,9 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawRay(transform.position, -transform.up * 1.33f);
         Gizmos.DrawWireSphere(transform.position + (-transform.up * 1.63f), 0.2f);
         Gizmos.DrawWireSphere(transform.position + (transform.up * 0.55f), 0.5f);
-
+    }
+    public void ChangeJumpType(JumpType type)
+    {
+        jumpType = type;
     }
 }
