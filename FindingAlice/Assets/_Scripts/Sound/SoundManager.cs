@@ -56,8 +56,8 @@ public class SoundManager : MonoBehaviour
 		bgmSoundMute = DataController.Instance.gameData.bgmMute;
 		effectSoundMute = DataController.Instance.gameData.effectMute;
 
-		bgmSlider.value = bgmSoundValue;
-		effectSlider.value = effectSoundValue;
+		//bgmSlider.value = bgmSoundValue;
+		//effectSlider.value = effectSoundValue;
 	}
 
 	[SerializeField] Slider bgmSlider;

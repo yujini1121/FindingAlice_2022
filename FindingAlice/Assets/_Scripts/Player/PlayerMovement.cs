@@ -17,17 +17,16 @@ public class PlayerMovement : MonoBehaviour
     [Header("Jump")]
     [SerializeField] private float jumpForce;
     [SerializeField] private float jumpCount = 0f;
-    [SerializeField] private float jumpTime = 0.0f;
-    [HideInInspector] private Animator playerAnim;
+    [SerializeField] private float jumpTime = 0f;
+    private Animator playerAnim;
     private bool isSmartJump = false;
     private float maxJumpCount = 2f;
     private float maxJumpTime = 0.25f;
-    private bool testIsFalling = false;
 
     //Chapter 2
-    private bool isInfiniteJump;
-    private float originGravity;
-
+    private bool isInfiniteJump = true;
+    private float originGravity = Physics.gravity.y;
+    private float infiniteJumpDelayTime = 0f;
 
     //Scene - Player 오브젝트
     [HideInInspector] public Rigidbody playerRigidbody;
@@ -79,8 +78,6 @@ public class PlayerMovement : MonoBehaviour
         {
             jumpForce = 32f;
             speed = 8f;
-            isInfiniteJump = true;
-            originGravity = Physics.gravity.y;
         }
 
         playerAnim = this.GetComponent<Animator>();
@@ -106,10 +103,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Chapter_2")
         {
-            if (!testIsFalling && playerRigidbody.velocity.y < 0)
+            // chapter 2 중력 조정
+            if (playerRigidbody.velocity.y < 0)
             {
                 Physics.gravity = new Vector3(0, originGravity + 40f, 0);
-                testIsFalling = true;
             }
             else if (playerRigidbody.velocity.y > 0)
             {
@@ -123,12 +120,18 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log(CrossPlatformInputManager.GetAxisRaw("Vertical"));
         //Debug.Log(CrossPlatformInputManager.GetAxisRaw("Horizontal"));
 
-        if (Input.GetKeyDown(KeyCode.Z)) {
+        //Chapter 2
+        //infiniteJumpDelayTime += Time.deltaTime;
+        //Debug.Log(infiniteJumpDelayTime);
+
+        if (Input.GetKeyDown(KeyCode.Z)) 
+        {
             Time.timeScale = 0.01f;
             Time.fixedDeltaTime = Time.timeScale * 0.02f;
         }
 
-        if (Input.GetKeyDown(KeyCode.X)) {
+        if (Input.GetKeyDown(KeyCode.X)) 
+        {
             Time.timeScale = 1f;
             Time.fixedDeltaTime = Time.timeScale * 0.02f;
         }
@@ -154,12 +157,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (!isJumping || isInfiniteJump)
-            {
-                isJumping = true;
-                playerRigidbody.velocity = new Vector3(
-                    playerRigidbody.velocity.x, jumpForce, playerRigidbody.velocity.z);
-            }
+            Jump();
         }
 
         if (PlayerManager.Instance().isGameOver)
@@ -167,8 +165,10 @@ public class PlayerMovement : MonoBehaviour
 
         //플레이어 발 밑 레이캐스트
         Physics.SphereCast(transform.position, 0.2f, -transform.up, out RaycastHit hit_1, 1.63f);
-        if (hit_1.collider != null) {
-            if (hit_1.collider.tag == "Platform" && LayerMask.LayerToName(hit_1.collider.gameObject.layer) != "PassingPlatform") {
+        if (hit_1.collider != null) 
+        {
+            if (hit_1.collider.tag == "Platform" && LayerMask.LayerToName(hit_1.collider.gameObject.layer) != "PassingPlatform") 
+            {
                 playerAnim.SetBool("isGrounded", true);
                 isGround = true;
                 playerAnim.SetBool("isJumping", false);
@@ -176,7 +176,8 @@ public class PlayerMovement : MonoBehaviour
                 playerAnim.SetBool("isFalling", false);
                 isFalling = false;
             }
-            else if (hit_1.collider.tag == "Platform" && LayerMask.LayerToName(hit_1.collider.gameObject.layer) == "PassingPlatform") {
+            else if (hit_1.collider.tag == "Platform" && LayerMask.LayerToName(hit_1.collider.gameObject.layer) == "PassingPlatform") 
+            {
                 playerAnim.SetBool("isGrounded", true);
                 isGround = true;
                 playerAnim.SetBool("isJumping", false);
@@ -235,6 +236,7 @@ public class PlayerMovement : MonoBehaviour
 
     void LateUpdate()
     {
+        // smart jump
         if (isGround)
         {
             if (jumpCount == maxJumpCount && jumpTime < maxJumpTime)
@@ -298,6 +300,29 @@ public class PlayerMovement : MonoBehaviour
             playerRigidbody.velocity = Vector3.zero;
             playerRigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
         }
+
+        //Chapter 2
+        if (infiniteJumpDelayTime > 0.2f)
+        {
+            isInfiniteJump = true;
+            infiniteJumpDelayTime = 0f;
+            //playerRigidbody.velocity = new Vector3(
+            //    playerRigidbody.velocity.x, jumpForce, playerRigidbody.velocity.z);
+        }
+        else
+        {
+            isInfiniteJump = false;
+        }
+
+        //test (위에 input space 코드에서 가져온것)
+        //if ((!isJumping || isInfiniteJump) && (infiniteJumpDelayTime < 1.0f))
+        //{
+        //    isJumping = true;
+        //    infiniteJumpDelayTime = 0f;
+        //    infiniteJumpDelayTime += Time.deltaTime;
+        //    playerRigidbody.velocity = new Vector3(
+        //        playerRigidbody.velocity.x, jumpForce, playerRigidbody.velocity.z);
+        //}
     }
 
     private void CheckJumping()
@@ -306,6 +331,9 @@ public class PlayerMovement : MonoBehaviour
         {
             playerAnim.SetBool("isFalling", true);
             isFalling = true;
+
+            infiniteJumpDelayTime += Time.deltaTime;
+            Debug.Log(infiniteJumpDelayTime);
         }
     }
 
