@@ -474,4 +474,8 @@ public class PlayerMovement : MonoBehaviour
     {
         jumpType = type;
     }
+    public void CollideWithObstacle(Vector3 value)
+    {
+        gameObject.GetComponent<Rigidbody>().AddForce(value, ForceMode.Impulse);
+    }
 }
