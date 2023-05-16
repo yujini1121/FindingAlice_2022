@@ -59,5 +59,6 @@ public class Sink : MonoBehaviour
             checkCollison = false;
             active = false;
         }
+
     }
 }
