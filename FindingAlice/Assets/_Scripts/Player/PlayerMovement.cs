@@ -27,9 +27,10 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 speedOffset = Vector3.zero; //속도 추가( ex) 이안류 )
 
     //Chapter 2
-    private bool isInfiniteJump = true;
+    [SerializeField]private bool canInfiniteJump = false;
     private float originGravity = Physics.gravity.y;
-    private float infiniteJumpDelayTime = 0f;
+    private float infiniteJumpDelayTime = 0.2f;
+    private float timerInfiniteJumpDelaytime = 0f;
     private JumpType jumpType = JumpType.Normal;
 
     //Scene - Player 오브젝트
@@ -117,12 +118,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Chapter_2")
         {
-            // chapter 2 중력 조정
+            // 하강할때 중력 조정
             if (playerRigidbody.velocity.y < 0)
             {
-                Physics.gravity = new Vector3(0, originGravity + 40f, 0);
+                Physics.gravity = new Vector3(0, originGravity + 70f, 0);
             }
-            else if (playerRigidbody.velocity.y > 0)
+            else
             {
                 Physics.gravity = new Vector3(0, originGravity, 0);
             }
@@ -137,6 +138,9 @@ public class PlayerMovement : MonoBehaviour
         //Chapter 2
         //infiniteJumpDelayTime += Time.deltaTime;
         //Debug.Log(infiniteJumpDelayTime);
+
+        // Debug.Log("timerInfiniteJumpDelaytime : " + timerInfiniteJumpDelaytime);
+        // Debug.Log("infiniteJumpDelayTime : " + infiniteJumpDelayTime);
 
         if (Input.GetKeyDown(KeyCode.Z)) 
         {
@@ -171,11 +175,13 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {   // 이건 내가 짠거
-            Jump();
-            Debug.Log("Jump");
+            // // 조건이 만족하면 canInfiniteJump에 true가 할당 / 만족 못하면 false가 할당 
+            // canInfiniteJump = timerInfiniteJumpDelaytime >= infiniteJumpDelayTime;
+
 
             // 이건 민철 선배가 짜신거
             if (jumpType == JumpType.Lock) return;
+            
             if ((!isJumping || jumpType == JumpType.Infinity))
             {
                 isJumping = true;
@@ -183,6 +189,26 @@ public class PlayerMovement : MonoBehaviour
                     playerRigidbody.velocity.x, jumpForce, playerRigidbody.velocity.z);
             }
         }
+
+        // if ((timerInfiniteJumpDelaytime > infiniteJumpDelayTime) && (Input.GetKeyDown(KeyCode.Space)))
+        // {
+            
+        // }
+
+        // if (SceneManager.GetActiveScene().name == "Chapter_2")
+        // {
+        //     if (!canInfiniteJump)
+        //     {
+        //         timerInfiniteJumpDelaytime += Time.deltaTime;
+        //         //Debug.Log(timerInfiniteJumpDelaytime);
+                
+        //         if (timerInfiniteJumpDelaytime >= infiniteJumpDelayTime)
+        //         {
+        //             canInfiniteJump = true;
+        //             timerInfiniteJumpDelaytime = 0f;
+        //         }
+        //     }
+        // }
 
         if (PlayerManager.Instance().isGameOver)
             return;
@@ -246,15 +272,28 @@ public class PlayerMovement : MonoBehaviour
             Move(CrossPlatformInputManager.GetAxisRaw("Horizontal"));
         if (CrossPlatformInputManager.GetButtonDown("Jump"))    
             Jump();
+
 #elif UNITY_EDITOR_WIN
         if (Input.GetAxis("Horizontal") != 0)
             Move(Input.GetAxisRaw("Horizontal"));
-        if (Input.GetKeyDown(KeyCode.Space))
-            Jump();
-        else
+        
+        if (!(SceneManager.GetActiveScene().name == "Chapter_2"))
         {
-            Move();
+            if (Input.GetKeyDown(KeyCode.Space))
+                Jump();
+            else
+                Move();
         }
+        // else // Chapter 2
+        // {
+        //     Debug.Log("Chapter 2 Load Succed!!!");
+        //     if ((canInfiniteJump) && (timerInfiniteJumpDelaytime > infiniteJumpDelayTime) && (Input.GetKeyDown(KeyCode.Space)))
+        //     {
+        //         Debug.Log("성공!!!");
+        //         Jump();
+        //     }
+        // }
+
 #endif
         CheckJumping();
         playerAnim.SetBool("isWalk", CrossPlatformInputManager.GetAxisRaw("Horizontal") != 0);
@@ -264,7 +303,6 @@ public class PlayerMovement : MonoBehaviour
 
     void LateUpdate()
     {
-        // smart jump
         if (isGround)
         {
             if (jumpCount == maxJumpCount && jumpTime < maxJumpTime)
@@ -281,6 +319,7 @@ public class PlayerMovement : MonoBehaviour
         if (jumpCount == maxJumpCount)
             jumpTime += Time.deltaTime;
     }
+
 
     public void Move(float dir = 0)
     {
@@ -316,7 +355,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        // z키를 누르거나 점프 버튼이 눌렸을 때 플레이어가 땅에 있을 경우 점프
+        // space키를 누르거나 점프 버튼이 눌렸을 때 플레이어가 땅에 있을 경우 점프
         if (isGround && !isJumping)
         {
             isGround = false;
@@ -328,18 +367,32 @@ public class PlayerMovement : MonoBehaviour
             playerRigidbody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
         }
 
-        //Chapter 2
-        if (infiniteJumpDelayTime > 0.2f)
-        {
-            isInfiniteJump = true;
-            infiniteJumpDelayTime = 0f;
-            //playerRigidbody.velocity = new Vector3(
-            //    playerRigidbody.velocity.x, jumpForce, playerRigidbody.velocity.z);
-        }
-        else
-        {
-            isInfiniteJump = false;
-        }
+        // if (SceneManager.GetActiveScene().name == "Chapter_2")
+        // {
+        //     if (!canInfiniteJump)
+        //     {
+        //         timerInfiniteJumpDelaytime += Time.deltaTime;
+        //         Debug.Log(timerInfiniteJumpDelaytime);
+        //         if (timerInfiniteJumpDelaytime >= infiniteJumpDelayTime)
+        //         {
+        //             canInfiniteJump = true;
+        //             timerInfiniteJumpDelaytime = 0f;
+        //         }
+        //     }
+        // }
+
+        // //Chapter 2
+        // if (infiniteJumpDelayTime > 0.2f)
+        // {
+        //     canInfiniteJump = true;
+        //     infiniteJumpDelayTime = 0f;
+        //     //playerRigidbody.velocity = new Vector3(
+        //     //    playerRigidbody.velocity.x, jumpForce, playerRigidbody.velocity.z);
+        // }
+        // else
+        // {
+        //     canInfiniteJump = false;
+        // }
 
         //test (위에 input space 코드에서 가져온것)
         //if ((!isJumping || isInfiniteJump) && (infiniteJumpDelayTime < 1.0f))
@@ -358,9 +411,6 @@ public class PlayerMovement : MonoBehaviour
         {
             playerAnim.SetBool("isFalling", true);
             isFalling = true;
-
-            infiniteJumpDelayTime += Time.deltaTime;
-            Debug.Log(infiniteJumpDelayTime);
         }
     }
 
@@ -492,7 +542,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //1008 freeposition
-   
+
     IEnumerator FreezeFalse()
     {
         yield return new WaitForSeconds(1f);

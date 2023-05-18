@@ -7,6 +7,7 @@ public class RipCurrent : MonoBehaviour
     [SerializeField] private PlayerMovement playerMovement;
     private float defultRipCurrentSpeed = 10.0f;
     private float curRipCurrentSpeed;
+    
     void Start()
     {
         curRipCurrentSpeed = defultRipCurrentSpeed;

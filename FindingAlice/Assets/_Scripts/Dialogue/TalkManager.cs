@@ -36,7 +36,13 @@ public class TalkManager : MonoBehaviour
     Sprite parentRabbit;
     Sprite tiger;
     Sprite sunbi;
+
+    Sprite servant;
+    Sprite turtle;
+    Sprite dragonKing;
+
     Sprite none;
+
 
     private void Awake()
     {
@@ -135,6 +141,7 @@ public class TalkManager : MonoBehaviour
         };
         talkData.Add(7, g);
 
+
         //h~m까지 튜토리얼 스토리 및 가이드 대사
         //h는 초반 스토리
         TalkData[] h = new TalkData[]
@@ -183,6 +190,7 @@ public class TalkManager : MonoBehaviour
             new TalkData("토끼", rabbit, "그런 지겨운 삶을 살 바에는... 나중에 부모님께 설득해 봐야지!", Position.left),
         };
         talkData.Add(13, ta);
+
         TalkData[] tb = new TalkData[]
         {
             new TalkData("아버지 토끼", parentRabbit, "오늘은 학교에 가지 않아도 된단다.", Position.right),
@@ -196,7 +204,6 @@ public class TalkManager : MonoBehaviour
             new TalkData("토끼", rabbit, "전 정말 하기 싫어요. 제가 하고 싶은 건 그런 게 아닐뿐더러 부모님처럼 살기 싫다고...", Position.left),
             new TalkData("아버지 토끼", parentRabbit, "나가라.", Position.right),
             new TalkData("토끼", rabbit, "네... 죄송합니다.", Position.left),
-
         };
         talkData.Add(14, tb);
 
@@ -205,6 +212,83 @@ public class TalkManager : MonoBehaviour
             new TalkData("토끼", rabbit, "이쪽이 아니라 반대편으로 가야해.", Position.left),
         };
         talkData.Add(100, tD);
+
+
+        // o~t까지 챕터2 스토리
+        TalkData[] o = new TalkData[]
+        {
+            new TalkData("토끼", rabbit, "숨을 쉬기 어려워..", Position.left),
+            new TalkData("토끼", rabbit, "식물을 이용해서 산소를 공급할 수 있지 않을까?", Position.left)
+        };
+        talkData.Add(15, o);
+
+        TalkData[] p = new TalkData[]
+        {
+            new TalkData("토끼", rabbit, "아까부터 제자리야. 바다가 나를 막고 있어...", Position.left),
+            new TalkData("토끼", rabbit, "이곳을 지나야 하는데... 다른 길이 있을까?", Position.left),
+        };
+        talkData.Add(16, p);
+
+        TalkData[] q = new TalkData[]
+        {
+            new TalkData("거북이", turtle, "이곳에 무슨 일이십니까!", Position.right),
+            new TalkData("토끼", rabbit, "이곳을 건너가려 합니다.", Position.left),
+            new TalkData("거북이", turtle, "여기는 용왕님의 허락 없이는 지나갈 수 없습니다.", Position.right),
+            new TalkData("토끼", rabbit, "그럼.. 허락을 받으려면 어떻게 해야 하죠?", Position.left),
+            new TalkData("거북이", turtle, "용왕님을 뵈려거든 제 등에 타시지요.", Position.right)
+        };
+        talkData.Add(17, q);
+
+        // 장소 이동 -> 용궁
+        TalkData[] r = new TalkData[]
+        {
+            new TalkData("신하", servant, "동해 수사(동해의 수군절도사)가 알현을 요청합니다.", Position.right),
+            new TalkData("용왕", dragonKing, "들라 하라.", Position.right),
+            new TalkData("거북이", turtle, "바다의 아버지를 뵙습니다.", Position.right),
+            new TalkData("용왕", dragonKing, "자네는 국경을 지키고 있을 터인데, 무슨 일인가?", Position.right),
+            new TalkData("거북이", turtle, "동해에서 서해로 가는 바닷길을 건너고자 하는 자가 있어 데려왔습니다.", Position.right),
+            new TalkData("용왕", dragonKing, "아니 이거 토선생 아닌가! 이 깊은 바다에는 어인 일로 오셨소?", Position.right),
+            new TalkData("토끼", rabbit, "저는 바다를 건너야 합니다. 하지만 바닷길에 막혀 통행을 허락받고자 찾아뵈었습니다.", Position.left),
+            new TalkData("용왕", dragonKing, "허허, 바닷길은 내가 열어줄 수 있소.", Position.right),
+            new TalkData("용왕", dragonKing, "대신 내가 육지의 생물을 보는 게 오랜만이란 말이지..", Position.right),
+            new TalkData("용왕", dragonKing, "나와 내기를 해서 이기면 내, 바닷길을 열어주겠소.", Position.right),
+            new TalkData("토끼", rabbit, "그럼, 만약 제가 지면 어떻게 되는 건가요?", Position.left),
+            new TalkData("용왕", dragonKing, "토선생께서 지게 되면 토선생의 간을 바치고 나의 신하가 되는 거요. 어떻소?", Position.right),
+            new TalkData("토끼", rabbit, "좋습니다. 종목은 어떻게 되죠?", Position.left),
+            new TalkData("용왕", dragonKing, "달리기 시합이오! 먼 옛날, 육상에선 거북이가 토끼를 이겼지 않소? 바다에서 겨루면 어떻게 될지 궁금해서 말이지!", Position.right),
+            new TalkData("토끼", rabbit, "그럼, 제 상대는...?", Position.left),
+            new TalkData("거북이", turtle, "한 수 부탁드리겠습니다. 정정당당하게 겨뤄보지요.", Position.right),
+            new TalkData("토끼", rabbit, "(바다에서 정정당당한 승부가 맞나?)", Position.left)
+        };
+        talkData.Add(18, r);
+
+        // 1차 타임 어택
+        TalkData[] s = new TalkData[]
+        {
+            new TalkData("토끼", rabbit, "정말 힘든 달리기였어...", Position.left),
+            new TalkData("거북이", turtle, "좋은 승부였습니다.", Position.right),
+            new TalkData("용왕", dragonKing, "굉장히 날쌔시구려.", Position.right),
+            new TalkData("용왕", dragonKing, "바닷길은 열렸소. 건너가도 좋소이다.", Position.right),
+            new TalkData("용왕", dragonKing, "마지막으로 묻겠소. 나의 신하가 될 생각은 없소?", Position.right),
+            new TalkData("토끼", rabbit, "이루고자 하는 것이 있어서요. 길을 열어주셔서 감사합니다.", Position.left),
+            new TalkData("용왕", dragonKing, "뜻이 그렇다면 어쩔 수 없지.", Position.right),
+            new TalkData("용왕", dragonKing, "잡아라.", Position.right),
+            new TalkData("토끼", rabbit, "네? 달리기 시합에서 이기면 길을 열어주신다고..?", Position.left),
+            new TalkData("용왕", dragonKing, "나는 길을 열어주겠다고 했지, 보내주겠다고는 하지 않았소.", Position.right),
+            new TalkData("토끼", rabbit, "그런 억지스러운...", Position.left),
+            new TalkData("거북이", turtle, "용왕님, 이건 옳지 않습니다! 토선생, 도망치시오!", Position.right)
+        };
+        talkData.Add(19, s);
+
+        // 장애물 기믹 시작 
+        TalkData[] t = new TalkData[]
+        {
+            new TalkData("토끼", rabbit, "거북이의 도움으로 뒤따라오던 병사들이 안 보여.", Position.left),
+            new TalkData("토끼", rabbit, "조금만 가면 앨리스를 만날 수 있어.", Position.left),
+            new TalkData("토끼", rabbit, "하지만 체력의 한계가...", Position.left),
+            new TalkData("토끼", rabbit, "......", Position.left)
+        };
+        talkData.Add(20, t);
     }
 
     public TalkData GetTalk(int id, int talkIndex)
