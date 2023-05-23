@@ -1,25 +1,37 @@
 *****
 <br/>
 
+
 # FindingAlice
-  
-<br/><br/><br/><br/><br/><br/><br/>
+<br/>
+
+
+
+## 소개
+음...
+
+
+
+<br/><br/>
+Editor ver. 2020.3.40f1
+<br/><br/><br/><br/>
+
+
 
 ## 제작
 동의대학교 Newbies  
-2022.04.06 ~   
-(연락처)
+2022.04.06 ~
+<br/><br/> 
+
+### 멤버 소개
+
 
 <br/><br/><br/><br/>
 
 
-## 소개
-안녕
-<br/><br/><br/><br/><br/><br/><br/><br/>
-
-
 ## Play
-<br/><br/><br/><br/><br/><br/><br/><br/>
+playblahblahhhhhh
+<br/><br/><br/><br/>
 
 
 
