@@ -2,7 +2,8 @@
 <br/>
 
 
-# Finding Alice
+# Finding Alice  
+###### Editor ver. 2020.3.40f1
 <br/><br/><br/><br/>
 
 
@@ -13,7 +14,7 @@
 
 
 <br/><br/>
-Editor ver. 2020.3.40f1
+###### Editor ver. 2020.3.40f1
 <br/><br/>
 
 
