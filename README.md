@@ -24,15 +24,21 @@ Editor ver. 2020.3.40f1
 <br/><br/><br/><br/>
 
 ### 멤버 소개  
-### 2022
+<details><summary>2022</summary>  
+<div markdown="1">
+  
 염승민 [기획 / 프로그래밍]  
 이승찬 [프로그래밍]  
 김현모 [기획]  
+  
+</div>
+</details>
 <br/>
 
 ### 2023
 김규리 [프로그래밍]  
 이유진 [프로그래밍]  
+<summary>토글 접기/펼치기</summary>
 
 
 
