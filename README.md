@@ -30,7 +30,7 @@
 <details><summary> Chapter 2 </summary><br/><div markdown="1">
   
 바닷속입니다!  
-토끼를 도와주려는 인물도 있는 반면, 방해하려는 인물도 있네요!
+토끼를 도와주려는 인물도 있는 반면, 방해하려는 인물도 있네요!  
 어쩌구 저쩌구... 잘 피해서 살아가보세요!
 </div></details><br/><br/><br/><br/>
 
