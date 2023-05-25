@@ -9,9 +9,12 @@
 
 ## 소개
 
+<details><summary> Images </summary><br/><div markdown="1">
+  
+![1](https://github.com/yujini1121/FindingAlice_2022/assets/107358820/a334200d-4eb4-4b1c-9ab3-08be65e9dc54)
 
-
-
+</div></details>
+<br/>
 <br/><br/>
 
 
