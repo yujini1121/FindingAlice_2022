@@ -8,19 +8,47 @@
 
 
 ## 게임 소개
-(스토리)  
-.  
-.  
-.  
-<br/>
-
 2.5D 횡스크롤 플랫포머 게임입니다!  
 현재 Google Play Store에서 다운로드 가능합니다! 
-<br/><br/>
 [[Download](https://play.google.com/store/apps/details?id=com.newbies.FindingAlice&hl=ko)]
+<br/><br/><br/><br/>
 
 
-<br/><br/><br/><br/><br/>
+### 스토리
+토끼가 가출... 어쩌구
+<br/><br/><br/><br/>
+<br/><br/><br/><br/>
+
+
+### Chapter 소개
+<details><summary> Chapter 1 </summary><br/><div markdown="1">
+  
+평범한 지형... 어쩌구
+</div></details><br/><br/><br/><br/>
+
+
+<details><summary> Chapter 2 </summary><br/><div markdown="1">
+  
+바닷속입니다!  
+토끼를 도와주려는 인물도 있는 반면, 방해하려는 인물도 있네요!
+어쩌구 저쩌구... 잘 피해서 살아가보세요!
+</div></details><br/><br/><br/><br/>
+
+<details><summary> Chapter 3 </summary><br/><div markdown="1">
+  
+토끼는 버섯 숲을 지나... 길고 긴 모험 끝에 드디어 앨리스와 하트 왕국을 찾아냅니다!  
+어쩌구 저쩌구...  
+과연 토끼는 어떤 결말을 지을까요?  
+</div></details><br/><br/><br/><br/>
+
+<br/><br/><br/><br/>
+
+
+
+### 캐릭터 소개
+![1](https://github.com/yujini1121/FindingAlice_2022/assets/107358820/a334200d-4eb4-4b1c-9ab3-08be65e9dc54)
+<br/><br/><br/><br/>
+
 
 ### 기능
 <details><summary> 시계 시스템 </summary><br/><div markdown="1">
@@ -30,11 +58,6 @@
 즉시 시계를 쏠 수 있게 화면이 변합니다.  
 오쪼구조쪼구.....
 </div></details><br/><br/><br/><br/>
-
-
-### 캐릭터 소개
-![1](https://github.com/yujini1121/FindingAlice_2022/assets/107358820/a334200d-4eb4-4b1c-9ab3-08be65e9dc54)
-<br/><br/><br/><br/>
 
 
 
