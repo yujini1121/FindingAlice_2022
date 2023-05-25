@@ -14,7 +14,7 @@
 .  
 <br/>
 
-2D 횡스크롤 플랫포머 게임입니다!  
+2.5D 횡스크롤 플랫포머 게임입니다!  
 현재 Google Play Store에서 다운로드 가능합니다! [[Download](https://play.google.com/store/apps/details?id=com.newbies.FindingAlice&hl=ko)]
 
 
