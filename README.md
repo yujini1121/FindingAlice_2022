@@ -7,15 +7,31 @@
 
 
 
-## 소개
-
-<details><summary> Images </summary><br/><div markdown="1">
-  
-![1](https://github.com/yujini1121/FindingAlice_2022/assets/107358820/a334200d-4eb4-4b1c-9ab3-08be65e9dc54)
-
-</div></details>
+## 게임 소개
+(스토리)  
+.  
+.  
+.  
 <br/>
-<br/><br/>
+
+2D 횡스크롤 플랫포머 게임입니다!  
+현재 Google Play Store에서 다운로드 가능합니다! [[Download](https://play.google.com/store/apps/details?id=com.newbies.FindingAlice&hl=ko)]
+
+
+<br/><br/><br/><br/><br/>
+
+### 기능
+<details><summary> 시계 시스템 </summary><br/><div markdown="1">
+  
+이 게임의 핵심 기능이라고 할 수 있습니다.  
+우측 화면을 터치 & 드래그하여 사용해보세요!  
+시계가 어쩌구 저쩌구  
+</div></details><br/><br/><br/><br/>
+
+
+### 캐릭터 소개
+![1](https://github.com/yujini1121/FindingAlice_2022/assets/107358820/a334200d-4eb4-4b1c-9ab3-08be65e9dc54)
+<br/><br/><br/><br/>
 
 
 
@@ -39,9 +55,7 @@
 | 송치원 | [ 그래픽 ] |  |
 | 이상윤 | [ 그래픽 ] | 3D 플랫폼 |
 | 이유진 | [ 프로그래밍 ] |  |
-
-</div></details>
-<br/>
+</div></details><br/>
 
 
 <details><summary> 2023 </summary><br/><div markdown="1">
@@ -59,8 +73,7 @@
 | 이유진 | [ 프로그래밍 ] | 메인 프로그래머 |
 | 진유리 | [ 그래픽 ] | 이펙트 |
 | 김태원 | [ 그래픽 ] |  |
-</div></details>
-<br/><br/><br/><br/>
+</div></details><br/><br/><br/><br/>
 
 
 
