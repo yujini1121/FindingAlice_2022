@@ -44,13 +44,14 @@ public class TalkManager : MonoBehaviour
     Sprite none;
 
 
+    // rabbit, sunbi는 IndexOutOfRange Error가 플레이할 때마다 발생해서 임시로 주석 처리
     private void Awake()
     {
         talkData = new Dictionary<int, TalkData[]>();
-        rabbit = Resources.LoadAll<Sprite>("토끼_2")[0];
+        //rabbit = Resources.LoadAll<Sprite>("토끼_2")[0];
         parentRabbit = Resources.Load<Sprite>("ParentRabbit");
         tiger = Resources.LoadAll<Sprite>("Tiger")[0];
-        sunbi = Resources.LoadAll<Sprite>("선비_스프라이트")[0];
+        //sunbi = Resources.LoadAll<Sprite>("선비_스프라이트")[0];
         none = null;
         GenerateData();
     }

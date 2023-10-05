@@ -36,7 +36,7 @@ public class ClockManager : MonoBehaviour
 
     public GameObject clock;
 
-    //ClockBackEffect의 메테리얼 저장
+    //ClockBackEffect의 머티리얼 저장
     Material clockBackMat;
     //clockBackMat의 Alpha 값 저장
     float clockBackMatAlpha;

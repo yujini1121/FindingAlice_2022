@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Jellyfish : MonoBehaviour
 {
-    [SerializeField] private PlayerMovement playerMovement;
-    private float movementRange = 5f; // ¹°Ã¼ÀÇ ¿òÁ÷ÀÓ ¹üÀ§
-    private float movementSpeed = 5f; // ¹°Ã¼ÀÇ ¿òÁ÷ÀÓ ¼Óµµ
+    [SerializeField]
+    private PlayerMovement playerMovement;
+
+    private float movementRange = 5f; // ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    private float movementSpeed = 5f; // ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½
     private float collideValue = 50f;
 
-
-    private Vector3 startPosition; // ÃÊ±â À§Ä¡ ÀúÀå º¯¼ö
-    private float currentMovement; // ÇöÀç ¿òÁ÷ÀÓ ÀúÀå º¯¼ö
-    private bool isMovingUp; // À§·Î ¿òÁ÷ÀÌ´ÂÁö ¿©ºÎ ÀúÀå º¯¼ö
+    private Vector3 startPosition; // ï¿½Ê±ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    private float currentMovement; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    private bool isMovingUp; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     void Start()
     {
@@ -23,7 +24,7 @@ public class Jellyfish : MonoBehaviour
 
     void Update()
     {
-        // À§¾Æ·¡ ¿òÁ÷ÀÓ °è»ê
+        // ï¿½ï¿½ï¿½Æ·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         if (isMovingUp)
         {
             currentMovement += Time.deltaTime * movementSpeed;
@@ -33,7 +34,7 @@ public class Jellyfish : MonoBehaviour
             currentMovement -= Time.deltaTime * movementSpeed;
         }
 
-        // ¿òÁ÷ÀÓ ¹üÀ§ È®ÀÎ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
         if (currentMovement >= movementRange)
         {
             isMovingUp = false;
@@ -43,10 +44,10 @@ public class Jellyfish : MonoBehaviour
             isMovingUp = true;
         }
 
-        // »õ·Î¿î À§Ä¡ °è»ê
+        // ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½
         Vector3 newPosition = startPosition + Vector3.up * currentMovement;
 
-        // ¹°Ã¼ ÀÌµ¿
+        // ï¿½ï¿½Ã¼ ï¿½Ìµï¿½
         transform.position = newPosition;
        
     }
@@ -54,7 +55,6 @@ public class Jellyfish : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Ãæµ¹");
             playerMovement.CollideWithObstacle(new Vector3(-collideValue, 0, 0));
         }
     }

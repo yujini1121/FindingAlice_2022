@@ -16,6 +16,8 @@ TagManager:
   - OxygenArea
   - TigerClaw
   - TigerPattern
+  - Obstacle
+  - IndiaInk
   layers:
   - Default
   - TransparentFX

@@ -488,6 +488,7 @@ public class PlayerMovement : MonoBehaviour
 
             //    break;
             case "Attack":
+                break;
             case "TigerClaw":
                 GetComponent<Collider>().enabled = false;
                 if (transform.parent != null)
@@ -507,6 +508,11 @@ public class PlayerMovement : MonoBehaviour
             case "NPC":
                 dManager.Action(other.gameObject);
                 break;
+
+            case "Obstacle":
+                ClockManager.C.clockReset();
+                break;
+
             default:
                 return;
         }

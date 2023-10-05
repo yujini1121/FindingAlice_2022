@@ -44,7 +44,6 @@ public class Fade : MonoBehaviour
     private IEnumerator FadeOutFlow()
     {
         time = 0;
-
         Color color = fadeImage.color;
         while(color.a < end)
         {
@@ -54,29 +53,6 @@ public class Fade : MonoBehaviour
             yield return null;
         }
         check = true;
-        //GameObject player;
-        //Rigidbody playerRigid;
-        //
-        //player = GameObject.FindWithTag("Player");
-        //playerRigid = player.GetComponent<Rigidbody>();
-        //
-        //player.transform.position = DataController.Instance.gameData.playerPosition;
-        //time = 0;
-        //
-        //
-        //playerRigid.constraints = RigidbodyConstraints.None;
-        //playerRigid.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
-        //
-        //player.GetComponent<PlayerMovement>().isDie = false;
-
-        //while(color.a > start)
-        //{
-        //    time += Time.deltaTime / fadeTime;
-        //    color.a = Mathf.Lerp(end, start, time);
-        //    fadeImage.color = color;
-        //    yield return null;
-        //}
-        //this.gameObject.SetActive(false);
 
         yield return null;
     }
@@ -84,29 +60,7 @@ public class Fade : MonoBehaviour
     private IEnumerator FadeInFlow()
     {
         time = 0;
-
         Color color = fadeImage.color;
-        //while (color.a < end)
-        //{
-        //    time += Time.deltaTime / fadeTime;
-        //    color.a = Mathf.Lerp(start, end, time);
-        //    fadeImage.color = color;
-        //    yield return null;
-        //}
-
-        //GameObject player;
-        //Rigidbody playerRigid;
-        //
-        //player = GameObject.FindWithTag("Player");
-        //playerRigid = player.GetComponent<Rigidbody>();
-        //
-        //player.transform.position = DataController.Instance.gameData.playerPosition;
-        //
-        //
-        //playerRigid.constraints = RigidbodyConstraints.None;
-        //playerRigid.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
-        //
-        //player.GetComponent<PlayerMovement>().isDie = false;
 
         while(color.a > start)
         {
@@ -117,6 +71,7 @@ public class Fade : MonoBehaviour
         }
         this.gameObject.SetActive(false);
         firstTime = false;
+
         yield return null;
     }
 }
